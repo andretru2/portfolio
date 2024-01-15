@@ -1,0 +1,22 @@
+---
+import BaseHead, {
+  type Props as HeadProps,
+} from "@/components/base-head.astro";
+//
+export type Props = HeadProps;
+// import ThemeProvider from "@/components/theme-provider";
+// import ThemeProvider from "@/components/theme-provider.astro";
+
+const { ...head } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...head} />
+  </head>
+  <body class="">
+    <!-- <ThemeProvider /> -->
+    <slot />
+  </body>
+</html>

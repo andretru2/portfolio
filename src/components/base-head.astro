@@ -1,0 +1,103 @@
+---
+import { siteConfig } from "@/config/site.ts";
+import "@/styles/globals.css";
+// import Favicon from "./Favicon.astro"
+
+import { SEO } from "astro-seo";
+import { getImage } from "astro:assets";
+
+export type Props = {
+  title?: string;
+  description?: string;
+  image?: { src: string; alt: string };
+  canonicalURL?: URL;
+  pageType?: "website" | "article";
+};
+
+const xHandle = "andretru22";
+
+const {
+  description = siteConfig.description,
+  image = siteConfig.image,
+  canonicalURL = new URL(Astro.request.url, Astro.site),
+  pageType = "website",
+} = Astro.props;
+
+// const title = [Astro.props.title, siteInfo.name].filter(Boolean).join(" | ")
+const title = siteConfig.title
+  ? siteConfig.title
+  : "Andres Trujillo - Senior Frontend Developer ";
+
+// const resolvedImage = {
+//   src: new URL(image.src, Astro.site).toString(),
+//   alt: image.alt,
+// };
+
+const resolvedImage = await getImage({
+  src: image.src,
+  width: 1200,
+  height: 630,
+  aspectRatio: 2,
+  format: "svg",
+  alt: "AT",
+});
+
+const resolvedImageWithDomain = new URL(
+  resolvedImage.src,
+  Astro.url,
+).toString();
+---
+
+<!-- High Priority Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title set:html={title} />
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#8D46E7" />
+
+<!-- Fathom - beautiful, simple website analytics -->
+<script src="https://cdn.usefathom.com/script.js" data-site="EZBHTSIG" defer
+></script>
+
+<!-- Font preloads -->
+<link
+  rel="preload"
+  href="/fonts/Averta-CY-Regular.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+<link
+  rel="preload"
+  href="/fonts/Averta-CY-W01-Bold.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+<!-- Low Priority Global Metadata -->
+<!-- <Favicon /> -->
+<link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<SEO
+  title={title}
+  description={description}
+  openGraph={{
+    basic: {
+      url: canonicalURL,
+      type: "website",
+      title: siteConfig.title,
+      image: resolvedImageWithDomain,
+    },
+    image: {
+      alt: "Andres Trujillo",
+    },
+  }}
+  twitter={{
+    creator: xHandle,
+    site: "",
+  }}
+/>

@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Averta;
+  src: url("/fonts/Averta-CY-Regular") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: AvertaBold;
+  src: url("/fonts/Averta-CY-W01-Bold") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-sans: Averta, sans-serif;
+    --font-heading: AvertaBold, sans-serif;
+
+    color-scheme: light;
+    --theme-bg: 0deg 0% 98%;
+    --theme-link: 356 100% 67%;
+    --theme-text: 228 24% 8%;
+    --theme-accent: 152 51% 29%;
+    --theme-accent-2: 152 40% 44%;
+    --theme-quote: 0 0% 79%;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+    --theme-bg: 228 24% 8%;
+    --theme-link: 356 100% 67%;
+    --theme-text: 0 0% 99%;
+    --theme-accent: 152 51% 29%;
+    --theme-accent-2: 240 0% 52%;
+    --theme-quote: 211 43% 38%;
+  }
+}
+
+@layer base {
+  body {
+    @apply mx-auto scroll-smooth flex min-h-screen max-w-7xl flex-col bg-bgColor px-8 pt-16 font-sans  text-lg font-normal text-textColor antialiased;
+  }
+
+  h1 {
+    @apply scroll-m-20 font-extrabold tracking-tight  font-heading  fluid:text-8xl;
+  }
+
+  h2 {
+    @apply scroll-m-20 font-bold tracking-tight  font-heading fluid:text-7xl;
+  }
+
+  h3 {
+    @apply scroll-m-20 font-semibold tracking-tight font-heading;
+  }
+
+  h4 {
+    @apply scroll-m-20  font-semibold tracking-tight font-heading;
+  }
+
+  p {
+    @apply prose prose-xl max-w-3xl text-textColor;
+  }
+
+  blockquote {
+    @apply border-l-2 pl-6 italic text-textColor;
+  }
+
+  /* section{
+   @apply py-[calc(var(--spacing-xl)*1rem)];
+ } */
+}
+
+@layer components {
+  /* button {
+   @apply text-8xl font-bold; 
+ } */
+}
