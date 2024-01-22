@@ -3,7 +3,9 @@ import BaseHead, {
   type Props as HeadProps,
 } from "@/components/base-head.astro";
 //
+import SkipLink from "@/components/skip-link.astro";
 export type Props = HeadProps;
+import Header from "@/components/header.astro";
 // import ThemeProvider from "@/components/theme-provider";
 // import ThemeProvider from "@/components/theme-provider.astro";
 
@@ -16,6 +18,23 @@ const { ...head } = Astro.props;
     <BaseHead {...head} />
   </head>
   <body class="">
+    <div class="flex min-h-screen flex-col overflow-x-hidden">
+			<SkipLink />
+			<div id="nav" class="sticky top-0 z-20 max-h-screen bg-black">
+				<Header>
+					<HeaderNav />
+					<!-- <HeaderDrawerContent slot="drawer" /> -->
+				</Header>
+				<hr class="border-astro-gray-500" />
+			</div>
+
+			<main id="main" class="relative z-10 flex flex-1 flex-col">
+				<slot />
+			</main>
+
+			<hr class="border-astro-gray-500" />
+
+			<Footer />
     <!-- <ThemeProvider /> -->
     <slot />
   </body>
