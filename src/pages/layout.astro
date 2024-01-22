@@ -6,6 +6,7 @@ import BaseHead, {
 import SkipLink from "@/components/skip-link.astro";
 export type Props = HeadProps;
 import Header from "@/components/header.astro";
+import HeaderNav from "@/components/header-nav.astro";
 // import ThemeProvider from "@/components/theme-provider";
 // import ThemeProvider from "@/components/theme-provider.astro";
 
@@ -34,7 +35,7 @@ const { ...head } = Astro.props;
 
 			<hr class="border-astro-gray-500" />
 
-			<Footer />
+			<!-- <Footer /> -->
     <!-- <ThemeProvider /> -->
     <slot />
   </body>

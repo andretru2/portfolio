@@ -1,0 +1,39 @@
+---
+
+import { navLinks, socialLinks } from "@/config/site"
+// import ResourcesMenu from "./ResourcesMenu.astro"
+
+import SocialLinks from "./social-links.astro"
+import { Icons } from "./icons"
+const url = new URL(Astro.request.url);
+
+
+// const socialLinks = siteInfo.socialLinks.filter((link) => !link.footerOnly)
+---
+
+<a href="/" data-astro-prefetch title="Home" data-home-link>
+	<Icons.logo />
+</a>
+
+<!-- <script>
+	import { getElement } from "~/helpers/dom.js"
+	getElement("[data-home-link]", HTMLAnchorElement).addEventListener("contextmenu", (event) => {
+		event.preventDefault()
+		window.location.href = "/press#assets"
+	})
+</script> -->
+
+<div class="ml-16 hidden shrink flex-row items-center gap-16 lg:flex">
+    {navLinks.map((link) => {
+        	<a href={link.path} 
+			aria-current={url.pathname === link.path ? "page" : false} data-astro-prefetch class="link">{link.title}</a>
+
+    })}
+	
+</div>
+
+<div class="flex-1"></div>
+
+<div class="hidden sm:block">
+	<SocialLinks links={socialLinks} />
+</div>
