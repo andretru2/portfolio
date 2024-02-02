@@ -2,13 +2,12 @@
 import BaseHead, {
   type Props as HeadProps,
 } from "@/components/base-head.astro";
-//
 import SkipLink from "@/components/skip-link.astro";
-export type Props = HeadProps;
 import Header from "@/components/header.astro";
-import HeaderNav from "@/components/header-nav.astro";
-// import ThemeProvider from "@/components/theme-provider";
+import Footer from "@/components/footer.astro";
+
 // import ThemeProvider from "@/components/theme-provider.astro";
+export type Props = HeadProps;
 
 const { ...head } = Astro.props;
 ---
@@ -23,15 +22,12 @@ const { ...head } = Astro.props;
     <Header />
     <main
       id="main"
-      class="relative z-10 flex flex-1 flex-col"
+      class="relative z-10 flex flex-1 flex-col gap-l"
     >
       <slot />
     </main>
-
-    <hr class="border-astro-gray-500" />
-
-    <!-- <Footer /> -->
+    <Footer />
     <!-- <ThemeProvider /> -->
-    <slot />
+    <!-- <slot /> -->
   </body>
 </html>
