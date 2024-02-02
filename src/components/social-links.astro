@@ -1,23 +1,26 @@
 ---
-import { Icon } from "astro-icon"
+// import { Icon } from "astro-icon"
 
-import type { SocialLink } from "@/types"
-import ExternalLink from "./external-link.astro"
+import type { SocialLink } from "@/types";
 
 export type Props = {
-	links: SocialLink[]
-}
+  links: SocialLink[];
+};
 
-const { links } = Astro.props
+const { links } = Astro.props;
 ---
 
 <div class="flex items-center gap-4">
-	{
-		links.map((link) => (
-			<ExternalLink class="link" href={link.href}>
-				<span class="sr-only">{link.text}</span>
-				<Icon name={link.icon} size={32} aria-hidden="true" />
-			</ExternalLink>
-		))
-	}
+  {
+    links.map((link) => (
+      <a
+        class="text-link"
+        target="_blank"
+        rel="noopener noreferer"
+        href={link.href}
+      >
+        {link.platform}
+      </a>
+    ))
+  }
 </div>

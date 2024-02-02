@@ -1,13 +1,18 @@
 ---
-import { Icons } from "./icons";
+// import { Icons } from "./icons";
+import HeaderNav from "./header-nav.astro";
 ---
 
-<header class="shadow-lg">
-	<nav aria-label="Primary" class="container flex h-header items-center">
-		<slot />
-		<button id="astro-header-drawer-button" type="button" class="link ml-6 lg:hidden">
-			<Icons.menu class="w-6" />
-			<span class="sr-only">Show Menu</span>
-		</button>
-	</nav>
+<header
+  id="main-header"
+  class="group sticky top-0 z-20 mb-7xl"
+>
+  <nav
+    aria-label="Primary"
+    class="container flex h-3xl items-center border-4 px-s bg-transparent mx-auto bg-opacity-80"
+  >
+    <HeaderNav />
+    <!-- <Icons.menu class="w-6" /> -->
+    <span class="sr-only">Show Menu</span>
+  </nav>
 </header>

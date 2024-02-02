@@ -19,23 +19,18 @@ const { ...head } = Astro.props;
     <BaseHead {...head} />
   </head>
   <body class="">
-    <div class="flex min-h-screen flex-col overflow-x-hidden">
-			<SkipLink />
-			<div id="nav" class="sticky top-0 z-20 max-h-screen bg-black">
-				<Header>
-					<HeaderNav />
-					<!-- <HeaderDrawerContent slot="drawer" /> -->
-				</Header>
-				<hr class="border-astro-gray-500" />
-			</div>
+    <SkipLink />
+    <Header />
+    <main
+      id="main"
+      class="relative z-10 flex flex-1 flex-col"
+    >
+      <slot />
+    </main>
 
-			<main id="main" class="relative z-10 flex flex-1 flex-col">
-				<slot />
-			</main>
+    <hr class="border-astro-gray-500" />
 
-			<hr class="border-astro-gray-500" />
-
-			<!-- <Footer /> -->
+    <!-- <Footer /> -->
     <!-- <ThemeProvider /> -->
     <slot />
   </body>

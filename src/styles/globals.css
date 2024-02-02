@@ -45,7 +45,7 @@
 
 @layer base {
   body {
-    @apply mx-auto scroll-smooth flex min-h-screen max-w-7xl flex-col bg-bgColor px-8 pt-16 font-sans  text-lg font-normal text-textColor antialiased;
+    @apply mx-auto scroll-smooth flex min-h-screen flex-col bg-bgColor  font-sans  text-lg font-normal text-textColor antialiased;
   }
 
   h1 {

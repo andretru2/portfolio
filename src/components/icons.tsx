@@ -1,16 +1,16 @@
-import {
-  Twitter,
-  type Icon as LucideIcon,
-  Link2,
-  EyeOff,
-  LucieProps,
-} from "lucide-react";
+// import {
+//   Twitter,
+//   type Icon as LucideIcon,
+//   Link2,
+//   EyeOff,
+//   any,
+// } from "lucide-react";
 
-export type Icon = LucideIcon;
+// export type Icon = LucideIcon;
 
 export const Icons = {
   eyeOff: EyeOff,
-  logo: ({ ...props }: LucieProps) => (
+  logo: ({ ...props }: any) => (
     <svg
       width="62"
       height="36"
@@ -25,7 +25,7 @@ export const Icons = {
     </svg>
   ),
 
-  astro: ({ ...props }: LucieProps) => (
+  astro: ({ ...props }: any) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#fff"
@@ -38,7 +38,7 @@ export const Icons = {
     </svg>
   ),
 
-  nextjs: ({ ...props }: LucieProps) => (
+  nextjs: ({ ...props }: any) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#fff"
@@ -53,7 +53,7 @@ export const Icons = {
       <path d="M333.6 78.9c-1 0-1.8-.4-2.5-1-.8-.8-1.1-1.6-1.1-2.6s.3-1.8 1-2.5c.8-.7 1.6-1 2.6-1s1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8Zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1a8.5 8.5 0 0 1-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2.4.7 1 1.2 1.6 1.5.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5Zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2.1.5 3.1.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8Z" />
     </svg>
   ),
-  react: ({ ...props }: LucieProps) => (
+  react: ({ ...props }: any) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 228"
@@ -64,7 +64,7 @@ export const Icons = {
       />
     </svg>
   ),
-  tailwind: ({ ...props }: LucieProps) => (
+  tailwind: ({ ...props }: any) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 154"
@@ -87,7 +87,7 @@ export const Icons = {
       />
     </svg>
   ),
-  gitHub: ({ ...props }: LucieProps) => (
+  gitHub: ({ ...props }: any) => (
     <svg
       aria-hidden="true"
       focusable="false"
@@ -104,7 +104,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  menu: ({ ...props }: LucieProps) => (
+  menu: ({ ...props }: any) => (
     <svg
       width="24"
       height="17"

@@ -38,7 +38,7 @@ export const navLinks: Array<{
   path: string;
 }> = [
   {
-    title: "projects",
+    title: "Projects",
     path: "/projects/",
   },
   {
