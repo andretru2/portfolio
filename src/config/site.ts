@@ -15,20 +15,20 @@ export const socialLinks: SocialLink[] = [
     platform: "github",
     href: "https://github.com/andretru2",
     text: "Go to my GitHub repo",
-    icon: "social/github",
+    icon: "github",
   },
   {
-    platform: "Figma",
+    platform: "figma",
     href: "https://www.figma.com/@andretru2",
     text: "Go to my Figma profile",
-    icon: "social/figma",
+    icon: "figma",
   },
   {
     platform: "twitter",
     href: "https://x.com/andretru22",
     me: "https://x.com/andretru22",
     text: "Follow me on Twitter",
-    icon: "social/x",
+    icon: "twitter",
   },
 ];
 

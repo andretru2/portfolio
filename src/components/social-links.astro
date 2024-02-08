@@ -3,6 +3,8 @@
 
 import type { SocialLink } from "@/types";
 
+import { Icon } from "astro-icon/components";
+
 export type Props = {
   links: SocialLink[];
 };
@@ -14,12 +16,14 @@ const { links } = Astro.props;
   {
     links.map((link) => (
       <a
-        class="hover:text-link"
+        class="hover:text-link active:text-link"
         target="_blank"
         rel="noopener noreferer"
         href={link.href}
       >
-        {link.platform}
+        <span class="sr-only">{link.platform}</span>
+
+        <Icon name={link.icon} class="w-6 h-6" />
       </a>
     ))
   }

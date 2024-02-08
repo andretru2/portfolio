@@ -4,22 +4,30 @@ import Layout from "./layout.astro";
 import "@/styles/globals.css";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Andres Trujillo">
+  <section id="hero"></section>
+  <slot name="hero" />
+  <slot name="section1" />
+  <slot name="section2" />
+  <slot name="section3" />
+
   <div class="flex flex-col items-center justify-center">
     <h1 class="">
-      Welcome to <span class="text-bgColor">Astro</span>
+      Welcome to <span class="text-textColor">Astro</span>
     </h1>
     <h2 class="">
-      Welcome to <span class="text-textColor">Astro</span>
+      Welcome to <span class="text-accent">Astro</span>
     </h2>
     <h3>
-      Welcome to <span class="text-accent">Astro</span>
+      Welcome to <span class="text-accent-2">Astro</span>
     </h3>
     <h4>
-      Welcome to <span class="text-accent-2">Astro</span>
+      Welcome to <span class="text-quote">Astro</span>
     </h4>
-    <p>Welcome to <span class="text-quote">Astro</span></p>
     <p>Welcome to <span class="text-link">Astro</span></p>
+    <p>
+      Welcome to <span class="text-bgColor">Astro</span>
+    </p>
 
     <!-- <ThemeToggle /> -->
   </div>
