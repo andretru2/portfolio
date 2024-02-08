@@ -35,22 +35,22 @@ export const socialLinks: SocialLink[] = [
 // Used to generate links in both the Header & Footer.
 export const navLinks: Array<{
   title: string;
-  path: string;
+  href: string;
 }> = [
   {
     title: "Projects",
-    path: "/projects/",
+    href: "/projects",
   },
   {
     title: "About",
-    path: "/about/",
+    href: "/about",
   },
   {
     title: "Impact",
-    path: "/impact/",
+    href: "/impact",
   },
   {
     title: "Contact",
-    path: "/contact/",
+    href: "/contact",
   },
 ];

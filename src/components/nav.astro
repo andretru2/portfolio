@@ -2,8 +2,11 @@
 import { navLinks, socialLinks } from "@/config/site";
 
 import SocialLinks from "./social-links.astro";
-// import { Icons } from "./icons";
-const url = new URL(Astro.request.url);
+
+// const url = new URL(Astro.request.url);
+
+import NavLink from "./nav-link.astro";
+import ThemeToggle from "./theme-toggle.astro";
 ---
 
 <a
@@ -37,21 +40,27 @@ const url = new URL(Astro.request.url);
 
 <div class="ml-3xl flex-row items-center gap-m sm:flex">
   {
-    navLinks.map((link) => (
-      <a
-        href={link.path}
-        aria-current={
-          url.pathname === link.path ? "page" : false
-        }
-        data-astro-prefetch
-        class=" hover:text-link active:text-link px-4 py-4 sm:py-0 "
-      >
-        {link.title}
-      </a>
-    ))
+    (
+      <ul id="menu-items" class="menu flex gap-6">
+        {navLinks.map((link) => (
+          <li class="py-1">
+            <NavLink
+              class="hover:text-link active:text-link px-4 py-4 sm:py-0"
+              href={link.href}
+            >
+              {link.title}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    )
   }
 </div>
 
 <div class="hidden sm:block ml-auto">
   <SocialLinks links={socialLinks} />
+</div>
+
+<div class="absolute right-0 top-4 z-10 md:top-8">
+  <ThemeToggle />
 </div>
