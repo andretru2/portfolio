@@ -1,5 +1,4 @@
 ---
-
 import { siteConfig } from "@/config/site";
 import "@/styles/globals.css";
 // import Favicon from "./Favicon.astro"
@@ -45,7 +44,7 @@ const resolvedImage = await getImage({
 
 const resolvedImageWithDomain = new URL(
   resolvedImage.src,
-  Astro.url,
+  Astro.url
 ).toString();
 ---
 
@@ -57,8 +56,10 @@ const resolvedImageWithDomain = new URL(
 <meta name="theme-color" content="#8D46E7" />
 
 <!-- Fathom - beautiful, simple website analytics -->
-<script src="https://cdn.usefathom.com/script.js" data-site="EZBHTSIG" defer
-></script>
+<!-- <script
+  src="https://cdn.usefathom.com/script.js"
+  data-site="EZBHTSIG"
+  defer></script> -->
 
 <!-- Font preloads -->
 <link
@@ -79,9 +80,20 @@ const resolvedImageWithDomain = new URL(
 
 <!-- Low Priority Global Metadata -->
 <!-- <Favicon /> -->
-<link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- <link rel="mask-icon" href="/favicon.svg" color="#8D46E7" /> -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="/rss.xml"
+  title="RSS"
+/>
 
 <SEO
   title={title}
