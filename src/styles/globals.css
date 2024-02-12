@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: Averta;
-  src: url("/fonts/Averta-CY-Regular") format("woff2");
+  src: url("/fonts/AvertaRegular") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: AvertaBold;
-  src: url("/fonts/Averta-CY-W01-Bold") format("woff2");
+  src: url("/fonts/AvertaBold") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -45,7 +45,7 @@
 
 @layer base {
   body {
-    @apply mx-auto scroll-smooth flex min-h-screen flex-col bg-bgColor  font-sans  text-lg font-normal text-textColor antialiased;
+    @apply scroll-smooth  min-h-screen flex-col bg-bgColor  font-sans  text-lg font-normal text-textColor antialiased;
   }
 
   h1 {
@@ -53,15 +53,15 @@
   }
 
   h2 {
-    @apply scroll-m-20 font-bold tracking-tight  font-heading fluid:text-7xl;
+    @apply scroll-m-20 font-bold tracking-tight  font-heading fluid:text-5xl;
   }
 
   h3 {
-    @apply scroll-m-20 font-semibold tracking-tight font-heading;
+    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-4xl;
   }
 
   h4 {
-    @apply scroll-m-20  font-semibold tracking-tight font-heading;
+    @apply scroll-m-20  font-semibold tracking-tight font-heading fluid:text-xl;
   }
 
   p {
@@ -78,7 +78,22 @@
 }
 
 @layer components {
-  /* button {
-   @apply text-8xl font-bold; 
- } */
+  button {
+    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none  transition no-underline;
+  }
+
+  .button-primary {
+    @apply bg-accent  hover:brightness-75;
+  }
+
+  .button-outline {
+    @apply bg-none border-accent border-2 hover:brightness-75 text-textColor;
+  }
+
+  .button-sm {
+    @apply px-m py-s;
+  }
+  .button-xs {
+    @apply px-s py-xs;
+  }
 }

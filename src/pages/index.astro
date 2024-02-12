@@ -5,13 +5,10 @@ import "@/styles/globals.css";
 ---
 
 <Layout title="Andres Trujillo">
-  <section id="hero"></section>
-  <slot name="hero" />
-  <slot name="section1" />
-  <slot name="section2" />
-  <slot name="section3" />
-
-  <div class="flex flex-col items-center justify-center">
+  <section
+    id="hero"
+    class="flex flex-col items-center justify-center min-h-screen gap-s"
+  >
     <h1 class="">
       Welcome to <span class="text-textColor">Astro</span>
     </h1>
@@ -28,14 +25,25 @@ import "@/styles/globals.css";
     <p>
       Welcome to <span class="text-bgColor">Astro</span>
     </p>
-
-    <!-- <ThemeToggle /> -->
-  </div>
+    <button> base button</button>
+    <button class="button button-primary">
+      primary button
+    </button>
+    <button class="button button-outline">
+      outline button
+    </button>
+    <button class="button button-sm button-primary">
+      button sm</button
+    >
+    <button class="button button-xs button-outline">
+      button xs</button
+    >
+  </section>
 
   <section
-    class="text-center bg-blue-600 text-white grid min-h-screen place-items-center"
+    class="text-center bg-blue-600 text-white grid place-items-center h-full"
   >
-    <div class="max-w-3xl px-4 mx-auto grid gap-6">
+    <div class="px-4 mx-auto grid gap-6">
       <h1 class="fluid:text-7xl font-black">
         Tailwind fluid
       </h1>
@@ -46,7 +54,7 @@ import "@/styles/globals.css";
     </div>
   </section>
   <section class="text-center fluid:py-2xl">
-    <div class="max-w-3xl px-4 mx-auto grid gap-6">
+    <div class="px-4 grid gap-6">
       <h2 class="fluid:text-7xl font-black">
         Fluid typography and spacing
       </h2>
@@ -58,8 +66,8 @@ import "@/styles/globals.css";
       </p>
     </div>
   </section>
-  <section class="text-center bg-gray-200">
-    <div class="max-w-5xl px-4 mx-auto grid fluid:gap-8">
+  <section class="text-center bg-gray-200 fluid:py-2xl">
+    <div class="w-full px-4 mx-auto grid fluid:gap-8">
       <h2 class="fluid:text-7xl font-black">
         Grid gap example
       </h2>
