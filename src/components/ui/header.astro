@@ -1,40 +1,21 @@
 ---
 // import { Icons } from "./icons";
 import Nav from "./nav.astro";
+import NavMobile from "./nav-mobile-content.astro";
+import { NavMobileButton } from "./nav-mobile-button";
 import { FloatingNav } from "./floating-navbar";
-const navItems = [
-  {
-    name: "Home",
-    url: "/",
-  },
-  {
-    name: "About",
-    url: "/about",
-  },
-  {
-    title: "Services",
-    url: "/services",
-  },
-  {
-    name: "Contact",
-    url: "/contact",
-  },
-];
+import { DrawerDemo } from "../../components/drawer-test";
 ---
 
-<FloatingNav navItems={navItems} client:load />
-
-<!-- <header
+<header
   id="main-header"
   class="group sticky top-0 z-20 bg-bgColor"
 >
-
-  <nav
-    aria-label="Primary"
-    class="container flex h-3xl items-center px-s mx-auto"
-  >
-    <Nav />
-    <Icons.menu class="w-6" />
-    <span class="sr-only">Show Menu</span>
-  </nav>
-</header> -->
+  <Nav />
+  <!-- <div class="md:hidden"> -->
+  <!-- <NavMobile client:load /> -->
+  <NavMobileButton client:load>
+    <NavMobile />
+  </NavMobileButton>
+  <!-- </div> -->
+</header>

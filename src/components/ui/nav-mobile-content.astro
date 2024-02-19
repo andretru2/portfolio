@@ -1,21 +1,20 @@
 ---
 import { navLinks, socialLinks } from "@/config/site";
 import SocialLinks from "./social-links.astro";
-import NavLink from "../ui/nav-link.astro";
+import NavLink from "./nav-link.astro";
 import ThemeToggle from "./theme-toggle.astro";
 import Logo from "./logo.astro";
 ---
 
 <nav
   aria-label="Primary"
-  class="flex justify-center align-middle container mx-auto h-full [&>*]:p-l
-	flex-row gap-l text-center items-center max-h-3xl"
+  class="flex justify-center align-middle w-full h-full flex-col divide-y divide-grey-500 text-left [&>*]:p-l"
 >
   <Logo />
 
-  <ul id="menu-items" class="flex flex-row gap-xl">
+  <ul id="menu-items" class="flex flex-col gap-m">
     {
-      navLinks.map((link) => (
+      navLinks.map((link, index) => (
         <li class="py-1">
           <NavLink class="" href={link.href}>
             {link.title}
@@ -25,7 +24,7 @@ import Logo from "./logo.astro";
     }
   </ul>
 
-  <div class="ml-auto md:[&>*]:gap-m">
+  <div class="[&>*]:gap-l">
     <SocialLinks links={socialLinks} />
   </div>
 
