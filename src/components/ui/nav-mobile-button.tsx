@@ -2,12 +2,7 @@ import { type ReactNode } from "react";
 
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
   DrawerTrigger,
 } from "./drawer";
 
@@ -18,7 +13,10 @@ interface Props {
 export function NavMobileButton({ children }: Props) {
   return (
     <Drawer direction="right">
-      <DrawerTrigger asChild>
+      <DrawerTrigger
+        asChild
+        className="md:hidden md:invisible mr-4 "
+      >
         <button
           className="group relative ms-4 h-7 w-7 text-current"
           type="button"
