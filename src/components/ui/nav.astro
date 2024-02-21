@@ -8,8 +8,7 @@ import Logo from "./logo.astro";
 
 <nav
   aria-label="Primary"
-  class="justify-start align-middle container mx-auto h-full [&>*]:p-l
-	flex-row gap-l text-center items-center max-h-3xl flex"
+  class="flex justify-start align-middle container mx-auto h-full [&>*]:p-l flex-row gap-l text-center items-center max-h-3xl"
 >
   <Logo />
 
@@ -28,9 +27,10 @@ import Logo from "./logo.astro";
     }
   </ul>
 
-  <div class="ml-auto md:[&>*]:gap-m hidden md:flex">
-    <SocialLinks links={socialLinks} />
-  </div>
+  <SocialLinks
+    class="ml-auto gap-m hidden md:flex"
+    links={socialLinks}
+  />
 
   <div class="hidden md:flex">
     <ThemeToggle />

@@ -35,8 +35,6 @@ export function Floating({ children, className }: Props) {
     }
   );
 
-  console.log(scrollYProgress);
-
   return (
     <AnimatePresence mode="wait">
       <motion.div
