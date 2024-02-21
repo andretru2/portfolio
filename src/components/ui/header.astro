@@ -2,16 +2,17 @@
 import Nav from "./nav.astro";
 import NavMobile from "./nav-mobile-content.astro";
 import { NavMobileButton } from "./nav-mobile-button";
-import { FloatingNav } from "./floating-navbar";
 import { Floating } from "./floating";
 ---
 
-<header
-  id="main-header"
-  class="group sticky top-0 shadow-lg rounded-full border-white z-20 bg-bgColor w-full flex flex-row justify-items-start items-center"
->
-  <Nav />
-  <NavMobileButton client:load>
-    <NavMobile />
-  </NavMobileButton>
+<header id="main-header">
+  <Floating
+    client:load
+    className="group fixed top-0 shadow-lg rounded-full border-white z-20 bg-bgColor w-full flex flex-row justify-items-start items-center"
+  >
+    <Nav />
+    <NavMobileButton client:load>
+      <NavMobile />
+    </NavMobileButton>
+  </Floating>
 </header>

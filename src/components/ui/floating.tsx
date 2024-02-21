@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   motion,
   AnimatePresence,
@@ -17,7 +17,7 @@ interface Props {
 export function Floating({ children, className }: Props) {
   const { scrollYProgress } = useScroll();
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(
     scrollYProgress,
@@ -28,18 +28,14 @@ export function Floating({ children, className }: Props) {
         let direction =
           current! - scrollYProgress.getPrevious()!;
 
-        if (scrollYProgress.get() < 0.05) {
-          setVisible(false);
-        } else {
-          if (direction < 0) {
-            setVisible(true);
-          } else {
-            setVisible(false);
-          }
-        }
+        direction > 0
+          ? setVisible(false)
+          : setVisible(true);
       }
     }
   );
+
+  console.log(scrollYProgress);
 
   return (
     <AnimatePresence mode="wait">
