@@ -24,10 +24,16 @@ export const socialLinks: SocialLink[] = [
     icon: "figma",
   },
   {
-    platform: "twitter",
+    platform: "linkedIn",
+    href: "https://www.linkedin.com/in/andres-trujillo-7321087b/",
+    text: "Go to my LinkedIn profile",
+    icon: "linkedIn",
+  },
+  {
+    platform: "x",
     href: "https://x.com/andretru22",
     me: "https://x.com/andretru22",
-    text: "Follow me on Twitter",
+    text: "Follow me on x",
     icon: "twitter",
   },
 ];
