@@ -1,9 +1,13 @@
+---
+const { class: className, ...props } = Astro.props;
+---
+
 <a
   href="/"
   data-astro-prefetch
   title="Home"
   data-home-link
-  class=""
+  class:list={[className, ""]}
 >
   <svg
     width="62"

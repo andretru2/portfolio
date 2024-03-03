@@ -27,7 +27,7 @@
     --theme-bg: 0 0% 98%;
     --theme-link: 356 100% 67%;
     --theme-text: 228 24% 8%;
-    --theme-accent: 152 51% 29%;
+    --theme-accent: 133 100% 41%;
     --theme-accent-2: 152 40% 44%;
     --theme-quote: 0 0% 79%;
   }
@@ -37,7 +37,7 @@
     --theme-bg: 228 24% 8%;
     --theme-link: 356 100% 67%;
     --theme-text: 0 0% 99%;
-    --theme-accent: 152 51% 29%;
+    --theme-accent: 133 100% 41%;
     --theme-accent-2: 240 0% 52%;
     --theme-quote: 211 43% 38%;
   }
@@ -95,5 +95,19 @@
   }
   .button-xs {
     @apply px-s py-xs;
+  }
+
+  .glow {
+    @apply relative;
+  }
+  .glow:hover {
+    @apply animate-glow;
+  }
+  .glow:after {
+    @apply absolute -bottom-2 rounded-lg  bg-[200%_100%] left-0 h-1.5 w-full bg-gradient-to-r from-transparent  via-accent/70 to-accent   origin-bottom-left content-[""];
+  }
+
+  .card {
+    @apply flex items-center justify-center h-full dark:shadow-white/80  rounded-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)];
   }
 }

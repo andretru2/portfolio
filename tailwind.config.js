@@ -54,6 +54,15 @@ export default {
       maxWidth: {
         "8xl": "90rem",
       },
+      keyframes: {
+        glow: {
+          "0%": { "background-position": "0% 0" },
+          "100%": { "background-position": "-200% 0" },
+        },
+      },
+      animation: {
+        glow: "glow 2s linear infinite", // Customize the animation name, duration, timing function, and iteration count as needed
+      },
     },
   },
   plugins: [

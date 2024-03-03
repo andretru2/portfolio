@@ -13,11 +13,12 @@ const isActive =
 <a
   class:list={[
     className,
-    "hover:text-link active:text-link hover:underline hover:underline-offset-4 hover:transition  hover:transition-all",
+    // "hover:text-link active:text-link hover:underline hover:underline-offset-4 hover:transition  hover:transition-all",
     {
       "underline underline-offset-2 decoration-1 ":
         isActive,
     },
+    "hover:glow  ",
   ]}
   href={href}
   {...props}

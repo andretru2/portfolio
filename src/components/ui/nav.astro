@@ -8,17 +8,17 @@ import Logo from "./logo.astro";
 
 <nav
   aria-label="Primary"
-  class="flex justify-start align-middle container mx-auto h-full [&>*]:p-l flex-row gap-l text-center items-center max-h-3xl"
+  class="grid grid-cols-12 gap-m w-full *:items-center *:justify-center"
 >
-  <Logo />
+  <Logo class="col-span-1 md:flex" />
 
   <ul
     id="menu-items"
-    class="flex-row gap-xl hidden md:flex"
+    class="col-span-7 flex-row gap-3xl hidden md:flex"
   >
     {
       navLinks.map((link) => (
-        <li class="py-1">
+        <li class="py-1 ">
           <NavLink class="" href={link.href}>
             {link.title}
           </NavLink>
@@ -28,11 +28,9 @@ import Logo from "./logo.astro";
   </ul>
 
   <SocialLinks
-    class="ml-auto gap-m hidden md:flex"
+    class="col-span-3 gap-m hidden md:flex"
     links={socialLinks}
   />
 
-  <div class="hidden md:flex">
-    <ThemeToggle />
-  </div>
+  <ThemeToggle class="col-span-1 hidden md:flex" />
 </nav>
