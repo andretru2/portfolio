@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import {
   Drawer,
@@ -11,8 +11,13 @@ interface Props {
 }
 
 export function NavMobileButton({ children }: Props) {
+  const [open, setOpen] = useState(false);
   return (
-    <Drawer direction="right">
+    <Drawer
+      direction="right"
+      open={open}
+      onOpenChange={setOpen}
+    >
       <DrawerTrigger
         asChild
         className="md:hidden md:invisible mr-4 "
@@ -60,7 +65,9 @@ export function NavMobileButton({ children }: Props) {
           </svg>
         </button>
       </DrawerTrigger>
-      <DrawerContent>{children}</DrawerContent>
+      <DrawerContent className="border-0 mt-0 top-10 p-l">
+        {children}
+      </DrawerContent>
     </Drawer>
   );
 }

@@ -8,11 +8,9 @@ import Logo from "./logo.astro";
 
 <nav
   aria-label="Primary"
-  class="flex justify-center align-middle w-full h-full flex-col divide-y divide-grey-500 text-left [&>*]:p-l"
+  class="flex items-end w-full h-full flex-col text-right [&>*]:p-l"
 >
-  <Logo />
-
-  <ul id="menu-items" class="flex flex-col gap-m">
+  <ul id="menu-items" class="flex flex-col gap-l">
     {
       navLinks.map((link, index) => (
         <li class="py-1">
