@@ -27,7 +27,7 @@ export const socialLinks: SocialLink[] = [
     platform: "linkedIn",
     href: "https://www.linkedin.com/in/andres-trujillo-7321087b/",
     text: "Go to my LinkedIn profile",
-    icon: "linkedIn",
+    icon: "linkedin",
   },
   {
     platform: "x",
