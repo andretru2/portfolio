@@ -1,3 +1,6 @@
+import { z } from "zod";
+import { projectSchema } from "./config/project-schema";
+
 export type SiteConfig = {
   name: string;
   title: string;
@@ -20,3 +23,6 @@ export type SocialLink = {
 
 export type RequireSome<T, P extends keyof T> = Omit<T, P> &
   Required<Pick<T, P>>;
+
+export type Project = z.infer<typeof projectSchema>;
+export type Role = z.infer<typeof projectSchema>["roles"];

@@ -1,4 +1,8 @@
-import { type SiteConfig, type SocialLink } from "@/types";
+import {
+  type SiteConfig,
+  type SocialLink,
+  type Project,
+} from "@/types";
 
 export const siteConfig: SiteConfig = {
   name: "Andres Trujillo - Senior Frontend Developer",
@@ -58,5 +62,46 @@ export const navLinks: Array<{
   {
     title: "Contact",
     href: "/contact",
+  },
+];
+
+export const projects: Project[] = [
+  {
+    title: "BHF ERP system",
+    description:
+      "Here’s how I single-handedly transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth",
+    image: "/projects/portfolio.jpg",
+    images: ["/projects/portfolio.jpg"],
+    homepageUrl: "https://andretru2.github.io/",
+    repoUrl: "",
+    caseStudyUrl: "",
+    features: [
+      "Purchase Orders",
+      "Inventory Management",
+      "Sales Orders",
+      "CRM",
+      "Brand Development",
+    ],
+    roles: [
+      "frontend",
+      "designer",
+      "uiux",
+      "art-direction",
+      "motion-design",
+      "developer",
+      "fullstack",
+      "prototyper",
+    ],
+    tools: [
+      "react",
+      "tailwind",
+      "typescript",
+      "figma",
+      "nextjs",
+      "c#",
+      "sqlserver",
+    ],
+    featured: 1,
+    impact: ["Increased personal brand awareness"],
   },
 ];

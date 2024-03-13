@@ -1,0 +1,18 @@
+---
+import Roles from "./roles.astro";
+import type { Project } from "@/types";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props as Props;
+---
+
+<article
+  class="grid grid-cols-12 grid-rows-2 overflow-visible gap-m"
+>
+  <div class="col-span-12">
+    <Roles roles={project.roles} />
+  </div>
+</article>

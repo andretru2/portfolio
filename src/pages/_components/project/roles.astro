@@ -1,0 +1,19 @@
+---
+import { type Role } from "@/types";
+
+interface Props {
+  roles: Role;
+}
+
+const { roles } = Astro.props as Props;
+---
+
+{
+  roles.length > 0 && (
+    <div>
+      {roles.map((role) => (
+        <h4 class="p-4">{role}</h4>
+      ))}
+    </div>
+  )
+}

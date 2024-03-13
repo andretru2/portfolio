@@ -2,9 +2,18 @@
 import Layout from "./layout.astro";
 import "@/styles/globals.css";
 import { Icon } from "astro-icon/components";
+import { projects } from "@/config/site";
+import ProjectsContainer from "./_components/project/container.astro";
 ---
 
 <Layout title="Andres Trujillo">
+  <section id="projects">
+    {
+      projects.map((project) => (
+        <ProjectsContainer project={project} />
+      ))
+    }
+  </section>
   <section
     id="hero"
     class="col-span-12 flex flex-col items-center justify-center min-h-svh gap-s bg-dotted"
