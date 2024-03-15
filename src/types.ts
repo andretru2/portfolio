@@ -26,6 +26,7 @@ export type RequireSome<T, P extends keyof T> = Omit<T, P> &
 
 export type Project = z.infer<typeof projectSchema>;
 export type Role = z.infer<typeof projectSchema>["roles"];
+export type Tool = z.infer<typeof projectSchema>["tools"];
 
 export type ProjectHero = Pick<
   z.infer<typeof projectSchema>,

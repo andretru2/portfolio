@@ -19,4 +19,7 @@ const { project } = Astro.props as Props;
   <div class="col-span-2 card bg-dotted-light">
     <Roles roles={project.roles} />
   </div>
+  <div class="col-span-2 card bg-dotted-dark">
+    <Roles roles={project.tools} />
+  </div>
 </article>

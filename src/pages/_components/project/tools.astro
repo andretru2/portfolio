@@ -1,0 +1,19 @@
+---
+import { type Tool } from "@/types";
+
+interface Props {
+  tools: Tool;
+}
+
+const { tools } = Astro.props as Props;
+---
+
+{
+  tools.length > 0 && (
+    <div>
+      {tools.map((tool) => (
+        <h4 class="p-1">{tool}</h4>
+      ))}
+    </div>
+  )
+}
