@@ -29,6 +29,7 @@ export const Roles = new Map([
 
 export const projectSchema = z.object({
   title: z.string().min(1),
+  client: z.string().min(1),
   description: z.string().optional(),
   image: z.string(),
   images: z.array(z.string()).default([]).optional(),
@@ -48,4 +49,9 @@ export const projectSchema = z.object({
   ),
   featured: z.number().min(1).optional(),
   impact: z.array(z.string()).optional(),
+  coverGradientFrom: z
+    .string()
+    .optional()
+    .default("#4A5254"),
+  coverGradientTo: z.string().optional().default("#252A2F"),
 });

@@ -26,3 +26,16 @@ export type RequireSome<T, P extends keyof T> = Omit<T, P> &
 
 export type Project = z.infer<typeof projectSchema>;
 export type Role = z.infer<typeof projectSchema>["roles"];
+
+export type ProjectHero = Pick<
+  z.infer<typeof projectSchema>,
+  | "client"
+  | "title"
+  | "description"
+  | "image"
+  | "images"
+  | "homepageUrl"
+  | "features"
+  | "coverGradientFrom"
+  | "coverGradientTo"
+>;

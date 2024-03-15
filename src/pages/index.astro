@@ -7,7 +7,10 @@ import ProjectsContainer from "./_components/project/container.astro";
 ---
 
 <Layout title="Andres Trujillo">
-  <section id="projects">
+  <section
+    id="projects"
+    class="col-span-12 flex min-h-svh justify-center items-center w-full mt-12"
+  >
     {
       projects.map((project) => (
         <ProjectsContainer project={project} />

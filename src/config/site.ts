@@ -67,10 +67,11 @@ export const navLinks: Array<{
 
 export const projects: Project[] = [
   {
-    title: "BHF ERP system",
+    title: "ERP System",
+    client: "Britannica Home Fashions",
     description:
       "Here’s how I single-handedly transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth",
-    image: "/projects/portfolio.jpg",
+    image: "/src/pages/_assets/elysegiroux.com.webp",
     images: ["/projects/portfolio.jpg"],
     homepageUrl: "https://andretru2.github.io/",
     repoUrl: "",
@@ -103,5 +104,7 @@ export const projects: Project[] = [
     ],
     featured: 1,
     impact: ["Increased personal brand awareness"],
+    coverGradientFrom: "#4A5254",
+    coverGradientTo: "#252A2F",
   },
 ];

@@ -1,6 +1,7 @@
 ---
-import Roles from "./roles.astro";
 import type { Project } from "@/types";
+import Roles from "./roles.astro";
+import Hero from "./hero.astro";
 
 interface Props {
   project: Project;
@@ -10,9 +11,12 @@ const { project } = Astro.props as Props;
 ---
 
 <article
-  class="grid grid-cols-12 grid-rows-2 overflow-visible gap-m"
+  class="grid grid-cols-12 w-full h-full max-h-[800px] grid-rows-2 overflow-visible gap-m"
 >
-  <div class="col-span-12">
+  <div class="col-span-10 row-span-2">
+    <Hero {...project} />
+  </div>
+  <div class="col-span-2 card bg-dotted-light">
     <Roles roles={project.roles} />
   </div>
 </article>
