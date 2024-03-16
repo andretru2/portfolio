@@ -70,8 +70,9 @@ export const projects: Project[] = [
     title: "ERP System",
     client: "Britannica Home Fashions",
     description:
-      "Here’s how I single-handedly transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth",
-    image: "/src/pages/_assets/elysegiroux.com.webp",
+      "Here's how I single-handedly transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth.",
+
+    image: "/src/pages/_assets/spr-storyboarder-light.png",
     images: ["/projects/portfolio.jpg"],
     homepageUrl: "https://andretru2.github.io/",
     repoUrl: "",

@@ -30,7 +30,7 @@ export const Roles = new Map([
 export const projectSchema = z.object({
   title: z.string().min(1),
   client: z.string().min(1),
-  description: z.string().optional(),
+  description: z.any().optional(),
   image: z.string(),
   images: z.array(z.string()).default([]).optional(),
   homepageUrl: z.string().url().optional(),
