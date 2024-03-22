@@ -2,6 +2,9 @@
 import type { Project } from "@/types";
 import Roles from "./roles.astro";
 import Hero from "./hero.astro";
+import Tools from "./tools.astro";
+import GoToProject from "./go-to-project.astro";
+import { Aurora } from "./aurora";
 
 interface Props {
   project: Project;
@@ -11,15 +14,26 @@ const { project } = Astro.props as Props;
 ---
 
 <article
-  class="grid grid-cols-12 w-full h-full max-h-[800px] grid-rows-2 overflow-visible gap-m"
+  class="grid grid-cols-12 w-full h-full max-h-[680px] grid-rows-2 overflow-visible gap-m"
 >
-  <div class="col-span-10 row-span-2">
-    <Hero {...project} />
-  </div>
-  <div class="col-span-2 card bg-dotted-light">
-    <Roles roles={project.roles} />
+  <div
+    class="col-span-10 row-span-2 card *:h-full *:w-full p-0 *:rounded-3xl"
+  >
+    <Aurora><Hero {...project} /> </Aurora>
   </div>
   <div class="col-span-2 card">
-    <Roles roles={project.tools} />
+    <Roles roles={project.roles} />
+  </div>
+  <div class="col-span-2 relative card">
+    <Tools tools={project.tools} class="h-full w-full" />
+
+    <div
+      class="absolute z-100 bottom-0 right-0 p-m rounded-2xl border-accent border-2 flex items-center justify-center"
+    >
+      <GoToProject
+        caseStudyUrl={project.caseStudyUrl}
+        class=""
+      />
+    </div>
   </div>
 </article>

@@ -11,7 +11,7 @@ export const prerender = true;
 <Layout title="Andres Trujillo">
   <section
     id="projects"
-    class="col-span-12 flex min-h-svh justify-center items-center w-full mt-12"
+    class="col-span-12 flex min-h-svh justify-center items-center w-full mt-12 bg-dotted"
   >
     {
       projects.map((project) => (
@@ -23,7 +23,7 @@ export const prerender = true;
     id="hero"
     class="col-span-12 flex flex-col items-center justify-center min-h-svh gap-s bg-dotted"
   >
-    <div class="size-0 flex flex-row">
+    <div class="size-2 flex flex-row">
       <!-- //need to have these load first otherwise they dont show on the nav for whatever reason -->
 
       <Icon name="astro" class="text-red-500" />
@@ -35,6 +35,7 @@ export const prerender = true;
       <Icon name="react" class="text-red-500" />
       <Icon name="tailwind" class="text-red-500" />
       <Icon name="twitter" class="text-red-500" />
+      <Icon name="top-right-arrow" class="text-red-500" />
     </div>
     <h1 class="">
       Welcome to <span class="text-textColor">Astro</span>

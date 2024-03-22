@@ -1,0 +1,24 @@
+---
+import { type ProjectCaseStudyGoto } from "@/types";
+
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  caseStudyUrl: ProjectCaseStudyGoto;
+  class?: string;
+}
+
+const { caseStudyUrl, class: className } =
+  Astro.props as Props;
+---
+
+<a
+  class:list={[
+    "bg-accent text-white rounded-full size-12 flex items-center justify-center",
+    className,
+  ]}
+  href={caseStudyUrl}
+>
+  <span class="sr-only">Read the case study</span>
+  <Icon name="top-right-arrow" />
+</a>

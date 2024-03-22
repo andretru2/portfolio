@@ -3,17 +3,19 @@ import { type Tool } from "@/types";
 
 interface Props {
   tools: Tool;
+  class?: string;
 }
 
-const { tools } = Astro.props as Props;
+const { tools, class: className } = Astro.props as Props;
 ---
 
 {
   tools.length > 0 && (
-    <div>
+    <div class:list={[className]}>
       {tools.map((tool) => (
-        <h4 class="p-1">{tool}</h4>
+        <h4 class="p-s">{tool}</h4>
       ))}
+      <slot />
     </div>
   )
 }

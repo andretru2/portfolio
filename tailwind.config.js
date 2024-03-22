@@ -1,4 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -59,14 +62,38 @@ export default {
           "0%": { "background-position": "0% 0" },
           "100%": { "background-position": "-200% 0" },
         },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
       },
       animation: {
-        glow: "glow 2s linear infinite", // Customize the animation name, duration, timing function, and iteration count as needed
+        glow: "glow 2s linear infinite",
+        aurora: "aurora 60s linear infinite",
       },
     },
   },
   plugins: [
     require("@martijn.cuppens/tailwindcss-fluid"),
     require("@tailwindcss/typography"),
+    addVariablesForColors,
   ],
 };
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [
+      `--${key}`,
+      val,
+    ])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}

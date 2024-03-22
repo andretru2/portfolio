@@ -40,3 +40,7 @@ export type ProjectHero = Pick<
   | "coverGradientFrom"
   | "coverGradientTo"
 >;
+
+export type ProjectCaseStudyGoto = z.infer<
+  typeof projectSchema
+>["caseStudyUrl"];
