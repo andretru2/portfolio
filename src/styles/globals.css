@@ -61,11 +61,15 @@
   }
 
   h4 {
+    @apply scroll-m-20  font-semibold tracking-tight font-heading fluid:text-3xl;
+  }
+
+  h5 {
     @apply scroll-m-20  font-semibold tracking-tight font-heading fluid:text-xl;
   }
 
   p {
-    @apply prose prose-xl prose-rose text-textColor max-w-3xl;
+    @apply prose prose-xl prose-rose text-textColor;
   }
 
   blockquote {

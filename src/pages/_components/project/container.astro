@@ -5,17 +5,22 @@ import Hero from "./hero.astro";
 import Tools from "./tools.astro";
 import GoToProject from "./go-to-project.astro";
 import { Aurora } from "./aurora";
+import Header from "./header.astro";
 
 interface Props {
   project: Project;
 }
 
 const { project } = Astro.props as Props;
+
+// console.log(project.description());
 ---
 
 <article
-  class="grid grid-cols-12 w-full h-full max-h-[680px] grid-rows-2 overflow-visible gap-m"
+  class="grid grid-cols-12 w-full h-full max-h-[680px] overflow-visible gap-m"
 >
+  <Header {...project} class="col-span-12 mb-xl" />
+
   <div
     class="col-span-10 row-span-2 card *:h-full *:w-full p-0 *:rounded-3xl"
   >

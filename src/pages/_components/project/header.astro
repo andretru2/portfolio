@@ -1,0 +1,47 @@
+---
+import type { ProjectHeader } from "@/types";
+import { HighlightWords } from "@/components/ui/highlight-words.tsx";
+
+const {
+  title,
+  description,
+  client,
+  wordsToHighlight,
+  class: className,
+} = Astro.props as ProjectHeader & { class?: string };
+---
+
+<div
+  class:list={[
+    "flex flex-col gap-m  self-start [&>p]:font-semibold",
+    className,
+  ]}
+>
+  <div class="flex flex-col gap-s">
+    <div
+      class="flex w-max p-[2px] rounded-md bg-gradient-to-br from-white to-white"
+    >
+      <h6
+        class="flex h-full w-full items-center justify-center px-s py-xs gradient text-white bg-bgColor bg-dotted"
+      >
+        {client}
+      </h6>
+    </div>
+
+    <h2 class="">
+      {title}
+    </h2>
+  </div>
+
+  {
+    wordsToHighlight ? (
+      <HighlightWords
+        text={description}
+        highlightWords={wordsToHighlight}
+        highlightClass="text-accent"
+      />
+    ) : (
+      <p>{description}</p>
+    )
+  }
+</div>

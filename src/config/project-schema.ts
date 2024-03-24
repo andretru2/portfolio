@@ -31,6 +31,7 @@ export const projectSchema = z.object({
   title: z.string().min(1),
   client: z.string().min(1),
   description: z.any().optional(),
+  wordsToHighlight: z.array(z.string()).optional(),
   image: z.string(),
   images: z.array(z.string()).default([]).optional(),
   homepageUrl: z.string().url().optional(),

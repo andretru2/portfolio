@@ -2,23 +2,8 @@
 import { type ProjectHero } from "@/types";
 import { Image } from "astro:assets";
 
-const {
-  title,
-  description,
-  image,
-  client,
-  images,
-  homepageUrl,
-  features,
-  coverGradientFrom = "#4A5254",
-  coverGradientTo = "#252A2F",
-} = Astro.props as ProjectHero;
-
-// const gradientClasses = [
-//   `bg-gradient-to-bl`,
-//   `from-[${coverGradientFrom}]`,
-//   `to-[${coverGradientTo}]`,
-// ];
+const { image, images, homepageUrl, features } =
+  Astro.props as ProjectHero;
 ---
 
 <div
@@ -34,29 +19,8 @@ const {
     height={768}
     format="webp"
   />
-  <div
-    class="flex flex-col gap-xl col-span-3 self-start py-5xl"
-  >
-    <div class="flex flex-col gap-s">
-      <div
-        class="flex w-max p-1 rounded-md bg-gradient-to-br from-slate-300 to-slate-200"
-      >
-        <h6
-          class="flex h-full w-full items-center justify-center px-s py-xs gradient"
-        >
-          {client}
-        </h6>
-      </div>
 
-      <h2 class="">
-        {title}
-      </h2>
-    </div>
-
-    <p>{description}</p>
-  </div>
-
-  <style
+  <!-- <style
     define:vars={{ coverGradientFrom, coverGradientTo }}
   >
     .gradient {
@@ -67,4 +31,5 @@ const {
       );
     }
   </style>
+</div> -->
 </div>
