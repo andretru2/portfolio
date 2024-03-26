@@ -1,5 +1,6 @@
 ---
 import { type Role } from "@/types";
+import { Roles as RolesMap } from "@/config/project-schema";
 
 interface Props {
   roles: Role;
@@ -11,9 +12,16 @@ const { roles, class: className } = Astro.props as Props;
 
 {
   roles.length > 0 && (
-    <div class={className}>
+    <div
+      class:list={[
+        " flex flex-col justify-center align-center  gap-s  ",
+        className,
+      ]}
+    >
       {roles.map((role) => (
-        <h4 class="p-1">{role}</h4>
+        <span class="p-s bg-accent-2/30 text-white rounded-xl px-m py-2">
+          {RolesMap.get(role) || role}
+        </span>
       ))}
     </div>
   )

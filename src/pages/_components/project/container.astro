@@ -17,20 +17,26 @@ const { project } = Astro.props as Props;
 ---
 
 <article
-  class="grid grid-cols-12 w-full h-full max-h-[680px] overflow-visible gap-m"
+  class="grid grid-cols-12 w-full gap-m max-h-[800px]"
 >
-  <Header {...project} class="col-span-12 mb-xl" />
+  <Header {...project} class="col-span-12" />
 
-  <div
-    class="col-span-10 row-span-2 card *:h-full *:w-full p-0 *:rounded-3xl"
+  <Aurora
+    className="col-span-10  card p-0 *:rounded-3xl row-span-4 "
   >
-    <Aurora><Hero {...project} /> </Aurora>
-  </div>
-  <div class="col-span-2 card">
-    <Roles roles={project.roles} />
-  </div>
-  <div class="col-span-2 relative card">
-    <Tools tools={project.tools} class="h-full w-full" />
+    <Hero {...project} />
+  </Aurora>
+
+  <Roles
+    roles={project.roles}
+    class="col-span-2 card row-span-2 max-h-full overflow-hidden"
+  />
+
+  <div class="col-span-2 relative card row-span-2">
+    <Tools
+      tools={project.tools}
+      class="w-full h-full flex flex-col"
+    />
 
     <div
       class="absolute z-100 bottom-0 right-0 p-m rounded-2xl border-accent border-2 flex items-center justify-center"

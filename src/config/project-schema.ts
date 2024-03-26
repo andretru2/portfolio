@@ -17,14 +17,17 @@ export const Tools = new Map([
 export const Roles = new Map([
   ["prototyper", "Prototyper"],
   ["architect", "Architect"],
-  ["frontend", "Frontend Developer"],
-  ["backend", "Backend Developer"],
-  ["fullstack", "Full-Stack Developer"],
-  ["developer", "Developer"],
-  ["designer", "Designer"],
-  ["uiux", "UI UX Designer"],
+  ["frontend", "Frontend"],
+  ["backend", "Backend"],
+  ["fullstack", "Full Stack "],
+  ["uiux", "UI/UX Designer"],
   ["art-direction", "Art Direction"],
   ["motion-design", "Motion Design"],
+  ["project-manager", "Project Manager"],
+  ["system-architect", "System Architect"],
+  ["database-admin", "Database Admin"],
+  ["lead-dev", "Lead Developer"],
+  ["chief-architect", "Chief Architect"],
 ] as const);
 
 export const projectSchema = z.object({

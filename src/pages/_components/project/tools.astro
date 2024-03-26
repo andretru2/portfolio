@@ -13,7 +13,7 @@ const { tools, class: className } = Astro.props as Props;
   tools.length > 0 && (
     <div class:list={[className]}>
       {tools.map((tool) => (
-        <h4 class="p-s">{tool}</h4>
+        <span class="p-s">{tool}</span>
       ))}
       <slot />
     </div>

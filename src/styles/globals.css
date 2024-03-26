@@ -69,7 +69,7 @@
   }
 
   p {
-    @apply prose prose-xl prose-rose text-textColor;
+    @apply prose prose-xl prose-rose text-textColor tracking-wider;
   }
 
   blockquote {
