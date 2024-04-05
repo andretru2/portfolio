@@ -1,6 +1,6 @@
 ---
 import type { Project } from "@/types";
-import Roles from "./roles.astro";
+import { Roles } from "./roles";
 import Hero from "./hero.astro";
 import Tools from "./tools.astro";
 import GoToProject from "./go-to-project.astro";
@@ -27,16 +27,14 @@ const { project } = Astro.props as Props;
     <Hero {...project} />
   </Aurora>
 
-  <Roles
+  <!-- <Roles
     roles={project.roles}
-    class="col-span-2 card row-span-2 max-h-full overflow-hidden"
-  />
+    className="col-span-2 card row-span-1 overflow-hidden"
+    client:load
+  /> -->
 
-  <div class="col-span-2 relative card row-span-2">
-    <Tools
-      tools={project.tools}
-      class="w-full h-full flex flex-col"
-    />
+  <div class="col-span-2 relative card row-span-3">
+    <Tools tools={project.tools} class="w-full h-full" />
 
     <div
       class="absolute z-100 bottom-0 right-0 p-m rounded-2xl border-accent border-2 flex items-center justify-center"

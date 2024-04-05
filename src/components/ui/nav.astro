@@ -8,9 +8,9 @@ import Logo from "./logo.astro";
 
 <nav
   aria-label="Primary"
-  class="grid grid-cols-12 gap-m w-full *:items-center *:justify-center"
+  class="grid grid-cols-12 gap-m w-full *:items-center *:justify-center md:container mx-auto"
 >
-  <Logo class="col-span-1 md:flex" />
+  <Logo class="col-span-1 md:flex justify-self-start" />
 
   <ul
     id="menu-items"
@@ -32,5 +32,7 @@ import Logo from "./logo.astro";
     links={socialLinks}
   />
 
-  <ThemeToggle class="col-span-1 hidden md:flex" />
+  <ThemeToggle
+    class="col-span-1 hidden md:flex justify-self-end"
+  />
 </nav>

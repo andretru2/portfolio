@@ -30,6 +30,7 @@ export default {
         "accent-2":
           "hsl(var(--theme-accent-2) / <alpha-value>)",
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
+        blue: "hsl(var(--color-blue) / <alpha-value>)",
       },
 
       spacing: {

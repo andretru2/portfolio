@@ -1,18 +1,97 @@
 import { z } from "zod";
+import type { Tool, ToolKey } from "@/types";
 
-export const Tools = new Map([
-  ["astro", "Astro"],
-  ["figma", "Figma"],
-  ["mdx", "MDX"],
-  ["nextjs", "NEXTjs"],
-  ["react", "React"],
-  ["tailwind", "Tailwind"],
-  ["typescript", "TypeScript"],
-  ["prisma", "Prisma ORM"],
-  ["drizzle", "Drizzle ORM"],
-  ["postgresql", "Postgre SQL"],
-  ["sqlserver", "SQL Server"],
-] as const);
+// export const Tools = new Map([
+//   ["astro", "Astro"],
+//   ["figma", "Figma"],
+//   ["mdx", "MDX"],
+//   ["nextjs", "NEXTjs"],
+//   ["react", "React"],
+//   ["tailwind", "Tailwind"],
+//   ["typescript", "TypeScript"],
+//   ["prisma", "Prisma ORM"],
+//   ["drizzle", "Drizzle ORM"],
+//   ["postgresql", "Postgre SQL"],
+//   ["sqlserver", "SQL Server"],
+// ] as const);
+
+export const Tools: Tool[] = [
+  {
+    key: "astro",
+    name: "Astro",
+    color: "--color-sky",
+    icon: "astro",
+  },
+  {
+    key: "figma",
+    name: "Figma",
+    color: "--color-green",
+    icon: "figma",
+  },
+  {
+    key: "mdx",
+    name: "MDX",
+    color: "--color-blue",
+    icon: "mdx",
+  },
+  {
+    key: "nextjs",
+    name: "NEXT.js",
+    color: "--color-dusk",
+    icon: "nextjs",
+  },
+  {
+    key: "react",
+    name: "React",
+    color: "--color-purple",
+    icon: "react",
+  },
+  {
+    key: "tailwind",
+    name: "Tailwind",
+    color: "--color-pink",
+    icon: "tailwind",
+  },
+  {
+    key: "typescript",
+    name: "TypeScript",
+    color: "--color-red",
+    icon: "typescript",
+  },
+  {
+    key: "prisma",
+    name: "Prisma ORM",
+    color: "--color-orange",
+    icon: "prisma",
+  },
+  {
+    key: "drizzle",
+    name: "Drizzle ORM",
+    color: "--color-yellow",
+    icon: "drizzle",
+  },
+  {
+    key: "postgresql",
+    name: "PostgreSQL",
+    color: "--color-green",
+    icon: "postgresql",
+  },
+  {
+    key: "sqlserver",
+    name: "SQL Server",
+    color: "--color-blue",
+    icon: "sqlserver",
+  },
+
+  {
+    key: "c",
+    name: "C#",
+    color: "--color-blue",
+    icon: "c",
+  },
+] as const;
+
+const toolKeys = Object.keys(Tools);
 
 export const Roles = new Map([
   ["prototyper", "Prototyper"],
@@ -47,10 +126,21 @@ export const projectSchema = z.object({
     )
   ),
   tools: z.array(
-    z.enum(
-      Array.from(Tools.keys()) as [string, ...string[]]
-    )
+    z.enum(Array.from(toolKeys) as [string, ...string[]])
   ),
+  // tools: z.array(
+  //   z.enum(
+  //     Array.from(Tools.keys()) as [string, ...string[]]
+  //   )
+  // ),
+  // tools: z.array(
+  //   z.enum(Object.values(Tools).map((tool) => tool.key))
+  // ),
+  // tools: z.array(z.enum(toolKeys)),
+  // tools: z.array(z.enum(toolKeys)),
+
+  // tools: z.infer<typeof Tools>,
+
   featured: z.number().min(1).optional(),
   impact: z.array(z.string()).optional(),
   coverGradientFrom: z

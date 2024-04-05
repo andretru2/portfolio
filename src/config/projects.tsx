@@ -41,7 +41,7 @@ export const projects: Project[] = [
       "typescript",
       "figma",
       "nextjs",
-      "c#",
+      "c",
       "sqlserver",
     ],
     featured: 1,

@@ -1,21 +1,41 @@
 ---
-import { type Tool } from "@/types";
+import { type ToolKey, type Tool } from "@/types";
+import { Icon } from "astro-icon/components";
+import { Tools as ToolsMap } from "@/config/project-schema";
 
 interface Props {
-  tools: Tool;
+  tools: ToolKey[];
   class?: string;
 }
 
 const { tools, class: className } = Astro.props as Props;
+
+const toolsData: Tool[] = tools.map((toolKey) => {
+  return ToolsMap.find((tool) => tool.key === toolKey);
+});
+
+console.log(toolsData);
 ---
 
 {
-  tools.length > 0 && (
-    <div class:list={[className]}>
-      {tools.map((tool) => (
-        <span class="p-s">{tool}</span>
+  toolsData.length > 0 && (
+    <ul class:list={["flex flex-col gap-s", className]}>
+      {toolsData.map((tool) => (
+        <li class="flex flex-row items-center gap-m">
+          <Icon
+            name={tool.icon}
+            class="  size-6 text-white "
+          />
+
+          <span
+            style={`--color: ${tool.color}; color: var(--color);`}
+            class={` bg-[hsl(var(--color-purple))]`}
+          >
+            {tool.name}
+          </span>
+        </li>
       ))}
       <slot />
-    </div>
+    </ul>
   )
 }

@@ -30,6 +30,16 @@
     --theme-accent: 133 100% 41%;
     --theme-accent-2: 152 40% 44%;
     --theme-quote: 0 0% 79%;
+
+    --color-sky: 192 100% 50%;
+    --color-green: 178 100% 45%;
+    --color-blue: 234 100% 50%;
+    --color-dusk: 267 100% 41%;
+    --color-purple: 285 100% 50%;
+    --color-pink: 328 100% 50%;
+    --color-red: 354 100% 49%;
+    --color-orange: 30 100% 49%;
+    --color-yellow: 48 100% 50%;
   }
 
   :root.dark {
