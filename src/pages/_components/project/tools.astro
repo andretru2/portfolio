@@ -13,8 +13,6 @@ const { tools, class: className } = Astro.props as Props;
 const toolsData: Tool[] = tools.map((toolKey) => {
   return ToolsMap.find((tool) => tool.key === toolKey);
 });
-
-console.log(toolsData);
 ---
 
 {
@@ -27,10 +25,7 @@ console.log(toolsData);
             class="  size-6 text-white "
           />
 
-          <span
-            style={`--color: ${tool.color}; color: var(--color);`}
-            class={` bg-[hsl(var(--color-purple))]`}
-          >
+          <span class={` text-[hsl(var(--color-white))]`}>
             {tool.name}
           </span>
         </li>

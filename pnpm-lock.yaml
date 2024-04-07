@@ -14,6 +14,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.5.6)(tailwindcss@3.4.1)
+  '@fontsource/teko':
+    specifier: ^5.0.19
+    version: 5.0.19
   '@martijn.cuppens/tailwindcss-fluid':
     specifier: ^1.0.0
     version: 1.0.0
@@ -769,6 +772,10 @@ packages:
   /@eslint/js@8.56.0:
     resolution: {integrity: sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: false
+
+  /@fontsource/teko@5.0.19:
+    resolution: {integrity: sha512-9/kDScnXslaO8ZMBHJhwMuxOOedGTenOUNDvpAEBtyy0UKdTIb6KXmaIOxcGHaY1ykyfbWbMJ59jsJVgYBX6ng==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:

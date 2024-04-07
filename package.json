@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.5.9",
     "@astrojs/react": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/teko": "^5.0.19",
     "@martijn.cuppens/tailwindcss-fluid": "^1.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.55",
