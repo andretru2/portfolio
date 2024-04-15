@@ -5,7 +5,9 @@ export const HighlightWords: React.FC<{
 }> = ({
   text,
   highlightWords,
-  highlightClass = " bg-accent/10 text-accent/80 font-medium  rounded-md",
+  // highlightClass = " bg-accent/10 text-accent/80 font-medium  rounded-md",
+  // highlightClass = " font-semibold",
+  highlightClass = " ",
 }) => {
   const highlightWordsRegex = new RegExp(
     `\\b(${highlightWords

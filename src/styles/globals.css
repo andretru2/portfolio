@@ -62,27 +62,31 @@
   }
 
   h1 {
-    @apply scroll-m-20 font-extrabold tracking-tight  font-heading  fluid:text-8xl;
+    @apply scroll-m-20 font-extrabold tracking-tight font-heading fluid:text-8xl;
   }
 
   h2 {
-    @apply scroll-m-20 font-bold tracking-tight  font-heading fluid:text-5xl;
+    @apply scroll-m-20 font-bold tracking-tight font-heading fluid:text-7xl;
   }
 
   h3 {
-    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-4xl;
+    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-5xl;
   }
 
   h4 {
-    @apply scroll-m-20  font-semibold tracking-tight font-heading fluid:text-3xl;
+    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-4xl;
   }
 
   h5 {
-    @apply scroll-m-20  font-semibold tracking-tight font-heading fluid:text-xl;
+    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-3xl;
+  }
+
+  h6 {
+    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-xl;
   }
 
   p {
-    @apply prose prose-xl prose-rose text-textColor tracking-wide;
+    @apply prose prose-xl  text-textColor tracking-wide max-w-2xl;
   }
 
   blockquote {
@@ -129,5 +133,9 @@
   }
   .card-2 {
     @apply bg-neutral-800 rounded-lg border border-neutral-600 flex flex-row p-8 absolute justify-between stroke-[0.1] hover:stroke-[0.15] dark:shadow-white/30 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)];
+  }
+
+  .panel {
+    @apply border border-accent-3/80 bg-accent-3 shadow-xl;
   }
 }

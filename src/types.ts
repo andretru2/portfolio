@@ -1,5 +1,8 @@
 import { z } from "zod";
-import { projectSchema } from "./config/project-schema";
+import {
+  projectFeatureSchema,
+  projectSchema,
+} from "./config/project-schema";
 import type { ReactNode } from "react";
 
 export type SiteConfig = {
@@ -28,6 +31,9 @@ export type RequireSome<T, P extends keyof T> = Omit<T, P> &
 export type Project = z.infer<typeof projectSchema>;
 
 export type Role = z.infer<typeof projectSchema>["roles"];
+export type ProjectFeature = z.infer<
+  typeof projectFeatureSchema
+>;
 // export type ToolKey = z.infer<typeof projectSchema>["tools"];
 // export type Tool = z.infer<typeof projectSchema>["tools"];
 
@@ -42,13 +48,7 @@ export type ToolKey = Pick<Tool, "key">;
 
 export type ProjectHero = Pick<
   z.infer<typeof projectSchema>,
-  | "client"
-  | "title"
-  | "description"
-  | "image"
-  | "images"
-  | "homepageUrl"
-  | "features"
+  "title"
 >;
 
 export type ProjectHeader = Pick<

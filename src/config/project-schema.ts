@@ -109,17 +109,29 @@ export const Roles = new Map([
   ["chief-architect", "Chief Architect"],
 ] as const);
 
+export const projectFeatureSchema = z.object({
+  featured: z.number().optional(),
+  title: z.string(),
+  description: z.string(),
+  svg: z.string().optional(),
+  content: z.any().optional(),
+});
+
+export const projectFeaturesSchema = z.array(
+  projectFeatureSchema
+);
+
 export const projectSchema = z.object({
   title: z.string().min(1),
   client: z.string().min(1),
   description: z.any().optional(),
   wordsToHighlight: z.array(z.string()).optional(),
-  image: z.string(),
-  images: z.array(z.string()).default([]).optional(),
+  // image: z.string(),
+  // images: z.array(z.string()).default([]).optional(),
   homepageUrl: z.string().url().optional(),
   repoUrl: z.string().url().optional(),
   caseStudyUrl: z.string().url().optional(),
-  features: z.array(z.string()).optional(),
+  features: projectFeaturesSchema,
   roles: z.array(
     z.enum(
       Array.from(Roles.keys()) as [string, ...string[]]
@@ -128,20 +140,8 @@ export const projectSchema = z.object({
   tools: z.array(
     z.enum(Array.from(toolKeys) as [string, ...string[]])
   ),
-  // tools: z.array(
-  //   z.enum(
-  //     Array.from(Tools.keys()) as [string, ...string[]]
-  //   )
-  // ),
-  // tools: z.array(
-  //   z.enum(Object.values(Tools).map((tool) => tool.key))
-  // ),
-  // tools: z.array(z.enum(toolKeys)),
-  // tools: z.array(z.enum(toolKeys)),
 
-  // tools: z.infer<typeof Tools>,
-
-  featured: z.number().min(1).optional(),
+  featured: z.number().optional(),
   impact: z.array(z.string()).optional(),
   coverGradientFrom: z
     .string()

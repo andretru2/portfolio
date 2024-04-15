@@ -4,12 +4,11 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
   darkMode: "class",
-
   theme: {
     extend: {
       fontFamily: {
@@ -34,7 +33,6 @@ export default {
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
         blue: "hsl(var(--color-blue) / <alpha-value>)",
       },
-
       spacing: {
         xs: "0.25rem",
         s: "0.5rem",
@@ -73,10 +71,29 @@ export default {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        meteor: {
+          "0%": {
+            transform: "rotate(215deg) translateX(0)",
+            opacity: "1",
+          },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         glow: "glow 2s linear infinite",
         aurora: "aurora 60s linear infinite",
+        "meteor-effect": "meteor 5s linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },
@@ -87,7 +104,7 @@ export default {
   ],
 };
 
-function addVariablesForColors({ addBase, theme }: any) {
+function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [
