@@ -166,9 +166,9 @@ const CardNavigators = React.forwardRef<
         <path
           d="M31.6567 12L25.9999 17.6569L31.6567 23.3137"
           stroke="#FCFCFC"
-          stroke-width="1.25"
-          stroke-linecap="square"
-          stroke-linejoin="round"
+          strokeWidth="1.25"
+          strokeLinecap="square"
+          strokeLinejoin="round"
         />
       </svg>
     </button>
@@ -196,9 +196,9 @@ const CardNavigators = React.forwardRef<
         <path
           d="M31.9702 12L37.6271 17.6569L31.9702 23.3137"
           stroke="#FCFCFC"
-          stroke-width="1.25"
-          stroke-linecap="square"
-          stroke-linejoin="round"
+          strokeWidth="1.25"
+          strokeLinecap="square"
+          strokeLinejoin="round"
         />
       </svg>
     </button>
