@@ -94,6 +94,28 @@
     @apply border-l-2 pl-6 italic text-textColor;
   }
 
+  canvas {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+  }
+
+  ::-webkit-scrollbar {
+    height: 12px;
+    width: 5px;
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    -webkit-border-radius: 1ex;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--background);
+  }
+
   /* section{
    @apply py-[calc(var(--spacing-xl)*1rem)];
  } */
@@ -139,4 +161,12 @@
   .panel {
     @apply border border-accent-3/80 bg-gradient-to-tr from-white/10 to-accent-2/40 shadow-xl;
   }
+
+  /* .container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  } */
 }
