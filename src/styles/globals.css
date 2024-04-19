@@ -31,6 +31,7 @@
     --theme-text: 228 24% 8%;
     --theme-accent: 133 100% 41%;
     --theme-accent-2: 152 40% 44%;
+    --theme-accent-3: 225 8% 20%;
     --theme-quote: 0 0% 79%;
 
     --color-sky: 192 100% 50%;
@@ -136,6 +137,6 @@
   }
 
   .panel {
-    @apply border border-accent-3/80 bg-accent-3 shadow-xl;
+    @apply border border-accent-3/80 bg-gradient-to-tr from-white/10 to-accent-2/40 shadow-xl;
   }
 }

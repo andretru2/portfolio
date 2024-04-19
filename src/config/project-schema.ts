@@ -143,9 +143,9 @@ export const projectSchema = z.object({
 
   featured: z.number().optional(),
   impact: z.array(z.string()).optional(),
-  coverGradientFrom: z
-    .string()
-    .optional()
-    .default("#4A5254"),
-  coverGradientTo: z.string().optional().default("#252A2F"),
+  // coverGradientFrom: z
+  //   .string()
+  //   .optional()
+  //   .default("#4A5254"),
+  // coverGradientTo: z.string().optional().default("#252A2F"),
 });

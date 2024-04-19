@@ -9,8 +9,17 @@ const Card = React.forwardRef<
   <article
     ref={ref}
     className={cn(
-      // "relative flex min-w-0 flex-col panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm",
-      "relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start",
+      // "relative shadow-xl p-m flex min-w-0 flex-col h-full panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm",
+      // "relative shadow-xl p-m bg-teal-950  border border-teal-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      "relative shadow-xl bg-gray-900  border border-gray-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm p-m",
+      // "relative shadow-xl bg-[#228B22]  border border-[#228B22]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-[#355E3B]  border border-[#355E3B]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-[#1B4D3E]  border  border-[#1B4D3E]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-[#00A36C]  border  border-[#00A36C]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-[#638B59]  border  border-[#638B59]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-[#8D9E74]  border  border-[#8D9E74]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-[#1C4E80]  border  border-[#1C4E80]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+      // "relative shadow-xl bg-neutral-900  border  border-neutral-800 flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
       className
     )}
     {...props}
@@ -26,7 +35,7 @@ const CardGlow = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      " absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl",
+      " absolute glow  inset-0 h-full w-full bg-gradient-to-r from-green-500 to-teal-500 transform scale-[0.80] rounded-full blur-3xl",
       className
     )}
     {...props}
@@ -41,10 +50,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "flex flex-col space-y-1.5 p-6",
-      className
-    )}
+    className={cn("flex flex-col p-m ", className)}
     {...props}
   />
 ));
@@ -56,19 +62,16 @@ const CardSvg = React.forwardRef<
   React.SVGAttributes<SVGSVGElement>
 >(({ className, ...props }, ref) => (
   <svg
-    ref={ref}
-    xmlns="http://www.w3.org/2000/svg"
+    width="36"
+    height="48"
+    viewBox="0 0 36 48"
     fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="currentColor"
-    className={cn("h-2 w-2 text-gray-300", className)}
-    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    className="fill-textColor"
   >
     <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+      d="M17.85 1.69688C17.9437 1.575 18.0938 1.5 18.2531 1.5C18.525 1.5 18.75 1.725 18.75 1.99687V4.06875C18.75 5.70938 19.425 7.28437 20.6156 8.40937L27.9469 15.3937C32.1281 19.3875 34.5 24.9187 34.5 30.6937C34.5 39.4219 27.4219 46.5 18.6937 46.5H17.2781C8.56875 46.5 1.5 39.4313 1.5 30.7219V29.6438C1.5 25.4625 3.15937 21.4594 6.1125 18.5062L7.78125 16.8375C7.99687 16.6219 8.2875 16.5 8.59687 16.5C9.23438 16.5 9.75 17.0156 9.75 17.6531V27C9.75 29.8969 12.1031 32.25 15 32.25C17.8969 32.25 20.25 29.8969 20.25 27V25.6875C20.25 24.2719 19.7906 22.8844 18.9375 21.75L15.9375 17.7469C14.3906 15.6938 13.6594 13.1344 13.875 10.575L13.9594 9.5625C14.1187 7.59375 14.8406 5.70937 16.0219 4.13437L17.85 1.69688ZM16.65 0.796875L14.8219 3.23438C13.4719 5.04375 12.6469 7.19062 12.4594 9.44062L12.375 10.4531C12.1313 13.3781 12.9656 16.3031 14.7375 18.6469L17.7375 22.65C18.3937 23.5219 18.75 24.5906 18.75 25.6875V27C18.75 29.0719 17.0719 30.75 15 30.75C12.9281 30.75 11.25 29.0719 11.25 27V17.6531C11.25 16.1906 10.0594 15 8.59687 15C7.89375 15 7.21875 15.2812 6.72187 15.7781L5.05313 17.4469C1.81875 20.6813 0 25.0688 0 29.6438V30.7219C0 40.2656 7.73438 48 17.2781 48H18.6937C28.2562 48 36 40.2562 36 30.6937C36 24.4969 33.4594 18.5813 28.9781 14.3063L21.6469 7.33125C20.7562 6.47812 20.25 5.30625 20.25 4.06875V1.99687C20.25 0.9 19.35 0 18.2531 0C17.625 0 17.0344 0.3 16.65 0.796875Z"
+      // fill="white"
     />
   </svg>
 ));
@@ -79,10 +82,10 @@ const CardTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <h1
+  <h5
     ref={ref}
     className={cn(
-      "font-bold text-xl text-white mb-4 relative z-50",
+      " text-accent-3  relative z-50",
       className
     )}
     {...props}
@@ -98,7 +101,7 @@ const CardContent = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "font-normal text-base text-slate-500 mb-4 relative z-50",
+      "font-normal text-base text-slate-500 p-m relative z-50",
       className
     )}
     {...props}
@@ -123,13 +126,11 @@ const CardFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "border px-4 py-1 rounded-lg border-gray-500 text-gray-300",
+      "border mt-auto px-4 py-1 rounded-lg border-gray-500 text-gray-300",
       className
     )}
     {...props}
-  >
-    Explore
-  </div>
+  ></div>
 ));
 CardFooter.displayName = "CardFooter";
 
@@ -140,11 +141,11 @@ const CardNavigators = React.forwardRef<
 >(({ number, onPrev, onNext }, ref) => (
   <div
     ref={ref}
-    className="relative flex justify-between w-full"
+    className=" flex justify-between w-full mt-auto"
   >
     <button
       onClick={onPrev}
-      className="absolute left-4 bottom-4 bg-gray-800 p-2 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      className=" absolute left-0 bottom-0 bg-gray-800 p-2 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
     >
       {/* <ChevronLeftIcon className="h-6 w-6 text-gray-300" /> */}
       <svg
@@ -174,7 +175,7 @@ const CardNavigators = React.forwardRef<
     {/* <Meteors number={number} /> */}
     <button
       onClick={onNext}
-      className="absolute right-4 bottom-4 bg-gray-800 p-2 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      className="absolute right-0 bottom-0 bg-gray-800 p-2 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
     >
       {/* <ChevronRightIcon className="h-6 w-6 text-gray-300" /> */}
       <svg

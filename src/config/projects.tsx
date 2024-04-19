@@ -1,6 +1,7 @@
 import type { Project } from "@/types";
 
 import BHFHero from "@/pages/_assets/bhf-hero.png";
+import BHFPoMatch from "@/pages/_assets/spr-storyboarder-light.png";
 
 const IMG_PADDING = 12;
 
@@ -25,25 +26,21 @@ export const projects: Project[] = [
     features: [
       {
         featured: 1,
-        title: "Britannica Home Fashions",
+        title: "About",
         description:
           "BHF, established in 1974 in New York City, is a premier global provider of home goods, known for innovation and quality. ",
         svg: "c",
         content: (
-          <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-            <h2>BHF</h2>
-
-            <img
-              style={{
-                backgroundImage: `url(${BHFHero})`,
-                // backgroundImage: BHFHero,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: `calc(100vh-${IMG_PADDING * 2}px)`,
-              }}
-              className=""
-            />
-          </div>
+          <img
+            style={{
+              backgroundImage: `url(${BHFHero.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: BHFHero.height,
+              // width: `calc(${BHFHero.width} + 300)px`,
+            }}
+            className="h-full w-full rounded-3xl  "
+          />
         ),
       },
       {
@@ -52,6 +49,18 @@ export const projects: Project[] = [
         description:
           "Purchase order module helps automate and organize a lot of tedious manual work, helping generate millions of dollar in revenue each year.",
         svg: "c",
+        content: (
+          <img
+            style={{
+              backgroundImage: `url(${BHFPoMatch.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: BHFPoMatch.height,
+              // width: `calc(${BHFHero.width} + 300)px`,
+            }}
+            className="h-full w-full rounded-3xl  "
+          />
+        ),
       },
     ],
 
@@ -80,3 +89,24 @@ export const projects: Project[] = [
     coverGradientTo: "#252A2F",
   },
 ];
+
+function ContentBHF() {
+  return (
+    <div className="w-full overflow-hidden relative h-full rounded-2xl p-m text-xl md:text-4xl font-bold text-white ">
+      {/* <h2>BHF</h2> */}
+
+      <img
+        style={{
+          backgroundImage: `url(${BHFHero.src})`,
+
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+
+          height: BHFHero.height,
+          width: `calc(${BHFHero.width} + 300)px`,
+        }}
+        className="h-full w-full  rounded-3xl "
+      />
+    </div>
+  );
+}

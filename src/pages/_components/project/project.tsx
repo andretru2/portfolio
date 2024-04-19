@@ -1,5 +1,3 @@
-"use client";
-
 import type {
   Project,
   ProjectFeature,
@@ -28,46 +26,56 @@ import { Separator } from "@/components/ui/separator";
 
 import React, { useState, type ReactNode } from "react";
 import { cn } from "@/utils/cn";
+import { MovingBorderWrapper } from "@/components/ui/moving-border";
 
-// interface FeatureCard {
-//   id: number;
-//   title: string;
-//   description: string;
-
-//   svg: ReactNode;
-//   content: ReactNode;
-// };
+import BHFHero from "@/pages/_assets/bhf-hero.png";
+import { projects } from "@/config/projects";
 
 const IMG_PADDING = 12;
 
 //ponemos todo aca?
-export function Project(props: Project) {
+
+export function Projects() {
+  return projects.map((project, i) => {
+    return (
+      <Project
+        key={i}
+        title={project.title}
+        description={project.description}
+        client={project.client}
+        tools={project.tools}
+        features={project.features}
+        roles={project.roles}
+      />
+    );
+  });
+}
+
+function Project(props: Project) {
   const {
     features: propFeatures,
     title,
     description,
     client,
     tools,
+    roles,
   } = props;
 
   const [features, setFeatures] =
     useState<ProjectFeature[]>(propFeatures);
   const [activeFeature, setActiveFeature] =
     useState<ProjectFeature>(propFeatures[0]);
+  // const [activeFeature, setActiveFeature] =
+  //   useState<ProjectFeature>(projects[0].features[0]);
 
   //TODO: SEparate between featuredFeatures and remainingFeatures (which will be on carousel)
-
-  console.log(
-    "features",
-    propFeatures,
-    features,
-    activeFeature
-  );
 
   const moveSelectedFeatureToTop = (idx: number) => {
     const newFeatures = [...propFeatures];
     const selectedFeature = newFeatures.splice(idx, 1);
     newFeatures.unshift(selectedFeature[0]);
+    console.log("idx", idx, newFeatures);
+
     setFeatures(newFeatures);
     setActiveFeature(newFeatures[0]);
   };
@@ -75,17 +83,37 @@ export function Project(props: Project) {
   return (
     <ProjectContainer>
       <ProjectHeader className="">
-        <ProjectClient>{client}</ProjectClient>
+        <ProjectClient> {client}</ProjectClient>
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectDescription>
           {description}
         </ProjectDescription>
       </ProjectHeader>
       <ProjectGrid>
-        <ProjectHero
-          title={activeFeature.title}
-          content={activeFeature.content}
-        />
+        {/* <CardGlow /> */}
+        {/* <ProjectHero>{activeFeature.content}</ProjectHero> */}
+        {/* <ProjectHero>{content}</ProjectHero> */}
+        <ProjectHero>{activeFeature.content}</ProjectHero>
+        {/* <ProjectHero>
+          {projects[0].features[0].content}
+        </ProjectHero> */}
+        {/* <ProjectHero>
+          <img 
+            style={{
+              backgroundImage: `url(${BHFHero.src})`,
+
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              border: "border-transparent",
+
+              height: BHFHero.height,
+              // width: `calc(${BHFHero.width} + 300)px`,
+            }}
+            className="h-full w-full  rounded-3xl "
+          />
+        </ProjectHero> */}
+        {/* <ProjectHero>{renderActiveFeature()}</ProjectHero> */}
+        {/* {renderActiveFeature()} */}
 
         <ProjectFeatures
           features={features}
@@ -106,7 +134,10 @@ const ProjectContainer = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col gap-2xl", className)}
+    className={cn(
+      "flex flex-col gap-2xl container mx-auto ",
+      className
+    )}
     {...props}
   />
 ));
@@ -134,14 +165,18 @@ const ProjectClient = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn(
-      "px-2 py-1 border rounded-md border-white w-max",
-      className
-    )}
-    {...props}
-  />
+  <MovingBorderWrapper className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800">
+    {props.children}
+  </MovingBorderWrapper>
+
+  // <p
+  //   ref={ref}
+  //   className={cn(
+  //     "px-2 py-1 border rounded-md border-white w-max",
+  //     className
+  //   )}
+  //   {...props}
+  // />
 ));
 
 ProjectClient.displayName = "ProjectClient";
@@ -175,7 +210,7 @@ const ProjectGrid = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "grid grid-cols-12 row-span-12 gap-m  w-full h-full ",
+      "grid grid-cols-12 row-span-12 gap-m  w-full h-full max-h-[70dvh] ",
       className
     )}
     {...props}
@@ -184,30 +219,64 @@ const ProjectGrid = React.forwardRef<
 
 ProjectGrid.displayName = "ProjectGrid";
 
+// function ProjectHero({
+//   children,
+//   className,
+// }: {
+//   children: ReactNode;
+//   className?: string;
+// }) {
+//   return (
+//     <div className="relative w-full col-span-9 row-span-12 ">
+//       {/* <CardGlow /> */}
+//       <Card
+//         className={cn(
+//           " relative flex flex-col gap-s w-full min-h-[55svh]",
+//           className
+//         )}
+//       >
+//         <CardHeader>
+//           {/* <CardTitle>{title}</CardTitle> */}
+//         </CardHeader>
+//         {/* <CardGlow /> */}
+//         <CardContent>{children}</CardContent>
+//       </Card>
+//     </div>
+//   );
+// }
+
 function ProjectHero({
   title,
   content,
   className,
+  activeFeature,
+  children,
   ...props
 }: {
   title: string;
   content: ReactNode;
+  activeFeature: ProjectFeature;
+  children: ReactNode;
   className?: string;
 }) {
+  // console.log(activeFeature.content);
   return (
-    <Card
-      className={cn(
-        "col-span-9 row-span-12 flex flex-col gap-s w-full h-full",
-        className
-      )}
-      {...props}
-    >
-      <CardGlow />
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>{content}</CardContent>
-    </Card>
+    <motion.div className="relative w-full col-span-9 row-span-12 ">
+      {/* <CardGlow /> */}
+      <Card
+        className={cn(
+          " relative flex flex-col gap-s w-full min-h-[55svh]",
+          className
+        )}
+        {...props}
+      >
+        {/* <CardHeader>
+          <CardTitle>{title}</CardTitle>
+        </CardHeader> */}
+        {/* <CardGlow /> */}
+        <CardContent>{children}</CardContent>
+      </Card>
+    </motion.div>
   );
 }
 
@@ -253,7 +322,7 @@ function ProjectFeatures({
 
   function FadeInCard() {
     return (
-      <div className="relative w-full h-full">
+      <motion.div className="relative w-full h-full">
         {features.map((feature, idx) => (
           <motion.div
             key={feature.title}
@@ -274,34 +343,52 @@ function ProjectFeatures({
               "w-full h-full absolute top-0 left-0"
             )}
           >
-            <Card>
-              <CardHeader className="flex justify-between">
-                <CardTitle>{feature.title}</CardTitle>
+            <Card className="relative w-full h-full ">
+              <CardHeader className="flex flex-row items-center align-text-bottom justify-between">
+                <CardTitle className="">
+                  {feature.title}
+                  {/* About */}
+                </CardTitle>
                 <CardSvg>{feature.svg}</CardSvg>
               </CardHeader>
-              <Separator />
-              <CardContent>
+
+              <CardContent className="space-y-m">
+                <Separator />
                 <p>{feature.description}</p>
               </CardContent>
+
+              <CardNavigators
+                number={idx}
+                onPrev={() =>
+                  moveSelectedFeatureToTop(idx - 1)
+                }
+                onNext={() =>
+                  moveSelectedFeatureToTop(idx + 1)
+                }
+              />
             </Card>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     );
   }
+  console.log(cards);
 
   return (
-    <Card className="relative col-span-3 row-span-6 ">
+    <motion.div className="relative col-span-3 row-span-6 group isolate">
       <CardGlow />
+      {/* <Card className="relative "> */}
       {cards.map((card, index) => (
         <motion.div
+          layout
+          // layoutId={card.title}
           key={card.title}
-          className="absolute dark:bg-black  rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white-[0.1]  shadow-black-[0.1] dark:shadow-white-[0.05] flex flex-col justify-between"
+          className="absolute  h-full w-full  rounded-3xl   shadow-xl   border-white-[0.1]   shadow-white-[0.05] flex flex-col justify-between"
           style={{
-            transformOrigin: "right center",
+            transformOrigin: "top center",
           }}
           animate={{
-            right: index * -offset,
+            left: index * -offset,
             scale: 1 - index * scaleFactor, // decrease scale for cards that are behind
             zIndex: cards.length - index, // decrease z-index for the cards that are behind
           }}
@@ -309,7 +396,8 @@ function ProjectFeatures({
           <FadeInCard />
         </motion.div>
       ))}
-    </Card>
+      {/* </Card> */}
+    </motion.div>
   );
 }
 
