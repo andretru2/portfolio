@@ -147,7 +147,7 @@ const ProjectContainer = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex flex-col gap-2xl container mx-auto ",
+      "flex flex-col gap-2xl container mx-auto bg-dotted ",
       className
     )}
     {...props}
@@ -164,7 +164,7 @@ const ProjectHeader = React.forwardRef<
     ref={ref}
     // className={cn("flex flex-col gap-s", className)}
     className={cn(
-      " flex flex-col gap-s items-center justify-center",
+      " flex flex-col gap-s items-center justify-center   ",
       className
     )}
     {...props}
@@ -222,7 +222,7 @@ const ProjectGrid = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "grid grid-cols-12 row-span-12 gap-m  w-full h-full max-h-[70dvh] ",
+      "grid grid-cols-12 row-span-12 gap-m  w-full h-full max-h-[70dvh] bg-dotted ",
       className
     )}
     {...props}
@@ -388,7 +388,7 @@ function ProjectFeatures({
 
   return (
     <div className="relative col-span-3 row-span-6 group isolate">
-      <CardGlow />
+      {/* <CardGlow /> */}
       {/* <Card className="relative "> */}
       {cards.map((card, index) => (
         <motion.div
@@ -507,19 +507,18 @@ function ProjectTools({ tools }: { tools: string[] }) {
   }
 
   return (
-    <Card className="col-span-3 row-span-6">
+    <Card className="relative col-span-3 row-span-6 ">
       <CardHeader>
         <CardTitle>Tools</CardTitle>
       </CardHeader>
-      <CardContent>
-        {tools.map((tool, index) => (
+      <CardContent className="absolute inset-0">
+        {/* {tools.map((tool, index) => (
           <span key={index}>{tool}</span>
-        ))}
-        <div className="container">
-          <Canvas gl={{ antialias: false }}>
-            <Scene />
-          </Canvas>
-        </div>
+        ))} */}
+
+        <Canvas gl={{ antialias: false }}>
+          <Scene />
+        </Canvas>
       </CardContent>
     </Card>
   );

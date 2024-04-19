@@ -9,9 +9,9 @@ const Card = React.forwardRef<
   <article
     ref={ref}
     className={cn(
-      // "relative shadow-xl p-m flex min-w-0 flex-col h-full panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm",
+      "relative shadow-xl p-m flex min-w-0 flex-col h-full panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm",
       // "relative shadow-xl p-m bg-teal-950  border border-teal-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      "relative shadow-xl bg-gray-900  border border-gray-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm p-m",
+      // "relative shadow-xl bg-gray-900  border border-gray-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm p-m",
       // "relative shadow-xl bg-[#228B22]  border border-[#228B22]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
       // "relative shadow-xl bg-[#355E3B]  border border-[#355E3B]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
       // "relative shadow-xl bg-[#1B4D3E]  border  border-[#1B4D3E]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
@@ -85,7 +85,7 @@ const CardTitle = React.forwardRef<
   <h5
     ref={ref}
     className={cn(
-      " text-accent-3  relative z-50",
+      " text-textColor  relative z-50",
       className
     )}
     {...props}

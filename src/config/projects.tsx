@@ -43,25 +43,25 @@ export const projects: Project[] = [
           />
         ),
       },
-      {
-        featured: 2,
-        title: "Purchase Orders",
-        description:
-          "Purchase order module helps automate and organize a lot of tedious manual work, helping generate millions of dollar in revenue each year.",
-        svg: "c",
-        content: (
-          <img
-            style={{
-              backgroundImage: `url(${BHFPoMatch.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: BHFPoMatch.height,
-              // width: `calc(${BHFHero.width} + 300)px`,
-            }}
-            className="h-full w-full rounded-3xl  "
-          />
-        ),
-      },
+      // {
+      //   featured: 2,
+      //   title: "Purchase Orders",
+      //   description:
+      //     "Purchase order module helps automate and organize a lot of tedious manual work, helping generate millions of dollar in revenue each year.",
+      //   svg: "c",
+      //   content: (
+      //     <img
+      //       style={{
+      //         backgroundImage: `url(${BHFPoMatch.src})`,
+      //         backgroundSize: "cover",
+      //         backgroundPosition: "center",
+      //         height: BHFPoMatch.height,
+      //         // width: `calc(${BHFHero.width} + 300)px`,
+      //       }}
+      //       className="h-full w-full rounded-3xl  "
+      //     />
+      //   ),
+      // },
     ],
 
     roles: [
