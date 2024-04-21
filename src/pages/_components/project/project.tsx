@@ -10,6 +10,7 @@ import {
   useSpring,
   MotionValue,
   useTime,
+  AnimatePresence,
 } from "framer-motion";
 import {
   Card,
@@ -28,7 +29,7 @@ import React, { useState, type ReactNode } from "react";
 import { cn } from "@/utils/cn";
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 
-import BHFHero from "@/pages/_assets/bhf-hero.png";
+import BHFHero from "@/pages/_assets/bhf-hero.mp4";
 import { projects } from "@/config/projects";
 
 // import * as THREE from "three";
@@ -46,6 +47,38 @@ const IMG_PADDING = 12;
 
 //ponemos todo aca?
 
+function useMeasure() {
+  const [dimensions, setDimensions] = React.useState({
+    width: null,
+    height: null,
+  });
+
+  const previousObserver = React.useRef(null);
+
+  const customRef = React.useCallback((node) => {
+    if (previousObserver.current) {
+      previousObserver.current.disconnect();
+      previousObserver.current = null;
+    }
+
+    if (node?.nodeType === Node.ELEMENT_NODE) {
+      const observer = new ResizeObserver(([entry]) => {
+        if (entry && entry.borderBoxSize) {
+          const { inlineSize: width, blockSize: height } =
+            entry.borderBoxSize[0];
+
+          setDimensions({ width, height });
+        }
+      });
+
+      observer.observe(node);
+      previousObserver.current = observer;
+    }
+  }, []);
+
+  return [customRef, dimensions];
+}
+
 export function Projects() {
   return projects.map((project, i) => {
     return (
@@ -60,6 +93,86 @@ export function Projects() {
       />
     );
   });
+}
+
+function ProjectRoles({ roles }: { roles: string[] }) {
+  function Fallbox({
+    items,
+    className,
+  }: {
+    items: string[];
+    className?: string;
+  }) {
+    const [ref, bounds] = useMeasure();
+
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          " bg-none  border-fuchsia-500 border ",
+          className
+        )}
+      >
+        <AnimatePresence>
+          {items.map((item, index) => (
+            <FallboxItem
+              key={item}
+              item={item}
+              height={bounds.height}
+              width={bounds.width}
+            />
+          ))}
+        </AnimatePresence>
+      </div>
+    );
+  }
+
+  function FallboxItem({
+    item,
+    height,
+    width,
+  }: {
+    item: string;
+    height: number;
+    width: number;
+  }) {
+    const middle = width / 2;
+    const range = middle / 2;
+    const min = middle - range;
+    const max = middle + range;
+
+    const initialX = 400;
+    const x = Math.floor(Math.random() * (max - min) + min);
+    console.log("x", width, x, middle, range, min, max);
+    return (
+      <motion.span
+        layout
+        initial={{ opacity: 0.5, y: -40, x: initialX }}
+        animate={{ opacity: 1, y: height, x: x }}
+        transition={{
+          // duration: 0.3, // Animation duration in seconds
+          delay: Math.random() * 0.8, // Delay before animation starts in seconds
+          ease: "easeInOut", // Easing function
+        }}
+        // exit={{ opacity: 1, y: 100 }}
+        style={{
+          // y: "-40px",
+          zIndex: -10,
+          rotate: Math.random() * 60,
+        }}
+        className="absolute flex  w-max  rounded-full items-center justify-center px-m py-s bg-accent-3 shadow-textColor/60 shadow-sm "
+      >
+        {item}
+      </motion.span>
+    );
+  }
+  return (
+    <Fallbox
+      // items={roles.slice(0, 3)}
+      items={roles}
+      className="absolute top-20 h-full w-full"
+    />
+  );
 }
 
 function Project(props: Project) {
@@ -92,47 +205,27 @@ function Project(props: Project) {
   };
 
   return (
-    <ProjectContainer>
-      <ProjectHeader className="">
+    <ProjectContainer className="">
+      <ProjectHeader className="relative">
         <ProjectClient> {client}</ProjectClient>
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectDescription>
           {description}
         </ProjectDescription>
+        <ProjectRoles roles={roles} />
       </ProjectHeader>
-      <ProjectGrid>
-        {/* <CardGlow /> */}
+
+      <ProjectGrid className="relative">
         {/* <ProjectHero>{activeFeature.content}</ProjectHero> */}
-        {/* <ProjectHero>{content}</ProjectHero> */}
-        <ProjectHero>{activeFeature.content}</ProjectHero>
-        {/* <ProjectHero>
-          {projects[0].features[0].content}
-        </ProjectHero> */}
-        {/* <ProjectHero>
-          <img 
-            style={{
-              backgroundImage: `url(${BHFHero.src})`,
+        <ProjectHero />
 
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              border: "border-transparent",
-
-              height: BHFHero.height,
-              // width: `calc(${BHFHero.width} + 300)px`,
-            }}
-            className="h-full w-full  rounded-3xl "
-          />
-        </ProjectHero> */}
-        {/* <ProjectHero>{renderActiveFeature()}</ProjectHero> */}
-        {/* {renderActiveFeature()} */}
-
-        <ProjectFeatures
+        {/* <ProjectFeatures
           features={features}
           activeFeature={activeFeature}
           moveSelectedFeatureToTop={
             moveSelectedFeatureToTop
           }
-        />
+        /> */}
 
         <ProjectTools tools={tools} />
       </ProjectGrid>
@@ -222,7 +315,7 @@ const ProjectGrid = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "grid grid-cols-12 row-span-12 gap-m  w-full h-full max-h-[70dvh] bg-dotted ",
+      "grid grid-cols-12 mt-8 row-span-12 gap-m  w-full h-full max-h-[70dvh] bg-dotted ",
       className
     )}
     {...props}
@@ -272,6 +365,36 @@ function ProjectHero({
   className?: string;
 }) {
   // console.log(activeFeature.content);
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  return (
+    <Card
+      className={`w-full col-span-9 row-span-12 ${className}`}
+    >
+      <CardContent>
+        <video
+          autoPlay={isHovered}
+          loop
+          muted
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="h-full w-full"
+        >
+          <source src={BHFHero} type="video/mp4" />
+        </video>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className="relative w-full col-span-9 row-span-12 ">
       {/* <CardGlow /> */}
@@ -317,7 +440,7 @@ function ProjectHero({
 function ProjectFeatures({
   features,
   activeFeature,
-  offset = 10,
+  offset = -12,
   scaleFactor = 0.06,
   moveSelectedFeatureToTop,
 }: {
@@ -329,8 +452,57 @@ function ProjectFeatures({
 }) {
   const [cards, setCards] =
     useState<ProjectFeature[]>(features);
-
   const [hovering, setHovering] = useState(false);
+
+  function FeatureStack() {
+    return (
+      <div className="relative col-span-3 row-span-6 group  [perspective:1000px] overflow-auto sm:overflow-visible no-visible-scrollbar">
+        {features.map((feature, index) => (
+          <motion.div
+            layout
+            layoutId={feature.title}
+            key={feature.title}
+            className="absolute h-full w-full rounded-3xl shadow-xl border-white-[0.1] shadow-white-[0.05] flex flex-col justify-between "
+            style={{
+              transformOrigin: "right right", // Adjusted for horizontal stacking
+              transformStyle: "preserve-3d", // Add this to enable 3D transforms
+              backfaceVisibility: "hidden", // Add this to hide the backface of the cards
+              border:
+                index === 0 ? "2px solid red" : "none",
+            }}
+            animate={{
+              left: index * -offset, // Adjusted to position cards horizontally
+              scale: 1 - index * scaleFactor, // Adjusted to decrease scale for cards that are behind
+              zIndex: features.length - index, // Ensures the top card has the highest zIndex
+            }}
+          >
+            <Card className="relative w-full h-full">
+              <CardHeader className="flex flex-row items-center align-text-bottom justify-between">
+                <CardTitle className="">
+                  {feature.title}
+                </CardTitle>
+                <CardSvg>{feature.svg}</CardSvg>
+              </CardHeader>
+
+              <CardContent className="space-y-m">
+                <Separator />
+                <p>{feature.description}</p>
+              </CardContent>
+
+              <CardNavigators
+                onPrev={() =>
+                  moveSelectedFeatureToTop(index - 1)
+                }
+                onNext={() =>
+                  moveSelectedFeatureToTop(index + 1)
+                }
+              />
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+    );
+  }
 
   function FadeInCard() {
     return (
@@ -386,14 +558,15 @@ function ProjectFeatures({
     );
   }
 
+  return <FeatureStack />;
   return (
     <div className="relative col-span-3 row-span-6 group isolate">
-      {/* <CardGlow /> */}
+      <CardGlow />
       {/* <Card className="relative "> */}
       {cards.map((card, index) => (
         <motion.div
-          // layout
-          // layoutId={card.title}
+          layout
+          layoutId={card.title}
           key={card.title}
           className="absolute  h-full w-full  rounded-3xl   shadow-xl   border-white-[0.1]   shadow-white-[0.05] flex flex-col justify-between"
           style={{

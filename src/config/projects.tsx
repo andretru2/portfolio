@@ -1,6 +1,7 @@
 import type { Project } from "@/types";
 
-import BHFHero from "@/pages/_assets/bhf-hero.png";
+// import BHFHero from "@/pages/_assets/bhf-hero.png";
+import BHFHero from "@/pages/_assets/bhf-hero.mp4";
 import BHFPoMatch from "@/pages/_assets/spr-storyboarder-light.png";
 
 const IMG_PADDING = 12;
@@ -31,37 +32,61 @@ export const projects: Project[] = [
           "BHF, established in 1974 in New York City, is a premier global provider of home goods, known for innovation and quality. ",
         svg: "c",
         content: (
-          <img
+          // <img
+          //   style={{
+          //     backgroundImage: `url(${BHFHero.src})`,
+          //     backgroundSize: "cover",
+          //     backgroundPosition: "center",
+          //     height: BHFHero.height,
+          //     // width: `calc(${BHFHero.width} + 300)px`,
+          //   }}
+          //   className="h-full w-full rounded-3xl  "
+          // />
+          <video
             style={{
-              backgroundImage: `url(${BHFHero.src})`,
+              backgroundImage: `url(${BHFPoMatch})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              height: BHFHero.height,
+              height: BHFPoMatch.height,
               // width: `calc(${BHFHero.width} + 300)px`,
             }}
+            controls
+            autoPlay
             className="h-full w-full rounded-3xl  "
           />
         ),
       },
-      // {
-      //   featured: 2,
-      //   title: "Purchase Orders",
-      //   description:
-      //     "Purchase order module helps automate and organize a lot of tedious manual work, helping generate millions of dollar in revenue each year.",
-      //   svg: "c",
-      //   content: (
-      //     <img
-      //       style={{
-      //         backgroundImage: `url(${BHFPoMatch.src})`,
-      //         backgroundSize: "cover",
-      //         backgroundPosition: "center",
-      //         height: BHFPoMatch.height,
-      //         // width: `calc(${BHFHero.width} + 300)px`,
-      //       }}
-      //       className="h-full w-full rounded-3xl  "
-      //     />
-      //   ),
-      // },
+      {
+        featured: 2,
+        title: "Purchase Orders",
+        description:
+          "Purchase order module helps automate and organize a lot of tedious manual work, helping generate millions of dollar in revenue each year.",
+        svg: "c",
+        content: (
+          // <img
+          //   style={{
+          //     backgroundImage: `url(${BHFPoMatch.src})`,
+          //     backgroundSize: "cover",
+          //     backgroundPosition: "center",
+          //     height: BHFPoMatch.height,
+          //     // width: `calc(${BHFHero.width} + 300)px`,
+          //   }}
+          //   className="h-full w-full rounded-3xl  "
+          // />
+          <video
+            style={{
+              backgroundImage: `url(${BHFPoMatch.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: BHFPoMatch.height,
+              // width: `calc(${BHFHero.width} + 300)px`,
+            }}
+            controls
+            autoPlay
+            className="h-full w-full rounded-3xl  "
+          />
+        ),
+      },
     ],
 
     roles: [
