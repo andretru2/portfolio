@@ -104,73 +104,87 @@ function ProjectRoles({ roles }: { roles: string[] }) {
     className?: string;
   }) {
     const [ref, bounds] = useMeasure();
+    const { width, height } = bounds;
+    const totalItems = items.length;
 
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          " bg-none  border-fuchsia-500 border ",
-          className
-        )}
-      >
-        <AnimatePresence>
-          {items.map((item, index) => (
-            <FallboxItem
-              key={item}
-              item={item}
-              height={bounds.height}
-              width={bounds.width}
-            />
-          ))}
-        </AnimatePresence>
-      </div>
-    );
-  }
-
-  function FallboxItem({
-    item,
-    height,
-    width,
-  }: {
-    item: string;
-    height: number;
-    width: number;
-  }) {
     const middle = width / 2;
     const range = middle / 2;
     const min = middle - range;
     const max = middle + range;
 
-    const initialX = 400;
-    const x = Math.floor(Math.random() * (max - min) + min);
-    console.log("x", width, x, middle, range, min, max);
+    // const initialX = Math.random() * 400;
+
+    const BOTTOM = 60;
+    const itemWidth = 50; // Assuming each item has a width of 50px
+    const gap = 10;
+
     return (
-      <motion.span
-        layout
-        initial={{ opacity: 0.5, y: -40, x: initialX }}
-        animate={{ opacity: 1, y: height, x: x }}
-        transition={{
-          // duration: 0.3, // Animation duration in seconds
-          delay: Math.random() * 0.8, // Delay before animation starts in seconds
-          ease: "easeInOut", // Easing function
-        }}
-        // exit={{ opacity: 1, y: 100 }}
-        style={{
-          // y: "-40px",
-          zIndex: -10,
-          rotate: Math.random() * 60,
-        }}
-        className="absolute flex  w-max  rounded-full items-center justify-center px-m py-s bg-accent-3 shadow-textColor/60 shadow-sm "
+      <div
+        ref={ref}
+        className={cn(
+          " bg-none border-fuchsia-500 border [perspective:1000px]",
+          className
+        )}
       >
-        {item}
-      </motion.span>
+        <AnimatePresence>
+          {items.map((item, index) => {
+            const delay = (totalItems - index) * 0.2; // Delay based on index and total items
+
+            const variants = {
+              initial: {
+                opacity: 0.5,
+                y: -600,
+              },
+              animate: {
+                x: Math.floor(
+                  Math.random() * (max - min) + min
+                ),
+                y: height - BOTTOM,
+                opacity: 1,
+
+                transition: {
+                  duration: 0.5,
+                  ease: "linear",
+                  delay,
+                },
+              },
+            };
+            return (
+              <motion.div
+                drag
+                dragConstraints={{
+                  left: 0,
+                  right: width,
+                  top: 0,
+                  bottom: height,
+                }}
+                key={item}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                layout
+                style={{
+                  rotate:
+                    index % 2 ? Math.random() * 20 : 0,
+                }}
+                className=" flex absolute w-max rounded-full items-center justify-center px-m py-s bg-accent-3 shadow-textColor/60 shadow-sm"
+              >
+                <FallboxItem item={item} />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
     );
+  }
+  function FallboxItem({ item }: { item: string }) {
+    return <span>{item}</span>;
   }
   return (
     <Fallbox
       // items={roles.slice(0, 3)}
       items={roles}
-      className="absolute top-20 h-full w-full"
+      className="absolute  h-[170%]  w-full"
     />
   );
 }

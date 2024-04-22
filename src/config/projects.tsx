@@ -32,7 +32,7 @@ export const projects: Project[] = [
           "BHF, established in 1974 in New York City, is a premier global provider of home goods, known for innovation and quality. ",
         svg: "c",
         content: (
-          // <img
+          // <imgThe
           //   style={{
           //     backgroundImage: `url(${BHFHero.src})`,
           //     backgroundSize: "cover",
@@ -91,6 +91,7 @@ export const projects: Project[] = [
 
     roles: [
       "chief-architect",
+      "manager",
       "fullstack",
       "database-admin",
       "uiux",
