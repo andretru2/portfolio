@@ -25,12 +25,18 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-import React, { useState, type ReactNode } from "react";
+import React, {
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import { cn } from "@/utils/cn";
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 
-import BHFHero from "@/pages/_assets/bhf-hero.mp4";
+import BHFHero from "@/pages/_assets/bhf-hero-original.webp";
 import { projects } from "@/config/projects";
+import { CardStack } from "@/components/ui/card-stack";
+// import { distance } from "@popmotion/popcorn";
 
 // import * as THREE from "three";
 
@@ -103,6 +109,11 @@ function ProjectRoles({ roles }: { roles: string[] }) {
     items: string[];
     className?: string;
   }) {
+    const [isAnimating, setIsAnimating] =
+      useState<boolean>(false);
+    // const [completedAnimations, setCompletedAnimations] =
+    //   useState(0);
+
     const [ref, bounds] = useMeasure();
     const { width, height } = bounds;
     const totalItems = items.length;
@@ -115,14 +126,24 @@ function ProjectRoles({ roles }: { roles: string[] }) {
     // const initialX = Math.random() * 400;
 
     const BOTTOM = 60;
-    const itemWidth = 50; // Assuming each item has a width of 50px
+    const itemWidth = 60; // Assuming each item has a width of 50px
     const gap = 10;
 
+    // Use the useEffect hook to check if all animations are complete
+    // useEffect(() => {
+    //   if (completedAnimations === totalItems) {
+    //     setIsAnimating(false);
+    //   }
+    // }, [completedAnimations, totalItems]);
+
+    // console.log(completedAnimations, isAnimating);
     return (
       <div
         ref={ref}
         className={cn(
-          " bg-none border-fuchsia-500 border [perspective:1000px]",
+          " [perspective:1000px]",
+          isAnimating && "backdrop-blur-sm",
+
           className
         )}
       >
@@ -133,25 +154,38 @@ function ProjectRoles({ roles }: { roles: string[] }) {
             const variants = {
               initial: {
                 opacity: 0.5,
-                y: -600,
+                y: -600, //cambiar para el scorllY?
               },
               animate: {
-                x: Math.floor(
-                  Math.random() * (max - min) + min
-                ),
+                // x: Math.floor(
+                //   Math.random() * (max - min) + min
+                // ),
+                // x: Math.random() * (width - 100),
+                x: Math.random() * (width - 100),
+
                 y: height - BOTTOM,
                 opacity: 1,
 
                 transition: {
-                  duration: 0.5,
-                  ease: "linear",
+                  duration: 4,
+                  ease: "easeOut",
                   delay,
+                  // onComplete: () => {
+                  //   // Check if all animations are complete
+                  //   if (index === totalItems - 1) {
+                  //     setIsAnimating(false); // Set to false when the last animation completes
+                  //   }
+                  // },
                 },
               },
             };
+            // index === totalItems - 1 &&
+            //   setIsAnimating(false);
+
             return (
               <motion.div
                 drag
+                dragElastic={1}
                 dragConstraints={{
                   left: 0,
                   right: width,
@@ -167,7 +201,10 @@ function ProjectRoles({ roles }: { roles: string[] }) {
                   rotate:
                     index % 2 ? Math.random() * 20 : 0,
                 }}
-                className=" flex absolute w-max rounded-full items-center justify-center px-m py-s bg-accent-3 shadow-textColor/60 shadow-sm"
+                className=" flex absolute w-max rounded-full items-center justify-center px-m py-s bg-accent-3 shadow-textColor/60 shadow-sm "
+                // onAnimationComplete={() =>
+                //   setCompletedAnimations((prev) => prev + 1)
+                // }
               >
                 <FallboxItem item={item} />
               </motion.div>
@@ -233,6 +270,8 @@ function Project(props: Project) {
         {/* <ProjectHero>{activeFeature.content}</ProjectHero> */}
         <ProjectHero />
 
+        <ProjectFeatures features={features} />
+
         {/* <ProjectFeatures
           features={features}
           activeFeature={activeFeature}
@@ -241,7 +280,7 @@ function Project(props: Project) {
           }
         /> */}
 
-        <ProjectTools tools={tools} />
+        {/* <ProjectTools tools={tools} /> */}
       </ProjectGrid>
     </ProjectContainer>
   );
@@ -329,7 +368,7 @@ const ProjectGrid = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "grid grid-cols-12 mt-8 row-span-12 gap-m  w-full h-full max-h-[70dvh] bg-dotted ",
+      "grid grid-cols-8 md:grid-cols-12 mt-12 md:row-span-12 gap-m  w-full h-full md:max-h-[70dvh] bg-dotted ",
       className
     )}
     {...props}
@@ -392,10 +431,26 @@ function ProjectHero({
 
   return (
     <Card
-      className={`w-full col-span-9 row-span-12 ${className}`}
+      className={`w-full col-span-8 md:col-span-8 md:row-span-12 ${className}`}
     >
       <CardContent>
-        <video
+        <motion.img
+          whileHover={{
+            // scale: 1.15,
+            // backgroundColor: "#FFCC4D",
+            filter: "grayscale(0%)",
+          }}
+          src={BHFHero.src}
+          alt="BHF Hero"
+          style={{
+            objectFit: "cover",
+            height: "100%",
+            width: "100%",
+            filter: "grayscale(100%)",
+            borderRadius: "1rem", // Adjust as needed
+          }}
+        />
+        {/* <video
           autoPlay={isHovered}
           loop
           muted
@@ -404,7 +459,7 @@ function ProjectHero({
           className="h-full w-full"
         >
           <source src={BHFHero} type="video/mp4" />
-        </video>
+        </video> */}
       </CardContent>
     </Card>
   );
@@ -453,154 +508,314 @@ function ProjectHero({
 
 function ProjectFeatures({
   features,
-  activeFeature,
-  offset = -12,
-  scaleFactor = 0.06,
-  moveSelectedFeatureToTop,
 }: {
   features: ProjectFeature[];
-  activeFeature: ProjectFeature;
-  offset?: number;
-  scaleFactor?: number;
-  moveSelectedFeatureToTop: (idx: number) => void;
 }) {
-  const [cards, setCards] =
-    useState<ProjectFeature[]>(features);
-  const [hovering, setHovering] = useState(false);
+  const items = [
+    {
+      id: 1,
+      name: "name",
+      designation: "designation",
+      content: "content",
+    },
+    {
+      id: 2,
+      name: "test",
+      designation: "designation",
+      content: "content",
+    },
+    {
+      id: 3,
+      name: "pos",
+      designation: "designation",
+      content: "content",
+    },
+  ];
 
-  function FeatureStack() {
-    return (
-      <div className="relative col-span-3 row-span-6 group  [perspective:1000px] overflow-auto sm:overflow-visible no-visible-scrollbar">
-        {features.map((feature, index) => (
-          <motion.div
-            layout
-            layoutId={feature.title}
-            key={feature.title}
-            className="absolute h-full w-full rounded-3xl shadow-xl border-white-[0.1] shadow-white-[0.05] flex flex-col justify-between "
-            style={{
-              transformOrigin: "right right", // Adjusted for horizontal stacking
-              transformStyle: "preserve-3d", // Add this to enable 3D transforms
-              backfaceVisibility: "hidden", // Add this to hide the backface of the cards
-              border:
-                index === 0 ? "2px solid red" : "none",
-            }}
-            animate={{
-              left: index * -offset, // Adjusted to position cards horizontally
-              scale: 1 - index * scaleFactor, // Adjusted to decrease scale for cards that are behind
-              zIndex: features.length - index, // Ensures the top card has the highest zIndex
-            }}
-          >
-            <Card className="relative w-full h-full">
-              <CardHeader className="flex flex-row items-center align-text-bottom justify-between">
-                <CardTitle className="">
-                  {feature.title}
-                </CardTitle>
-                <CardSvg>{feature.svg}</CardSvg>
-              </CardHeader>
-
-              <CardContent className="space-y-m">
-                <Separator />
-                <p>{feature.description}</p>
-              </CardContent>
-
-              <CardNavigators
-                onPrev={() =>
-                  moveSelectedFeatureToTop(index - 1)
-                }
-                onNext={() =>
-                  moveSelectedFeatureToTop(index + 1)
-                }
-              />
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
-
-  function FadeInCard() {
-    return (
-      <div className="relative w-full h-full">
-        {features.map((feature, idx) => (
-          <motion.div
-            layout
-            key={feature.title}
-            layoutId={feature.title}
-            style={{
-              scale: 1 - idx * 0.1,
-              top: hovering ? idx * -50 : 0,
-              zIndex: -idx,
-              opacity: idx < 3 ? 1 - idx * 0.1 : 0,
-            }}
-            animate={{
-              y:
-                feature.title === activeFeature.title
-                  ? [0, 40, 0]
-                  : 0,
-            }}
-            className={cn(
-              "w-full h-full absolute top-0 left-0"
-            )}
-          >
-            <Card className="relative w-full h-full ">
-              <CardHeader className="flex flex-row items-center align-text-bottom justify-between">
-                <CardTitle className="">
-                  {feature.title}
-                  {/* About */}
-                </CardTitle>
-                <CardSvg>{feature.svg}</CardSvg>
-              </CardHeader>
-
-              <CardContent className="space-y-m">
-                <Separator />
-                <p>{feature.description}</p>
-              </CardContent>
-
-              <CardNavigators
-                number={idx}
-                onPrev={() =>
-                  moveSelectedFeatureToTop(idx - 1)
-                }
-                onNext={() =>
-                  moveSelectedFeatureToTop(idx + 1)
-                }
-              />
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
-
-  return <FeatureStack />;
+  console.log(features);
   return (
-    <div className="relative col-span-3 row-span-6 group isolate">
-      <CardGlow />
-      {/* <Card className="relative "> */}
-      {cards.map((card, index) => (
-        <motion.div
-          layout
-          layoutId={card.title}
-          key={card.title}
-          className="absolute  h-full w-full  rounded-3xl   shadow-xl   border-white-[0.1]   shadow-white-[0.05] flex flex-col justify-between"
-          style={{
-            transformOrigin: "top center",
-          }}
-          animate={{
-            left: index * -offset,
-            scale: 1 - index * scaleFactor, // decrease scale for cards that are behind
-            zIndex: cards.length - index, // decrease z-index for the cards that are behind
-          }}
-        >
-          <FadeInCard />
-        </motion.div>
-      ))}
-      {/* </Card> */}
-    </div>
+    <Card className="col-span-8 md:col-span-4 md:row-span-6 w-full h-full">
+      {/* <CardHeader>
+        <CardTitle>Features</CardTitle>
+      </CardHeader> */}
+      <CardContent className=" flex items-center justify-center top-4">
+        <div>
+          {/* <CardStack items={features} /> */}
+          <CardStack items={items} />
+        </div>
+      </CardContent>
+    </Card>
   );
-}
 
-ProjectFeatures.displayName = "ProjectFeatures";
+  {
+    /* <CardStack
+            items={[
+              {
+                id: 1,
+                name: "name",
+                designation: "designation",
+                content: "content",
+              },
+              {
+                id: 2,
+                name: "test",
+                designation: "designation",
+                content: "content",
+              },
+              {
+                id: 3,
+                name: "pos",
+                designation: "designation",
+                content: "content",
+              },
+            ]}
+          /> */
+  }
+}
+// function ProjectFeatures({
+//   features,
+//   activeFeature,
+//   offset = -12,
+//   scaleFactor = 0.06,
+//   moveSelectedFeatureToTop,
+// }: {
+//   features: ProjectFeature[];
+//   activeFeature: ProjectFeature;
+//   offset?: number;
+//   scaleFactor?: number;
+//   moveSelectedFeatureToTop: (idx: number) => void;
+// }) {
+//   const [cards, setCards] =
+//     useState<ProjectFeature[]>(features);
+//   const [hovering, setHovering] = useState(false);
+
+//   function FeatureStack() {
+//     return (
+//       <div className="relative col-span-3 row-span-6 group  [perspective:1000px] overflow-auto sm:overflow-visible no-visible-scrollbar">
+//         {features.map((feature, index) => (
+//           <motion.div
+//             layout
+//             layoutId={feature.title}
+//             key={feature.title}
+//             className="absolute h-full w-full rounded-3xl shadow-xl border-white-[0.1] shadow-white-[0.05] flex flex-col justify-between "
+//             style={{
+//               transformOrigin: "right right", // Adjusted for horizontal stacking
+//               transformStyle: "preserve-3d", // Add this to enable 3D transforms
+//               backfaceVisibility: "hidden", // Add this to hide the backface of the cards
+//               border:
+//                 index === 0 ? "2px solid red" : "none",
+//             }}
+//             animate={{
+//               left: index * -offset, // Adjusted to position cards horizontally
+//               scale: 1 - index * scaleFactor, // Adjusted to decrease scale for cards that are behind
+//               zIndex: features.length - index, // Ensures the top card has the highest zIndex
+//             }}
+//           >
+//             <Card className="relative w-full h-full">
+//               <CardHeader className="flex flex-row items-center align-text-bottom justify-between">
+//                 <CardTitle className="">
+//                   {feature.title}
+//                 </CardTitle>
+//                 <CardSvg>{feature.svg}</CardSvg>
+//               </CardHeader>
+
+//               <CardContent className="space-y-m">
+//                 <Separator />
+//                 <p>{feature.description}</p>
+//               </CardContent>
+
+//               <CardNavigators
+//                 onPrev={() =>
+//                   moveSelectedFeatureToTop(index - 1)
+//                 }
+//                 onNext={() =>
+//                   moveSelectedFeatureToTop(index + 1)
+//                 }
+//               />
+//             </Card>
+//           </motion.div>
+//         ))}
+//       </div>
+//     );
+//   }
+
+//   function FadeInCard() {
+//     return (
+//       <div className="relative w-full h-full">
+//         {features.map((feature, idx) => (
+//           <motion.div
+//             layout
+//             key={feature.title}
+//             layoutId={feature.title}
+//             style={{
+//               scale: 1 - idx * 0.1,
+//               top: hovering ? idx * -50 : 0,
+//               zIndex: -idx,
+//               opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+//             }}
+//             animate={{
+//               y:
+//                 feature.title === activeFeature.title
+//                   ? [0, 40, 0]
+//                   : 0,
+//             }}
+//             className={cn(
+//               "w-full h-full absolute top-0 left-0"
+//             )}
+//           >
+//             <Card className="relative w-full h-full ">
+//               <CardHeader className="flex flex-row items-center align-text-bottom justify-between">
+//                 <CardTitle className="">
+//                   {feature.title}
+//                   {/* About */}
+//                 </CardTitle>
+//                 <CardSvg>{feature.svg}</CardSvg>
+//               </CardHeader>
+
+//               <CardContent className="space-y-m">
+//                 <Separator />
+//                 <p>{feature.description}</p>
+//               </CardContent>
+
+//               <CardNavigators
+//                 number={idx}
+//                 onPrev={() =>
+//                   moveSelectedFeatureToTop(idx - 1)
+//                 }
+//                 onNext={() =>
+//                   moveSelectedFeatureToTop(idx + 1)
+//                 }
+//               />
+//             </Card>
+//           </motion.div>
+//         ))}
+//       </div>
+//     );
+//   }
+
+//   return <FeatureStack />;
+//   return (
+//     <div className="relative col-span-3 row-span-6 group isolate">
+//       <CardGlow />
+//       {/* <Card className="relative "> */}
+//       {cards.map((card, index) => (
+//         <motion.div
+//           layout
+//           layoutId={card.title}
+//           key={card.title}
+//           className="absolute  h-full w-full  rounded-3xl   shadow-xl   border-white-[0.1]   shadow-white-[0.05] flex flex-col justify-between"
+//           style={{
+//             transformOrigin: "top center",
+//           }}
+//           animate={{
+//             left: index * -offset,
+//             scale: 1 - index * scaleFactor, // decrease scale for cards that are behind
+//             zIndex: cards.length - index, // decrease z-index for the cards that are behind
+//           }}
+//         >
+//           <FadeInCard />
+//         </motion.div>
+//       ))}
+//       {/* </Card> */}
+//     </div>
+//   );
+// }
+
+// function ProjectFeatures({
+//   features: propFeatures,
+//   activeFeature,
+//   offset,
+//   scaleFactor,
+// }: {
+//   features: ProjectFeature[];
+//   activeFeature: ProjectFeature;
+//   offset?: number;
+//   scaleFactor?: number;
+// }) {
+//   let interval: any;
+
+//   console.log(offset, scaleFactor);
+//   const CARD_OFFSET = offset || 10;
+//   const SCALE_FACTOR = scaleFactor || 0.06;
+//   const [features, setFeatures] =
+//     useState<ProjectFeature[]>(propFeatures);
+
+//   useEffect(() => {
+//     startFlipping();
+
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   const startFlipping = () => {
+//     interval = setInterval(() => {
+//       setFeatures((prev) => {
+//         const newArray = [...prev]; // create a copy of the array
+//         newArray.unshift(newArray.pop()!); // move the last element to the front
+//         return newArray;
+//       });
+//     }, 5000);
+//   };
+
+//   return (
+//     <Card className="col-span-8 bg-none md:col-span-3 md:row-span-6 min-h-full ">
+//       <CardHeader className="flex flex-row items-center justify-center ">
+//         <CardTitle className=" text-accent-2">
+//           Features
+//         </CardTitle>
+//         {/* <CardSvg>{feature.svg}</CardSvg> */}
+//       </CardHeader>
+//       <CardContent className="relative overflow-visible     no-visible-scrollbar">
+//         <div className="relative  h-60 w-60 md:h-60 md:w-96">
+//           {features.map((feature, index) => (
+//             <motion.div
+//               key={index}
+//               className=" absolute bg-black  h-60 w-60 rounded-3xl p-s shadow-xl border border-white/[0.1]   shadow-white/[0.05] flex flex-col justify-between"
+//               style={{
+//                 transformOrigin: "top center",
+//               }}
+//               animate={{
+//                 top: index * -CARD_OFFSET,
+//                 // scale: 1 - index * scaleFactor, // decrease scale for cards that are behind
+//                 scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
+//                 zIndex: features.length - index, //  decrease z-index for the cards that are behind
+//               }}
+//             >
+//               <div className="font-normal text-neutral-700 dark:text-neutral-200">
+//                 {feature.title}
+//               </div>
+//               <div>
+//                 <p className="text-neutral-500 font-medium dark:text-white">
+//                   {feature.svg}
+//                 </p>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </CardContent>
+//     </Card>
+//   );
+// }
+
+// function ProjectFeatures({ features }: { features: string[]}) {
+
+//   return (
+//     <Card className="relative col-span-3 row-span-6 ">
+//       <CardHeader>
+//         <CardTitle>Features</CardTitle>
+//         <CardSvg></CardSvg>
+//       </CardHeader>
+//       <CardContent className="absolute inset-0">
+//         <CardStack items={features} />
+
+//         {features.map((feature, index) => (
+//           <span key={index}>{feature}</span>
+//         ))}
+//       </CardContent>
+//     </Card>
+//   );
+// }
+
+// ProjectFeatures.displayName = "ProjectFeatures";
 
 const ProjectNavigator = React.forwardRef<
   HTMLDivElement,
@@ -694,7 +909,7 @@ function ProjectTools({ tools }: { tools: string[] }) {
   }
 
   return (
-    <Card className="relative col-span-3 row-span-6 ">
+    <Card className="relative col-span-8 md:col-span-3 w-full h-full md:row-span-6 ">
       <CardHeader>
         <CardTitle>Tools</CardTitle>
       </CardHeader>
