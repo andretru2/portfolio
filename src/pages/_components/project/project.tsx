@@ -48,6 +48,7 @@ import {
 import { useRef, useLayoutEffect } from "react";
 
 import { degreesToRadians, progress, mix } from "popmotion";
+import { Highlight } from "@/components/ui/highlight";
 
 const IMG_PADDING = 12;
 
@@ -323,7 +324,7 @@ const ProjectClient = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <MovingBorderWrapper className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800">
+  <MovingBorderWrapper className="bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-slate-800">
     {props.children}
   </MovingBorderWrapper>
 
@@ -511,22 +512,66 @@ function ProjectFeatures({
 }: {
   features: ProjectFeature[];
 }) {
+  // const items = [
+  //   {
+  //     id: 1,
+  //     name: "name",
+  //     designation: "designation",
+  //     content: "content",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "test",
+  //     designation: "designation",
+  //     content: "content",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "pos",
+  //     designation: "designation",
+  //     content: "content",
+  //   },
+  // ];
+
   const items = [
     {
-      id: 1,
-      name: "name",
+      id: "1",
+      title: "Purchase Orders",
+      description: "",
       designation: "designation",
-      content: "content",
+      content: "ss",
+
+      // content: (
+      //   <p>
+      //     Streamlining and organizing a lot of tedious
+      //     manual work, resulting in{" "}
+      //     <Highlight>
+      //       generating millions of dollars in revenue each
+      //       year.
+      //     </Highlight>
+      //   </p>
+      // ),
     },
     {
-      id: 2,
-      name: "test",
+      id: "2",
+      title: "About",
+      description: "",
       designation: "designation",
-      content: "content",
+      content: "xx",
+
+      // content: (
+      //   <p>
+      //     xxxork, resulting in{" "}
+      //     <p>
+      //       generating millions of dollars in revenue each
+      //       year.
+      //     </p>
+      //   </p>
+      // ),
     },
     {
-      id: 3,
-      name: "pos",
+      id: "3",
+      title: "pos",
       designation: "designation",
       content: "content",
     },
@@ -540,8 +585,8 @@ function ProjectFeatures({
       </CardHeader> */}
       <CardContent className=" flex items-center justify-center top-4">
         <div>
-          {/* <CardStack items={features} /> */}
-          <CardStack items={items} />
+          <CardStack items={features} />
+          {/* <CardStack items={items} /> */}
         </div>
       </CardContent>
     </Card>

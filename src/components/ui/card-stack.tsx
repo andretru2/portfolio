@@ -45,8 +45,8 @@ export const CardStack = ({
       {cards.map((card, index) => {
         return (
           <motion.div
-            key={card.id}
-            className="absolute dark:bg-black bg-white h-60 w-60 md:h-60 md:w-96 rounded-3xl p-s shadow-xl border  dark:border-white/30  shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
+            key={card.featured}
+            className="absolute p-m gap-4 dark:bg-black bg-white h-60 w-60 md:h-60 md:w-96 rounded-3xl shadow-xl border  dark:border-white/30  shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col"
             style={{
               transformOrigin: "top center",
             }}
@@ -56,13 +56,16 @@ export const CardStack = ({
               zIndex: cards.length - index, //  decrease z-index for the cards that are behind
             }}
           >
-            {/* <div className="flex flex-row justify-between">
-              <h6>{card.title}</h6>
-              <svg>{card.svg}</svg>
+            <div className="flex flex-row justify-between">
+              <h6 className="text-textColor/60">
+                {card.title}
+              </h6>
+              {/* <svg>{
+                card.svg}</svg> */}
             </div>
             <Separator />
-            <p>{card.content}</p> */}
-            <div className="font-normal text-neutral-700 dark:text-neutral-200">
+            <>{card.content}</>
+            {/* <div className="font-normal text-neutral-700 dark:text-neutral-200">
               {card.content}
             </div>
             <div>
@@ -72,7 +75,7 @@ export const CardStack = ({
               <p className="text-neutral-400 font-normal dark:text-neutral-200">
                 {card.designation}
               </p>
-            </div>
+            </div> */}
           </motion.div>
         );
       })}
