@@ -37,8 +37,9 @@ import BHFHero from "@/pages/_assets/bhf-hero-original.webp";
 import { projects } from "@/config/projects";
 import { CardStack } from "@/components/ui/card-stack";
 // import { distance } from "@popmotion/popcorn";
+import { Tools } from "@/config/project-schema";
 
-// import * as THREE from "three";
+import * as THREE from "three";
 
 import {
   Canvas,
@@ -49,6 +50,8 @@ import { useRef, useLayoutEffect } from "react";
 
 import { degreesToRadians, progress, mix } from "popmotion";
 import { Highlight } from "@/components/ui/highlight";
+// import { BallCanvas } from "@/components/canvas/ball-canvas";
+import BallCanvas from "@/components/canvas/ball";
 
 const IMG_PADDING = 12;
 
@@ -281,7 +284,8 @@ function Project(props: Project) {
           }
         /> */}
 
-        {/* <ProjectTools tools={tools} /> */}
+        <ProjectTools tools={tools} />
+        <ProjectGoto href={props.homepageUrl} />
       </ProjectGrid>
     </ProjectContainer>
   );
@@ -324,7 +328,7 @@ const ProjectClient = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <MovingBorderWrapper className="bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-slate-800">
+  <MovingBorderWrapper className="bg-white dark:bg-neutral-950 text-black dark:text-white border-neutral-200 dark:border-slate-800">
     {props.children}
   </MovingBorderWrapper>
 
@@ -432,7 +436,9 @@ function ProjectHero({
 
   return (
     <Card
-      className={`w-full col-span-8 md:col-span-8 md:row-span-12 ${className}`}
+      className={
+        "w-full col-span-8 md:col-span-8 md:row-span-12"
+      }
     >
       <CardContent>
         <motion.img
@@ -878,12 +884,83 @@ ProjectNavigator.displayName = "ProjectNavigator";
 function ProjectTools({ tools }: { tools: string[] }) {
   const color = "#111111";
 
+  const imgUrls = tools.map((tool) => {
+    return Tools.find((toolObj) => toolObj.key === tool)
+      ?.icon;
+  });
+
   const Icosahedron = () => (
     <mesh rotation-x={0.35}>
+      <ambientLight intensity={3} />
       <icosahedronGeometry args={[1, 0]} />
       <meshBasicMaterial wireframe color={color} />
     </mesh>
   );
+
+  // const Icosahedron = () => {
+  //   const meshRef = useRef();
+
+  //   useFrame(() => {
+  //     if (meshRef.current) {
+  //       const geometry = meshRef.current.geometry;
+  //       const count = geometry.attributes.position.count;
+  //       const color = new THREE.Color();
+
+  //       for (let i = 0; i < count; i++) {
+  //         color.setHex(Math.random() * 0xffffff);
+  //         geometry.attributes.color.setXYZ(
+  //           i,
+  //           color.r,
+  //           color.g,
+  //           color.b
+  //         );
+  //       }
+
+  //       geometry.attributes.color.needsUpdate = true;
+  //     }
+  //   });
+
+  //   return (
+  //     <mesh ref={meshRef}>
+  //       <icosahedronGeometry args={[1, 0]} />
+  //       <meshBasicMaterial
+  //         vertexColors={THREE.VertexColors}
+  //       />
+  //     </mesh>
+  //   );
+  // };
+
+  function Box(props) {
+    // This reference gives us direct access to the THREE.Mesh object
+    const ref = useRef();
+    // Hold state for hovered and clicked events
+    const [hovered, hover] = useState(false);
+    const [clicked, click] = useState(false);
+
+    // Subscribe this component to the render-loop, rotate the mesh every frame
+    useFrame(
+      (state, delta) => (ref.current.rotation.x += delta)
+    );
+    // Return the view, these are regular Threejs elements expressed in JSX
+    return (
+      <mesh
+        {...props}
+        ref={ref}
+        scale={clicked ? 1.5 : 1}
+        onClick={(event) => click(!clicked)}
+        onPointerOver={(event) => (
+          event.stopPropagation(), hover(true)
+        )}
+        onPointerOut={(event) => hover(false)}
+      >
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial
+          color={hovered ? "hotpink" : "orange"}
+        />
+      </mesh>
+    );
+  }
+
   const Star = ({ p }: { p: number }) => {
     // const ref = useRef<THREE.Object3D>(null);
     const ref = useRef(null);
@@ -945,9 +1022,13 @@ function ProjectTools({ tools }: { tools: string[] }) {
       );
     }
 
+    console.log(imgUrls[0].src);
+
     return (
       <>
+        <BallCanvas icon={imgUrls[0]} />
         <Icosahedron />
+
         {stars}
       </>
     );
@@ -955,14 +1036,10 @@ function ProjectTools({ tools }: { tools: string[] }) {
 
   return (
     <Card className="relative col-span-8 md:col-span-3 w-full h-full md:row-span-6 ">
-      <CardHeader>
+      {/* <CardHeader>
         <CardTitle>Tools</CardTitle>
-      </CardHeader>
-      <CardContent className="absolute inset-0">
-        {/* {tools.map((tool, index) => (
-          <span key={index}>{tool}</span>
-        ))} */}
-
+      </CardHeader> */}
+      <CardContent className=" h-96 w-96">
         <Canvas gl={{ antialias: false }}>
           <Scene />
         </Canvas>
@@ -970,16 +1047,38 @@ function ProjectTools({ tools }: { tools: string[] }) {
     </Card>
   );
 }
+function ProjectGoto({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      className="col-span-1 card row-span-6 h-full w-full bg-gradient-to-tr from-green-500 to-green-400 text-white flex flex-col justify-center gap-s items-center "
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        className="size-7"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+        />
+      </svg>
+      <h6 className=" flex text-center justify-center items-center">
+        View Project
+      </h6>
+    </a>
+  );
+}
 
 const ProjectView = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <button
-    ref={ref}
-    className={cn("project-view", className)}
-    {...props}
-  />
+  <button className={cn("", className)} {...props} />
 ));
 
 ProjectView.displayName = "ProjectView";

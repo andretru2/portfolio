@@ -26,7 +26,7 @@ export const projects: Project[] = [
     caseStudyUrl: "",
     features: [
       {
-        featured: 2,
+        featured: 1,
         title: "About",
         description:
           "BHF is a premier global provider of home goods, known for innovation and quality. Works alongside the best brans in the world such as Pendleton, UGG, etc ",
@@ -34,10 +34,10 @@ export const projects: Project[] = [
         content: (
           <p>
             Streamlining and organizing a lot of tedious
-            manual work, resulting in{" "}
+            manual work, resulting in
             <Highlight>
-              generating millions of dollars in revenue each
-              year.
+              generating millions of dollars in revenue
+              anually
             </Highlight>
           </p>
         ),
@@ -57,7 +57,7 @@ export const projects: Project[] = [
         // ),
       },
       {
-        featured: 1,
+        featured: 2,
         title: "Purchase Orders",
         description: "",
         content: (
@@ -126,6 +126,7 @@ export const projects: Project[] = [
       "prototyper",
     ],
     tools: [
+      "threejs",
       "react",
       "tailwind",
       "typescript",
@@ -133,6 +134,8 @@ export const projects: Project[] = [
       "nextjs",
       "c",
       "sqlserver",
+      "js",
+      "filemaker",
     ],
     featured: 1,
     impact: ["Increased personal brand awareness"],

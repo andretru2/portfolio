@@ -16,6 +16,7 @@
     "@fontsource/teko": "^5.0.19",
     "@martijn.cuppens/tailwindcss-fluid": "^1.0.0",
     "@radix-ui/react-separator": "^1.0.3",
+    "@react-three/drei": "^9.105.4",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
@@ -30,6 +31,7 @@
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
+    "three": "^0.163.0",
     "typescript": "^5.3.3",
     "vaul": "^0.9.0",
     "zod": "^3.22.4"

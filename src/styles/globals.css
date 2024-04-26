@@ -87,7 +87,7 @@
   }
 
   p {
-    @apply prose prose-xl  text-textColor tracking-wide max-w-2xl;
+    @apply prose prose-lg  text-textColor tracking-wide max-w-2xl;
   }
 
   blockquote {

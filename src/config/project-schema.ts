@@ -1,5 +1,21 @@
 import { z } from "zod";
 import type { Tool, ToolKey } from "@/types";
+import astro from "@/icons/astro.svg";
+import figma from "@/icons/figma.svg";
+import c from "@/icons/c.svg";
+import github from "@/icons/github.svg";
+import linkedin from "@/icons/linkedin.svg";
+import nextjs from "@/icons/nextjs.svg";
+import react from "@/icons/react.svg";
+import sqlserver from "@/icons/sqlserver.svg";
+import tailwind from "@/icons/tailwind.svg";
+import typescript from "@/icons/typescript.svg";
+import js from "@/icons/js.svg";
+import prisma from "@/icons/prisma.svg";
+import drizzle from "@/icons/drizzle.svg";
+import postgresql from "@/icons/postgresql.svg";
+import filemaker from "@/icons/filemaker.svg";
+import threejs from "@/icons/threejs.svg";
 
 // export const Tools = new Map([
 //   ["astro", "Astro"],
@@ -20,13 +36,19 @@ export const Tools: Tool[] = [
     key: "astro",
     name: "Astro",
     color: "--color-sky",
-    icon: "astro",
+    icon: astro,
+  },
+  {
+    key: "threejs",
+    name: "Three JS",
+    color: "--color-sky",
+    icon: threejs,
   },
   {
     key: "figma",
     name: "Figma",
     color: "--color-green",
-    icon: "figma",
+    icon: figma,
   },
   {
     key: "mdx",
@@ -38,56 +60,68 @@ export const Tools: Tool[] = [
     key: "nextjs",
     name: "NEXT.js",
     color: "--color-dusk",
-    icon: "nextjs",
+    icon: nextjs,
   },
   {
     key: "react",
     name: "React",
     color: "--color-purple",
-    icon: "react",
+    icon: react,
   },
   {
     key: "tailwind",
     name: "Tailwind",
     color: "--color-pink",
-    icon: "tailwind",
+    icon: tailwind,
   },
   {
     key: "typescript",
     name: "TypeScript",
     color: "--color-red",
-    icon: "typescript",
+    icon: typescript,
   },
   {
     key: "prisma",
     name: "Prisma ORM",
     color: "--color-orange",
-    icon: "prisma",
+    icon: prisma,
   },
   {
     key: "drizzle",
     name: "Drizzle ORM",
     color: "--color-yellow",
-    icon: "drizzle",
+    icon: drizzle,
   },
   {
     key: "postgresql",
     name: "PostgreSQL",
     color: "--color-green",
-    icon: "postgresql",
+    icon: postgresql,
   },
   {
     key: "sqlserver",
     name: "SQL Server",
     color: "--color-blue",
-    icon: "sqlserver",
+    icon: sqlserver,
   },
 
   {
     key: "c",
     name: "C#",
     color: "--color-blue",
-    icon: "c",
+    icon: c,
+  },
+  {
+    key: "js",
+    name: "Javascript",
+    color: "--color-blue",
+    icon: js,
+  },
+  {
+    key: "filemaker",
+    name: "FileMaker",
+    color: "--color-blue",
+    icon: filemaker,
   },
 ] as const;
 
