@@ -13,6 +13,8 @@ import {
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
 
+  console.log(decal);
+
   return (
     <Float
       speed={1.75}

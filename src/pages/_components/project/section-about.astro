@@ -1,0 +1,100 @@
+---
+
+---
+
+<section class="grid grid-cols-12 mx-auto container p-m">
+  <div class="col-span-8">
+    <div class="flex flex-col gap-m">
+      <h1 class="noise"><slot name="title" /></h1>
+      <Fragment><slot name="description" /></Fragment>
+      <div class="self-end"><slot name="signature" /></div>
+      <div><slot name="stats" /></div>
+    </div>
+    <div class="col-span-4">
+      <slot name="image" />
+    </div>
+  </div>
+</section>
+<!-- 
+<style>
+  @import "https://unpkg.com/open-props/durations.min.css";
+
+  /* 
+  typed a length for size interpolation
+  initial value is part of the hack at a super
+  small subpixel value
+*/
+  @property --lines {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0.0001px;
+  }
+
+  /* 
+  ping/pong animation 
+  change value to change speed
+  faster = more sub pixels to transition
+*/
+  @keyframes liner {
+    50% {
+      --lines: 0.00012px;
+    }
+  }
+
+  @layer demo {
+    .noisee {
+      /* animate the length custom property */
+      animation: liner var(--hour) linear infinite;
+
+      /*
+      repeating sub pixel radial hard stop lines
+      creates thousands, so small they distort
+      use this distortion as a mask
+      the hard stops are basically on/off lines
+    */
+      mask: repeating-radial-gradient(
+        circle at center,
+        #000,
+        var(--lines),
+        #000,
+        0,
+        #0000,
+        calc(var(--lines) * 2),
+        #0000 0
+      );
+    }
+  }
+
+  @layer demo.gradient-text {
+    .noisee {
+      --space:;
+      @supports (
+        background: linear-gradient(in oklch, #000, #000)
+      ) {
+        --space: in oklch;
+      }
+
+      display: grid;
+      place-content: center;
+
+      background-image: linear-gradient(
+        to right var(--space),
+        deeppink,
+        blue
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media (prefers-color-scheme: light) {
+        background-image: linear-gradient(
+          to right var(--space),
+          black,
+          gray
+        );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+</style> -->

@@ -2,11 +2,8 @@
 import Layout from "./layout.astro";
 import "@/styles/globals.css";
 import { Icon } from "astro-icon/components";
-// import { projects } from "@/config/site";
-import ProjectsContainer from "./_components/project/container.astro";
-// import { projects } from "@/config/projects";
 import { Projects } from "./_components/project/project";
-// import ProjectHero from "./_components/project/project-hero.astro";
+import About from "./_components/project/about.astro";
 
 export const prerender = true;
 ---
@@ -21,12 +18,13 @@ export const prerender = true;
   <ProjectHero /> -->
   <section
     id="#projects"
-    class="flex justify-center items-center w-full mt-40"
+    class="flex justify-center min-h-svh items-center w-full mt-40"
   >
     <Projects client:load />
 
     <!-- <Project {...project} />)} -->
   </section>
+  <About />
   <!-- <ProjectHero /> -->
   <section
     id="hero"
@@ -48,6 +46,7 @@ export const prerender = true;
       <Icon name="tailwind" class="text-red-500" />
       <Icon name="twitter" class="text-red-500" />
       <Icon name="top-right-arrow" class="text-red-500" />
+      <Icon name="threejs" class="text-red-500" />
     </div>
     <h1 class="">
       Welcome to <span class="text-textColor">Astro</span>

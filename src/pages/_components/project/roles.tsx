@@ -1,7 +1,7 @@
 "use client";
 
 import { type Role } from "@/types";
-import { Roles as RolesMap } from "@/config/project-schema";
+import { Roles as RolesMap } from "@/config/validations/project-schema";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 

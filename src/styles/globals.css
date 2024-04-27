@@ -1,3 +1,5 @@
+@import "https://unpkg.com/open-props/durations.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,11 +20,18 @@
   font-display: swap;
 }
 
+@keyframes liner {
+  50% {
+    --lines: 0.00012px;
+  }
+}
+
 @layer base {
   :root {
     --font-sans: Averta, sans-serif;
     /* --font-sans: Averta, sans-serif; */
     --font-heading: AvertaBold, sans-serif;
+    --lines: 0.0001px;
     /* --font-heading: Teko, sans-serif; */
 
     color-scheme: light;
@@ -162,11 +171,60 @@
     @apply border border-accent-3/80 bg-gradient-to-tr from-white/10 to-accent-2/70 shadow-xl;
   }
 
-  /* .container {
+  .planet:before {
+    content: "";
+    display: block;
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  } */
+    width: 1500px;
+    aspect-ratio: 1;
+    left: 100%;
+    top: 50%;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+    background-image: radial-gradient(
+      at 50% 50% in oklch,
+      color-mix(in oklch, skyblue, blue 80%),
+      color-mix(in oklch, skyblue, blue 10%) 19%,
+      color-mix(in oklch, skyblue, blue 20%) 20%,
+      color-mix(in oklch, skyblue, blue 80%),
+      color-mix(in oklch, blue, black 50%) 55%,
+      transparent 70%
+    );
+  }
+
+  .noise {
+    @supports (
+      background: linear-gradient(in oklch, #000, #000)
+    ) {
+      --space: in oklch;
+      --hour: 1200s;
+    }
+
+    animation: liner var(--hour) linear infinite;
+    mask: repeating-radial-gradient(
+      circle at center,
+      #000,
+      var(--lines),
+      #000,
+      0,
+      #0000,
+      calc(var(--lines) * 2),
+      #0000 0
+    );
+
+    /* background-image: linear-gradient(
+      to right var(--space),
+      deeppink,
+      blue
+    ); */
+
+    background-image: linear-gradient(
+      to right var(--space),
+      /* #f7d3c4 */ var(--green-500),
+      #f7f3f3
+    ); /* Updated colors */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

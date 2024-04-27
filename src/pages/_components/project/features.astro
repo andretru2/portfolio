@@ -1,6 +1,6 @@
 ---
 import { type Role } from "@/types";
-import { Roles as RolesMap } from "@/config/project-schema";
+import { Roles as RolesMap } from "@/config/validations/project-schema";
 import { motion } from "framer-motion";
 
 interface Props {
@@ -27,3 +27,4 @@ const { roles, class: className } = Astro.props as Props;
     </motion.div>
   )
 }
+@/config/validations/project-schema

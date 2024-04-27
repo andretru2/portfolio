@@ -37,7 +37,7 @@ import BHFHero from "@/pages/_assets/bhf-hero-original.webp";
 import { projects } from "@/config/projects";
 import { CardStack } from "@/components/ui/card-stack";
 // import { distance } from "@popmotion/popcorn";
-import { Tools } from "@/config/project-schema";
+import { Tools } from "@/config/validations/project-schema";
 
 import * as THREE from "three";
 
@@ -253,7 +253,7 @@ function Project(props: Project) {
     const newFeatures = [...propFeatures];
     const selectedFeature = newFeatures.splice(idx, 1);
     newFeatures.unshift(selectedFeature[0]);
-    console.log("idx", idx, newFeatures);
+    // console.log("idx", idx, newFeatures);
 
     setFeatures(newFeatures);
     setActiveFeature(newFeatures[0]);
@@ -583,7 +583,7 @@ function ProjectFeatures({
     },
   ];
 
-  console.log(features);
+  // console.log(features);
   return (
     <Card className="col-span-8 md:col-span-4 md:row-span-6 w-full h-full">
       {/* <CardHeader>
@@ -1026,8 +1026,8 @@ function ProjectTools({ tools }: { tools: string[] }) {
 
     return (
       <>
-        <BallCanvas icon={imgUrls[0]} />
-        <Icosahedron />
+        {/* <BallCanvas icon={imgUrls[0]} /> */}
+        {/* <Icosahedron /> */}
 
         {stars}
       </>
@@ -1057,13 +1057,13 @@ function ProjectGoto({ href }: { href: string }) {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
+        strokeWidth="1.5"
         stroke="currentColor"
         className="size-7"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
         />
       </svg>

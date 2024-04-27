@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { Tool, ToolKey } from "@/types";
+import type { Tool } from "@/types";
 import astro from "@/icons/astro.svg";
 import figma from "@/icons/figma.svg";
 import c from "@/icons/c.svg";

@@ -2,8 +2,8 @@ import { z } from "zod";
 import {
   projectFeatureSchema,
   projectSchema,
-} from "./config/project-schema";
-import type { ReactNode } from "react";
+} from "./config/validations/project-schema";
+import { aboutSchema } from "./config/validations/about-schema";
 
 export type SiteConfig = {
   name: string;
@@ -59,3 +59,5 @@ export type ProjectHeader = Pick<
 export type ProjectCaseStudyGoto = z.infer<
   typeof projectSchema
 >["caseStudyUrl"];
+
+export type About = z.infer<typeof aboutSchema>;
