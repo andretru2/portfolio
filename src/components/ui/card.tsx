@@ -35,7 +35,7 @@ const CardGlow = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      " absolute glow  inset-0 h-full w-full bg-gradient-to-r from-green-500 to-teal-500 transform scale-[0.80] rounded-full blur-3xl",
+      " absolute glow  inset-0 h-full w-full bg-gradient-to-r from-green-500 to-[#f7f3f3] transform scale-[0.80] rounded-full blur-3xl",
       className
     )}
     {...props}

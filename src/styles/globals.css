@@ -32,6 +32,9 @@
     /* --font-sans: Averta, sans-serif; */
     --font-heading: AvertaBold, sans-serif;
     --lines: 0.0001px;
+    --space: in oklch;
+    --gradientFrom: oklch(50% 0.2 0.1 0deg);
+    --gradientTo: oklch(50% 0.2 0.1 180deg);
     /* --font-heading: Teko, sans-serif; */
 
     color-scheme: light;
@@ -96,7 +99,7 @@
   }
 
   p {
-    @apply prose prose-lg  text-textColor tracking-wide max-w-2xl;
+    @apply prose prose-lg font-light text-textColor tracking-wide max-w-2xl;
   }
 
   blockquote {
@@ -171,6 +174,14 @@
     @apply border border-accent-3/80 bg-gradient-to-tr from-white/10 to-accent-2/70 shadow-xl;
   }
 
+  .gradient {
+    background-image: linear-gradient(
+      to right var(--space),
+      var(--bg-gradientFrom),
+      var(--gradientTo)
+    );
+  }
+
   .planet:before {
     content: "";
     display: block;
@@ -181,7 +192,7 @@
     top: 50%;
     z-index: -1;
     transform: translateX(-50%) translateY(-50%);
-    background-image: radial-gradient(
+    /* background-image: radial-gradient(
       at 50% 50% in oklch,
       color-mix(in oklch, skyblue, blue 80%),
       color-mix(in oklch, skyblue, blue 10%) 19%,
@@ -189,6 +200,19 @@
       color-mix(in oklch, skyblue, blue 80%),
       color-mix(in oklch, blue, black 50%) 55%,
       transparent 70%
+    ); */
+    background-image: radial-gradient(
+      at 50% 50% in oklch,
+      color-mix(in oklch, #008000, #004d00 80%),
+      /* Dark green */
+        color-mix(in oklch, #008000, #004d00 10%) 19%,
+      /* Light green */
+        color-mix(in oklch, #008000, #004d00 20%) 20%,
+      /* Light green */
+        color-mix(in oklch, #008000, #004d00 80%),
+      /* Dark green */
+        color-mix(in oklch, #004d00, #000000 50%) 55%,
+      /* Black */ transparent 70%
     );
   }
 
@@ -196,7 +220,6 @@
     @supports (
       background: linear-gradient(in oklch, #000, #000)
     ) {
-      --space: in oklch;
       --hour: 1200s;
     }
 
@@ -217,12 +240,19 @@
       deeppink,
       blue
     ); */
+    /* 
+    background-image: linear-gradient(
+      to right var(--space),
+      var(--green-500),
+      #f7f3f3
+    ); */
 
     background-image: linear-gradient(
       to right var(--space),
-      /* #f7d3c4 */ var(--green-500),
-      #f7f3f3
-    ); /* Updated colors */
+      var(--gradientFrom),
+      var(--gradientTo),
+      /* #f7f3f3 */
+    );
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
