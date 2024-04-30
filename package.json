@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.5.9",
     "@astrojs/react": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.5.4",
     "@fontsource/teko": "^5.0.19",
     "@martijn.cuppens/tailwindcss-fluid": "^1.0.0",
     "@radix-ui/react-separator": "^1.0.3",
