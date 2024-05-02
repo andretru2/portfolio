@@ -31,7 +31,16 @@ module.exports = {
         "accent-3":
           "hsl(var(--theme-accent-3) / <alpha-value>)",
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
-        blue: "hsl(var(--color-blue) / <alpha-value>)",
+        // blue: "hsl(var(--color-blue) / <alpha-value>)",
+        // "accent-oklch":
+        //   "oklch(var(--theme-accent-oklch, 0.762 0.177 190.000) / <alpha-value>)",
+        // oklch: "oklch(66.35% 0.299 7.04 / <alpha-value>)",
+        // oklch: "hsl(64 100% 50% / <alpha-value>)",
+        // oklch: "oklch(95.47% 0.21 114.58 / <alpha-value>)",
+        // oklch:
+        //   "oklch(var(--theme-accent-oklch) / <alpha-value>)",
+        // oklch: `color-mix(in oklch, hsl(var(--theme-accent)),  transparent 80% )`,
+        // oklch: `color-mix(in oklch, olkch(var(--theme-accent-oklch)),  transparent 80% )`,
       },
       spacing: {
         xs: "0.25rem",

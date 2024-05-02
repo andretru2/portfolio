@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Icon } from "astro-icon/components";
 import { Projects } from "./_components/project/project";
 import About from "./_components/about.astro";
+import Hero from "./_components/hero.astro";
 
 export const prerender = true;
 ---
@@ -16,6 +17,7 @@ export const prerender = true;
     {projects.map((project) => <Project {...project} />)}
   </section>
   <ProjectHero /> -->
+  <Hero />
   <section
     id="#projects"
     class="flex justify-center min-h-svh items-center w-full mt-40"
@@ -77,58 +79,5 @@ export const prerender = true;
     <button class="button button-xs button-outline">
       button xs</button
     >
-  </section>
-
-  <section
-    class="text-center bg-blue-600 text-white grid place-items-center h-full"
-  >
-    <div class="px-4 mx-auto grid gap-6">
-      <h1 class="fluid:text-7xl font-black">
-        Tailwind fluid
-      </h1>
-      <p class="fluid:text-2xl">
-        Make Tailwind CSS automatically responsive with
-        fluid utility classes.
-      </p>
-    </div>
-  </section>
-  <section class="text-center fluid:py-2xl">
-    <div class="px-4 grid gap-6">
-      <h2 class="fluid:text-7xl font-black">
-        Fluid typography and spacing
-      </h2>
-      <p class="fluid:text-2xl">
-        The font size of this content will rescale to the
-        available width. Note titles are rescaled more
-        aggressive than smaller text. Also the padding of
-        this section automatically adjusts.
-      </p>
-    </div>
-  </section>
-  <section class="text-center bg-gray-200 fluid:py-2xl">
-    <div class="w-full px-4 mx-auto grid fluid:gap-8">
-      <h2 class="fluid:text-7xl font-black">
-        Grid gap example
-      </h2>
-      <div
-        class="grid md:grid-cols-2 md:grid-rows-2 fluid:gap-12"
-      >
-        <img
-          src="https://picsum.photos/480/752"
-          alt=""
-          class="w-full h-full object-cover shadow-lg rounded-2xl row-span-2"
-        />
-        <img
-          src="https://picsum.photos/480/400"
-          alt=""
-          class="w-full h-full object-cover shadow-lg rounded-2xl"
-        />
-        <img
-          src="https://picsum.photos/480/320"
-          alt=""
-          class="w-full h-full object-cover shadow-lg rounded-2xl"
-        />
-      </div>
-    </div>
   </section>
 </Layout>

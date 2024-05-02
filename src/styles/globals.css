@@ -63,6 +63,11 @@
     --theme-link: 356 100% 67%;
     --theme-text: 0 0% 99%;
     --theme-accent: 133 100% 41%;
+    /* --theme-accent-oklch: 74.74% 0.242 144.04 */
+    /* --theme-accent-oklch: 0.762 0.177 190.000 */
+    /* --theme-accent-oklch: 66.28% .24 151.4 */
+    /* --theme-accent-oklch: 95.47% 0.21 114.58 */
+    /* --theme-accent-oklch: oklch(74.74% 0.242 144.04 */
     --theme-accent-2: 240 0% 52%;
     --theme-accent-3: 225 8% 20%;
     --theme-quote: 211 43% 38%;
@@ -185,14 +190,14 @@
   .planet:before {
     content: "";
     display: block;
-    position: fixed;
+    position: absolute;
     width: 1500px;
     aspect-ratio: 1;
-    left: 100%;
+    left: 120%;
     top: 50%;
     z-index: -1;
     transform: translateX(-50%) translateY(-50%);
-    /* background-image: radial-gradient(
+    background-image: radial-gradient(
       at 50% 50% in oklch,
       color-mix(in oklch, skyblue, blue 80%),
       color-mix(in oklch, skyblue, blue 10%) 19%,
@@ -200,20 +205,16 @@
       color-mix(in oklch, skyblue, blue 80%),
       color-mix(in oklch, blue, black 50%) 55%,
       transparent 70%
-    ); */
-    background-image: radial-gradient(
+    );
+    /* background-image: radial-gradient(
       at 50% 50% in oklch,
       color-mix(in oklch, #008000, #004d00 80%),
-      /* Dark green */
-        color-mix(in oklch, #008000, #004d00 10%) 19%,
-      /* Light green */
-        color-mix(in oklch, #008000, #004d00 20%) 20%,
-      /* Light green */
-        color-mix(in oklch, #008000, #004d00 80%),
-      /* Dark green */
-        color-mix(in oklch, #004d00, #000000 50%) 55%,
-      /* Black */ transparent 70%
-    );
+      color-mix(in oklch, #008000, #004d00 10%) 19%,
+      color-mix(in oklch, #008000, #004d00 20%) 20%,
+      color-mix(in oklch, #008000, #004d00 80%),
+      color-mix(in oklch, #004d00, #000000 50%) 55%,
+      transparent 70%
+    ); */
   }
 
   .noise {
