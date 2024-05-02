@@ -25,12 +25,14 @@ module.exports = {
         bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
         textColor: "hsl(var(--theme-text) / <alpha-value>)",
         link: "hsl(var(--theme-link) / <alpha-value>)",
-        accent: "hsl(var(--theme-accent) / <alpha-value>)",
+        // accent: "hsl(var(--theme-accent) / <alpha-value>)",
         "accent-2":
           "hsl(var(--theme-accent-2) / <alpha-value>)",
         "accent-3":
           "hsl(var(--theme-accent-3) / <alpha-value>)",
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
+        accent: "oklch(81.79% 0.3 142.12 / <alpha-value>)",
+
         // blue: "hsl(var(--color-blue) / <alpha-value>)",
         // "accent-oklch":
         //   "oklch(var(--theme-accent-oklch, 0.762 0.177 190.000) / <alpha-value>)",

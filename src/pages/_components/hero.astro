@@ -1,171 +1,58 @@
 ---
-const WORDS = [
-  "Productivity",
-  "Efficiency",
-  "Passion",
-  "Creativity",
-];
+
 ---
 
 <section
-  class="relative container mx-auto planet min-h-svh grid place-content-center"
+  class="relative container mx-auto min-h-svh grid place-content-center"
 >
   <div
-    class="flex flex-col gap-2xl items-center justify-center w-full h-full"
+    class="flex flex-col gap-l items-center justify-center w-full h-full"
   >
     <h6 class="font-light opacity-80 tracking-widest">
       ANDRES TRUJILLO
     </h6>
     <p
-      class="flex font-bold flex-wrap gap-[0.5ch] m-0 text-6xl text-center resize-x overflow-hidden items-center justify-center"
+      class="flex font-bold text-5xl font-heading flex-wrap gap-[0.5ch] max-w-[35ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
     >
-      <span>Know </span>
-      <span id="swapper">Productivity</span>
-      <span> with no limits.</span>
+      <span class="swapper-first">Creative </span>
+      <span id="swapper" class="swapper text-accent">
+        Frontend Developer
+      </span>
+      <span class="swapper-last">empowering</span>
+      <span class="">change through design </span>
+      <span class="block"> and engineering</span>
     </p>
   </div>
 </section>
 
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
-
-  p {
-    font-family: "Roboto Slab", sans-serif;
-  }
-  #swapper {
-    view-transition-name: swap;
-    color: hsl(113, 100%, 50%);
-  }
-
-  /* span:last-of-type {
-    view-transition-name: last;
-  } */
-  span:first-of-type {
-    view-transition-name: last;
-  }
-
-  ::view-transition-new(swap),
-  ::view-transition-old(swap) {
-    height: 100%;
-    object-fit: none;
-    object-position: top left;
-  }
-
-  ::view-transition-old(swap) {
-    animation-name: slide-out;
-    animation-duration: 0.75s;
-    animation-timing-function: linear(
-      0,
-      0.6832 7.89%,
-      0.9171 11.07%,
-      1.0251,
-      1.1058 14.9%,
-      1.1619 16.86%,
-      1.1945 18.91%,
-      1.2024 20.02%,
-      1.2043 21.18%,
-      1.1907,
-      1.1598 26.27%,
-      1.0604 32.59%,
-      1.0172 35.84%,
-      0.9839 39.49%,
-      0.967 43.26%,
-      0.9639 45.77%,
-      0.9661 48.59%,
-      0.9963 60.54%,
-      1.0054 67.42%,
-      1
-    );
-  }
-
-  ::view-transition-new(swap) {
-    animation-name: slide-in;
-    animation-duration: 0.75s;
-    animation-timing-function: linear(
-      0,
-      0.6832 7.89%,
-      0.9171 11.07%,
-      1.0251,
-      1.1058 14.9%,
-      1.1619 16.86%,
-      1.1945 18.91%,
-      1.2024 20.02%,
-      1.2043 21.18%,
-      1.1907,
-      1.1598 26.27%,
-      1.0604 32.59%,
-      1.0172 35.84%,
-      0.9839 39.49%,
-      0.967 43.26%,
-      0.9639 45.77%,
-      0.9661 48.59%,
-      0.9963 60.54%,
-      1.0054 67.42%,
-      1
-    );
-  }
-
-  ::view-transition-group(last) {
-    animation-duration: 0.75s;
-    animation-timing-function: linear(
-      0,
-      0.6832 7.89%,
-      0.9171 11.07%,
-      1.0251,
-      1.1058 14.9%,
-      1.1619 16.86%,
-      1.1945 18.91%,
-      1.2024 20.02%,
-      1.2043 21.18%,
-      1.1907,
-      1.1598 26.27%,
-      1.0604 32.59%,
-      1.0172 35.84%,
-      0.9839 39.49%,
-      0.967 43.26%,
-      0.9639 45.77%,
-      0.9661 48.59%,
-      0.9963 60.54%,
-      1.0054 67.42%,
-      1
-    );
-  }
-
-  @keyframes slide-out {
-    100% {
-      opacity: 0;
-      translate: 0 100%;
-    }
-  }
-
-  @keyframes slide-in {
-    0% {
-      opacity: 0;
-      translate: 0 -100%;
-    }
-  }
-</style>
-
 <script>
+  //   const WORDS = [
+  //     "Productivity",
+  //     "Efficiency",
+  //     "Passion",
+  //     "Creativity",
+  //   ];
+
   const WORDS = [
-    "Productivity",
-    "Efficiency",
-    "Passion",
-    "Creativity",
+    "Frontend Developer",
+    "Architect",
+    "Prototyper",
+    "Animator",
+    "Fullstack Developer",
+    "UI/UX Designer",
+    "Web Engineer",
+    "Illustrator",
+    "AI Engineer",
   ];
   let count = 0;
   const SWAPPER = document.querySelector("#swapper");
 
-  console.log(SWAPPER);
   const SWAP = () => {
     if (!document.startViewTransition) {
-      console.log("tests");
       SWAPPER.innerText =
         WORDS[(count += 1) % WORDS.length];
     } else {
       document.startViewTransition(() => {
-        console.log("words", WORDS);
-        // console.log(WORDS[(count += 1)]);
         SWAPPER.innerText =
           WORDS[(count += 1) % WORDS.length];
       });

@@ -12,13 +12,13 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: AvertaBold;
   src: url("/fonts/AvertaBold") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @keyframes liner {
   50% {
@@ -30,12 +30,35 @@
   :root {
     --font-sans: Averta, sans-serif;
     /* --font-sans: Averta, sans-serif; */
-    --font-heading: AvertaBold, sans-serif;
+    /* --font-heading: AvertaBold, sans-serif; */
+    --font-heading: "Roboto Slab Variable", sans-serif;
     --lines: 0.0001px;
     --space: in oklch;
     --gradientFrom: oklch(50% 0.2 0.1 0deg);
     --gradientTo: oklch(50% 0.2 0.1 180deg);
-    /* --font-heading: Teko, sans-serif; */
+
+    --linearAnimation: linear(
+      0,
+      0.6832 7.89%,
+      0.9171 11.07%,
+      1.0251,
+      1.1058 14.9%,
+      1.1619 16.86%,
+      1.1945 18.91%,
+      1.2024 20.02%,
+      1.2043 21.18%,
+      1.1907,
+      1.1598 26.27%,
+      1.0604 32.59%,
+      1.0172 35.84%,
+      0.9839 39.49%,
+      0.967 43.26%,
+      0.9639 45.77%,
+      0.9661 48.59%,
+      0.9963 60.54%,
+      1.0054 67.42%,
+      1
+    );
 
     color-scheme: light;
     --theme-bg: 0 0% 98%;
@@ -257,5 +280,61 @@
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .swapper {
+    view-transition-name: swapper;
+  }
+  .swapper-first {
+    view-transition-name: swapper-first;
+  }
+  .swapper-last {
+    view-transition-name: swapper-last;
+  }
+
+  ::view-transition-new(swapper),
+  ::view-transition-old(swapper) {
+    height: 100%;
+    object-fit: none;
+    object-position: top left;
+  }
+
+  ::view-transition-old(swapper) {
+    animation-name: slide-out;
+    animation-duration: 0.75s;
+    animation-timing-function: var(--linearAnimation);
+  }
+
+  ::view-transition-new(swapper) {
+    animation-name: slide-in;
+    animation-duration: 0.75s;
+    animation-timing-function: var(--linearAnimation);
+    /* animation-timing-function: "easeOut"; */
+  }
+
+  ::view-transition-group(swapper-last),
+  ::view-transition-group(swapper-first) {
+    animation-duration: 0.75s;
+    animation-timing-function: var(--linearAnimation);
+  }
+  /* 
+  ::view-transition-group(swapper-last) {
+    animation-duration: 0.45s;
+    animation-timing-function: var(--linearAnimation);
+    opacity: 30;
+  } */
+
+  @keyframes slide-out {
+    100% {
+      opacity: 0;
+      translate: 0 100%;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      translate: 0 -100%;
+    }
   }
 }
