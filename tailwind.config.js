@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+const { transform } = require("typescript");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -26,7 +27,8 @@ module.exports = {
         ],
       },
       colors: {
-        bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
+        // bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
+        bgColor: "oklch(10% 0.1 250 / <alpha-value>)",
         textColor: "hsl(var(--theme-text) / <alpha-value>)",
         link: "hsl(var(--theme-link) / <alpha-value>)",
         // accent: "hsl(var(--theme-accent) / <alpha-value>)",
@@ -35,7 +37,15 @@ module.exports = {
         "accent-3":
           "hsl(var(--theme-accent-3) / <alpha-value>)",
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
-        accent: "oklch(81.79% 0.3 142.12 / <alpha-value>)",
+        // accent: "oklch(81.79% 0.3 142.12 / <alpha-value>)",
+        // accent: "oklch(50% 0.2 250/ <alpha-value>)",
+        // accent: "oklch(70% 0.1 240/ <alpha-value>)",
+        // accent: "oklch(70% 0.1 150/ <alpha-value>)",
+        // accent: "oklch(60% 0.15 140/ <alpha-value>)",
+        accent: "oklch(80% 0.2 160/ <alpha-value>)",
+        // accent: "oklch(65% 0.2 135/ <alpha-value>)",
+        // accent: "oklch(75% 0.15 145/ <alpha-value>)",
+        // accent: "oklch(60% 0.25 155/ <alpha-value>)",
       },
       spacing: {
         xs: "0.25rem",
@@ -75,6 +85,16 @@ module.exports = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        planetMovement: {
+          "0%": {
+            transform: "translateY(0%)",
+          },
+          "50%": { transform: "translateY(10%)" },
+          "100%": {
+            transform: "translateX(-500px)",
+          },
+        },
+
         meteor: {
           "0%": {
             transform: "rotate(215deg) translateX(0)",

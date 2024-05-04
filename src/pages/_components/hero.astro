@@ -2,40 +2,42 @@
 import { AuroraBackground } from "@/components/ui/aurora-background";
 ---
 
-<AuroraBackground className="relative  ">
-  <div
-    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+<section
+  class="relative planet min-h-svh grid place-content-center gap-xl justify-center w-full min-w-7xl"
+>
+  <!-- <AuroraBackground
+    className="absolute mix-blend-exclusion h-svh w-svw p-xl  "
   >
-  </div>
-  <div
-    class="absolute inset-0 bg-radial-gradient-1 opacity-30 mix-blend-screen"
-  >
-  </div>
-  <section
-    class="relative container mx-auto min-h-svh grid place-content-center gap-xl justify-center w-full min-w-7xl"
-  >
-    <h6
-      class="font-light opacity-90 tracking-widest text-center"
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
     >
-      ANDRES TRUJILLO
-    </h6>
-    <p
-      class="flex font-semibold text-6xl font-heading flex-wrap gap-[0.5ch] min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
+    </div>
+    <div
+      class="absolute inset-0 bg-radial-gradient-1 opacity-30"
     >
-      <span class="swapper-first">Creative </span>
-      <span
-        id="swapper"
-        class="swapper text-7xl font-black text-accent font-cursive rounded-md py-0 px-xs"
-        >Frontend Dev</span
-      >
-      <span class="swapper-last">empowering</span>
-      <span class="block w-full">
-        change through design</span
-      >
-      <span class="block w-full"> and engineering</span>
-    </p>
-  </section>
-</AuroraBackground>
+    </div>
+  </AuroraBackground> -->
+  <h6
+    class="font-light opacity-90 tracking-widest text-center"
+  >
+    ANDRES TRUJILLO
+  </h6>
+  <p
+    class="flex font-semibold text-7xl font-heading tracking-tighter flex-wrap gap-[0.5ch] min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
+  >
+    <span class="swapper-first">Creative </span>
+    <span
+      id="swapper"
+      class="swapper text-7xl font-black text-accent font-cursive rounded-md py-0 px-xs"
+      >Frontend Dev</span
+    >
+    <span class="swapper-last">empowering</span>
+    <span class="block w-full font-white">
+      change through design</span
+    >
+    <span class="block w-full"> and engineering</span>
+  </p>
+</section>
 
 <script>
   //   const WORDS = [
