@@ -25,8 +25,8 @@
     --font-sans: Averta, sans-serif;
     /* --font-cursive: "Dancing Script Variable", sans-serif; */
     --font-cursive: "Great Vibes", sans-serif;
-    --font-heading: "Roboto Slab Variable", sans-serif;
-    /* --font-heading: AvertaBold, sans-serif; */
+    /* --font-heading: "Roboto Slab Variable", sans-serif; */
+    --font-heading: AvertaBold, sans-serif;
     --lines: 0.0001px;
     --space: in oklch;
 
