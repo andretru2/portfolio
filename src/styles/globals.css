@@ -12,30 +12,23 @@
   font-display: swap;
 }
 
-/* @font-face {
+@font-face {
   font-family: AvertaBold;
   src: url("/fonts/AvertaBold") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-} */
-
-@keyframes liner {
-  50% {
-    --lines: 0.00012px;
-  }
 }
 
 @layer base {
   :root {
     --font-sans: Averta, sans-serif;
-    /* --font-sans: Averta, sans-serif; */
-    /* --font-heading: AvertaBold, sans-serif; */
+    /* --font-cursive: "Dancing Script Variable", sans-serif; */
+    --font-cursive: "Great Vibes", sans-serif;
     --font-heading: "Roboto Slab Variable", sans-serif;
+    /* --font-heading: AvertaBold, sans-serif; */
     --lines: 0.0001px;
     --space: in oklch;
-    --gradientFrom: oklch(50% 0.2 0.1 0deg);
-    --gradientTo: oklch(50% 0.2 0.1 180deg);
 
     --linearAnimation: linear(
       0,
@@ -86,11 +79,6 @@
     --theme-link: 356 100% 67%;
     --theme-text: 0 0% 99%;
     --theme-accent: 133 100% 41%;
-    /* --theme-accent-oklch: 74.74% 0.242 144.04 */
-    /* --theme-accent-oklch: 0.762 0.177 190.000 */
-    /* --theme-accent-oklch: 66.28% .24 151.4 */
-    /* --theme-accent-oklch: 95.47% 0.21 114.58 */
-    /* --theme-accent-oklch: oklch(74.74% 0.242 144.04 */
     --theme-accent-2: 240 0% 52%;
     --theme-accent-3: 225 8% 20%;
     --theme-quote: 211 43% 38%;
@@ -99,7 +87,7 @@
 
 @layer base {
   body {
-    @apply h-full w-full overflow-x-hidden  bg-bgColor  font-sans  text-lg font-normal text-textColor antialiased;
+    @apply h-full w-full overflow-x-hidden bg-bgColor font-sans text-lg font-normal text-textColor antialiased;
   }
 
   h1 {
@@ -155,19 +143,15 @@
   ::-webkit-scrollbar-corner {
     background: var(--background);
   }
-
-  /* section{
-   @apply py-[calc(var(--spacing-xl)*1rem)];
- } */
 }
 
 @layer components {
   button {
-    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none  transition no-underline;
+    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none transition no-underline;
   }
 
   .button-primary {
-    @apply bg-accent  hover:brightness-90;
+    @apply bg-accent hover:brightness-90;
   }
 
   .button-outline {
@@ -188,11 +172,11 @@
     @apply animate-glow;
   }
   .glow:after {
-    @apply absolute -bottom-2 rounded-lg  bg-[200%_100%] left-0 h-1.5 w-full bg-gradient-to-r from-transparent  via-accent/70 to-accent   origin-bottom-left content-[""];
+    @apply absolute -bottom-2 rounded-lg bg-[200%_100%] left-0 h-1.5 w-full bg-gradient-to-r from-transparent via-accent/70 to-accent origin-bottom-left content-[""];
   }
 
   .card {
-    @apply flex items-center bg-accent-3 backdrop-blur-sm justify-center h-full  rounded-2xl p-m  stroke-[0.1] hover:stroke-[0.15];
+    @apply flex items-center bg-accent-3 backdrop-blur-sm justify-center h-full rounded-2xl p-m stroke-[0.1] hover:stroke-[0.15];
   }
   .card-2 {
     @apply bg-neutral-800 rounded-lg border border-neutral-600 flex flex-row p-8 absolute justify-between stroke-[0.1] hover:stroke-[0.15] dark:shadow-white/30 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)];
@@ -202,14 +186,6 @@
     @apply border border-accent-3/80 bg-gradient-to-tr from-white/10 to-accent-2/70 shadow-xl;
   }
 
-  .gradient {
-    background-image: linear-gradient(
-      to right var(--space),
-      var(--bg-gradientFrom),
-      var(--gradientTo)
-    );
-  }
-
   .planet:before {
     content: "";
     display: block;
@@ -217,37 +193,35 @@
     width: 1500px;
     aspect-ratio: 1;
     left: 120%;
-    top: 50%;
+    top: 40%;
     z-index: -1;
     transform: translateX(-50%) translateY(-50%);
     background-image: radial-gradient(
-      at 50% 50% in oklch,
-      color-mix(in oklch, skyblue, blue 80%),
-      color-mix(in oklch, skyblue, blue 10%) 19%,
-      color-mix(in oklch, skyblue, blue 20%) 20%,
-      color-mix(in oklch, skyblue, blue 80%),
-      color-mix(in oklch, blue, black 50%) 55%,
-      transparent 70%
+      at 70% 10% in oklch,
+      color-mix(
+          in oklch,
+          oklch(81.79% 0.3 142.12),
+          skyblue 40%
+        )
+        5%,
+      color-mix(
+          in oklch,
+          oklch(81.79% 0.3 142.12),
+          lime 70%
+        )
+        30%,
+      color-mix(in oklch, darkgreen, black 60%) 60%,
+      transparent 80%
     );
-    /* background-image: radial-gradient(
-      at 50% 50% in oklch,
-      color-mix(in oklch, #008000, #004d00 80%),
-      color-mix(in oklch, #008000, #004d00 10%) 19%,
-      color-mix(in oklch, #008000, #004d00 20%) 20%,
-      color-mix(in oklch, #008000, #004d00 80%),
-      color-mix(in oklch, #004d00, #000000 50%) 55%,
-      transparent 70%
-    ); */
   }
 
   .noise {
-    @supports (
-      background: linear-gradient(in oklch, #000, #000)
-    ) {
-      --hour: 1200s;
-    }
+    --space: ;
+    --lines: 0.0001px;
+    --hour: 1200s;
 
     animation: liner var(--hour) linear infinite;
+
     mask: repeating-radial-gradient(
       circle at center,
       #000,
@@ -258,28 +232,46 @@
       calc(var(--lines) * 2),
       #0000 0
     );
+    -webkit-mask-image: repeating-radial-gradient(
+      circle at center,
+      #000,
+      var(--lines),
+      #000,
+      0,
+      #0000,
+      calc(var(--lines) * 2),
+      #0000 0
+    );
+
+    @supports (
+      background: linear-gradient(in oklch, #000, #000)
+    ) {
+      --space: in oklch;
+    }
 
     /* background-image: linear-gradient(
       to right var(--space),
       deeppink,
       blue
     ); */
-    /* 
-    background-image: linear-gradient(
-      to right var(--space),
-      var(--green-500),
-      #f7f3f3
-    ); */
 
     background-image: linear-gradient(
-      to right var(--space),
-      var(--gradientFrom),
-      var(--gradientTo),
-      /* #f7f3f3 */
+      to right,
+      oklch(81.79% 0.3 142.12),
+      oklch(94.51% 0.124 101.54)
     );
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media (prefers-color-scheme: light) {
+      background-image: linear-gradient(
+        to right var(--space),
+        black,
+        gray
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   .swapper {
@@ -309,7 +301,6 @@
     animation-name: slide-in;
     animation-duration: 0.75s;
     animation-timing-function: var(--linearAnimation);
-    /* animation-timing-function: "easeOut"; */
   }
 
   ::view-transition-group(swapper-last),
@@ -317,12 +308,43 @@
     animation-duration: 0.75s;
     animation-timing-function: var(--linearAnimation);
   }
-  /* 
-  ::view-transition-group(swapper-last) {
-    animation-duration: 0.45s;
-    animation-timing-function: var(--linearAnimation);
-    opacity: 30;
-  } */
+
+  .bg-radial-gradient-1 {
+    background-image: radial-gradient(
+      at 50% 50% in oklch,
+      color-mix(
+          in oklch,
+          oklch(70% 0.1 230),
+          oklch(40% 0.2 240) 80%
+        )
+        0%,
+      color-mix(
+          in oklch,
+          oklch(70% 0.1 230),
+          oklch(40% 0.2 240) 10%
+        )
+        19%,
+      color-mix(
+          in oklch,
+          oklch(70% 0.1 230),
+          oklch(40% 0.2 240) 20%
+        )
+        20%,
+      color-mix(
+          in oklch,
+          oklch(70% 0.1 230),
+          oklch(40% 0.2 240) 80%
+        )
+        40%,
+      color-mix(
+          in oklch,
+          oklch(40% 0.2 240),
+          oklch(10% 0.1 240) 50%
+        )
+        55%,
+      transparent 70%
+    );
+  }
 
   @keyframes slide-out {
     100% {
@@ -335,6 +357,12 @@
     0% {
       opacity: 0;
       translate: 0 -100%;
+    }
+  }
+
+  @keyframes liner {
+    50% {
+      --lines: 0.00012px;
     }
   }
 }

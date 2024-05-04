@@ -8,6 +8,8 @@ import Footer from "@/components/ui/footer.astro";
 import { ViewTransitions } from "astro:transitions";
 // import "@fontsource/teko";
 import "@fontsource-variable/roboto-slab";
+import "@fontsource-variable/dancing-script";
+import "@fontsource/great-vibes";
 
 export type Props = HeadProps;
 
@@ -30,7 +32,7 @@ const { ...head } = Astro.props;
     <Header />
     <main
       id="main"
-      class="relative z-10 md:container mx-auto flex flex-col gap-4xl"
+      class="relative z-10 flex flex-col gap-4xl"
     >
       <slot />
     </main>
