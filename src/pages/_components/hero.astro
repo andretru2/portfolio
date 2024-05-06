@@ -1,5 +1,8 @@
 ---
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Scene } from "./hero/tree-shader";
+
+// import Test from "./hero/test.astro";
 ---
 
 <section
@@ -37,7 +40,13 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
     >
     <span class="block w-full"> and Engineering</span>
   </p>
+  <div class="h-svh relative">
+    <Scene client:load />
+  </div>
 </section>
+<!-- <section class="mt-20">
+  <Test />
+</section> -->
 
 <script>
   //   const WORDS = [
@@ -62,16 +71,20 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
   const SWAPPER = document.querySelector("#swapper");
 
   const SWAP = () => {
-    if (!document.startViewTransition) {
-      SWAPPER.innerText =
-        WORDS[(count += 1) % WORDS.length];
-    } else {
-      document.startViewTransition(() => {
+    if (count < 10) {
+      if (!document.startViewTransition) {
         SWAPPER.innerText =
           WORDS[(count += 1) % WORDS.length];
-      });
+      } else {
+        document.startViewTransition(() => {
+          SWAPPER.innerText =
+            WORDS[(count += 1) % WORDS.length];
+        });
+      }
+    } else {
+      clearInterval(interval);
     }
   };
 
-  setInterval(SWAP, 2000);
+  const interval = setInterval(SWAP, 2000);
 </script>
