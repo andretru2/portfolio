@@ -320,7 +320,7 @@ void main() {
 
   return (
     <mesh ref={meshRef}>
-      <planeGeometry args={[4, 3]} />
+      <planeGeometry args={[10, 10]} />
       <shaderMaterial
         uniforms={uniforms}
         vertexShader={vertexShader}

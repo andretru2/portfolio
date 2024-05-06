@@ -1,6 +1,7 @@
 ---
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Scene } from "./hero/tree-shader";
+import { SphereCanvas } from "./hero/canvas/sphere";
 
 // import Test from "./hero/test.astro";
 ---
@@ -40,8 +41,9 @@ import { Scene } from "./hero/tree-shader";
     >
     <span class="block w-full"> and Engineering</span>
   </p>
-  <div class="h-svh relative">
-    <Scene client:load />
+  <div class="absolute inset-0 h-full w-full -z-10">
+    <!-- <Scene client:load /> -->
+    <SphereCanvas client:load />
   </div>
 </section>
 <!-- <section class="mt-20">
