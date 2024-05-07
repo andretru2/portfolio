@@ -19,6 +19,7 @@ import {
 function MainSphere({ material }) {
   const main = useRef();
   // main sphere rotates following the mouse position
+
   useFrame(({ clock, mouse }) => {
     main.current.rotation.z = clock.getElapsedTime();
     main.current.rotation.y = THREE.MathUtils.lerp(
@@ -37,7 +38,7 @@ function MainSphere({ material }) {
       args={[1, 4]}
       ref={main}
       material={material}
-      position={[0, 0, 0]}
+      position={[-1, 0, 0]}
     />
   );
 }
@@ -57,13 +58,24 @@ function Instances({ material }) {
     [8, 10, -20],
   ];
   // smaller spheres movement
+  // useFrame(() => {
+  //   // animate each sphere in the array
+  //   sphereRefs.forEach((el) => {
+  //     el.position.x += 0.02;
+  //     if (el.position.x > 19) el.position.x = -18;
+  //     el.rotation.y += 0.06;
+  //     el.rotation.x += 0.06;
+  //     el.rotation.z += 0.02;
+  //   });
+  // });
+
   useFrame(() => {
     // animate each sphere in the array
     sphereRefs.forEach((el) => {
-      el.position.y += 0.02;
-      if (el.position.y > 19) el.position.y = -18;
-      el.rotation.x += 0.06;
+      el.position.x += 0.02;
+      if (el.position.x > 19) el.position.x = -18;
       el.rotation.y += 0.06;
+      el.rotation.x += 0.06;
       el.rotation.z += 0.02;
     });
   });
@@ -105,9 +117,13 @@ function Scene() {
         ref={set}
         envMap={envMap}
         bumpMap={bumpMap}
-        color={"#010101"}
-        roughness={0.1}
+        // color={"#010101"}
+        color={"#004072"}
+        // color={"#9ab2d3"}
+        // roughness={0.1}
+        roughness={0.6}
         metalness={1}
+        // bumpScale={0.005}
         bumpScale={0.005}
         clearcoat={1}
         clearcoatRoughness={1}
@@ -138,7 +154,7 @@ export function SphereCanvas() {
         attach="background"
         args={[`hsl(var(--theme-link))`]}
       /> */}
-      <fog color="#161616" attach="fog" near={8} far={30} />
+      <fog color="#00e094" attach="fog" near={8} far={30} />
       <Suspense fallback={<Html center>Loading.</Html>}>
         <Scene />
       </Suspense>
