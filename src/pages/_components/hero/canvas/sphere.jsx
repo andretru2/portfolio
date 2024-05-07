@@ -1,5 +1,10 @@
 import * as THREE from "three";
-import React, { Suspense, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   EffectComposer,
@@ -16,30 +21,87 @@ import {
   MeshDistortMaterial,
 } from "@react-three/drei";
 
+import { motion } from "framer-motion-3d";
+// import { useThree } from "@react-three/fiber";
+
 function MainSphere({ material }) {
   const main = useRef();
-  // main sphere rotates following the mouse position
-
-  useFrame(({ clock, mouse }) => {
-    main.current.rotation.z = clock.getElapsedTime();
-    main.current.rotation.y = THREE.MathUtils.lerp(
-      main.current.rotation.y,
-      mouse.x * Math.PI,
-      0.1
-    );
-    main.current.rotation.x = THREE.MathUtils.lerp(
-      main.current.rotation.x,
-      mouse.y * Math.PI,
-      0.1
-    );
+  const [color, setColor] = useState({
+    h: 206.34, // Initial HSL hue
+    s: 100, // Initial HSL saturation
+    l: 22, // Initial HSL lightness
   });
+  const [prevTime, setPrevTime] = useState(null);
+  const duration = 3; // Transition duration in seconds
+
+  useFrame(({ clock }) => {
+    if (!prevTime) {
+      setPrevTime(clock.getElapsedTime());
+    }
+
+    const elapsedTime = clock.getElapsedTime() - prevTime;
+    const lerpFactor = Math.min(elapsedTime / duration, 1);
+
+    // const targetColor = { h: 159.72, s: 100, l: 44 }; // Target HSL color
+    const targetColor = { h: 147.72, s: 100, l: 37 }; // Target HSL color
+
+    const newColor = {
+      h: THREE.MathUtils.lerp(
+        color.h,
+        targetColor.h,
+        lerpFactor
+      ),
+      s: THREE.MathUtils.lerp(
+        color.s,
+        targetColor.s,
+        lerpFactor
+      ),
+      l: THREE.MathUtils.lerp(
+        color.l,
+        targetColor.l,
+        lerpFactor
+      ),
+    };
+
+    if (main.current) {
+      main.current.material.color.setHSL(
+        newColor.h / 360,
+        newColor.s / 100,
+        newColor.l / 100
+      );
+    }
+
+    if (elapsedTime >= duration) {
+      setPrevTime(null);
+    }
+  });
+
   return (
-    <Icosahedron
-      args={[1, 4]}
-      ref={main}
-      material={material}
-      position={[-1, 0, 0]}
-    />
+    <motion.mesh
+      initial={{
+        y: -1,
+      }}
+      animate={{
+        y: 0.4,
+        x: 0.7,
+        scale: [1, 1.2, 1],
+        zIndex: [-10, 10, -10],
+        rotateY: Math.PI * 2,
+      }}
+      transition={{
+        duration: 3,
+        ease: "easeInOut",
+        loop: Infinity,
+        repeatDelay: 0,
+      }}
+    >
+      <Icosahedron
+        ref={main}
+        args={[1, 6]}
+        material={material}
+        position={[-1, 0, 0]}
+      />
+    </motion.mesh>
   );
 }
 
@@ -138,7 +200,7 @@ function Scene() {
 export function SphereCanvas() {
   return (
     <Canvas
-      colorManagement
+      // colorManagement
       // className="absolute inset-0 w-full h-full z-0"
       camera={{ position: [0, 0, 3] }}
       gl={{

@@ -2,6 +2,7 @@
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Scene } from "./hero/tree-shader";
 import { SphereCanvas } from "./hero/canvas/sphere";
+import { Swapper } from "./hero/swapper";
 
 // import Test from "./hero/test.astro";
 ---
@@ -30,12 +31,13 @@ import { SphereCanvas } from "./hero/canvas/sphere";
     class="flex font-semibold text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
   >
     <span class="swapper-first">Creative </span>
-    <span
-      id="swapper"
-      class="swapper text-7xl font-black text-accent rounded-md py-0 px-xs"
-      >Frontend Dev</span
-    >
+    <!-- <Swapper> -->
+    <Swapper client:load>
+      <span id="swapper" class="">Frontend Dev</span>
+    </Swapper>
+
     <span class="swapper-last">Empowering</span>
+
     <span class="block w-full font-white">
       Change Through Design</span
     >
@@ -51,13 +53,6 @@ import { SphereCanvas } from "./hero/canvas/sphere";
 </section> -->
 
 <script>
-  //   const WORDS = [
-  //     "Productivity",
-  //     "Efficiency",
-  //     "Passion",
-  //     "Creativity",
-  //   ];
-
   const WORDS = [
     "Frontend Dev",
     "Architect",
