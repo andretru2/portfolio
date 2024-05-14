@@ -2,7 +2,6 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
-const { transform } = require("typescript");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -34,10 +33,14 @@ module.exports = {
           "oklch(100% 0.1073 151.33 / <alpha-value>)",
         link: "hsl(var(--theme-link) / <alpha-value>)",
         // accent: "hsl(var(--theme-accent) / <alpha-value>)",
+        // "accent-2":
+        //   "hsl(var(--theme-accent-2) / <alpha-value>)",
         "accent-2":
-          "hsl(var(--theme-accent-2) / <alpha-value>)",
+          "oklch(61.37% 0.001 286.36 / <alpha-value>)",
+        // "accent-3":
+        //   "hsl(var(--theme-accent-3) / <alpha-value>)",
         "accent-3":
-          "hsl(var(--theme-accent-3) / <alpha-value>)",
+          "oklch(30.96% 0.011 271.04) / <alpha-value>)",
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
         // accent: "oklch(81.79% 0.3 142.12 / <alpha-value>)",
         // accent: "oklch(50% 0.2 250/ <alpha-value>)",

@@ -12,9 +12,9 @@ const { backgroundType, class: className } =
   class:list={[
     backgroundType === "hero" && "bg bg-hero",
     backgroundType === "toProject" &&
-      "bg  bg-gradient-to-b from-bgColor to-neutral-950 -translate-x-32 block",
+      "bg  bg-gradient-to-b from-bgColor/80 to-neutral-950 -translate-x-32 ",
     backgroundType === "fromProject" &&
-      "bg bg-gradient-to-b to-bgColor from-neutral-950",
+      "bg bg-gradient-to-b to-bgColor from-neutral-950 -translate-x-32",
     className,
   ]}
 >

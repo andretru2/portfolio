@@ -1,37 +1,79 @@
 ---
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import type { Project } from "@/types";
-import { Image } from "astro:assets";
 
-const { client, title, description, image } =
+import Card from "@/components/ui/card.astro";
+
+const { client, title, description, image, href } =
   Astro.props as Project;
 ---
 
-<article
-  class="flex flex-col gap-2xl container mx-auto py-7xl"
->
-  <div
-    class="flex flex-col gap-s items-center justify-center card py-7xl"
-  >
+<article class="flex flex-col gap-2xl container mx-auto">
+  <div class="flex flex-col gap-s items-start">
     <MovingBorderWrapper client:load>
       {client}
     </MovingBorderWrapper>
     <h2>
       {title}
     </h2>
-    <p class="mt-s text-center">
+    <p class="mt-s text-left">
       {description}
     </p>
   </div>
   <div
-    class="grid grid-cols-8 col-span-8 md:grid-cols-12 md:grid-rows-12 gap-m"
+    class="grid grid-cols-8 col-span-8 md:grid-cols-12 md:grid-rows-8 gap-m"
   >
-    <div class="relative col-span-8 row-span-12 card p-xl">
+    <Card
+      class="relative col-span-8 row-span-8 flex items-center justify-center p-xl"
+    >
+      <!-- <h3>Britannica Home Fashions</h3> -->
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="object-cover rounded-md"
+      />
+    </Card>
+    <Card class="relative col-span-4 row-span-5 p-xl">
       <img
         src={image.src}
         alt={image.alt}
         class="object-cover rounded-md [filter:grayscale(1)]"
       />
-    </div>
+    </Card>
+    <Card class="relative col-span-2 row-span-3 p-xl">
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="object-cover rounded-md [filter:grayscale(1)] inset-0"
+      />
+    </Card>
+    <Card
+      class="relative col-span-2 row-span-3 p-xl bg-accent hover:bg-accent/80"
+    >
+      <a
+        href={href}
+        class="col-span-1 row-span-6 cursor-pointer h-full w-full text-white flex flex-col justify-center gap-s items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-7"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+          ></path>
+        </svg>
+        <h6
+          class="flex text-center justify-center items-center"
+        >
+          View Project
+        </h6>
+      </a>
+    </Card>
   </div>
 </article>
