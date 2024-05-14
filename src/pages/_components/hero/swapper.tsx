@@ -32,7 +32,7 @@ export function Swapper({ children }: Props) {
   return (
     <motion.span
       {...animationProps}
-      className="swapper text-7xl font-black  rounded-md py-0 px-xs mix-blend-lighten"
+      className="swapper fluid:text-7xl font-black  rounded-md py-0 px-xs mix-blend-lighten"
     >
       {children}
     </motion.span>

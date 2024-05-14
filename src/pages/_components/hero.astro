@@ -3,14 +3,17 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Scene } from "./hero/tree-shader";
 import { SphereCanvas } from "./hero/canvas/sphere";
 import { Swapper } from "./hero/swapper";
+import Background from "@/components/ui/background.astro";
 
 // import Test from "./hero/test.astro";
 ---
 
 <section
-  class="relative planet min-h-svh grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px]"
+  class="relative min-h-[130svh] grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden"
 >
-  <!-- <AuroraBackground
+  <Background backgroundType="hero" />
+  <!--
+    <AuroraBackground
     className="absolute mix-blend-exclusion h-svh w-svw p-xl  "
   >
     <div
@@ -21,14 +24,14 @@ import { Swapper } from "./hero/swapper";
       class="absolute inset-0 bg-radial-gradient-1 opacity-30"
     >
     </div>
-  </AuroraBackground> -->
+  </Background> -->
   <h6
     class="font-light opacity-90 tracking-widest text-center"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="flex font-semibold text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
+    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
   >
     <span class="swapper-first">Creative </span>
     <!-- <Swapper> -->

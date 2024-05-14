@@ -1,0 +1,18 @@
+---
+import SectionTitle from "@/components/ui/section-title.astro";
+import Project from "./project/project.astro";
+import { projects } from "@/config/projects";
+import Background from "@/components/ui/background.astro";
+---
+
+<section
+  id="#projects"
+  class:list={[
+    "relative flex  flex-col justify-center items-center w-full container mx-auto gap-2xl",
+  ]}
+>
+  <Background backgroundType="toProject" />
+  <SectionTitle>FEATURED PROJECTS</SectionTitle>
+
+  {projects.map((project) => <Project {...project} />)}
+</section>

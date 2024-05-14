@@ -160,7 +160,7 @@ export const projectSchema = z.object({
   client: z.string().min(1),
   description: z.any().optional(),
   wordsToHighlight: z.array(z.string()).optional(),
-  // image: z.string(),
+  image: z.object({ src: z.string(), alt: z.string() }),
   // images: z.array(z.string()).default([]).optional(),
   homepageUrl: z.string().url().optional(),
   repoUrl: z.string().url().optional(),

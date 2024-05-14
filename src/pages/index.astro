@@ -2,9 +2,10 @@
 import Layout from "./layout.astro";
 import "@/styles/globals.css";
 import { Icon } from "astro-icon/components";
-import { Projects } from "./_components/project/project";
+import { Projects as ProjectsOld } from "./_components/project/project";
 import About from "./_components/about.astro";
 import Hero from "./_components/hero.astro";
+import Projects from "./_components/projects.astro";
 
 export const prerender = true;
 ---
@@ -18,11 +19,13 @@ export const prerender = true;
   </section>
   <ProjectHero /> -->
   <Hero />
+  <Projects />
+
   <section
     id="#projects"
     class="flex justify-center min-h-svh items-center w-full mt-40"
   >
-    <Projects client:load />
+    <ProjectsOld client:load />
 
     <!-- <Project {...project} />)} -->
   </section>

@@ -34,7 +34,7 @@ function MainSphere({ material }) {
   const [prevTime, setPrevTime] = useState(null);
   const duration = 3; // Transition duration in seconds
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock, mouse }) => {
     if (!prevTime) {
       setPrevTime(clock.getElapsedTime());
     }
@@ -44,6 +44,18 @@ function MainSphere({ material }) {
 
     // const targetColor = { h: 159.72, s: 100, l: 44 }; // Target HSL color
     const targetColor = { h: 147.72, s: 100, l: 37 }; // Target HSL color
+
+    main.current.rotation.z = clock.getElapsedTime();
+    main.current.rotation.y = THREE.MathUtils.lerp(
+      main.current.rotation.y,
+      mouse.x * Math.PI,
+      0.1
+    );
+    main.current.rotation.x = THREE.MathUtils.lerp(
+      main.current.rotation.x,
+      mouse.y * Math.PI,
+      0.1
+    );
 
     const newColor = {
       h: THREE.MathUtils.lerp(
@@ -63,13 +75,13 @@ function MainSphere({ material }) {
       ),
     };
 
-    if (main.current) {
-      main.current.material.color.setHSL(
-        newColor.h / 360,
-        newColor.s / 100,
-        newColor.l / 100
-      );
-    }
+    // if (main.current) {
+    //   main.current.material.color.setHSL(
+    //     newColor.h / 360,
+    //     newColor.s / 100,
+    //     newColor.l / 100
+    //   );
+    // }
 
     if (elapsedTime >= duration) {
       setPrevTime(null);
@@ -78,15 +90,18 @@ function MainSphere({ material }) {
 
   return (
     <motion.mesh
-      initial={{
-        y: -1,
-      }}
+      initial={
+        {
+          // y: -1,
+        }
+      }
       animate={{
         y: 0.4,
-        x: 0.7,
-        scale: [1, 1.2, 1],
-        zIndex: [-10, 10, -10],
-        rotateY: Math.PI * 2,
+        x: [0.7, 0.4, 0.7],
+        // scale: [1, 1.2, 1],
+        scale: [1, 1.4, 1],
+        // zIndex: [-10, 10, -10],
+        // rotateY: Math.PI * 2,
       }}
       transition={{
         duration: 3,
@@ -179,8 +194,8 @@ function Scene() {
         ref={set}
         envMap={envMap}
         bumpMap={bumpMap}
-        // color={"#010101"}
-        color={"#004072"}
+        color={"#010101"}
+        // color={"#004072"}
         // color={"#9ab2d3"}
         // roughness={0.1}
         roughness={0.6}
@@ -189,7 +204,8 @@ function Scene() {
         bumpScale={0.005}
         clearcoat={1}
         clearcoatRoughness={1}
-        radius={1}
+        radius={0.9}
+        // distort={0.7}
         distort={0.4}
       />
       {material && <Instances material={material} />}
@@ -205,7 +221,7 @@ export function SphereCanvas() {
       camera={{ position: [0, 0, 3] }}
       gl={{
         powerPreference: "high-performance",
-        alpha: true,
+        // alpha: true,
         antialias: false,
         stencil: false,
         depth: false,

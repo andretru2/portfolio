@@ -1,0 +1,37 @@
+---
+import { MovingBorderWrapper } from "@/components/ui/moving-border";
+import type { Project } from "@/types";
+import { Image } from "astro:assets";
+
+const { client, title, description, image } =
+  Astro.props as Project;
+---
+
+<article
+  class="flex flex-col gap-2xl container mx-auto py-7xl"
+>
+  <div
+    class="flex flex-col gap-s items-center justify-center card py-7xl"
+  >
+    <MovingBorderWrapper client:load>
+      {client}
+    </MovingBorderWrapper>
+    <h2>
+      {title}
+    </h2>
+    <p class="mt-s text-center">
+      {description}
+    </p>
+  </div>
+  <div
+    class="grid grid-cols-8 col-span-8 md:grid-cols-12 md:grid-rows-12 gap-m"
+  >
+    <div class="relative col-span-8 row-span-12 card p-xl">
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="object-cover rounded-md [filter:grayscale(1)]"
+      />
+    </div>
+  </div>
+</article>

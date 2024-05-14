@@ -2,6 +2,7 @@ import type { Project } from "@/types";
 
 // import BHFHero from "@/pages/_assets/bhf-hero.png";
 import BHFHero from "@/pages/_assets/bhf-hero.mp4";
+import BHFHeroImage from "@/pages/_assets/bhf-hero-original.webp";
 import BHFPoMatch from "@/pages/_assets/spr-storyboarder-light.png";
 
 import { Highlight } from "@/components/ui/highlight";
@@ -11,14 +12,16 @@ export const projects: Project[] = [
     title: "ERP System",
     client: "Britannica Home Fashions",
     description:
-      "Here's how I single-handedly transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth.",
+      "Here's how I single-handedly built a full-cycle ERP system from the ground up, architecting an optimization powerhouse that accelerated growth and transformed teams, processes, and operations. ",
+    // "Here's how I single-handedly built an  transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth.",
     wordsToHighlight: [
       "single-handedly transformed",
       "full-cycle ERP system",
       "architecting an optimization powerhouse",
       " accelerated growth",
     ],
-    image: "/src/pages/_assets/spr-storyboarder-light.png",
+    // image: "/src/pages/_assets/spr-storyboarder-light.png",
+    image: BHFHeroImage,
 
     images: ["/projects/portfolio.jpg"],
     homepageUrl: "https://andretru2.github.io/",
