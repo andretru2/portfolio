@@ -8,11 +8,13 @@ import SectionTitle from "@/components/ui/section-title.astro";
 <section
   id="#projects"
   class:list={[
-    "relative flex  flex-col justify-center items-center w-full container mx-auto ",
+    " flex  flex-col justify-center items-center w-full container mx-auto relative",
   ]}
 >
-  <Background backgroundType="toProject" />
-  <SectionTitle>FEATURED PROJECTS</SectionTitle>
+  <!-- <Background backgroundType="projects" /> -->
+  <SectionTitle backgroundType="toProjects">
+    FEATURED PROJECTS</SectionTitle
+  >
 
   {projects.map((project) => <Project {...project} />)}
 </section>

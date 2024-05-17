@@ -1,6 +1,10 @@
 ---
 interface Props {
-  backgroundType: "hero" | "toProject" | "fromProject";
+  backgroundType:
+    | "hero"
+    | "toProjects"
+    | "fromProjects"
+    | "projects";
   class?: string;
 }
 
@@ -10,11 +14,13 @@ const { backgroundType, class: className } =
 
 <div
   class:list={[
-    backgroundType === "hero" && "bg bg-hero",
-    backgroundType === "toProject" &&
-      "bg  bg-gradient-to-b from-bgColor/80 to-neutral-950 -translate-x-32 ",
-    backgroundType === "fromProject" &&
-      "bg bg-gradient-to-b to-bgColor from-neutral-950 -translate-x-32",
+    backgroundType === "hero" &&
+      "bg bg-hero bg-bgColorHero",
+    backgroundType === "projects" && "bg bg-bgColor",
+    backgroundType === "toProjects" &&
+      "bg  bg-gradient-to-b from-bgColorHero/80 via-neutral-850 via-neutral-900 to-bgColor h-svh -translate-x-[45%] ",
+    backgroundType === "fromProjects" &&
+      "bg bg-gradient-to-b  to-bgColor from-neutral-950 ",
     className,
   ]}
 >
@@ -24,19 +30,19 @@ const { backgroundType, class: className } =
 <style>
   .bg {
     position: absolute;
-    width: 100svw;
+    width: 100dvw;
     aspect-ratio: 1;
     overflow: visible;
     z-index: -10;
     content: "";
     inset: 0;
-    min-height: 100svh;
   }
 
   .bg-hero {
     display: block;
     left: 130%;
     top: 40%;
+    min-height: 100svh;
     transform: translateX(-50%) translateY(-50%);
     background-image: radial-gradient(
       at 50% 50% in oklch,

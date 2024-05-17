@@ -27,7 +27,8 @@ module.exports = {
       },
       colors: {
         // bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
-        bgColor: "oklch(10% 0.1 250 / <alpha-value>)",
+        bgColor: "oklch(14.48% 0 0) / <alpha-value>)",
+        bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
         // textColor: "hsl(var(--theme-text) / <alpha-value>)",
         textColor:
           "oklch(100% 0.1073 151.33 / <alpha-value>)",
