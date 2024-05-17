@@ -3,6 +3,7 @@ import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import type { Project } from "@/types";
 
 import Card from "@/components/ui/card.astro";
+import { ProgressBar } from "@/components/ui/progress-bar";
 
 const { client, title, description, image, href } =
   Astro.props as Project;
@@ -34,6 +35,11 @@ const { client, title, description, image, href } =
       />
     </Card>
     <Card class="relative col-span-4 row-span-5 p-xl">
+      <div class="flex flex-row gap-m">
+        <ProgressBar client:load />
+        <ProgressBar delay={10} duration={7} client:load />
+        <ProgressBar client:load />
+      </div>
       <img
         src={image.src}
         alt={image.alt}
@@ -52,7 +58,7 @@ const { client, title, description, image, href } =
     >
       <a
         href={href}
-        class="col-span-1 row-span-6 cursor-pointer h-full w-full text-white flex flex-col justify-center gap-s items-center"
+        class="col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
