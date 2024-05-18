@@ -1,8 +1,75 @@
 ---
 import Project from "./project/project.astro";
-import { projects } from "@/config/projects";
-import Background from "@/components/ui/background.astro";
+// import { projects } from "@/config/projects";
 import SectionTitle from "@/components/ui/section-title.astro";
+import type { Project as ProjectProps } from "@/types";
+
+import BhfAbout from "@/pages/_assets/bhf-hero.mp4";
+import BhfFeatures from "@/pages/_assets/bhf-hero.mp4";
+import BhfMore from "@/pages/_assets/bhf-hero.mp4";
+
+const projects: ProjectProps[] = [
+  {
+    title: "ERP System",
+    client: "Britannica Home Fashions",
+    description:
+      "Here's how I single-handedly built a full-cycle ERP system from the ground up, architecting an optimization powerhouse that accelerated growth and transformed teams, processes, and operations. ",
+    // "Here's how I single-handedly built an  transformed entire teams, processes, and operations by building a full-cycle ERP system from the ground up while architecting an optimization powerhouse that accelerated growth.",
+    wordsToHighlight: [
+      "single-handedly transformed",
+      "full-cycle ERP system",
+      "architecting an optimization powerhouse",
+      " accelerated growth",
+    ],
+
+    homepageUrl: "https://andretru2.github.io/",
+    repoUrl: "",
+    caseStudyUrl: "",
+    hero: [
+      {
+        section: "About",
+        media: BhfAbout,
+      },
+      {
+        section: "Features",
+        media: BhfFeatures,
+      },
+      {
+        section: "More",
+        media: BhfMore,
+      },
+    ],
+    features: [
+      {
+        section: "About",
+        featured: 1,
+        title: "BHF",
+        description:
+          "A premier global provider of home goods, known for innovation and quality, this multi-million dollar company was established over 50 years ago in New York City.",
+        wordsToHighlight: [
+          "premier global provider",
+          "home goods",
+          "innovation and quality",
+          "multi-million dollar company",
+          "established over 50 years ago",
+        ],
+      },
+      {
+        section: "About",
+        featured: 2,
+        title: "Brands",
+        description: "BHF works with top brands ",
+        wordsToHighlight: [
+          "UGG",
+          "Pendleton",
+          "innovation and quality",
+          "multi-million dollar company",
+          "established over 50 years ago",
+        ],
+      },
+    ],
+  },
+];
 ---
 
 <section
@@ -11,7 +78,6 @@ import SectionTitle from "@/components/ui/section-title.astro";
     " flex  flex-col justify-center items-center w-full container mx-auto relative ",
   ]}
 >
-  <!-- <Background backgroundType="projects" /> -->
   <SectionTitle backgroundType="toProjects">
     FEATURED PROJECTS</SectionTitle
   >

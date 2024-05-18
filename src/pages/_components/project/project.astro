@@ -36,9 +36,9 @@ const { client, title, description, image, href } =
     </Card>
     <Card class="relative col-span-4 row-span-5 p-xl">
       <div class="flex flex-row gap-m">
-        <ProgressBar client:load />
-        <ProgressBar delay={10} duration={7} client:load />
-        <ProgressBar client:load />
+        <ProgressBar client:idle />
+        <ProgressBar delay={10} duration={7} client:idle />
+        <ProgressBar client:idle />
       </div>
       <img
         src={image.src}
