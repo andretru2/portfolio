@@ -147,8 +147,10 @@ export const projectFeatureSchema = z.object({
   featured: z.number().optional(),
   title: z.string(),
   description: z.string(),
-  svg: z.string().optional(),
-  content: z.any().optional(),
+  wordsToHighlight: z.array(z.string()).optional(),
+  // media:
+  // svg: z.string().optional(),
+  // content: z.any().optional(),
 });
 
 export const projectFeaturesSchema = z.array(

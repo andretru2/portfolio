@@ -4,9 +4,20 @@ import type { Project } from "@/types";
 
 import Card from "@/components/ui/card.astro";
 import { ProgressBar } from "@/components/ui/progress-bar";
+import { ProjectCardStack } from "./project-card-stack";
 
-const { client, title, description, image, href } =
-  Astro.props as Project;
+const {
+  client,
+  title,
+  description,
+  href,
+  hero,
+  features,
+  roles,
+  tools,
+} = Astro.props as Project;
+
+console.log(features);
 ---
 
 <article class="flex flex-col gap-2xl container mx-auto">
@@ -27,32 +38,22 @@ const { client, title, description, image, href } =
     <Card
       class="relative col-span-8 row-span-8 flex items-center justify-center p-xl"
     >
-      <!-- <h3>Britannica Home Fashions</h3> -->
-      <img
-        src={image.src}
-        alt={image.alt}
-        class="object-cover rounded-md"
-      />
+      // <!-- <h3>Britannica Home Fashions</h3> -->
+      <video autoplay class="h-full w-full object-cover">
+        <source src={hero[0].media} type="video/mp4" />
+      </video>
     </Card>
-    <Card class="relative col-span-4 row-span-5 p-xl">
+    <Card
+      class="relative col-span-4 row-span-5 p-xl flex flex-col gap-3xl"
+    >
       <div class="flex flex-row gap-m">
         <ProgressBar client:idle />
         <ProgressBar delay={10} duration={7} client:idle />
         <ProgressBar client:idle />
       </div>
-      <img
-        src={image.src}
-        alt={image.alt}
-        class="object-cover rounded-md [filter:grayscale(1)]"
-      />
+      <ProjectCardStack features={features} client:idle />
     </Card>
-    <Card class="relative col-span-2 row-span-3 p-xl">
-      <img
-        src={image.src}
-        alt={image.alt}
-        class="object-cover rounded-md [filter:grayscale(1)] inset-0"
-      />
-    </Card>
+    <Card class="relative col-span-2 row-span-3 p-xl" />
     <Card
       class="relative col-span-2 row-span-3 p-xl bg-accent hover:bg-accent/80"
     >

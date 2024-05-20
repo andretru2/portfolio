@@ -21,19 +21,21 @@ export const projects: Project[] = [
       " accelerated growth",
     ],
     // image: "/src/pages/_assets/spr-storyboarder-light.png",
-    image: BHFHeroImage,
+    // image: BHFHeroImage,
 
-    images: ["/projects/portfolio.jpg"],
+    // images: ["/projects/portfolio.jpg"],
     homepageUrl: "https://andretru2.github.io/",
     repoUrl: "",
     caseStudyUrl: "",
     features: [
       {
+        section: "About",
         featured: 1,
-        title: "About",
+        title: "BHF",
         description:
           "BHF is a premier global provider of home goods, known for innovation and quality. Works alongside the best brans in the world such as Pendleton, UGG, etc ",
-        svg: "c",
+        // svg: "c",
+        wordsToHighlight: [""],
         content: (
           <p>
             Streamlining and organizing a lot of tedious
