@@ -1,0 +1,24 @@
+---
+const logoPaths = import.meta.glob(
+  "/src/pages/_assets/bhf/*.{png,jpg,jpeg,webp,svg}"
+);
+
+const logos = await Promise.all(
+  Object.values(logoPaths).map((logoPath) => {
+    // Invoke the import function returned by import.meta.glob
+    return logoPath().then(({ default: image }) => image);
+  })
+);
+---
+
+<div class="grid grid-cols-5 gap-xl place-content-center">
+  {
+    logos.map((logo) => (
+      <img
+        class=" text-white bg-white aspect-video max-h-16  max-w-32"
+        src={logo.src}
+        alt="Logo"
+      />
+    ))
+  }
+</div>

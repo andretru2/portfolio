@@ -8,6 +8,8 @@ import BhfAbout from "@/pages/_assets/bhf-hero.mp4";
 import BhfFeatures from "@/pages/_assets/bhf-hero.mp4";
 import BhfMore from "@/pages/_assets/bhf-hero.mp4";
 
+import ProjectHeroBhfLogos from "./project/project-hero-bhf-logos.astro";
+
 const projects: ProjectProps[] = [
   {
     title: "ERP System",
@@ -82,4 +84,6 @@ const projects: ProjectProps[] = [
   >
 
   {projects.map((project) => <Project {...project} />)}
+
+  <ProjectHeroBhfLogos />
 </section>
