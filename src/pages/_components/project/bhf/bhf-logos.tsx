@@ -1,4 +1,4 @@
-import { motion, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Props {
   logos: string[];
@@ -26,22 +26,21 @@ export function BhfLogos({ logos }: Props) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-5 gap-xs place-content-center"
+      className="grid grid-cols-5 gap-m place-content-center"
     >
-      {logos.map((logo) => (
-        <Logo src={logo.src} key={logo} />
+      {logos.map((logo, i) => (
+        <Logo logo={logo} key={i} />
       ))}
     </motion.div>
   );
 }
 
-function Logo({ src }: { src: string }) {
+function Logo({ logo }: { logo: string }) {
   return (
-    <motion.img
+    <motion.svg
       variants={item}
-      src={src}
-      alt="Logo"
-      className="text-white bg-white aspect-video max-h-16 max-w-32"
+      dangerouslySetInnerHTML={{ __html: logo }}
+      className="max-w-16 max-h-8 fill-white "
     />
   );
 }
