@@ -1,17 +1,39 @@
 ---
+import { BhfLogos } from "./bhf/bhf-logos";
+
 const logoPaths = import.meta.glob(
-  "/src/pages/_assets/bhf/*.{png,jpg,jpeg,webp,svg}"
+  "/src/pages/_assets/bhf/*.{png,jpg,jpeg,webp,svg}",
+  {
+    as: "raw",
+  }
 );
 
+// Use Promise.all to wait for all imports to complete
 const logos = await Promise.all(
-  Object.values(logoPaths).map((logoPath) => {
-    // Invoke the import function returned by import.meta.glob
-    return logoPath().then(({ default: image }) => image);
+  Object.values(logoPaths).map(async (logoPath) => {
+    return logoPath().then((rawContent) => ({
+      rawContent,
+    }));
   })
+).then((logoObjects) =>
+  logoObjects.map(({ rawContent }) => rawContent)
 );
 ---
 
-<div class="grid grid-cols-5 gap-xl place-content-center">
+<BhfLogos logos={logos} client:load />
+
+<div class="grid grid-cols-5 gap-xl">
+  {
+    logos.map((logo) => (
+      <svg
+        set:html={logo}
+        class="max-w-16 max-h-8 fill-white"
+      />
+    ))
+  }
+</div>
+
+<!-- <div class="grid grid-cols-5 gap-xs place-content-center">
   {
     logos.map((logo) => (
       <img
@@ -21,4 +43,4 @@ const logos = await Promise.all(
       />
     ))
   }
-</div>
+</div> -->

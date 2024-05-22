@@ -36,15 +36,17 @@ console.log(features);
     class="grid grid-cols-8 col-span-8 md:grid-cols-12 md:grid-rows-8 gap-m"
   >
     <Card
-      class="relative col-span-8 row-span-8 flex items-center justify-center p-xl"
+      class="relative col-span-8 row-span-8 flex items-center justify-center p-l"
     >
-      // <!-- <h3>Britannica Home Fashions</h3> -->
-      <video autoplay class="h-full w-full object-cover">
+      <video
+        autoplay
+        class="h-full w-full object-cover aspect-video rounded-md"
+      >
         <source src={hero[0].media} type="video/mp4" />
       </video>
     </Card>
     <Card
-      class="relative col-span-4 row-span-5 p-xl flex flex-col gap-3xl"
+      class="relative col-span-4 row-span-5 p-l flex flex-col gap-3xl"
     >
       <div class="flex flex-row gap-m">
         <ProgressBar client:idle />
@@ -53,9 +55,9 @@ console.log(features);
       </div>
       <ProjectCardStack features={features} client:idle />
     </Card>
-    <Card class="relative col-span-2 row-span-3 p-xl" />
+    <Card class="relative col-span-2 row-span-3 p-l" />
     <Card
-      class="relative col-span-2 row-span-3 p-xl bg-accent hover:bg-accent/80"
+      class="relative col-span-2 row-span-3 p-l bg-accent hover:bg-accent/80"
     >
       <a
         href={href}
