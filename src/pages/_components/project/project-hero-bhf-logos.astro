@@ -1,5 +1,5 @@
 ---
-import { BhfLogos } from "./bhf/bhf-logos";
+import { BhfBrandLogos } from "./bhf/bhf-brand-logos";
 
 const logoPaths = import.meta.glob(
   "/src/pages/_assets/bhf/*.{png,jpg,jpeg,webp,svg}",
@@ -20,7 +20,7 @@ const logos = await Promise.all(
 );
 ---
 
-<BhfLogos logos={logos} client:load />
+<BhfBrandLogos logos={logos} client:load />
 
 <!-- <div class="grid grid-cols-5 gap-xl">
   {

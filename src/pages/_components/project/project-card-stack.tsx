@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { Separator } from "@/components/ui/separator";
 import { HighlightWords } from "@/components/ui/highlight-words";
+import { BhfLogos } from "./bhf/bhf-brand-logos";
 
 import { type ProjectFeature } from "@/types";
 
