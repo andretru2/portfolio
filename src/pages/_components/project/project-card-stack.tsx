@@ -5,22 +5,25 @@ import { motion } from "framer-motion";
 
 import { Separator } from "@/components/ui/separator";
 import { HighlightWords } from "@/components/ui/highlight-words";
-import { BhfLogos } from "./bhf/bhf-brand-logos";
 
 import { type ProjectFeature } from "@/types";
 
 let interval: any;
 
-export function ProjectCardStack({
-  features,
-}: ProjectFeature[]) {
+interface Props {
+  features: ProjectFeature[];
+}
+
+export function ProjectCardStack({ features }: Props) {
   const CARD_OFFSET = 10;
   const SCALE_FACTOR = 0.06;
-  const DURATION = 5;
+  const DURATION = 10 / features.length;
   const [cards, setCards] =
     useState<ProjectFeature[]>(features);
 
   useEffect(() => {
+    setCards(features);
+
     const interval = setInterval(() => {
       setCards((prevCards) => {
         const newArray = [...prevCards];
@@ -30,14 +33,18 @@ export function ProjectCardStack({
     }, DURATION * 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [features]);
+
+  // if (features !== cards) {
+  //   setCards(features);
+  // }
 
   return (
     <div className="relative w-full h-full">
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute p-m gap-4 bg-black  w-full h-full rounded-3xl shadow-xl border border-white/30  dark:shadow-white/[0.05] flex flex-col"
+          className="absolute p-m gap-4 bg-black  w-full h-full rounded-3xl shadow-sm border border-white/30  dark:shadow-white/[0.05] flex flex-col"
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,
@@ -46,8 +53,10 @@ export function ProjectCardStack({
           }}
         >
           <Card
+            section={card.section}
             title={card.title}
             description={card.description}
+            // content={card.content}
             wordsToHighlight={card.wordsToHighlight}
           />
         </motion.div>
@@ -59,23 +68,21 @@ export function ProjectCardStack({
 function Card({
   title,
   description,
+  content,
   wordsToHighlight,
 }: ProjectFeature) {
   return (
-    <div className="flex flex-col justify-between gap-m">
+    <motion.div className="flex flex-col justify-between gap-m">
       <div className="flex flex-row justify-between">
         <h6 className="text-textColor/60">{title}</h6>
         {/* <svg>{card.svg}</svg> */}
       </div>
       <Separator />
-      {wordsToHighlight ? (
-        <HighlightWords
-          text={description}
-          highlightWords={wordsToHighlight}
-        />
-      ) : (
-        <p>{description}</p>
-      )}
-    </div>
+
+      <HighlightWords
+        text={description}
+        highlightWords={wordsToHighlight}
+      />
+    </motion.div>
   );
 }

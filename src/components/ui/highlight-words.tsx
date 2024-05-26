@@ -7,7 +7,7 @@ export const HighlightWords: React.FC<{
   highlightWords,
   // highlightClass = " bg-accent/10 text-accent/80 font-medium  rounded-md",
   // highlightClass = " font-semibold",
-  highlightClass = " font-semibold underline underline-offset-2 decoration-accent    text-textColor   px-1 py-0.5",
+  highlightClass = "  font-semibold underline underline-offset-2 decoration-accent truncate   text-textColor   px-1 py-0.5",
 }) => {
   const highlightWordsRegex = new RegExp(
     `\\b(${highlightWords
@@ -19,7 +19,7 @@ export const HighlightWords: React.FC<{
   const parts = text.split(highlightWordsRegex);
 
   return (
-    <p>
+    <p className="overflow-hidden sm:truncate md:whitespace-normal">
       {parts.map((part, index) =>
         highlightWordsRegex.test(part) ? (
           <span key={index} className={highlightClass}>

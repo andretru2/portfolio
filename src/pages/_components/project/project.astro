@@ -5,6 +5,7 @@ import type { Project } from "@/types";
 import Card from "@/components/ui/card.astro";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { ProjectCardStack } from "./project-card-stack";
+import { ProjectFeatures } from "./project-features";
 
 const {
   client,
@@ -20,14 +21,14 @@ const {
 console.log(features);
 ---
 
-<article class="flex flex-col gap-2xl container mx-auto">
+<article class="flex flex-col gap-xl container mx-auto">
   <div class="flex flex-col gap-s items-start">
     <MovingBorderWrapper client:load>
       {client}
     </MovingBorderWrapper>
-    <h2>
+    <h3>
       {title}
-    </h2>
+    </h3>
     <p class="mt-s text-left">
       {description}
     </p>
@@ -46,14 +47,19 @@ console.log(features);
       </video>
     </Card>
     <Card
-      class="relative col-span-4 row-span-5 p-l flex flex-col gap-xl"
+      class="relative col-span-4 row-span-5 p-l flex flex-col gap-2xl"
     >
       <div class="flex flex-row gap-m">
-        <ProgressBar client:idle />
-        <ProgressBar delay={10} duration={7} client:idle />
-        <ProgressBar client:idle />
+        <ProgressBar header="About" client:idle />
+        <ProgressBar
+          header="Features"
+          delay={10}
+          client:idle
+        />
+        <ProgressBar header="+More!" client:idle />
       </div>
-      <ProjectCardStack features={features} client:idle />
+      <ProjectFeatures features={features} client:idle />
+      <!-- <ProjectCardStack features={features} client:idle /> -->
     </Card>
     <Card class="relative col-span-2 row-span-3 p-l" />
     <Card

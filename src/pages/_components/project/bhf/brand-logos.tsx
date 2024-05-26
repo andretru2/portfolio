@@ -1,5 +1,5 @@
+"use client";
 import { motion } from "framer-motion";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 interface Props {
   logos: string[];
@@ -31,6 +31,7 @@ const item = {
 };
 
 export function BhfBrandLogos({ logos }: Props) {
+  console.log(logos);
   // const [selected, setSelected ] =
 
   const ROWS = 2;
@@ -62,22 +63,6 @@ export function BhfBrandLogos({ logos }: Props) {
     );
   });
 }
-
-// return Array.from({ length: ROWS }, (_, i) => (
-//   <motion.div
-//     key={i}
-//     variants={container}
-//     initial="hidden"
-//     animate="show"
-//     data-id={i}
-//     className="grid grid-flow-col gap-m place-content-center "
-//   >
-//     {...logos
-//       .slice(i * ITEMS_PER_ROW, ITEMS_PER_ROW)
-//       .map((logo, i) => <Logo logo={logo} key={i} />)}
-//   </motion.div>
-// ));
-// }
 
 function Logo({ logo }: { logo: string }) {
   return (

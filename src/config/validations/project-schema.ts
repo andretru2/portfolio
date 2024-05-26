@@ -146,6 +146,7 @@ export const Roles = new Map([
 export const projectFeatureSchema = z.object({
   featured: z.number().optional(),
   title: z.string(),
+  section: z.string(),
   description: z.string(),
   wordsToHighlight: z.array(z.string()).optional(),
   // media:
