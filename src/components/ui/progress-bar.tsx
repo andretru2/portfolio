@@ -14,11 +14,22 @@ export function ProgressBar({
 }: Props) {
   const ref = useRef(null);
   return (
-    <div className="w-full h-s rounded-lg overflow-hidden bg-white my-2">
+    <div className="w-full h-[0.4rem] rounded-lg overflow-hidden bg-white my-2">
       {header && (
-        <span className="absolute  opacity-80  top-[0.8rem] text-xs">
+        <motion.span
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 0.8,
+          }}
+          transition={{
+            delay: delay,
+          }}
+          className="absolute    top-[0.8rem] text-xs"
+        >
           {header}
-        </span>
+        </motion.span>
       )}
       <motion.div
         ref={ref}

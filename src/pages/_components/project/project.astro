@@ -56,7 +56,11 @@ console.log(features);
           delay={10}
           client:idle
         />
-        <ProgressBar header="+More!" client:idle />
+        <ProgressBar
+          header="+More!"
+          delay={20}
+          client:idle
+        />
       </div>
       <ProjectFeatures features={features} client:idle />
       <!-- <ProjectCardStack features={features} client:idle /> -->
