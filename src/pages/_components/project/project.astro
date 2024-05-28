@@ -6,7 +6,10 @@ import Card from "@/components/ui/card.astro";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { ProjectCardStack } from "./project-card-stack";
 import { ProjectFeatures } from "./project-features";
-
+import Background from "@/components/ui/background.astro";
+import { FallboxExample } from "./project-fallbox";
+// import FallboxExample from "./project-fallbox.astro";
+//
 const {
   client,
   title,
@@ -21,7 +24,10 @@ const {
 console.log(features);
 ---
 
-<article class="flex flex-col gap-xl container mx-auto">
+<article
+  class="flex flex-col gap-xl container mx-auto relative"
+>
+  <FallboxExample client:load />
   <div class="flex flex-col gap-s items-start">
     <MovingBorderWrapper client:load>
       {client}
@@ -69,6 +75,8 @@ console.log(features);
     <Card
       class="relative col-span-2 row-span-3 p-l bg-accent hover:bg-accent/80"
     >
+      <Background backgroundType="aurora" />
+
       <a
         href={href}
         class="col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
