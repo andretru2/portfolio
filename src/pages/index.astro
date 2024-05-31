@@ -12,28 +12,10 @@ export const prerender = true;
 ---
 
 <Layout title="Andres Trujillo">
-  <!-- <section
-    id="#projects"
-    class="col-span-12 flex min-h-svh justify-center items-center w-full mt-20"
-  >
-    {projects.map((project) => <Project {...project} />)}
-  </section>
-  <ProjectHero /> -->
   <Hero />
   <Projects />
-
-  <!-- <Background backgroundType="fromProjects" /> -->
-
-  <section
-    id="#projects"
-    class="flex justify-center min-h-svh items-center w-full mt-40"
-  >
-    <ProjectsOld client:load />
-
-    <!-- <Project {...project} />)} -->
-  </section>
   <About />
-  <!-- <ProjectHero /> -->
+
   <section
     id="hero"
     class="col-span-12 flex flex-col items-center justify-center min-h-svh gap-s bg-dotted"

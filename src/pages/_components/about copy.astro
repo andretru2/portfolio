@@ -1,0 +1,118 @@
+---
+import SectionAbout from "./about/section-about.astro";
+import { about } from "@/config/zzzzaboutbout";
+import { Highlight } from "@/components/ui/highlight";
+import profile from "../_assets/at-profile.png";
+import signature from "../_assets/at-signature.mp4";
+import { Image } from "astro:assets";
+---
+
+<SectionAbout>
+  <Fragment slot="title">{about.title}</Fragment>
+  <Fragment slot="description">
+    <p class="">
+      I am Andrés, originally from Colombia but now living
+      in NYC and loving it! After a rewarding career as a
+      full-stack senior software engineer (manager) in the
+      textile industry, I am <Highlight
+        >embarking on a new journey to specialize in
+        front-end development</Highlight
+      >. My focus is on companies and organizations at the
+      forefront of innovation, making a positive impact in
+      the world — anywhere I can contribute to restoring our
+      planet and creating a more sustainable future.
+    </p>
+    <p>
+      I am not just seeking a job —<Highlight
+        >I am seeking a chance to be part of something
+        special, to work with a team that shares my vision
+        for a better world</Highlight
+      >. Whether it's creating beautiful apps or crafting
+      engaging and inspiring websites, I thrive on the
+      opportunity to make a difference while doing what I
+      love.
+    </p>
+    <p>
+      Beyond my professional ambitions, I am very active. I
+      love waking up early and going to see the sunrise
+      while walking in Central Park. The peace and joy I
+      experience from being in nature is indescribable. My
+      wife even jokes that I have more photos of sunrises
+      and sunsets than of her :)
+    </p>
+
+    <p>
+      I know <Highlight
+        >I have the potential to inspire and change lives</Highlight
+      >and I am deeply inspired by the transformative
+      possibilities that lie ahead.<Highlight
+        >If my goals align with your mission, I welcome the
+        opportunity to connect</Highlight
+      >.
+    </p>
+  </Fragment>
+  <Image
+    slot="image"
+    class:list={[
+      "  card mt-24   shadow-3xl [perspective:1000px]   transition-all duration-500 transform  rounded-full object-cover h-full w-full max-h-[50dvh]",
+    ]}
+    style={{
+      filter: "grayscale(0.25)",
+      objectPosition: "center left ",
+    }}
+    src={profile}
+    alt="At profile picture"
+    format="webp"
+    loading="eager"
+    quality="high"
+    onload="this.style.opacity = 1; this.style.transform = 'scale(1)'"
+  />
+  <video
+    autoplay
+    slot="signature"
+    class="h-16 w-96 object-cover"
+  >
+    <source
+      src={signature}
+      type="video/mp4"
+    /><!-- fallback content -->
+  </video>
+  <div
+    slot="stats"
+    class="flex flex-row gap-2xl items-center align-middle w-full"
+  >
+    <div class="flex flex-col gap-xs items-center">
+      <h4 class="text-accent">NYC</h4>
+      <span class="text-xs font-light">Location</span>
+    </div>
+    <div class="flex flex-col gap-xs items-center">
+      <h4 class="text-accent">14+</h4>
+      <span class="text-xs font-light">Years of Exp</span>
+    </div>
+    <div class="flex flex-col gap-xs items-center">
+      <h4 class="text-accent">30+</h4>
+      <span class="text-xs font-light"
+        >Projects Completed
+      </span>
+    </div>
+    <!-- <div class="flex flex-col gap-xs items-center">
+      <h5 class="text-accent">MS Comp Science</h5>
+      <span class="text-xs font-light">Degree</span>
+    </div> -->
+    <div class="flex flex-col gap-xs items-center">
+      <h4 class="text-accent">2</h4>
+      <span class="text-xs font-light"
+        >Languages Spoken</span
+      >
+    </div>
+  </div>
+</SectionAbout>
+
+<style>
+  img {
+    transform-origin: center center;
+    transition:
+      opacity 400ms cubic-bezier(0.785, 0.135, 0.15, 0.86),
+      transform 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+</style>

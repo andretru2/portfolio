@@ -187,19 +187,17 @@ const projects: ProjectProps[] = [
     featured: 1,
   },
 ];
-
-console.log(projects);
 ---
 
 <section
-  id="#projects"
+  id="projects"
   class:list={[
     " flex  flex-col justify-center items-center w-full container mx-auto relative ",
   ]}
 >
   <SectionTitle backgroundType="toProjects">
-    FEATURED PROJECTS</SectionTitle
-  >
+    FEATURED PROJECTS
+  </SectionTitle>
 
   {projects.map((project) => <Project {...project} />)}
 
