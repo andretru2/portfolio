@@ -21,13 +21,13 @@ const {
   tools,
 } = Astro.props as Project;
 
-console.log(features);
+// console.log(features);
 ---
 
 <article
   class="flex flex-col gap-xl container mx-auto relative"
 >
-  <FallboxExample client:load />
+  <!-- <FallboxExample client:load /> -->
   <div class="flex flex-col gap-s items-start">
     <MovingBorderWrapper client:load>
       {client}
