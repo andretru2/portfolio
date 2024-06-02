@@ -34,7 +34,7 @@ import { cn } from "@/utils/cn";
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 
 import BHFHero from "@/pages/_assets/bhf-hero-original.webp";
-import { projects } from "@/config/projects-config";
+import { projects } from "@/config/zzzzprojects-config";
 import { CardStack } from "@/components/ui/card-stack";
 // import { distance } from "@popmotion/popcorn";
 import { Tools } from "@/config/validations/project-schema";

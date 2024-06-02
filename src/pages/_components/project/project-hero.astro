@@ -1,6 +1,16 @@
 ---
-import { Image } from "astro:assets";
-import BHFHero from "@/pages/_assets/bhf-hero.png";
+import Card from "@/components/ui/card.astro";
+
+const { media } = Astro.props;
 ---
 
-<Image src={BHFHero} alt="BHF Hero" />
+<Card
+  class="relative col-span-8 row-span-8 flex items-center justify-center p-l"
+>
+  <video
+    autoplay
+    class="h-full w-full object-cover aspect-video rounded-md"
+  >
+    <source src={media} type="video/mp4" />
+  </video>
+</Card>

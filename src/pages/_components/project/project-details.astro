@@ -1,0 +1,60 @@
+---
+import Card from "@/components/ui/card.astro";
+import { ProgressBar } from "@/components/ui/progress-bar";
+import { ProjectFeatures } from "./project-features";
+import Background from "@/components/ui/background.astro";
+
+const { features, href, reversed } = Astro.props;
+
+console.log("reversed", reversed);
+---
+
+<Card
+  class="relative col-span-4 row-span-5 p-l flex flex-col gap-2xl"
+>
+  <div class="flex flex-row gap-m">
+    <ProgressBar header="About" client:idle />
+    <ProgressBar header="Features" delay={10} client:idle />
+    <ProgressBar header="+More!" delay={20} client:idle />
+  </div>
+  <ProjectFeatures features={features} client:idle />
+</Card>
+
+<Card
+  class:list={[
+    reversed && "row-start-6",
+    "relative col-span-2 row-span-3 p-l ",
+  ]}
+/>
+<Card
+  class:list={[
+    reversed && "row-start-6",
+    "relative  col-span-2 row-span-3 p-l bg-accent hover:bg-accent/80 ",
+  ]}
+>
+  <Background backgroundType="aurora" />
+
+  <a
+    href={href}
+    class="col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-7"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
+    </svg>
+    <h6
+      class="flex text-center justify-center items-center"
+    >
+      View Project
+    </h6>
+  </a>
+</Card>

@@ -1,15 +1,15 @@
 ---
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import type { Project } from "@/types";
-
 import Card from "@/components/ui/card.astro";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { ProjectCardStack } from "./project-card-stack";
 import { ProjectFeatures } from "./project-features";
 import Background from "@/components/ui/background.astro";
 import { FallboxExample } from "./project-fallbox";
-// import FallboxExample from "./project-fallbox.astro";
-//
+import ProjectHero from "./project-hero.astro";
+import ProjectDetails from "./project-details.astro";
+
 const {
   client,
   title,
@@ -19,88 +19,62 @@ const {
   features,
   roles,
   tools,
+  featured,
 } = Astro.props as Project;
 
-// console.log(features);
+const reversed = featured ? featured % 2 === 0 : false;
+console.log("reversed", reversed);
 ---
 
 <article
   class="flex flex-col gap-xl container mx-auto relative"
 >
-  <!-- <FallboxExample client:load /> -->
-  <div class="flex flex-col gap-s items-start">
+  <div
+    class:list={[
+      "flex flex-col gap-s",
+      reversed ? "items-end" : "items-start",
+    ]}
+  >
     <MovingBorderWrapper client:load>
       {client}
     </MovingBorderWrapper>
     <h3>
       {title}
     </h3>
-    <p class="mt-s text-left">
+    <p
+      class:list={[
+        "mt-s",
+        reversed ? "text-right" : "text-left",
+      ]}
+    >
       {description}
     </p>
   </div>
   <div
-    class="grid grid-cols-8 col-span-8 md:grid-cols-12 md:grid-rows-8 gap-m"
+    class:list={[
+      "grid grid-cols-8 md:grid-cols-12 md:grid-rows-8 gap-m",
+    ]}
   >
-    <Card
-      class="relative col-span-8 row-span-8 flex items-center justify-center p-l"
-    >
-      <video
-        autoplay
-        class="h-full w-full object-cover aspect-video rounded-md"
-      >
-        <source src={hero[0].media} type="video/mp4" />
-      </video>
-    </Card>
-    <Card
-      class="relative col-span-4 row-span-5 p-l flex flex-col gap-2xl"
-    >
-      <div class="flex flex-row gap-m">
-        <ProgressBar header="About" client:idle />
-        <ProgressBar
-          header="Features"
-          delay={10}
-          client:idle
-        />
-        <ProgressBar
-          header="+More!"
-          delay={20}
-          client:idle
-        />
-      </div>
-      <ProjectFeatures features={features} client:idle />
-      <!-- <ProjectCardStack features={features} client:idle /> -->
-    </Card>
-    <Card class="relative col-span-2 row-span-3 p-l" />
-    <Card
-      class="relative col-span-2 row-span-3 p-l bg-accent hover:bg-accent/80"
-    >
-      <Background backgroundType="aurora" />
-
-      <a
-        href={href}
-        class="col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-7"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          ></path>
-        </svg>
-        <h6
-          class="flex text-center justify-center items-center"
-        >
-          View Project
-        </h6>
-      </a>
-    </Card>
+    {
+      reversed ? (
+        <Fragment>
+          <ProjectDetails
+            features={features}
+            href={href}
+            reversed={reversed}
+          />
+          <ProjectHero media={hero.src} />
+        </Fragment>
+      ) : (
+        <Fragment>
+          <ProjectHero media={hero.src} />
+          <ProjectDetails
+            features={features}
+            href={href}
+            reversed={reversed}
+          />
+        </Fragment>
+      )
+    }
   </div>
 </article>
