@@ -1,12 +1,7 @@
 ---
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import type { Project } from "@/types";
-import Card from "@/components/ui/card.astro";
-import { ProgressBar } from "@/components/ui/progress-bar";
-import { ProjectCardStack } from "./project-card-stack";
-import { ProjectFeatures } from "./project-features";
-import Background from "@/components/ui/background.astro";
-import { FallboxExample } from "./project-fallbox";
+
 import ProjectHero from "./project-hero.astro";
 import ProjectDetails from "./project-details.astro";
 
@@ -23,7 +18,6 @@ const {
 } = Astro.props as Project;
 
 const reversed = featured ? featured % 2 === 0 : false;
-console.log("reversed", reversed);
 ---
 
 <article
@@ -63,11 +57,11 @@ console.log("reversed", reversed);
             href={href}
             reversed={reversed}
           />
-          <ProjectHero media={hero.src} />
+          <ProjectHero media={hero} />
         </Fragment>
       ) : (
         <Fragment>
-          <ProjectHero media={hero.src} />
+          <ProjectHero media={hero} />
           <ProjectDetails
             features={features}
             href={href}

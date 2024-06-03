@@ -5,8 +5,6 @@ import { ProjectFeatures } from "./project-features";
 import Background from "@/components/ui/background.astro";
 
 const { features, href, reversed } = Astro.props;
-
-console.log("reversed", reversed);
 ---
 
 <Card
@@ -22,17 +20,17 @@ console.log("reversed", reversed);
 
 <Card
   class:list={[
-    reversed && "row-start-6",
+    reversed && "row-start-6 col-start-3",
     "relative col-span-2 row-span-3 p-l ",
   ]}
 />
 <Card
   class:list={[
-    reversed && "row-start-6",
+    reversed && "row-start-6  ",
     "relative  col-span-2 row-span-3 p-l bg-accent hover:bg-accent/80 ",
   ]}
 >
-  <Background backgroundType="aurora" />
+  <!-- <Background backgroundType="aurora" /> -->
 
   <a
     href={href}

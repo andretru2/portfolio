@@ -74,7 +74,7 @@ function Card({
   return (
     <motion.div className="flex flex-col justify-between gap-m h-max p-s overflow-hidden truncate">
       <div className="flex flex-row justify-between">
-        <h6 className="text-accent/60">{title}</h6>
+        <h6 className="">{title}</h6>
         {/* <svg>{card.svg}</svg> */}
       </div>
       <Separator />

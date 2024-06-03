@@ -1,11 +1,14 @@
 ---
 import Background from "./background.astro";
 
-const { backgroundType } = Astro.props;
+const { backgroundType, class: className } = Astro.props;
 ---
 
 <h6
-  class="relative p-0 px-xs bg-accent text-sm tracking-wider text-black font-bold w-max mb-7xl"
+  class:list={[
+    "relative p-0 px-xs bg-accent text-sm tracking-wider text-black font-bold w-max",
+    className,
+  ]}
 >
   <Background backgroundType={backgroundType} />
   <slot />
