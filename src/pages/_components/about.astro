@@ -4,32 +4,35 @@ import profile from "../_assets/at-profile.png";
 import signature from "../_assets/at-signature.mp4";
 import { Image } from "astro:assets";
 import SectionTitle from "@/components/ui/section-title.astro";
+import { NoiseText } from "./noise";
 ---
 
 <section
   id="about"
-  class="flex flex-col gap-xl mx-auto container justify-center items-center mt-7xl"
+  class="flex flex-col gap-xl mx-auto container justify-center items-center mt-3xl"
 >
-  <SectionTitle backgroundType="" class="my-7xl"
+  <SectionTitle backgroundType="" class="my-4xl"
     >ABOUT</SectionTitle
   >
   <div class="grid grid-cols-12 gap-m">
     <div class="col-span-7 flex flex-col gap-m">
+      <!-- <NoiseText client:load>hola</NoiseText> -->
       <h1 class="noise">Hola!</h1>
       <div class="relative flex flex-col gap-m">
         <p class="">
-          I am Andrés, a <Highlight
+          I am Andrés, a<Highlight
             >senior fullstack/frontend developer (manager)</Highlight
-          > with over <Highlight
+          > with over<Highlight
             >14 years of experience.</Highlight
-          > I am originally from Colombia but now living in
-          <Highlight>NYC</Highlight> and loving it! I have developed
-          a strong foundation in crafting innovative and efficient
-          technology solutions.
+          >I am originally from Colombia but now living in<Highlight
+            >NYC</Highlight
+          >and loving it! Throughout these years, I have
+          developed a strong foundation in crafting
+          innovative and efficient technology solutions.
         </p>
         <p>
-          After a rewarding career the textile industry, I
-          am<Highlight
+          After a rewarding career in the textile industry,
+          I am<Highlight
             >embarking on a new journey to specialize in
             frontend development.</Highlight
           > My focus is on companies and organizations at the

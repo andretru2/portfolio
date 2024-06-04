@@ -492,11 +492,25 @@
       blue
     ); */
 
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
       to right,
       oklch(81.79% 0.3 142.12),
       oklch(94.51% 0.124 101.54)
+    ); */
+    /* background-image: linear-gradient(
+      to right,
+      oklch(80% 0.2 150),
+      oklch(90% 0.15 170)
+    ); */
+
+    background-image: linear-gradient(
+      to right,
+      oklch(82% 0.25 158),
+      /* Adjusted to increase chroma slightly and align closer to the primary color */
+        oklch(95% 0.15 100)
+        /* Reduced chroma to ensure it doesn't overpower the primary color */
     );
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 

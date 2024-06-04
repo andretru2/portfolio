@@ -44,7 +44,7 @@ export function ProjectCardStack({ features }: Props) {
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute p-m gap-4 bg-black  w-full h-full rounded-3xl shadow-sm border border-white/30  dark:shadow-white/[0.05] flex flex-col"
+          className="absolute p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  dark:shadow-white/[0.05] flex flex-col"
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,

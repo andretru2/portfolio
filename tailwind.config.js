@@ -27,7 +27,7 @@ module.exports = {
       },
       colors: {
         // bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
-        bgColor: "oklch(14.48% 0 0) / <alpha-value>)",
+        bgColor: "oklch(14.48% 0 0 / <alpha-value>)",
         bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
         // textColor: "hsl(var(--theme-text) / <alpha-value>)",
         textColor:
@@ -41,7 +41,7 @@ module.exports = {
         // "accent-3":
         //   "hsl(var(--theme-accent-3) / <alpha-value>)",
         "accent-3":
-          "oklch(30.96% 0.011 271.04) / <alpha-value>)",
+          "oklch(30.96% 0.011 271.04 / <alpha-value>)",
         quote: "hsl(var(--theme-quote) / <alpha-value>)",
         // accent: "oklch(81.79% 0.3 142.12 / <alpha-value>)",
         // accent: "oklch(50% 0.2 250/ <alpha-value>)",
@@ -124,6 +124,7 @@ module.exports = {
         "meteor-effect": "meteor 5s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        // spin2: "spin2 0.5s linear "
       },
     },
   },

@@ -34,7 +34,7 @@ const { features, href, reversed } = Astro.props;
 
   <a
     href={href}
-    class="col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
+    class="text-bgColor col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const { features, href, reversed } = Astro.props;
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="size-7"
+      class="size-7 animate-spin"
     >
       <path
         stroke-linecap="round"
@@ -50,7 +50,7 @@ const { features, href, reversed } = Astro.props;
         d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
     </svg>
     <h6
-      class="flex text-center justify-center items-center"
+      class="flex text-center justify-center items-center font-medium"
     >
       View Project
     </h6>
