@@ -65,6 +65,7 @@ module.exports = {
         "5xl": "6rem",
         "6xl": "8rem",
         "7xl": "10rem",
+        "8xl": "12rem",
         outer: "1rem",
       },
       backgroundImage: {

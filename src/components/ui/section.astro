@@ -1,0 +1,31 @@
+---
+import SectionBackground from "./section-background.astro";
+import SectionTitle from "./section-title.astro";
+
+const {
+  id,
+  title,
+  bgColor = "bgColor",
+  class: className,
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    "flex flex-col justify-center items-center w-full relative gap-3xl pb-6xl ",
+    className,
+  ]}
+  id={id}
+>
+  <div
+    class="absolute rounded-t-[8rem] -top-6xl inset-0 bg-green-500"
+  >
+  </div>
+
+  <SectionTitle backgroundType="" class=""
+    >ABOUT</SectionTitle
+  >
+
+  <Background backgroundType={backgroundType} />
+  <slot />
+</section>

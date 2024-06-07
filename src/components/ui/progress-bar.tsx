@@ -14,7 +14,7 @@ export function ProgressBar({
 }: Props) {
   const ref = useRef(null);
   return (
-    <div className="w-full h-[0.4rem] rounded-lg overflow-hidden bg-white my-2">
+    <div className="w-full h-[0.4rem] rounded-xl overflow-hidden bg-white my-2">
       {header && (
         <motion.span
           initial={{

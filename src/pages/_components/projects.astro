@@ -14,6 +14,7 @@ import ProjectHeroBhfLogos from "./project/project-hero-bhf-logos.astro";
 
 const projects: ProjectProps[] = [
   {
+    visible: true,
     title: "ERP System",
     client: "Britannica Home Fashions",
     description:
@@ -172,6 +173,7 @@ const projects: ProjectProps[] = [
     featured: 1,
   },
   {
+    visible: false,
     title: "GigsTrax",
     client: "Real Beard Santas",
     description:
@@ -328,6 +330,7 @@ const projects: ProjectProps[] = [
     featured: 2,
   },
   {
+    visible: false,
     title: "Collection of my other projects",
     client: "Andres Trujillo",
     description:
@@ -489,14 +492,21 @@ const projects: ProjectProps[] = [
 <section
   id="projects"
   class:list={[
-    " flex  flex-col justify-center items-center w-full container mx-auto relative gap-7xl ",
+    " flex  flex-col justify-center items-center w-full  relative  bg-bgColor   py-6xl gap-3xl [perspective:1000px]",
   ]}
 >
+  <div
+    class="absolute rounded-t-[8rem] -top-3xl inset-0 border-t-4 border-accent bg-bgColor"
+  >
+  </div>
+
   <SectionTitle backgroundType="toProjects">
     FEATURED PROJECTS
   </SectionTitle>
 
-  {projects.map((project) => <Project {...project} />)}
+  <div class="flex flex-col gap-64">
+    {projects.map((project) => <Project {...project} />)}
+  </div>
 
   <!-- <ProjectHeroBhfLogos /> -->
   <!-- <BhfBrandLogosWrapper /> -->

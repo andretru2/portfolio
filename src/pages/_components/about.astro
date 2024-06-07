@@ -1,6 +1,7 @@
 ---
 import { Highlight } from "@/components/ui/highlight";
-import profile from "../_assets/at-profile.png";
+// import profile from "../_assets/at-profile.png";
+import profile from "../_assets/at-kauai.JPG";
 import signature from "../_assets/at-signature.mp4";
 import { Image } from "astro:assets";
 import SectionTitle from "@/components/ui/section-title.astro";
@@ -9,19 +10,27 @@ import { NoiseText } from "./noise";
 
 <section
   id="about"
-  class="flex flex-col gap-xl mx-auto container justify-center items-center mt-3xl"
+  class="flex flex-col justify-center items-center w-full relative bg-bgColorHero gap-6xl mt-[16rem] pb-3xl"
+  ,
 >
-  <SectionTitle backgroundType="" class="my-4xl"
+  <div
+    class="absolute rounded-t-[8rem] -top-6xl inset-0 border-t-4 border-accent bg-bgColorHero"
+  >
+  </div>
+
+  <SectionTitle backgroundType="" class=""
     >ABOUT</SectionTitle
   >
-  <div class="grid grid-cols-12 gap-m">
-    <div class="col-span-7 flex flex-col gap-m">
+  <div class="grid grid-cols-12 gap-xs container mx-auto">
+    <div class="col-span-6 flex flex-col gap-3xl h-full">
       <!-- <NoiseText client:load>hola</NoiseText> -->
-      <h1 class="noise">Hola!</h1>
-      <div class="relative flex flex-col gap-m">
+      <h2 class="noise">Hola!</h2>
+      <div
+        class="relative flex flex-col gap-m [&>*]:text-textColor"
+      >
         <p class="">
           I am Andrés, a<Highlight
-            >senior fullstack/frontend developer (manager)</Highlight
+            >senior fullstack / frontend developer (manager)</Highlight
           > with over<Highlight
             >14 years of experience.</Highlight
           >I am originally from Colombia but now living in<Highlight
@@ -40,7 +49,7 @@ import { NoiseText } from "./noise";
           the world — anywhere I can contribute to restoring
           our planet and creating a more sustainable future.
         </p>
-        <p>
+        <!-- <p>
           I am not just seeking a job —<Highlight
             >I am seeking a chance to be part of something
             special, to work with a team that shares my
@@ -49,7 +58,7 @@ import { NoiseText } from "./noise";
           crafting engaging and inspiring websites, I thrive
           on the opportunity to make a difference while
           doing what I love.
-        </p>
+        </p> -->
         <p>
           When I'm not coding, I enjoy exploring my creative
           side through art, music, and nature. I love to
@@ -67,23 +76,50 @@ import { NoiseText } from "./noise";
           >
         </p>
       </div>
-      <div class="w-32 h-16 self-end mr-[28%] mt-4">
-        <slot name="signature" />
+      <div
+        class="flex flex-row gap-2xl items-center align-middle w-full h-full z-10"
+      >
+        <div class="flex flex-col gap-xs items-center">
+          <h4 class="text-accent">NYC</h4>
+          <span class="text-xs font-light">Location</span>
+        </div>
+        <div class="flex flex-col gap-xs items-center">
+          <h4 class="text-accent">14+</h4>
+          <span class="text-xs font-light"
+            >Years of Exp</span
+          >
+        </div>
+        <div class="flex flex-col gap-xs items-center">
+          <h4 class="text-accent">30+</h4>
+          <span class="text-xs font-light"
+            >Projects Completed
+          </span>
+        </div>
+
+        <div class="flex flex-col gap-xs items-center">
+          <h4 class="text-accent">2</h4>
+          <span class="text-xs font-light"
+            >Languages Spoken</span
+          >
+        </div>
       </div>
+      <!-- <div class="w-32 h-16 self-end mr-[28%] mt-4">
+        <slot name="signature" />
+      </div> -->
     </div>
 
     <div
-      class="relative p-m col-span-5 flex flex-col items-center justify-center gap-xl"
+      class="relative p-m col-span-6 flex flex-col items-start gap-xl"
     >
       <!-- <CardGlow /> -->
       <Image
         slot="image"
         class:list={[
-          "  card mt-24   shadow-3xl [perspective:1000px]   transition-all duration-500 transform  rounded-full object-cover h-full w-full max-h-[50dvh]",
+          "  card    shadow-3xl [perspective:1000px]   transition-all duration-500 transform   rounded-xl object-cover h-full w-full max-h-[75dvh] max-w-[40dvw] ",
         ]}
         style={{
-          filter: "grayscale(0.25)",
-          objectPosition: "center left ",
+          // filter: "grayscale(0.25)",
+          objectPosition: "bottom left ",
         }}
         src={profile}
         alt="At profile picture"
@@ -102,36 +138,6 @@ import { NoiseText } from "./noise";
           type="video/mp4"
         />
       </video> -->
-      <div
-        class="mt-12 flex flex-row gap-2xl items-center align-middle w-full"
-      >
-        <div class="flex flex-col gap-xs items-center">
-          <h4 class="text-accent">NYC</h4>
-          <span class="text-xs font-light">Location</span>
-        </div>
-        <div class="flex flex-col gap-xs items-center">
-          <h4 class="text-accent">14+</h4>
-          <span class="text-xs font-light"
-            >Years of Exp</span
-          >
-        </div>
-        <div class="flex flex-col gap-xs items-center">
-          <h4 class="text-accent">30+</h4>
-          <span class="text-xs font-light"
-            >Projects Completed
-          </span>
-        </div>
-        <!-- <div class="flex flex-col gap-xs items-center">
-      <h5 class="text-accent">MS Comp Science</h5>
-      <span class="text-xs font-light">Degree</span>
-    </div> -->
-        <div class="flex flex-col gap-xs items-center">
-          <h4 class="text-accent">2</h4>
-          <span class="text-xs font-light"
-            >Languages Spoken</span
-          >
-        </div>
-      </div>
     </div>
   </div>
 

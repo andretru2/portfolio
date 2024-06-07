@@ -2,13 +2,13 @@
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { SphereCanvas } from "./hero/canvas/sphere";
 import { Swapper } from "./hero/swapper";
-import Background from "@/components/ui/background.astro";
+import Background from "@/components/ui/section-background.astro";
 
 // import Test from "./hero/test.astro";
 ---
 
 <section
-  class="bg-bgColorHero relative min-h-[110svh] grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden"
+  class="bg-bgColorHero relative min-h-[115svh] grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden [&>*]:-translate-y-8"
 >
   <Background backgroundType="hero" />
   <!--

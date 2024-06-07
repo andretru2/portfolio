@@ -4,6 +4,8 @@ import type { Project } from "@/types";
 
 import ProjectHero from "./project-hero.astro";
 import ProjectDetails from "./project-details.astro";
+import { Transition } from "@/components/ui/transition";
+import { FadeUpStagger } from "@/components/ui/fade-up";
 
 const {
   client,
@@ -15,6 +17,7 @@ const {
   roles,
   tools,
   featured,
+  visible,
 } = Astro.props as Project;
 
 const reversed = featured ? featured % 2 === 0 : false;
@@ -24,6 +27,7 @@ const reversed = featured ? featured % 2 === 0 : false;
   class="flex flex-col gap-xl container mx-auto relative"
 >
   <div
+    transition:name="swapper"
     class:list={[
       "flex flex-col gap-s",
       reversed ? "items-end" : "items-start",
