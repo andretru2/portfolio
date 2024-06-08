@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function FadeUpStagger({ children }) {
+export function FadeUpStagger({ children, variants }) {
   const FADE_UP_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: 10 },
     show: {
