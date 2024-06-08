@@ -543,41 +543,6 @@
     }
   }
 
-  .swapper {
-    view-transition-name: swapper;
-  }
-  .swapper-first {
-    view-transition-name: swapper-first;
-  }
-  .swapper-last {
-    view-transition-name: swapper-last;
-  }
-
-  ::view-transition-new(swapper),
-  ::view-transition-old(swapper) {
-    height: 100%;
-    object-fit: none;
-    object-position: top left;
-  }
-
-  ::view-transition-old(swapper) {
-    animation-name: slide-out;
-    animation-duration: 0.75s;
-    animation-timing-function: var(--linearAnimation);
-  }
-
-  ::view-transition-new(swapper) {
-    animation-name: slide-in;
-    animation-duration: 0.75s;
-    animation-timing-function: var(--linearAnimation);
-  }
-
-  ::view-transition-group(swapper-last),
-  ::view-transition-group(swapper-first) {
-    animation-duration: 0.75s;
-    animation-timing-function: var(--linearAnimation);
-  }
-
   .bg-radial-gradient-1 {
     background-image: radial-gradient(
       at 50% 50% in oklch,

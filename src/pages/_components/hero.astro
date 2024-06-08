@@ -32,13 +32,15 @@ import Background from "@/components/ui/section-background.astro";
   <p
     class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
   >
-    <span class="swapper-first">Creative </span>
+    <span transition:name="swapper-first">Creative </span>
     <!-- <Swapper> -->
     <Swapper client:load>
-      <span id="swapper" class="">Frontend Dev</span>
+      <span transition:name="swapper" id="swapper" class=""
+        >Frontend Dev</span
+      >
     </Swapper>
 
-    <span class="swapper-last">Empowering</span>
+    <span transition:name="swapper-last">Empowering</span>
 
     <span class="block w-full font-white">
       Change Through Design</span
@@ -87,3 +89,40 @@ import Background from "@/components/ui/section-background.astro";
 
   const interval = setInterval(SWAP, 2000);
 </script>
+
+<style>
+  .swapper {
+    view-transition-name: swapper;
+  }
+  .swapper-first {
+    view-transition-name: swapper-first;
+  }
+  .swapper-last {
+    view-transition-name: swapper-last;
+  }
+
+  ::view-transition-new(swapper),
+  ::view-transition-old(swapper) {
+    height: 100%;
+    object-fit: none;
+    object-position: top left;
+  }
+
+  ::view-transition-old(swapper) {
+    animation-name: slide-out;
+    animation-duration: 0.75s;
+    animation-timing-function: var(--linearAnimation);
+  }
+
+  ::view-transition-new(swapper) {
+    animation-name: slide-in;
+    animation-duration: 0.75s;
+    animation-timing-function: var(--linearAnimation);
+  }
+
+  ::view-transition-group(swapper-last),
+  ::view-transition-group(swapper-first) {
+    animation-duration: 0.75s;
+    animation-timing-function: var(--linearAnimation);
+  }
+</style>
