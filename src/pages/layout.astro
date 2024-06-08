@@ -5,11 +5,10 @@ import BaseHead, {
 import SkipLink from "@/components/ui/skip-link.astro";
 import Header from "@/components/ui/header.astro";
 import Footer from "@/components/ui/footer.astro";
-import { ViewTransitions } from "astro:transitions";
 // import "@fontsource/teko";
-import "@fontsource-variable/roboto-slab";
-import "@fontsource-variable/dancing-script";
-import "@fontsource/great-vibes";
+// import "@fontsource-variable/roboto-slab";
+// import "@fontsource-variable/dancing-script";
+// import "@fontsource/great-vibes";
 
 export type Props = HeadProps;
 
@@ -25,7 +24,6 @@ const { ...head } = Astro.props;
         document.documentElement.classList.add("dark");
       }
     </script>
-    <ViewTransitions />
   </head>
   <body class="">
     <SkipLink />
