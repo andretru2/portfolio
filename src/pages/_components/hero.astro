@@ -3,27 +3,12 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { SphereCanvas } from "./hero/canvas/sphere";
 import { Swapper } from "./hero/swapper";
 import Background from "@/components/ui/section-background.astro";
-
-// import Test from "./hero/test.astro";
+import { HeroParallax } from "./hero-parallax";
 ---
 
-<section
-  class="bg-bgColorHero relative min-h-[115svh] grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden [&>*]:-translate-y-8"
->
+<HeroParallax client:load>
   <Background backgroundType="hero" />
-  <!--
-    <AuroraBackground
-    className="absolute mix-blend-exclusion h-svh w-svw p-xl  "
-  >
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-radial-gradient-1 opacity-30"
-    >
-    </div>
-  </Background> -->
+
   <h6
     class="font-light opacity-90 tracking-widest text-center"
   >
@@ -51,10 +36,7 @@ import Background from "@/components/ui/section-background.astro";
     <!-- <Scene client:load /> -->
     <SphereCanvas client:load />
   </div>
-</section>
-<!-- <section class="mt-20">
-  <Test />
-</section> -->
+</HeroParallax>
 
 <script>
   const WORDS = [
@@ -91,16 +73,6 @@ import Background from "@/components/ui/section-background.astro";
 </script>
 
 <style>
-  .swapper {
-    view-transition-name: swapper;
-  }
-  .swapper-first {
-    view-transition-name: swapper-first;
-  }
-  .swapper-last {
-    view-transition-name: swapper-last;
-  }
-
   ::view-transition-new(swapper),
   ::view-transition-old(swapper) {
     height: 100%;
