@@ -4,6 +4,7 @@ import {
   projectSchema,
 } from "./config/validations/project-schema";
 import { aboutSchema } from "./config/validations/about-schema";
+import type { ImageMetadata } from "astro";
 
 export type SiteConfig = {
   name: string;
@@ -41,7 +42,7 @@ export type Tool = {
   key: string;
   name: string;
   color: string;
-  icon: string;
+  icon: ImageMetadata;
 };
 
 export type ToolKey = Pick<Tool, "key">;

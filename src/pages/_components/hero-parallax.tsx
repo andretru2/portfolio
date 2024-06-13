@@ -15,12 +15,12 @@ export function HeroParallax({ children }) {
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0svh", "100svh"]
+    ["0svh", "115svh"]
   );
 
   return (
     <motion.section
-      ref={container}
+      //   ref={container}
       style={{ y }}
       className="bg-bgColorHero h-full relative min-h-[115svh] grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden [&>*]:-translate-y-8 "
     >

@@ -8,8 +8,10 @@ import BHFHero from "@/pages/_assets/bhf-hero.mp4";
 import GigsTraxHero from "@/pages/_assets/bhf-hero.mp4";
 // import BhfFeatures from "@/pages/_assets/bhf-hero.mp4";
 // import BhfMore from "@/pages/_assets/bhf-hero.mp4";
+import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 import ProjectHeroBhfLogos from "./project/project-hero-bhf-logos.astro";
+import { FadeUpStagger } from "@/components/ui/fade-up";
 // import { BhfBrandLogosWrapper } from "./project/bhf/brand-logos-wrapper";
 
 const projects: ProjectProps[] = [
@@ -489,10 +491,12 @@ const projects: ProjectProps[] = [
 ];
 ---
 
+<!-- <SectionWrapper client:visible>
+  </SectionWrapper> -->
 <section
   id="projects"
   class:list={[
-    " flex  flex-col justify-center items-center w-full  relative  bg-bgColor   py-6xl gap-6xl [perspective:1000px]",
+    " flex  flex-col justify-center items-center w-full  relative  bg-bgColor  py-3xl gap-6xl [perspective:1000px]",
   ]}
 >
   <div
@@ -511,3 +515,5 @@ const projects: ProjectProps[] = [
   <!-- <ProjectHeroBhfLogos /> -->
   <!-- <BhfBrandLogosWrapper /> -->
 </section>
+
+<!-- <FadeUpStagger client:idle /> -->

@@ -3,8 +3,10 @@ import Card from "@/components/ui/card.astro";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { ProjectFeatures } from "./project-features";
 import Background from "@/components/ui/section-background.astro";
+import { ProjectTools } from "./project-tools";
 
-const { features, href, reversed } = Astro.props;
+const { features, href, reversed, tools } = Astro.props;
+// console.log(tools);
 ---
 
 <Card
@@ -21,9 +23,11 @@ const { features, href, reversed } = Astro.props;
 <Card
   class:list={[
     reversed && "row-start-6 col-start-3",
-    "relative col-span-2 row-span-3 p-l ",
+    "relative col-span-2 row-span-3 p-l max-h-max overflow-hidden",
   ]}
-/>
+>
+  <ProjectTools toolKeys={tools} />
+</Card>
 <Card
   class:list={[
     reversed && "row-start-6  ",
