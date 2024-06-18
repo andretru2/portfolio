@@ -193,6 +193,48 @@
     @apply absolute -bottom-2 rounded-lg bg-[200%_100%] left-0 h-1.5 w-full bg-gradient-to-r from-transparent via-accent/70 to-accent origin-bottom-left content-[""];
   }
 
+  .bg-hero {
+    display: block;
+    left: 130%;
+    top: 40%;
+    min-height: 100svh;
+    transform: translateX(-50%) translateY(-50%);
+    background-image: radial-gradient(
+      at 50% 50% in oklch,
+      color-mix(
+          in oklch,
+          oklch(80% 0.2 160),
+          oklch(70% 0.25 150) 80%
+        )
+        0%,
+      color-mix(
+          in oklch,
+          oklch(80% 0.2 160),
+          oklch(70% 0.25 150) 10%
+        )
+        19%,
+      color-mix(
+          in oklch,
+          oklch(80% 0.2 160),
+          oklch(70% 0.25 150) 20%
+        )
+        20%,
+      color-mix(
+          in oklch,
+          oklch(80% 0.2 160),
+          oklch(70% 0.25 150) 80%
+        )
+        40%,
+      color-mix(
+          in oklch,
+          oklch(70% 0.25 150),
+          oklch(60% 0.2 140) 50%
+        )
+        55%,
+      transparent 70%
+    );
+  }
+
   /* .card { */
   /* @apply flex items-center bg-accent-3 backdrop-blur-sm justify-center h-full rounded-2xl p-m stroke-[0.1] hover:stroke-[0.15]; */
   /* @apply relative shadow-xl p-xs flex min-w-0 flex-col h-full panel rounded-2xl  stroke-[0.1] hover:stroke-[0.15]; */

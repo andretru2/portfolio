@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import type { ToolKey, Tool } from "@/types";
 import { Tools } from "@/config/validations/project-schema";
-import InfiniteLoopSlider from "@/components/ui/InfiniteLoopSlider.astro";
+import InfiniteLoopSlider from "@/components/ui/Infinite-loop-slider.astro";
 
 const ROWS: number = 2;
 const TOOLS_PER_ROW: number = 5;

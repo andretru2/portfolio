@@ -5,7 +5,8 @@ import { ProjectFeatures } from "./project-features";
 import Background from "@/components/ui/section-background.astro";
 import ProjectTools from "./project-tools.astro";
 
-const { features, href, reversed, tools } = Astro.props;
+const { features, caseStudyUrl, reversed, tools } =
+  Astro.props;
 // console.log(tools);
 ---
 
@@ -37,7 +38,8 @@ const { features, href, reversed, tools } = Astro.props;
   <!-- <Background backgroundType="aurora" /> -->
 
   <a
-    href={href}
+    href={caseStudyUrl}
+    transition:animate="slide"
     class="text-bgColor col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
   >
     <svg

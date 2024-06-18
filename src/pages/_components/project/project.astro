@@ -11,7 +11,7 @@ const {
   client,
   title,
   description,
-  href,
+  caseStudyUrl,
   hero,
   features,
   roles,
@@ -58,7 +58,7 @@ const reversed = featured ? featured % 2 === 0 : false;
           <ProjectDetails
             tools={tools}
             features={features}
-            href={href}
+            caseStudyUrl={caseStudyUrl}
             reversed={reversed}
           />
           <ProjectHero media={hero} />
@@ -69,7 +69,7 @@ const reversed = featured ? featured % 2 === 0 : false;
           <ProjectDetails
             tools={tools}
             features={features}
-            href={href}
+            caseStudyUrl={caseStudyUrl}
             reversed={reversed}
           />
         </Fragment>
