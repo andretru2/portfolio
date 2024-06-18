@@ -55,13 +55,13 @@ export function Section({
       className={cn(
         className,
         ` h-full  relative z-0 bg-${backgroundColor} min-h-[${minimumHeight}] `,
-        padding === "both" && "py-7xl",
-        padding === "top" && "pt-3xl",
-        padding === "bottom" && "pb-3xl",
+        padding === "both" && "py-5xl",
+        padding === "top" && "pt-5xl",
+        padding === "bottom" && "pb-5xl",
         padding === "none" && "py-0",
-        margin === "both" && "my-7xl",
-        margin === "top" && "mt-3xl",
-        margin === "bottom" && "mb-3xl",
+        margin === "both" && "my-5xl",
+        margin === "top" && "mt-5xl",
+        margin === "bottom" && "mb-5xl",
         margin === "none" && "my-0"
       )}
     >
