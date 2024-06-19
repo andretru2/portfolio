@@ -195,10 +195,11 @@
 
   .bg-hero {
     display: block;
-    left: 130% !important;
-    top: 50% !important;
+    left: 133% !important;
+    top: 60% !important;
     height: 100%;
-    min-height: 170svh;
+
+    min-height: 150svh;
     transform: translateX(-50%) translateY(-50%) !important;
     background-image: radial-gradient(
       at 50% 50% in oklch,

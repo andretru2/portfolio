@@ -4,6 +4,9 @@ import { Swapper } from "./hero/swapper";
 // import Background from "@/components/ui/section-background.astro";
 // import { HeroParallax } from "./hero-parallax";
 import { Section } from "@/components/ui/section";
+// import { Image } from "astro:assets";
+// import imageSprBackgroundVolcanismLarge from "../_assets/spr-background-volcanism-large.jpg";
+// import imageSprBackgroundVolcanism from "../_assets/spr-background-volcanism.jpg";
 ---
 
 <Section
@@ -15,8 +18,13 @@ import { Section } from "@/components/ui/section";
   parallax
   skipRoundCorners
   minHeight="100svh"
-  className=" bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden [&>*]:-translate-y-8"
+  className=" bg-bgColor  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden [&>*]:-translate-y-8"
 >
+  <div class="absolute inset-0 h-full w-full -z-10">
+    <!-- <Scene client:load /> -->
+    <SphereCanvas client:load />
+  </div>
+
   <h6
     class="font-light opacity-90 tracking-widest text-center"
   >

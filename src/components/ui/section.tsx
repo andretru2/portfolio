@@ -61,9 +61,9 @@ export function Section({
         padding === "top" && "pt-5xl",
         padding === "bottom" && "pb-5xl",
         padding === "none" && "py-0",
-        margin === "both" && "my-5xl",
-        margin === "top" && "mt-5xl",
-        margin === "bottom" && "mb-5xl",
+        margin === "both" && "my-8xl",
+        margin === "top" && "mt-8xl",
+        margin === "bottom" && "mb-8xl",
         margin === "none" && "my-0"
       )}
     >
@@ -82,7 +82,7 @@ export function Section({
       )}
       {!skipRoundCorners && (
         <div
-          className={`absolute rounded-t-[8rem] -top-3xl  border-t-4 border-accent inset-0 bg-${backgroundColor}`}
+          className={`absolute mix-blend-color-dodge rounded-t-[8rem] -top-6xl  border-t-4 border-accent inset-0 bg-${backgroundColor}`}
         ></div>
       )}
       {title && (
