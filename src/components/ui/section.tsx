@@ -46,13 +46,28 @@ export function Section({
   margin = "both",
   skipRoundCorners = false,
 }: Props) {
+  const container = useRef();
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0svh", "115svh"]
+  );
+
   return (
     <motion.section
       variants={staggerContainer()}
       // initial="hidden"
       // whileInView="show"
       id={idName}
-      style={{ minHeight: minHeight }}
+      style={{
+        minHeight: minHeight,
+        y: parallax ? y : "",
+      }}
       // viewport={{ once: true }}
       className={cn(
         className,
