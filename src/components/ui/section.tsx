@@ -1,3 +1,4 @@
+"use client";
 import {
   useScroll,
   useTransform,
@@ -17,13 +18,13 @@ type backgroundColorProps =
 interface Props {
   title?: string;
   parallax?: boolean;
-  parallaxHeight?: string;
+  // parallaxHeight?: string;
   children?: string;
   className?: string;
   idName?: string;
   padding?: "both" | "top" | "bottom" | "none";
   margin?: "both" | "top" | "bottom" | "none";
-  minimumHeight?: string;
+  minHeight?: string;
   backgroundOverlayOpacity?: number;
   backgroundElement?: string;
   backgroundColor?: backgroundColorProps;
@@ -33,14 +34,14 @@ interface Props {
 export function Section({
   title,
   parallax,
-  parallaxHeight,
+  // parallaxHeight,
   children,
   idName,
   backgroundOverlayOpacity = 0.9,
   backgroundElement,
   backgroundColor = "bgColor",
   className,
-  minimumHeight = "100svh",
+  minHeight = "100svh",
   padding = "both",
   margin = "both",
   skipRoundCorners = false,
@@ -48,13 +49,14 @@ export function Section({
   return (
     <motion.section
       variants={staggerContainer()}
-      initial="hidden"
-      whileInView="show"
+      // initial="hidden"
+      // whileInView="show"
       id={idName}
-      viewport={{ once: true }}
+      style={{ minHeight: minHeight }}
+      // viewport={{ once: true }}
       className={cn(
         className,
-        ` h-full  relative z-0 bg-${backgroundColor} min-h-[${minimumHeight}] `,
+        ` h-full  relative z-0   `,
         padding === "both" && "py-5xl",
         padding === "top" && "pt-5xl",
         padding === "bottom" && "pb-5xl",
@@ -66,7 +68,9 @@ export function Section({
       )}
     >
       {backgroundColor && (
-        <BackgroundColor {...backgroundColor} />
+        <BackgroundColor
+          backgroundColor={backgroundColor}
+        />
       )}
 
       {!!backgroundElement && (
@@ -91,16 +95,16 @@ export function Section({
   );
 }
 
-export function BackgroundColor(
-  backgroundColor: backgroundColorProps
-) {
+export function BackgroundColor({
+  backgroundColor,
+}: backgroundColorProps) {
   return (
     <div
       className={cn(
-        "absolute w-dvw  -z-10 content-[''] inset-0 overflow-visible",
-        backgroundColor === "hero" &&
-          "bg-hero bg-bgColorHero",
-        backgroundColor === "bgColor" && "bg-bgColor",
+        `absolute w-dvw  -z-10 content-[" "] overflow-visible inset-0 `,
+        backgroundColor === "hero" && "   bg-hero ",
+        backgroundColor === "bgColor" &&
+          "bg-bgColor aspect-square ",
         // backgroundType === "toProjects" &&
         //   "bg  bg-gradient-to-b from-bgColorHero via-bgColor/80  to-bgColor h-svh -translate-x-[45%] ",
         // backgroundType === "fromProjects" &&
