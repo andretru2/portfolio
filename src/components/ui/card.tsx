@@ -1,12 +1,13 @@
 import * as React from "react";
 import { cn } from "@/utils/cn";
+import { motion, type AnimationType } from "framer-motion";
 
 // Card
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLElement>
 >(({ className, ...props }, ref) => (
-  <article
+  <motion.article
     ref={ref}
     className={cn(
       "relative shadow-xl p-xs flex min-w-0 flex-col h-full panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15]",

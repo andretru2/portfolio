@@ -118,8 +118,8 @@ export const staggerContainer = (
       opacity: 1,
       y: 0,
       transition: {
-        staggerChildren: staggerChildren || 0.15,
-        delayChildren: delayChildren || 0,
+        staggerChildren: staggerChildren || 0.3,
+        delayChildren: delayChildren || 0.2,
       },
     },
   };

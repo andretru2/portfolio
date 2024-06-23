@@ -3,9 +3,10 @@ import {
   useScroll,
   useTransform,
   motion,
+  AnimatePresence,
 } from "framer-motion";
 import { staggerContainer } from "@/utils/motion";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import { cn } from "@/utils/cn";
 
 type backgroundColorProps =
@@ -19,7 +20,7 @@ interface Props {
   title?: string;
   parallax?: boolean;
   // parallaxHeight?: string;
-  children?: string;
+  children?: ReactNode;
   className?: string;
   idName?: string;
   padding?: "both" | "top" | "bottom" | "none";
@@ -55,58 +56,70 @@ export function Section({
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0svh", "115svh"]
+    // ["0svh", "100svh"]
+    ["0svh", minHeight]
   );
 
   return (
-    <motion.section
-      variants={staggerContainer()}
-      // initial="hidden"
-      // whileInView="show"
-      id={idName}
-      style={{
-        minHeight: minHeight,
-        y: parallax ? y : "",
-      }}
-      // viewport={{ once: true }}
-      className={cn(
-        className,
-        ` h-full  relative z-0   `,
-        padding === "both" && "py-5xl",
-        padding === "top" && "pt-5xl",
-        padding === "bottom" && "pb-5xl",
-        padding === "none" && "py-0",
-        margin === "both" && "my-8xl",
-        margin === "top" && "mt-8xl",
-        margin === "bottom" && "mb-8xl",
-        margin === "none" && "my-0"
-      )}
-    >
-      {backgroundColor && (
-        <BackgroundColor
-          backgroundColor={backgroundColor}
-        />
-      )}
+    <AnimatePresence>
+      <motion.section
+        variants={staggerContainer(0.4)}
+        initial={backgroundColor === "hero" ? "" : "hidden"}
+        animate={{
+          show: {
+            opacity: 1,
 
-      {!!backgroundElement && (
-        <div
-          className={`opacity-[${backgroundOverlayOpacity}}`}
-        >
-          {backgroundElement}
-        </div>
-      )}
-      {!skipRoundCorners && (
-        <div
-          className={`absolute mix-blend-color-dodge rounded-t-[8rem] -top-6xl  border-t-4 border-accent inset-0 bg-${backgroundColor}`}
-        ></div>
-      )}
-      {title && (
-        <h6 className="relative p-0 px-s bg-accent text-sm tracking-wider text-black font-bold w-max rounded-xl ">
-          {title}
-        </h6>
-      )}
-      {children}
-    </motion.section>
+            transition: {
+              staggerChildren: 0.3,
+            },
+          },
+        }}
+        whileInView="show"
+        id={idName}
+        style={{
+          minHeight: minHeight,
+          y: parallax ? y : "",
+        }}
+        viewport={{ once: true }}
+        className={cn(
+          className,
+          ` h-full  relative z-0  transform fromp-opa opacity-1  `,
+          padding === "both" && "py-5xl",
+          padding === "top" && "pt-5xl",
+          padding === "bottom" && "pb-5xl",
+          padding === "none" && "py-0",
+          margin === "both" && "my-5xl",
+          margin === "top" && "mt-5xl",
+          margin === "bottom" && "mb-5xl",
+          margin === "none" && "my-0"
+        )}
+      >
+        {backgroundColor && (
+          <BackgroundColor
+            backgroundColor={backgroundColor}
+          />
+        )}
+
+        {!!backgroundElement && (
+          <div
+            className={`opacity-[${backgroundOverlayOpacity}}`}
+          >
+            {backgroundElement}
+          </div>
+        )}
+        {!skipRoundCorners && (
+          <div
+            className={`absolute mix-blend-color-dodge rounded-t-[8rem] -top-6xl  border-t-4 border-accent inset-0 bg-${backgroundColor}`}
+          ></div>
+        )}
+        {title && (
+          <motion.h6 className="absolute top-5 p-0 px-s bg-accent text-sm tracking-wider text-black font-bold w-max rounded-xl ">
+            {title}
+          </motion.h6>
+        )}
+        {children}
+      </motion.section>
+    </AnimatePresence>
   );
 }
 
@@ -118,6 +131,7 @@ export function BackgroundColor({
       className={cn(
         `absolute w-dvw  -z-10 content-[" "] overflow-visible inset-0 `,
         backgroundColor === "hero" && "   bg-hero ",
+        backgroundColor === "accent" && "   bg-accent/80 ",
         backgroundColor === "bgColor" &&
           "bg-bgColor aspect-square ",
         // backgroundType === "toProjects" &&
@@ -138,30 +152,6 @@ function Stagger({ children }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function Parallax({ children, height }) {
-  const container = useRef();
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0svh", "115svh"]
-  );
-
-  return (
-    <motion.div
-      //   ref={container}
-      style={{ y }}
-      className="  relative  grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden [&>*]:-translate-y-8 "
     >
       {children}
     </motion.div>

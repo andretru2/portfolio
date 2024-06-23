@@ -2,9 +2,11 @@
 import Layout from "@/pages/layout.astro";
 import Hero from "@/pages/projects/bhf/_components/hero.astro";
 import About from "./_components/about.astro";
+import { InfiniteCardSwapper } from "./_components/infinite-card-swapper";
 ---
 
 <Layout title="Andres Trujillo - Case Study BHF">
   <Hero />
+  <InfiniteCardSwapper client:idle />
   <About />
 </Layout>
