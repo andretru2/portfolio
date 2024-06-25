@@ -1,10 +1,18 @@
 ---
 import HeroImage from "../_assets/design-system-showcase.mp4";
-import { Image } from "astro:assets";
+
+import { Section } from "@/components/ui/section";
 ---
 
-<section
-  class="bg-bgColorHero flex flex-col items-center justify-center min-h-[160svh] gap-5xl p-3xl"
+<Section
+  client:load
+  idName="hero"
+  minHeight="160svh"
+  parallax
+  margin="none"
+  padding="none"
+  backgroundColor="bgColorHero"
+  className="bg-bgColorHero flex flex-col items-center justify-center  gap-5xl p-3xl"
 >
   <div class="flex flex-col gap-m">
     <h3>Designing the Future of BHF</h3>
@@ -19,4 +27,4 @@ import { Image } from "astro:assets";
     class="w-full h-full object-cover rounded-xl"
   >
   </video>
-</section>
+</Section>

@@ -1,5 +1,7 @@
 "use client";
 
+import HeroImage from "../_assets/spr-storyboarder-dark.png";
+
 import {
   AnimatePresence,
   motion,
@@ -32,14 +34,17 @@ const features = [
   {
     title: "Purchase Orders",
     description: "xxxxxxxxxxx",
+    image: HeroImage,
   },
   {
     title: "Invoices",
     description: "xxxxxxxxxxx",
+    image: HeroImage,
   },
   {
     title: "PO Matching",
     description: "xxxxxxxxxxx",
+    image: HeroImage,
   },
 ];
 
@@ -51,24 +56,24 @@ const spring = {
   bounce: 0,
 };
 
-const variantsPast = {
-  initial: {
-    x: 0,
-    rotate: 0,
-    opacity: 1,
-  },
-  animate: {
-    x: -30,
-    rotate: -30,
-    opacity: 0.6,
-  },
-  exit: {
-    x: -60,
-    rotate: -60,
-    opacity: 0,
-  },
-  transition: spring,
-};
+// const variantsPast = {
+//   initial: {
+//     x: 0,
+//     rotate: 0,
+//     opacity: 1,
+//   },
+//   animate: {
+//     x: -30,
+//     rotate: -30,
+//     opacity: 0.6,
+//   },
+//   exit: {
+//     x: -60,
+//     rotate: -60,
+//     opacity: 0,
+//   },
+//   transition: spring,
+// };
 
 const variantsActive = {
   initial: {
@@ -99,8 +104,8 @@ const variantsUpcoming = {
   transition: spring,
 };
 
-export function InfiniteCardSwapper() {
-  const [past, setPast] = useState<Card[] | null>(null);
+export function Features() {
+  // const [past, setPast] = useState<Card[] | null>(null);
   const [active, setSActive] = useState<Card>(features[0]);
   const [upcoming, setUpcoming] =
     useState<Card[]>(features);
@@ -117,7 +122,7 @@ export function InfiniteCardSwapper() {
       idName="features"
       minHeight="120svh"
       backgroundColor="accent"
-      className="  w-full flex  flex-col items-center justify-center"
+      className="  w-full flex  flex-col items-center "
     >
       <motion.div
         ref={container}
@@ -126,7 +131,7 @@ export function InfiniteCardSwapper() {
         // viewport={{ once: false }}
         className=" flex flex-row gap-2xl"
       >
-        {past?.map((feature, i) => {
+        {/* {past?.map((feature, i) => {
           return (
             <FeatureCard
               key={i}
@@ -134,10 +139,16 @@ export function InfiniteCardSwapper() {
               status="past"
             />
           );
-        })}
-        <FeatureCard {...active} />
+        })} */}
+        <FeatureCard {...active} status="active" />
         {upcoming?.map((feature, i) => {
-          return <FeatureCard key={i} {...feature} />;
+          return (
+            <FeatureCard
+              key={i}
+              {...feature}
+              status="upcoming"
+            />
+          );
         })}
       </motion.div>
     </Section>
@@ -152,8 +163,12 @@ function FeatureCard({
 }: Card) {
   return (
     <Card
-      className="bg-bgColor size-96"
-      variants={variantsPast}
+      className="bg-bgColor size-[30rem] overflow-hidden"
+      variants={
+        status === "active"
+          ? "variantsActive"
+          : "variantsUpcoming"
+      }
       initial="initial"
       // animate="animate"
       whileInView="animate"
@@ -164,8 +179,14 @@ function FeatureCard({
         <CardTitle>{title}</CardTitle>
         {/* <CardSvg></CardSvg> */}
       </CardHeader>
-      <CardContent className=" flex flex-col gap-xl items-center justify-center top-4 ">
-        <p>{description}</p>
+      <CardContent className=" flex flex-col gap-xl  ">
+        <p className="text-left">{description}</p>
+        {/* <img src={image} */}
+        <img
+          src={HeroImage.src}
+          height={HeroImage.height}
+          className="w-full h-full rounded-xl "
+        />
       </CardContent>
     </Card>
   );

@@ -1,4 +1,5 @@
 "use client";
+
 import {
   useScroll,
   useTransform,
@@ -65,15 +66,15 @@ export function Section({
       <motion.section
         variants={staggerContainer(0.4)}
         initial={backgroundColor === "hero" ? "" : "hidden"}
-        animate={{
-          show: {
-            opacity: 1,
+        // animate={{
+        //   show: {
+        //     opacity: 1,
 
-            transition: {
-              staggerChildren: 0.3,
-            },
-          },
-        }}
+        //     transition: {
+        //       staggerChildren: 0.3,
+        //     },
+        //   },
+        // }}
         whileInView="show"
         id={idName}
         style={{
@@ -83,7 +84,7 @@ export function Section({
         viewport={{ once: true }}
         className={cn(
           className,
-          ` h-full  relative z-0  transform fromp-opa opacity-1  `,
+          ` h-full  relative  z-20   `,
           padding === "both" && "py-5xl",
           padding === "top" && "pt-5xl",
           padding === "bottom" && "pb-5xl",
@@ -109,11 +110,18 @@ export function Section({
         )}
         {!skipRoundCorners && (
           <div
-            className={`absolute mix-blend-color-dodge rounded-t-[8rem] -top-6xl  border-t-4 border-accent inset-0 bg-${backgroundColor}`}
+            className={`absolute  rounded-t-[8rem] -top-6xl  border-t-4 border-accent inset-0 bg-${backgroundColor} -z-20 `}
           ></div>
         )}
         {title && (
-          <motion.h6 className="absolute top-5 p-0 px-s bg-accent text-sm tracking-wider text-black font-bold w-max rounded-xl ">
+          <motion.h6
+            className={cn(
+              "absolute top-5 p-0 px-s  text-sm tracking-wider  font-bold w-max rounded-xl",
+              backgroundColor === "accent"
+                ? "text-white bg-bgColor"
+                : "text-black bg-accent"
+            )}
+          >
             {title}
           </motion.h6>
         )}
@@ -129,9 +137,9 @@ export function BackgroundColor({
   return (
     <div
       className={cn(
-        `absolute w-dvw  -z-10 content-[" "] overflow-visible inset-0 `,
+        `absolute w-dvw  -z-30 content-[" "] overflow-visible inset-0 `,
         backgroundColor === "hero" && "   bg-hero ",
-        backgroundColor === "accent" && "   bg-accent/80 ",
+        backgroundColor === "accent" && "   bg-accent/60 ",
         backgroundColor === "bgColor" &&
           "bg-bgColor aspect-square ",
         // backgroundType === "toProjects" &&
