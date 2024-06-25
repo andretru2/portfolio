@@ -50,6 +50,10 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@iconify-json/flowbite": "^1.1.5",
+    "@iconify-json/simple-icons": "^1.1.107",
+    "@iconify-json/skill-icons": "^1.1.8",
+    "@iconify-json/vscode-icons": "^1.1.35",
     "@react-three/fiber": "^8.16.2",
     "@types/matter-js": "^0.19.6",
     "@types/three": "^0.163.0",

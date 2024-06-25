@@ -165,7 +165,7 @@
 
 @layer components {
   button {
-    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none transition no-underline;
+    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none transition no-underline rounded-xl;
   }
 
   .button-primary {
