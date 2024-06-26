@@ -4,7 +4,6 @@ import type { Project } from "@/types";
 
 import ProjectHero from "./project-hero.astro";
 import ProjectDetails from "./project-details.astro";
-import { Transition } from "@/components/ui/transition";
 import { FadeUpStagger } from "@/components/ui/fade-up";
 
 const {
@@ -23,7 +22,67 @@ const {
 const reversed = featured ? featured % 2 === 0 : false;
 ---
 
-<article
+<FadeUpStagger client:idle>
+  <article
+    slot="slotOne"
+    class="flex flex-col gap-xl container mx-auto relative"
+  >
+    <div
+      slot="slowTwo"
+      class:list={[
+        "flex flex-col gap-s",
+        reversed ? "items-end" : "items-start",
+      ]}
+    >
+      <MovingBorderWrapper client:load>
+        {client}
+      </MovingBorderWrapper>
+      <h3>
+        {title}
+      </h3>
+      <p
+        class:list={[
+          "mt-s",
+          reversed ? "text-right" : "text-left",
+        ]}
+      >
+        {description}
+      </p>
+    </div>
+    <div
+      slot="slotThree"
+      class:list={[
+        "grid grid-cols-8 md:grid-cols-12 md:grid-rows-8 gap-m",
+      ]}
+    >
+      {
+        reversed ? (
+          <Fragment>
+            <ProjectDetails
+              tools={tools}
+              features={features}
+              caseStudyUrl={caseStudyUrl}
+              reversed={reversed}
+            />
+            <ProjectHero media={hero} />
+          </Fragment>
+        ) : (
+          <Fragment>
+            <ProjectHero media={hero} />
+            <ProjectDetails
+              tools={tools}
+              features={features}
+              caseStudyUrl={caseStudyUrl}
+              reversed={reversed}
+            />
+          </Fragment>
+        )
+      }
+    </div>
+  </article>
+</FadeUpStagger>
+
+<!-- <article
   class="flex flex-col gap-xl container mx-auto relative"
 >
   <div
@@ -76,4 +135,4 @@ const reversed = featured ? featured % 2 === 0 : false;
       )
     }
   </div>
-</article>
+</article> -->

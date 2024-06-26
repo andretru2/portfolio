@@ -64,7 +64,7 @@ export function Section({
   return (
     <AnimatePresence>
       <motion.section
-        variants={staggerContainer(0.4)}
+        variants={staggerContainer(0.4, 0.5)}
         initial={backgroundColor === "hero" ? "" : "hidden"}
         // animate={{
         //   show: {

@@ -1,57 +1,46 @@
-"use client";
+import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 
-export function FadeUpStagger() {
+export function FadeUpStagger({
+  slotOne,
+  slotTwo,
+  slotThree,
+  slotFour,
+}) {
   const FADE_UP_ANIMATION_VARIANTS = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
       y: 0,
       transition: { type: "spring" },
     },
   };
-
   return (
-    <motion.div
+    <motion.article
       initial="hidden"
-      animate="show"
-      className="self-center"
+      // animate="show"
+      className="flex flex-col gap-xl container mx-auto relative"
+      viewport={{ once: false }}
       whileInView="show"
-      // viewport={{ once: true }}
-      viewport={{ once: true }}
       variants={{
         hidden: {},
         show: {
           transition: {
-            staggerChildren: 0.2,
+            staggerChildren: 0.3,
+            delayChildren: 0.4,
           },
         },
       }}
     >
-      <motion.h3
-        initial="hidden"
-        animate="show"
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-white"
-      >
-        testtt
-      </motion.h3>
-      <motion.h4
-        initial="hidden"
-        animate="show"
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-white"
-      >
-        xs
-      </motion.h4>
-      <motion.h4
-        initial="hidden"
-        animate="show"
-        variants={FADE_UP_ANIMATION_VARIANTS}
-        className="text-white"
-      >
-        xxxxs
-      </motion.h4>
-    </motion.div>
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+        {slotOne}
+      </motion.div>
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+        {slotTwo}
+      </motion.div>
+      <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+        {slotThree}
+      </motion.div>
+    </motion.article>
   );
 }
