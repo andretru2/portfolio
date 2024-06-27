@@ -5,12 +5,12 @@ const { media } = Astro.props;
 ---
 
 <Card
-  class="relative col-span-8 row-span-8 flex items-center justify-center p-l"
+  class="relative col-span-8 row-span-8 flex items-center justify-center"
 >
   <video
     autoplay
     loop
-    class="h-full w-full object-cover aspect-video rounded-md"
+    class="h-full w-full object-cover aspect-video rounded-xl"
   >
     <source src={media} type="video/mp4" />
   </video>

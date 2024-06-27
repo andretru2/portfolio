@@ -66,15 +66,6 @@ export function Section({
       <motion.section
         variants={staggerContainer(0.4, 0.5)}
         initial={backgroundColor === "hero" ? "" : "hidden"}
-        // animate={{
-        //   show: {
-        //     opacity: 1,
-
-        //     transition: {
-        //       staggerChildren: 0.3,
-        //     },
-        //   },
-        // }}
         whileInView="show"
         id={idName}
         style={{
@@ -126,6 +117,11 @@ export function Section({
           </motion.h6>
         )}
         {children}
+        {!skipRoundCorners && (
+          <div
+            className={`absolute  rounded-b-[8rem] top-6xl  border-b-4 border-accent inset-0 bg-${backgroundColor} -z-20 `}
+          ></div>
+        )}
       </motion.section>
     </AnimatePresence>
   );
@@ -150,59 +146,5 @@ export function BackgroundColor({
           " [--white-gradient:repeating-linear-gradient(100deg,oklch(95%_0.05_0)_0%,oklch(95%_0.05_0)_7%,var(--transparent)_10%,var(--transparent)_12%,oklch(95%_0.05_0)_16%)] [--dark-gradient:repeating-linear-gradient(100deg,oklch(5%_0.05_0)_0%,oklch(5%_0.05_0)_7%,var(--transparent)_10%,var(--transparent)_12%,oklch(5%_0.05_0)_16%)] [--aurora:repeating-linear-gradient(100deg,oklch(60%_0.25_210)_10%,oklch(70%_0.2_230)_15%,oklch(60%_0.3_240)_20%,oklch(80%_0.1_270)_25%,oklch(50%_0.2_250)_30%)] [background-image:var(--white-gradient),var(--aurora)] dark:[background-image:var(--dark-gradient),var(--aurora)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%] filter blur-[10px] invert dark:invert-0 after:content-[''] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:dark:[background-image:var(--dark-gradient),var(--aurora)] after:[background-size:200%,_100%] after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference pointer-events-none absolute -inset-[10px] opacity-20 "
       )}
     ></div>
-  );
-}
-
-function Stagger({ children }) {
-  return (
-    <motion.div
-      variants={staggerContainer()}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function FadeUp({ children }) {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: -24 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 2,
-        ease: "easeIn",
-
-        // repeat: "infinity",
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      animate="show"
-      data-id={num}
-      className="grid grid-flow-col gap-m place-content-center "
-    >
-      {logos.slice(start, end).map((logo, i) => (
-        <Logo logo={logo} key={i} />
-      ))}
-    </motion.div>
   );
 }
