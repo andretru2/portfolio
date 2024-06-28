@@ -22,13 +22,13 @@ const { links, class: className } = Astro.props;
   {
     links.map((link) => (
       <a
-        class=" hover:glow  "
+        class=" hover:glow   "
         target="_blank"
         rel="noopener noreferer"
         href={link.href}
       >
         <span class="sr-only">{link.platform}</span>
-        <Icon name={link.icon} class="size-6" />
+        <Icon name={link.icon} class="size-7" />
       </a>
     ))
   }

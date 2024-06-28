@@ -123,7 +123,7 @@ export const Tools: Tool[] = [
     key: "filemaker",
     name: "FileMaker",
     color: "--color-blue",
-    icon: "vscode-icons:file-type-xml",
+    icon: "vscode-icons:file-type-templ",
   },
 
   {

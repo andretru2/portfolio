@@ -197,15 +197,15 @@ function Scene() {
         color={"#010101"}
         // color={"#004072"}
         // color={"#9ab2d3"}
-        // roughness={0.1}
-        roughness={0.6}
+        roughness={0.1}
+        // roughness={0.6}
         metalness={1}
-        // bumpScale={0.005}
         bumpScale={0.005}
         clearcoat={1}
         clearcoatRoughness={1}
         radius={0.9}
-        // distort={0.7}
+        // distort={0.9}
+
         distort={0.4}
       />
       {material && <Instances material={material} />}

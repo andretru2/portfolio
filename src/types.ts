@@ -9,6 +9,7 @@ import type { ImageMetadata } from "astro";
 export type SiteConfig = {
   name: string;
   title: string;
+  email: string;
   description: string;
   image: {
     src: string;

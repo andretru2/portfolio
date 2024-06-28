@@ -1,0 +1,90 @@
+---
+import { siteConfig } from "@/config/site";
+
+const { class: className } = Astro.props;
+---
+
+<a
+  href=`mailto:${siteConfig.email}?Subject=Let%27s talk about it`
+  class:list={[
+    "relative max-w-xs rounded-xl w-full flex flex-row items-center justify-center gap-s bg-accent/40 text-white p-s ",
+    className,
+  ]}
+>
+  <div class="loader">
+    <div class="loader__fin"></div>
+    <div class="loader__fin"></div>
+    <div class="loader__fin"></div>
+  </div>
+
+  <span class="text-bgColor font-bold">Let's Chat!</span>
+</a>
+
+<style>
+  a::after {
+    content: "";
+    transition-property: opacity, color, background;
+    transition-duration: var(--durationM);
+    transition-timing-function: var(--bezierFastoutSlowin);
+    background: oklch(80% 0.2 160) / 80;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0 100%
+    );
+  }
+
+  .loader {
+    width: 3vmin;
+    aspect-ratio: 2 / 1.5;
+    background: canvas;
+    border: 2px solid canvasText;
+    position: relative;
+    transform-style: preserve-3d;
+    rotate: x 125deg;
+    transform: rotateY(20deg);
+    animation: spin 1s infinite;
+    border-radius: 12px;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotateY(380deg);
+    }
+  }
+
+  .loader__fin {
+    position: absolute;
+    inset: -2px;
+    background: oklch(80% 0.2 160);
+    border: 2px solid canvasText;
+    transform: rotateY(calc(45deg + var(--i, 0) * 45deg));
+    border-radius: 12px;
+  }
+
+  .loader::after,
+  .loader__fin::after {
+    content: "";
+    position: absolute;
+    box-shadow: inset 0 0 20px 5px canvasText;
+    opacity: 0.25;
+    inset: -2px;
+    border: 2px solid canvasText;
+    border-radius: 12px;
+  }
+
+  .loader__fin:nth-of-type(1) {
+    --i: 0;
+  }
+  .loader__fin:nth-of-type(2) {
+    --i: 1;
+  }
+  .loader__fin:nth-of-type(3) {
+    --i: 2;
+  }
+</style>

@@ -1,5 +1,4 @@
 @import "https://unpkg.com/open-props/durations.min.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +13,14 @@
     /* --font-heading: AvertaBold, sans-serif; */
     --font-heading: Atkinson, sans-serif;
     --lines: 0.0001px;
+
     --space: in oklch;
+    --bezierFastoutSlowin: "cubic-bezier(0.4, 0.0, 0.2, 1)";
+    --durationXS: "200ms";
+    --durationS: "300ms";
+    --durationM: "400ms";
+    --durationL: "600ms";
+    --durationXL: "800ms";
 
     --linearAnimation: linear(
       0,
@@ -195,9 +201,10 @@
 
   .bg-hero {
     display: block;
-    left: 133% !important;
-    top: 60% !important;
+    left: 120% !important;
+    top: 40% !important;
     height: 100%;
+    width: 1500px;
 
     min-height: 150svh;
     transform: translateX(-50%) translateY(-50%) !important;
@@ -694,4 +701,15 @@
   .lenis.lenis-scrolling iframe {
     pointer-events: none;
   }
+
+  .bg-conic-gradient-accent {
+    background-image: conic-gradient(
+      from 123deg at 50% 50%,
+      oklch(80% 0.2 160) -40%,
+      oklch(80% 0.4 160) 143%
+    );
+  }
+}
+
+@layer utilities {
 }

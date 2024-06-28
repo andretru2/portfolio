@@ -2,8 +2,8 @@
 import Project from "./project/project.astro";
 import type { Project as ProjectProps } from "@/types";
 
-import BHFHero from "@/pages/_assets/bhf-hero.mp4";
-import GigsTraxHero from "@/pages/_assets/bhf-hero.mp4";
+import BHFHero from "@/pages/_assets/bhf-hero-v3.mp4";
+import GigsTraxHero from "@/pages/_assets/gigstrax-hero.mp4";
 // import BhfFeatures from "@/pages/_assets/bhf-hero.mp4";
 // import BhfMore from "@/pages/_assets/bhf-hero.mp4";
 
@@ -488,8 +488,6 @@ const projects: ProjectProps[] = [
 ];
 ---
 
-<!-- <SectionWrapper client:visible>
-  </SectionWrapper> -->
 <Section
   client:visible
   idName="projects"
@@ -501,9 +499,4 @@ const projects: ProjectProps[] = [
   <div class="flex flex-col gap-64">
     {projects.map((project) => <Project {...project} />)}
   </div>
-
-  <!-- <ProjectHeroBhfLogos /> -->
-  <!-- <BhfBrandLogosWrapper /> -->
 </Section>
-
-<!-- <FadeUpStagger client:idle /> -->

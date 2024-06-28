@@ -36,7 +36,6 @@ interface Props {
 export function Section({
   title,
   parallax,
-  // parallaxHeight,
   children,
   idName,
   backgroundOverlayOpacity = 0.9,
@@ -94,7 +93,7 @@ export function Section({
 
         {!!backgroundElement && (
           <div
-            className={`opacity-[${backgroundOverlayOpacity}}`}
+            className={`opacity-[${backgroundOverlayOpacity}} absolute inset-0`}
           >
             {backgroundElement}
           </div>
