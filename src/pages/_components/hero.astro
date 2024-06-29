@@ -15,11 +15,12 @@ import { Section } from "@/components/ui/section";
   idName="home"
   padding="none"
   margin="none"
-  parallax
+  minHeight="100svh"
   skipRoundCorners
-  minHeight="130svh"
-  className=" pb-6xl bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
+  parallax
+  className="  relative bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
 >
+  <div class="bg-hero absolute"></div>
   <div class="absolute inset-0 h-full w-full -z-10">
     <!-- <Scene client:load /> -->
     <SphereCanvas client:load />

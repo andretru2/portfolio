@@ -1,13 +1,19 @@
 ---
 import { siteConfig } from "@/config/site";
 
-const { class: className } = Astro.props;
+interface Props {
+  className?: string;
+  inverse?: boolean;
+}
+
+const { className, inverse = false } = Astro.props as Props;
 ---
 
 <a
   href=`mailto:${siteConfig.email}?Subject=Let%27s talk about it`
   class:list={[
-    "relative max-w-xs rounded-xl w-full flex flex-row items-center justify-center gap-s bg-accent/40 text-white p-s ",
+    "relative max-w-[12rem] rounded-xl w-full flex flex-row items-center justify-center gap-s   p-s ",
+    inverse ? "bg-bgColor/80" : "bg-accent/80",
     className,
   ]}
 >
@@ -17,7 +23,7 @@ const { class: className } = Astro.props;
     <div class="loader__fin"></div>
   </div>
 
-  <span class="text-bgColor font-bold">Let's Chat!</span>
+  <span class="font-bold">Let's Chat!</span>
 </a>
 
 <style>
@@ -40,7 +46,7 @@ const { class: className } = Astro.props;
   }
 
   .loader {
-    width: 3vmin;
+    width: 2vmin;
     aspect-ratio: 2 / 1.5;
     background: canvas;
     border: 2px solid canvasText;
@@ -61,7 +67,7 @@ const { class: className } = Astro.props;
   .loader__fin {
     position: absolute;
     inset: -2px;
-    background: oklch(80% 0.2 160);
+    background: oklch(80% 0.2 160) / 80;
     border: 2px solid canvasText;
     transform: rotateY(calc(45deg + var(--i, 0) * 45deg));
     border-radius: 12px;

@@ -701,14 +701,6 @@
   .lenis.lenis-scrolling iframe {
     pointer-events: none;
   }
-
-  .bg-conic-gradient-accent {
-    background-image: conic-gradient(
-      from 123deg at 50% 50%,
-      oklch(80% 0.2 160) -40%,
-      oklch(80% 0.4 160) 143%
-    );
-  }
 }
 
 @layer utilities {
