@@ -16,7 +16,11 @@ const { ...head } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="h-full scroll-smooth break-words">
+<html
+  transition:animate="initial"
+  lang="en"
+  class="h-full scroll-smooth break-words"
+>
   <head>
     <BaseHead {...head} />
     <script>

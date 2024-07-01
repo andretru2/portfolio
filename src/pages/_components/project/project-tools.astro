@@ -3,38 +3,50 @@ import type { ToolKey, Tool } from "@/types";
 import { Tools } from "@/config/validations/project-schema";
 import InfiniteLoopSlider from "@/components/ui/Infinite-loop-slider.astro";
 import { Icon } from "astro-icon/components";
+import { random } from "@/utils";
 
 const ROWS: number = 2;
 const TOOLS_PER_ROW: number = 20;
 
 interface Props {
   toolKeys: ToolKey[];
+  transparent?: boolean;
+  rows?: number;
+  perRow?: number;
 }
 
-const { toolKeys } = Astro.props as Props;
+const {
+  toolKeys,
+  transparent = false,
+  rows = 2,
+  perRow = 20,
+} = Astro.props as Props;
 
 const tools: Tool[] = toolKeys.map((toolKey) => {
   return Tools.find((tool) => tool.key === toolKey);
 });
-const random = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min)) + min;
 ---
 
 <div
   class="relative h-full flex shrink-0 flex-col gap-m items-center justify-center overflow-hidden"
 >
   {
-    [...new Array(ROWS)].map((row, i) => {
+    [...new Array(rows)].map((row, i) => {
       return (
         <InfiniteLoopSlider
           duration={random(43000, 45000)}
           reverse={i % 2 == 0}
         >
-          {tools.slice(0, TOOLS_PER_ROW).map((tool) => (
+          {tools.slice(0, perRow).map((tool) => (
             <div
               aria-label={tool.name}
               title={tool.name}
-              class="p-s rounded-xl bg-bgColor ml-xs z-10 shadow-2xl "
+              class:list={[
+                "p-s rounded-xl ml-xs z-10 shadow-2xl ",
+                transparent
+                  ? "bg-transparet"
+                  : "bg-bgColor",
+              ]}
             >
               <Icon name={tool.icon} class="size-10   " />
             </div>

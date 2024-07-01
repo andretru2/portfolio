@@ -2,26 +2,103 @@
 import HeroImage from "../_assets/design-system-showcase.mp4";
 
 import { Section } from "@/components/ui/section";
+import { MovingBorderWrapper } from "@/components/ui/moving-border";
+import HeroOverlay from "../_assets/bhf-hero-original.webp";
+import { Image } from "astro:assets";
+import { Roles } from "@/config/validations/project-schema";
+import type { Role, ToolKey, Tool } from "@/types";
+import { Tools } from "@/config/validations/project-schema";
+import { Icon } from "astro-icon/components";
+
+import ProjectHeroBhfLogos from "@/pages/_components/project/project-hero-bhf-logos.astro";
+import InfiniteLoopSlider from "@/components/ui/Infinite-loop-slider.astro";
+import ProjectTools from "@/pages/_components/project/project-tools.astro";
+
+const projectRoles: Role = [
+  "chief-architect",
+  "fullstack",
+  "database-admin",
+  "uiux",
+  // "frontend",
+  // "backend",
+  "project-manager",
+  "prototyper",
+];
+
+const projectTools: ToolKey[] = [
+  "react",
+  "tailwind",
+  "typescript",
+  "figma",
+  "nextjs",
+  "c",
+  "sqlserver",
+  "js",
+  "filemaker",
+];
+
+const roles: Role = projectRoles.map((roleKey) => {
+  return Roles.get(roleKey);
+  // return Roles.find((role) => role.key === roleKey);
+});
 ---
 
 <Section
   client:load
   idName="hero"
-  minHeight="160svh"
+  minHeight="220svh"
   parallax
   skipRoundCorners
   margin="none"
   padding="none"
   backgroundColor="bgColorHero"
-  className="bg-bgColorHero flex flex-col items-center justify-center  gap-5xl p-3xl"
+  className="bg-bgColorHero relative flex flex-col items-center justify-center  gap-5xl p-3xl "
 >
-  <div class="flex flex-col gap-m">
-    <h3>ERP System - Designing the Future of BHF</h3>
-    <p class="fluid:text-xl">
-      Heres how i managed to transform entire teams and
-      processes.
+  <Image
+    src={HeroOverlay}
+    format="webp"
+    loading="eager"
+    quality="high"
+    alt="Brtiannica's home fashions hero"
+    class="absolute inset-0 opacity-50 -z-10"
+  />
+  <div
+    class="flex flex-col gap-m justify-center items-center max-w-2xl"
+  >
+    <MovingBorderWrapper client:load>
+      ERP System
+    </MovingBorderWrapper>
+    <h3 class="text-center">
+      Designing the Future of Britannica Home Fasions
+    </h3>
+    <p class="fluid:text-xl text-center">
+      I worked as the design lead on a major iteration of
+      Britannica’s home fashion internal software
+      application. We took the platform in a bold new
+      direction, focusing on standardized components,
+      promoting consistency, and facilitating collaboration.
     </p>
+    <div
+      class="mt-2xl flex flex-row gap-m flex-wrap items-center justify-center"
+    >
+      {
+        roles?.map((role) => (
+          <span class="w-max border-2  border-accent/40 py-xs px-s rounded-xl">
+            {role}
+          </span>
+        ))
+      }
+    </div>
+    <div class="max-w-xl mt-xl">
+      <ProjectTools
+        toolKeys={projectTools}
+        rows={1}
+        perRow={20}
+        transparent
+      />
+    </div>
   </div>
+
   <video
     src={HeroImage}
     autoplay

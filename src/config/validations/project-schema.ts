@@ -141,7 +141,7 @@ export const Roles = new Map([
   ["architect", "Architect"],
   ["frontend", "Frontend"],
   ["backend", "Backend"],
-  ["fullstack", "Full Stack "],
+  ["fullstack", "FullStack Developer "],
   ["uiux", "Visual Designer"],
   ["art-direction", "Art Direction"],
   ["motion-design", "Motion Design"],
