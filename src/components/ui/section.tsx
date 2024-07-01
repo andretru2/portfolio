@@ -73,9 +73,9 @@ export function Section({
           padding === "top" && "pt-3xl",
           padding === "bottom" && "pb-3xl",
           padding === "none" && "py-0",
-          margin === "both" && "my-3xl",
-          margin === "top" && "mt-3xl",
-          margin === "bottom" && "mb-3xl",
+          margin === "both" && "my-xl",
+          margin === "top" && "mt-xl",
+          margin === "bottom" && "mb-xl",
           margin === "none" && "my-0",
           !skipRoundCorners &&
             "rounded-t-[6rem] rounded-b-[6rem] border-y-4 border border-accent",

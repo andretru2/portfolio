@@ -30,8 +30,7 @@ module.exports = {
         bgColor: "oklch(14.48% 0 0 / <alpha-value>)",
         bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
         // textColor: "hsl(var(--theme-text) / <alpha-value>)",
-        textColor:
-          "oklch(100% 0.1073 151.33 / <alpha-value>)",
+        textColor: "oklch(100% 0 0 / <alpha-value>)",
         link: "hsl(var(--theme-link) / <alpha-value>)",
         // accent: "hsl(var(--theme-accent) / <alpha-value>)",
         // "accent-2":
