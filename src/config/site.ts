@@ -16,7 +16,7 @@ export const socialLinks: SocialLink[] = [
     platform: "github",
     href: "https://github.com/andretru2",
     text: "Go to my GitHub repo",
-    icon: "github",
+    icon: "simple-icons:github",
   },
   // {
   //   platform: "figma",
@@ -28,7 +28,7 @@ export const socialLinks: SocialLink[] = [
     platform: "linkedIn",
     href: "https://www.linkedin.com/in/andres-trujillo-7321087b/",
     text: "Go to my LinkedIn profile",
-    icon: "linkedin",
+    icon: "simple-icons:linkedin",
   },
   // {
   //   platform: "x",
@@ -46,11 +46,11 @@ export const navLinks: Array<{
 }> = [
   {
     title: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     title: "About",
-    href: "/about",
+    href: "#about",
   },
   // {
   //   title: "Impact",
@@ -58,6 +58,6 @@ export const navLinks: Array<{
   // },
   {
     title: "Contact",
-    href: "/contact",
+    href: "#contact",
   },
 ];

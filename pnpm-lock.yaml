@@ -17,24 +17,6 @@ dependencies:
   '@astrojs/vercel':
     specifier: ^7.6.0
     version: 7.6.0(astro@4.10.1)(react@18.3.1)
-  '@emailjs/browser':
-    specifier: ^4.3.3
-    version: 4.3.3
-  '@fontsource-variable/dancing-script':
-    specifier: ^5.0.18
-    version: 5.0.18
-  '@fontsource-variable/roboto-slab':
-    specifier: ^5.0.20
-    version: 5.0.20
-  '@fontsource/great-vibes':
-    specifier: ^5.0.20
-    version: 5.0.21
-  '@fontsource/teko':
-    specifier: ^5.0.19
-    version: 5.0.20
-  '@hookform/resolvers':
-    specifier: ^3.6.0
-    version: 3.6.0(react-hook-form@7.52.0)
   '@martijn.cuppens/tailwindcss-fluid':
     specifier: ^1.0.0
     version: 1.0.0
@@ -98,9 +80,6 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.3.1(react@18.3.1)
-  react-hook-form:
-    specifier: ^7.52.0
-    version: 7.52.0(react@18.3.1)
   tailwind-merge:
     specifier: ^2.2.1
     version: 2.3.0
@@ -619,11 +598,6 @@ packages:
     resolution: {integrity: sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==}
     dev: false
 
-  /@emailjs/browser@4.3.3:
-    resolution: {integrity: sha512-ltpt2S/WVREIBXptxYAVYBvXb2O6yTUYiRUWF8OLikMxlmiGsIgKpgHppikNd4Df0uAav7jCsQKcOJ3TJFUx5g==}
-    engines: {node: '>=14.0.0'}
-    dev: false
-
   /@emmetio/abbreviation@2.3.3:
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
     dependencies:
@@ -1118,30 +1092,6 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: false
-
-  /@fontsource-variable/dancing-script@5.0.18:
-    resolution: {integrity: sha512-/jESeND/DdNhMruTOt660oj09JuWUmoiosM9R6feTLh6W4gOX2uWYaZEZEhuOb9FEOKKWYFVdJvf17Zx7KK2nw==}
-    dev: false
-
-  /@fontsource-variable/roboto-slab@5.0.20:
-    resolution: {integrity: sha512-P+SYnhWntwbguWtOp9GkT3fDRN/E09NGNEBMCehhp+K+jctha00h7rn+G0IGJqUcifWZwEWBIFPFVy1ml8bjvQ==}
-    dev: false
-
-  /@fontsource/great-vibes@5.0.21:
-    resolution: {integrity: sha512-5goapXa1++lJuMxgl4Rmy3HA/kdRsqysLfn8MU419StSW8Ju0ZgY9KFPCjQWEpH7xkxgjJ31puHWF51Y4XMEEQ==}
-    dev: false
-
-  /@fontsource/teko@5.0.20:
-    resolution: {integrity: sha512-U3hCrtCXcGZZPZPHHnjLnTyah4PnYN+M1GNlaOqPFTLKU+Eo65DvW9QV/WWgCBEg1sqtmiXfWBHkxUKETjOX+Q==}
-    dev: false
-
-  /@hookform/resolvers@3.6.0(react-hook-form@7.52.0):
-    resolution: {integrity: sha512-UBcpyOX3+RR+dNnqBd0lchXpoL8p4xC21XP8H6Meb8uve5Br1GCnmg0PcBoKKqPKgGu9GHQ/oygcmPrQhetwqw==}
-    peerDependencies:
-      react-hook-form: ^7.0.0
-    dependencies:
-      react-hook-form: 7.52.0(react@18.3.1)
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -5600,15 +5550,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-
-  /react-hook-form@7.52.0(react@18.3.1):
-    resolution: {integrity: sha512-mJX506Xc6mirzLsmXUJyqlAI3Kj9Ph2RhplYhUVffeOQSnubK2uVqBFOBJmvKikvbFV91pxVXmDiR+QMF19x6A==}
-    engines: {node: '>=12.22.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17 || ^18 || ^19
-    dependencies:
-      react: 18.3.1
-    dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
