@@ -69,9 +69,9 @@ export function Section({
         className={cn(
           className,
           "relative z-20",
-          padding === "both" && "py-3xl",
-          padding === "top" && "pt-3xl",
-          padding === "bottom" && "pb-3xl",
+          padding === "both" && "py-5xl",
+          padding === "top" && "pt-5xl",
+          padding === "bottom" && "pb-5xl",
           padding === "none" && "py-0",
           margin === "both" && "my-xl",
           margin === "top" && "mt-xl",
@@ -97,7 +97,7 @@ export function Section({
         {title && (
           <motion.h6
             className={cn(
-              "p-0 px-s text-sm tracking-wider font-bold w-max rounded-xl mb-2xl",
+              "p-0 px-s text-sm tracking-wider font-bold w-max rounded-xl mb-3xl",
               backgroundColor === "accent"
                 ? "text-white bg-bgColor"
                 : "text-black bg-accent"

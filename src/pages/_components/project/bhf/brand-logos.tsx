@@ -1,7 +1,9 @@
 "use client";
+import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
+import type { BrandLogoProps } from "../project-hero-bhf-logos.astro";
 
-interface Props {
+interface Props extends BrandLogoProps {
   logos: string[];
 }
 
@@ -30,15 +32,14 @@ const item = {
   },
 };
 
-export function BhfBrandLogos({ logos }: Props) {
-  console.log(logos);
-  // const [selected, setSelected ] =
-
-  const ROWS = 2;
-  const ITEMS_PER_ROW = 4;
-  const pageSize = 4;
-
-  return Array.from({ length: ROWS }).map((row, num) => {
+export function BhfBrandLogos({
+  logos,
+  rows = 2,
+  pageSize = 4,
+  gap = "xl",
+  className,
+}: Props) {
+  return Array.from({ length: rows }).map((row, num) => {
     const pageNum = num + 1;
 
     const start =
@@ -52,9 +53,15 @@ export function BhfBrandLogos({ logos }: Props) {
         key={num}
         variants={container}
         initial="hidden"
-        animate="show"
+        // animate="show"
+        whileInView={"show"}
         data-id={num}
-        className="grid grid-flow-col gap-m place-content-center "
+        // viewport={}
+        className={cn(
+          "grid grid-flow-col  place-content-center  ",
+
+          className
+        )}
       >
         {logos.slice(start, end).map((logo, i) => (
           <Logo logo={logo} key={i} />
@@ -69,7 +76,7 @@ function Logo({ logo }: { logo: string }) {
     <motion.svg
       variants={item}
       dangerouslySetInnerHTML={{ __html: logo }}
-      className="max-w-16 max-h-8 fill-white "
+      className="max-w-44 max-h-8 fill-white "
     />
   );
 }

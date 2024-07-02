@@ -1,6 +1,10 @@
 ---
 import { Section } from "@/components/ui/section";
+import BHFLogo from "../_assets/bhf-logo.png";
 import BHFClient from "../_assets/bhf-client.mp4";
+import ProjectHeroBhfLogos from "@/pages/_components/project/project-hero-bhf-logos.astro";
+import { Image } from "astro:assets";
+import { Highlight } from "@/components/ui/highlight";
 ---
 
 <Section
@@ -8,21 +12,48 @@ import BHFClient from "../_assets/bhf-client.mp4";
   idName="client"
   title="Meet the Client"
   backgroundColor="bgColorHero"
-  className="relative flex flex-col justify-center  items-center "
+  minHeight="80svh"
+  className="relative flex flex-col  items-center   "
 >
   <div
-    class="container max-w-8xl mx-auto flex flex-col gap-3xl"
+    class="flex flex-col gap-l items-center max-w-5xl mt-2xl"
   >
-    <video
-      src={BHFClient}
-      class="aspect-video rounded-xl max-h-"></video>
-    <div class="flex flex-col gap-m text-center">
-      <h3 class="">Britannica Home Fashions</h3>
-      <p>akjsdjkaskdjas dasd</p>
-    </div>
+    <Image
+      src={BHFLogo}
+      format="webp"
+      loading="eager"
+      quality="high"
+      class="text-left justify-self-start"
+      alt="Brtiannica's home fashions hero"
+      class=""
+    />
 
-    <button class="button-sm button-primary">
-      Go to website
-    </button>
+    <p class="mt-m">
+      Britannica Home Fashions (BHF) is a <Highlight
+        >worldwide frontrunner in home goods</Highlight
+      >, renowned for its diverse product lines, grappled
+      with the intricacies of supply chain and order
+      management data.
+    </p>
+    <p class="">
+      The company’s<Highlight>global position</Highlight> is
+      reinforced by their<Highlight
+        >longstanding reputation and robust collaborations
+        with leading brands such as UGG, Pendleton, and
+        Walmart;</Highlight
+      > and is supported by a <Highlight
+        >network of international offices and a
+        comprehensive omnichannel distribution system.
+      </Highlight>
+    </p>
+
+    <div class="mt-3xl">
+      <ProjectHeroBhfLogos
+        className="h-1/2 gap-3xl p-m"
+        rows={2}
+        perRow={5}
+        pageSize={5}
+      />
+    </div>
   </div>
 </Section>

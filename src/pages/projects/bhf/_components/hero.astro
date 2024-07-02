@@ -7,11 +7,7 @@ import HeroOverlay from "../_assets/bhf-hero-original.webp";
 import { Image } from "astro:assets";
 import { Roles } from "@/config/validations/project-schema";
 import type { Role, ToolKey, Tool } from "@/types";
-import { Tools } from "@/config/validations/project-schema";
-import { Icon } from "astro-icon/components";
 
-import ProjectHeroBhfLogos from "@/pages/_components/project/project-hero-bhf-logos.astro";
-import InfiniteLoopSlider from "@/components/ui/Infinite-loop-slider.astro";
 import ProjectTools from "@/pages/_components/project/project-tools.astro";
 
 const projectRoles: Role = [
@@ -51,8 +47,8 @@ const roles: Role = projectRoles.map((roleKey) => {
   skipRoundCorners
   margin="none"
   padding="none"
-  backgroundColor="bgColorHero"
-  className="bg-bgColorHero relative flex flex-col items-center justify-center  gap-5xl p-3xl "
+  backgroundColor="bgColor"
+  className=" bg-bgColor relative flex flex-col items-center justify-center  gap-5xl p-3xl  "
 >
   <Image
     src={HeroOverlay}
@@ -60,7 +56,7 @@ const roles: Role = projectRoles.map((roleKey) => {
     loading="eager"
     quality="high"
     alt="Brtiannica's home fashions hero"
-    class="absolute inset-0 opacity-50 -z-10"
+    class="absolute inset-0 opacity-20 -z-10 bg-bgColor"
   />
   <div
     class="flex flex-col gap-m justify-center items-center max-w-2xl"
