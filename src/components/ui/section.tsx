@@ -68,7 +68,7 @@ export function Section({
         viewport={{ once: true }}
         className={cn(
           className,
-          "relative z-20",
+          "relative z-20 shadow-3xl shadow-white",
           padding === "both" && "py-5xl",
           padding === "top" && "pt-5xl",
           padding === "bottom" && "pb-5xl",
@@ -84,8 +84,8 @@ export function Section({
             "bg-bgColorHero",
           backgroundColor === "hero" && "bg-bgColorHero",
           backgroundColor === "accent" && "bg-accent",
-          backgroundColor === "accent2" &&
-            "[background-image]:[conic-gradient(from_123deg_at_50%_50%,oklch(20%_0.2_160)_-40%,oklch(20%_0.4_160)_143%)]",
+          // backgroundColor === "accent" &&
+          //   "[background-image]:[conic-gradient(from_123deg_at_50%_50%,oklch(20%_0.2_160)_-40%,oklch(20%_0.4_160)_143%)]",
           backgroundColor === "aurora" &&
             "[--white-gradient:repeating-linear-gradient(100deg,oklch(95%_0.05_0)_0%,oklch(95%_0.05_0)_7%,var(--transparent)_10%,var(--transparent)_12%,oklch(95%_0.05_0)_16%)] [--dark-gradient:repeating-linear-gradient(100deg,oklch(5%_0.05_0)_0%,oklch(5%_0.05_0)_7%,var(--transparent)_10%,var(--transparent)_12%,oklch(5%_0.05_0)_16%)] [--aurora:repeating-linear-gradient(100deg,oklch(60%_0.25_210)_10%,oklch(70%_0.2_230)_15%,oklch(60%_0.3_240)_20%,oklch(80%_0.1_270)_25%,oklch(50%_0.2_250)_30%)] [background-image:var(--white-gradient),var(--aurora)] dark:[background-image:var(--dark-gradient),var(--aurora)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%] filter blur-[10px] invert dark:invert-0 after:content-[''] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:dark:[background-image:var(--dark-gradient),var(--aurora)] after:[background-size:200%,_100%] after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference pointer-events-none absolute -inset-[10px] opacity-20"
         )}
