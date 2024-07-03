@@ -1,20 +1,59 @@
 ---
 import { Section } from "@/components/ui/section";
 // import Contact from "@/pages/_components/contact.astro";
+import hero from "../_assets/bhf-hero-original.webp";
+import pos from "../_assets/bhf-hero-original.webp";
+import { Image } from "astro:assets";
+import { Tabs } from "./solution-tabs";
+
+const tabs = [
+  {
+    title: "Main",
+    value: "main",
+    description:
+      "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+    content: "abc",
+  },
+  {
+    title: "Purchase Orders",
+    value: "pos",
+    content: "x",
+  },
+];
+
+// const tabs = [
+//   {
+//     title: "Product",
+//     value: "product",
+//     content: (
+//       <div class="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+//         <p>Product Tab</p>
+//         <DummyContent />
+//       </div>
+//     ),
+//   },
+//   {
+//     title: "Services",
+//     value: "services",
+//     content: (
+//       <div class="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+//         <p>Services tab</p>
+//         <DummyContent />
+//       </div>
+//     ),
+//   },
+// ];
 ---
 
 <Section
   client:visible
   idName="solution"
   title="The Solution"
-  backgroundColor="bgColor"
-  className="flex flex-col justify-center items-center "
+  backgroundColor="accent"
+  minHeight="130svh"
+  className="flex flex-col items-center "
 >
-  <p>
-    I worked as the design lead on a major iteration of
-    Britannica’s home fashion internal software application.
-    We took the platform in a bold new direction, focusing
-    on standardized components, promoting consistency, and
-    facilitating collaboration.
-  </p>
+  <div class="container mx-auto h-svh">
+    <Tabs tabs={tabs} client:visible />
+  </div>
 </Section>
