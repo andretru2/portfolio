@@ -73,12 +73,12 @@ export function Section({
           padding === "top" && "pt-5xl",
           padding === "bottom" && "pb-5xl",
           padding === "none" && "py-0",
-          margin === "both" && "my-xl",
+          margin === "both" && "my-0",
           margin === "top" && "mt-xl",
           margin === "bottom" && "mb-xl",
           margin === "none" && "my-0",
           !skipRoundCorners &&
-            "rounded-t-[6rem] rounded-b-[6rem] border-y-4 border border-accent",
+            "rounded-t-[6rem] rounded-b-[6rem] border-y-1 border-t border-accent/30 stroke-[0.1] hover:stroke-[0.15]",
           backgroundColor === "bgColor" && "bg-bgColor",
           backgroundColor === "bgColorHero" &&
             "bg-bgColorHero",

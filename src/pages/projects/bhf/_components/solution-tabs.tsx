@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
+import { Stat } from "@/components/ui/stat";
 
 type Tab = {
   title: string;
@@ -123,7 +124,7 @@ export const FadeInDiv = ({
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
           className={cn(
-            "min-h-[70svh] min-w-[50svw] absolute inset-0 bg-bgColor   rounded-3xl  ",
+            "min-h-[70svh] min-w-[50svw] absolute inset-0 bg-bgColor   rounded-[4rem]  ",
             className
           )}
         >
@@ -132,7 +133,7 @@ export const FadeInDiv = ({
             <p className="prose-p w-screen">
               {tab.description}
             </p>
-
+            <Stat value={30} label="Time Saving" />
             {tab.content}
           </div>
         </motion.div>

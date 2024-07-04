@@ -58,7 +58,7 @@ export function BhfBrandLogos({
         data-id={num}
         // viewport={}
         className={cn(
-          "grid grid-flow-col  place-content-center  ",
+          "grid grid-flow-col  place-content-center  items-start ",
 
           className
         )}
@@ -76,7 +76,7 @@ function Logo({ logo }: { logo: string }) {
     <motion.svg
       variants={item}
       dangerouslySetInnerHTML={{ __html: logo }}
-      className="max-w-44 max-h-8 fill-white "
+      className="max-w-44 max-h-8 fill-white  "
     />
   );
 }
