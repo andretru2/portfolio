@@ -10,7 +10,7 @@ export function Stat({
   label,
   value,
   includePercentageSymbol,
-}: Props) {
+}: StatProps) {
   return (
     <div className="flex flex-col gap-xs items-center">
       {typeof value === "number" ? (

@@ -174,10 +174,28 @@ function TabContent({
           ))}
       </div>
       {image && (
-        <img
+        <motion.img
+          initial={{
+            y: -10,
+            rotate: -2,
+          }}
+          animate={{
+            y: 0,
+            rotate: 0,
+            transition: {
+              type: "spring",
+              damping: 50,
+              stiffness: 100,
+              bounce: 10,
+            },
+          }}
           src={image}
-          alt={header || tab.title}
-          className="mt-xl aspect-video"
+          alt={header}
+          className="mt-xl aspect-video   rounded-xl object-cover object-left-top h-[60%]  md:h-[90%]  w-[90%]"
+          loading="lazy"
+          decoding="async"
+          width="1000"
+          height="1000"
         />
       )}
     </div>

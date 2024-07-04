@@ -1,0 +1,49 @@
+---
+import { Stat, type StatProps } from "@/components/ui/stat";
+import { Image } from "astro:assets";
+
+interface Props {
+  header: string;
+  description?: string;
+  stats?: StatProps[];
+  image?: ImageMetadata | string;
+}
+
+const { header, description, stats, image } =
+  Astro.props as Props;
+---
+
+<div
+  class="p-2xl flex gap-l flex-col items-center shadow-xl min-w-0 h-full rounded-xl"
+>
+  <h5>{header}</h5>
+  <p class="prose-p w-screen h-max">
+    {description}
+  </p>
+  <div
+    class="flex flex-row gap-2xl items-center align-middle justify-start w-full z-10 max-w-2xl mt-xl"
+  >
+    {
+      stats &&
+        stats.map((statItem, index) => (
+          <Stat
+            value={statItem.value}
+            label={statItem.label}
+            includePercentageSymbol={
+              statItem.includePercentageSymbol
+            }
+          />
+        ))
+    }
+  </div>
+  {
+    image && (
+      <Image
+        src={image}
+        format="webp"
+        quality="high"
+        class="mt-xl aspect-video max-h-[40rem]"
+      />
+    )
+  }
+</div>

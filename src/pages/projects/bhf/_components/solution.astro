@@ -1,10 +1,15 @@
 ---
 import { Section } from "@/components/ui/section";
 // import Contact from "@/pages/_components/contact.astro";
-import hero from "../_assets/bhf-hero-original.webp";
-import pos from "../_assets/bhf-hero-original.webp";
+// import hero from "../_assets/bhf-hero-original.webp";
+import hero from "../_assets/spr-storyboarder-dark.png";
+import pos from "../_assets/bhf-feature-pos.webp";
+import matching from "../_assets/bhf-feature-matching.webp";
+import designsystem from "../_assets/bhf-feature-design-system.webp";
+
 import { Image } from "astro:assets";
 import { Tabs, type Tab } from "./solution-tabs";
+import TabContent from "./tab-content.astro";
 
 const tabs: Tab[] = [
   {
@@ -12,7 +17,7 @@ const tabs: Tab[] = [
     value: "overview",
 
     content: {
-      header: "abc",
+      header: "Overview",
       description:
         "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
 
@@ -31,7 +36,65 @@ const tabs: Tab[] = [
   {
     title: "Purchase Orders",
     value: "pos",
-    content: "x",
+
+    content: {
+      header: "Purchase Orders",
+      description:
+        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+
+      stats: [
+        { label: "Efficiency Increase", value: "200%" },
+        { label: "Time Saved", value: "5 hours/week" },
+        {
+          label: "User Satisfaction",
+          value: 9.8,
+          includePercentageSymbol: true,
+        },
+      ],
+      image: pos.src,
+    },
+  },
+  {
+    title: "Design System",
+    value: "designsystem",
+
+    content: {
+      header: "Design System",
+      description:
+        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+
+      stats: [
+        { label: "Efficiency Increase", value: "200%" },
+        { label: "Time Saved", value: "5 hours/week" },
+        {
+          label: "User Satisfaction",
+          value: 9.8,
+          includePercentageSymbol: true,
+        },
+      ],
+      image: designsystem.src,
+    },
+  },
+  {
+    title: "Matching",
+    value: "matching",
+
+    content: {
+      header: "PO Matching",
+      description:
+        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+
+      stats: [
+        { label: "Efficiency Increase", value: "200%" },
+        { label: "Time Saved", value: "5 hours/week" },
+        {
+          label: "User Satisfaction",
+          value: 9.8,
+          includePercentageSymbol: true,
+        },
+      ],
+      image: matching.src,
+    },
   },
 ];
 
@@ -64,7 +127,7 @@ const tabs: Tab[] = [
   idName="solution"
   title="The Solution"
   backgroundColor="accent"
-  minHeight="130svh"
+  minHeight="180svh"
   className="flex flex-col items-center min-h-max "
 >
   <div class="container mx-auto h-svh">
