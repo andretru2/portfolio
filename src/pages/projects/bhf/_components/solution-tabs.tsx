@@ -3,28 +3,36 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
-import { Stat } from "@/components/ui/stat";
+import { Stat, type StatProps } from "@/components/ui/stat";
 
-type Tab = {
+export interface Tab {
   title: string;
-  description?: string;
   value: string;
-  content?: string | React.ReactNode | any;
-};
+  content?: TabContent;
+}
 
-export const Tabs = ({
-  tabs: propTabs,
-  containerClassName,
-  activeTabClassName,
-  tabClassName,
-  contentClassName,
-}: {
+interface TabContent {
+  header: string;
+  description?: string;
+  stats?: StatProps[];
+  image?: string;
+}
+
+interface Props {
   tabs: Tab[];
   containerClassName?: string;
   activeTabClassName?: string;
   tabClassName?: string;
   contentClassName?: string;
-}) => {
+}
+
+export function Tabs({
+  tabs: propTabs,
+  containerClassName,
+  activeTabClassName,
+  tabClassName,
+  contentClassName,
+}: Props) {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
 
@@ -92,9 +100,9 @@ export const Tabs = ({
       />
     </div>
   );
-};
+}
 
-export const FadeInDiv = ({
+function FadeInDiv({
   className,
   tabs,
   hovering,
@@ -104,7 +112,7 @@ export const FadeInDiv = ({
   tabs: Tab[];
   active: Tab;
   hovering?: boolean;
-}) => {
+}) {
   const isActive = (tab: Tab) => {
     return tab.value === tabs[0].value;
   };
@@ -124,20 +132,54 @@ export const FadeInDiv = ({
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
           className={cn(
-            "min-h-[70svh] min-w-[50svw] absolute inset-0 bg-bgColor   rounded-[4rem]  ",
+            "min-h-max min-w-[50svw] absolute inset-0 bg-bgColor   rounded-[3rem]  ",
             className
           )}
         >
-          <div className=" p-2xl flex gap-2xl flex-col items-center   shadow-xl min-w-0 h-full rounded-xl ">
-            <h5>{tab.title}</h5>
-            <p className="prose-p w-screen">
-              {tab.description}
-            </p>
-            <Stat value={30} label="Time Saving" />
-            {tab.content}
-          </div>
+          <TabContent
+            header={tab.content?.header}
+            description={tab.content?.description}
+            stats={tab.content?.stats}
+            image={tab.content?.image}
+          />
         </motion.div>
       ))}
     </div>
   );
-};
+}
+
+function TabContent({
+  header,
+  description,
+  stats,
+  image,
+}: TabContent) {
+  return (
+    <div className=" p-2xl flex gap-l flex-col items-center   shadow-xl min-w-0 h-full rounded-xl ">
+      <h5>{header}</h5>
+      <p className="prose-p w-screen h-max ">
+        {description}
+      </p>
+      <div className="flex flex-row gap-2xl items-center align-middle justify-start w-full  z-10 max-w-2xl mt-xl">
+        {stats &&
+          stats.map((statItem, index) => (
+            <Stat
+              key={index}
+              value={statItem.value}
+              label={statItem.label}
+              includePercentageSymbol={
+                statItem.includePercentageSymbol
+              }
+            />
+          ))}
+      </div>
+      {image && (
+        <img
+          src={image}
+          alt={header || tab.title}
+          className="mt-xl aspect-video"
+        />
+      )}
+    </div>
+  );
+}

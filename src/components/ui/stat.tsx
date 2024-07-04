@@ -1,17 +1,27 @@
 import Counter from "./counter";
-interface Props {
+
+export interface StatProps {
   label: string;
-  value: number;
+  value: number | string;
+  includePercentageSymbol?: boolean;
 }
 
-export function Stat({ label, value }: Props) {
+export function Stat({
+  label,
+  value,
+  includePercentageSymbol,
+}: Props) {
   return (
     <div className="flex flex-col gap-xs items-center">
-      <Counter
-        value={value}
-        className="fluid:text-4xl font-bold text-accent"
-        includePercentageSymbol
-      />
+      {typeof value === "number" ? (
+        <Counter
+          value={value}
+          className="fluid:text-4xl font-bold text-accent"
+          includePercentageSymbol={includePercentageSymbol}
+        />
+      ) : (
+        <h5 className="text-accent">{value}</h5>
+      )}
 
       <span className="text-s font-light opacity-80">
         {label}

@@ -4,15 +4,29 @@ import { Section } from "@/components/ui/section";
 import hero from "../_assets/bhf-hero-original.webp";
 import pos from "../_assets/bhf-hero-original.webp";
 import { Image } from "astro:assets";
-import { Tabs } from "./solution-tabs";
+import { Tabs, type Tab } from "./solution-tabs";
 
-const tabs = [
+const tabs: Tab[] = [
   {
-    title: "Main",
-    value: "main",
-    description:
-      "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
-    content: "abc",
+    title: "Overview",
+    value: "overview",
+
+    content: {
+      header: "abc",
+      description:
+        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+
+      stats: [
+        { label: "Efficiency Increase", value: "200%" },
+        { label: "Time Saved", value: "5 hours/week" },
+        {
+          label: "User Satisfaction",
+          value: 9.8,
+          includePercentageSymbol: true,
+        },
+      ],
+      image: hero.src,
+    },
   },
   {
     title: "Purchase Orders",
@@ -51,7 +65,7 @@ const tabs = [
   title="The Solution"
   backgroundColor="accent"
   minHeight="130svh"
-  className="flex flex-col items-center "
+  className="flex flex-col items-center min-h-max "
 >
   <div class="container mx-auto h-svh">
     <Tabs tabs={tabs} client:visible />

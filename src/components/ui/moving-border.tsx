@@ -32,7 +32,7 @@ export function MovingBorderWrapper({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl  h-12 w-max  px-s py-xs overflow-hidden",
+        "bg-transparent relative text-xl  h-12 w-max p-[1px] overflow-hidden cursor-default",
         containerClassName
       )}
       style={{
