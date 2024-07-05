@@ -96,7 +96,7 @@ export function Tabs({
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn("mt-6xl", contentClassName)}
+        className={cn("mt-3xl", contentClassName)}
       />
     </div>
   );
@@ -155,7 +155,7 @@ function TabContent({
   image,
 }: TabContent) {
   return (
-    <div className=" p-2xl flex gap-l flex-col items-center   shadow-xl min-w-0 h-full rounded-xl ">
+    <div className=" p-2xl flex gap-l flex-col items-center    min-w-0 h-full rounded-xl ">
       <h5>{header}</h5>
       <p className="prose-p w-screen h-max ">
         {description}
