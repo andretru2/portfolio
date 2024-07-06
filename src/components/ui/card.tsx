@@ -1,31 +1,36 @@
 import * as React from "react";
 import { cn } from "@/utils/cn";
-import { motion, type AnimationType } from "framer-motion";
+import {
+  motion,
+  type HTMLMotionProps,
+} from "framer-motion";
 
 // Card
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLElement>
->(({ className, ...props }, ref) => (
-  <motion.article
-    ref={ref}
-    className={cn(
-      "relative shadow-xl p-xs flex min-w-0 flex-col h-full panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15]",
-      // "relative shadow-xl p-m bg-teal-950  border border-teal-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-gray-900  border border-gray-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm p-m",
-      // "relative shadow-xl bg-[#228B22]  border border-[#228B22]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-[#355E3B]  border border-[#355E3B]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-[#1B4D3E]  border  border-[#1B4D3E]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-[#00A36C]  border  border-[#00A36C]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-[#638B59]  border  border-[#638B59]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-[#8D9E74]  border  border-[#8D9E74]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-[#1C4E80]  border  border-[#1C4E80]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      // "relative shadow-xl bg-neutral-900  border  border-neutral-800 flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
-      className
-    )}
-    {...props}
-  />
-));
+type CardProps = HTMLMotionProps<"article"> &
+  React.HTMLAttributes<HTMLElement>;
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, ...props }, ref) => (
+    <motion.article
+      ref={ref}
+      className={cn(
+        "relative shadow-xl p-xs flex min-w-0 flex-col h-full panel rounded-2xl text-card-foreground stroke-[0.1] hover:stroke-[0.15]",
+        // "relative shadow-xl p-m bg-teal-950  border border-teal-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-gray-900  border border-gray-800  flex-1 h-full overflow-hidden rounded-2xl flex flex-col stroke-[0.1] hover:stroke-[0.15] backdrop-blur-sm p-m",
+        // "relative shadow-xl bg-[#228B22]  border border-[#228B22]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-[#355E3B]  border border-[#355E3B]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-[#1B4D3E]  border  border-[#1B4D3E]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-[#00A36C]  border  border-[#00A36C]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-[#638B59]  border  border-[#638B59]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-[#8D9E74]  border  border-[#8D9E74]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-[#1C4E80]  border  border-[#1C4E80]/90  flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        // "relative shadow-xl bg-neutral-900  border  border-neutral-800 flex-1 h-full overflow-hidden rounded-2xl flex flex-col ",
+        className
+      )}
+      {...props}
+    />
+  )
+);
 Card.displayName = "Card";
 
 // CardGlow

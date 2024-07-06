@@ -1,19 +1,13 @@
 ---
 import Project from "./project/project.astro";
 import type { Project as ProjectProps } from "@/types";
-
-import BHFHero from "@/pages/_assets/bhf-hero-v3.mp4";
-import GigsTraxHero from "@/pages/_assets/gigstrax-hero.mp4";
-// import BhfFeatures from "@/pages/_assets/bhf-hero.mp4";
-// import BhfMore from "@/pages/_assets/bhf-hero.mp4";
-
-import ProjectHeroBhfLogos from "./project/project-hero-bhf-logos.astro";
-
+import BHFHero from "@/pages/_assets/project-bhf-hero.mp4";
+import GigsTraxHero from "@/pages/_assets/project-gigstrax-hero.mp4";
+import OtherProjects from "@/pages/_assets/project-other-projects.mp4";
 import { Section } from "@/components/ui/section";
 
 const projects: ProjectProps[] = [
   {
-    visible: true,
     title: "ERP System",
     client: "Britannica Home Fashions",
     description:
@@ -29,7 +23,10 @@ const projects: ProjectProps[] = [
     homepageUrl: "https://andretru2.github.io/",
     repoUrl: "",
     caseStudyUrl: "/projects/bhf",
-    hero: BHFHero,
+    hero: {
+      src: BHFHero,
+      alt: "",
+    },
     features: [
       {
         section: "About",
@@ -171,7 +168,6 @@ const projects: ProjectProps[] = [
     featured: 1,
   },
   {
-    visible: false,
     title: "GigsTrax",
     client: "Real Beard Santas",
     description:
@@ -185,7 +181,11 @@ const projects: ProjectProps[] = [
     homepageUrl: "https://andretru2.github.io/",
     repoUrl: "",
     caseStudyUrl: "",
-    hero: GigsTraxHero,
+    hero: {
+      src: GigsTraxHero,
+      alt: "",
+    },
+
     features: [
       {
         section: "About",
@@ -328,7 +328,6 @@ const projects: ProjectProps[] = [
     featured: 2,
   },
   {
-    visible: false,
     title: "Collection of my other projects",
     client: "Andres Trujillo",
     description:
@@ -342,7 +341,10 @@ const projects: ProjectProps[] = [
     homepageUrl: "https://andretru2.github.io/",
     repoUrl: "",
     caseStudyUrl: "",
-    hero: GigsTraxHero,
+    hero: {
+      src: OtherProjects,
+      alt: "",
+    },
     features: [
       {
         section: "About",

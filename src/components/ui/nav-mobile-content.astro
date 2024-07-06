@@ -3,7 +3,6 @@ import { navLinks, socialLinks } from "@/config/site";
 import SocialLinks from "./social-links.astro";
 import NavLink from "./nav-link.astro";
 import ThemeToggle from "./theme-toggle.astro";
-import Logo from "./logo.astro";
 ---
 
 <nav
@@ -12,7 +11,7 @@ import Logo from "./logo.astro";
 >
   <ul id="menu-items" class="flex flex-col gap-l">
     {
-      navLinks.map((link, index) => (
+      navLinks.map((link) => (
         <li class="py-1">
           <NavLink class="" href={link.href}>
             {link.title}

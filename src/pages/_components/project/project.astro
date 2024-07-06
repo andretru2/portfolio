@@ -1,7 +1,6 @@
 ---
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import type { Project } from "@/types";
-
 import ProjectHero from "./project-hero.astro";
 import ProjectDetails from "./project-details.astro";
 import { FadeUpStagger } from "@/components/ui/fade-up";
@@ -13,10 +12,8 @@ const {
   caseStudyUrl,
   hero,
   features,
-  roles,
   tools,
   featured,
-  visible,
 } = Astro.props as Project;
 
 const reversed = featured ? featured % 2 === 0 : false;
@@ -61,11 +58,11 @@ const reversed = featured ? featured % 2 === 0 : false;
               caseStudyUrl={caseStudyUrl}
               reversed={reversed}
             />
-            <ProjectHero media={hero} />
+            <ProjectHero hero={hero} />
           </Fragment>
         ) : (
           <Fragment>
-            <ProjectHero media={hero} />
+            <ProjectHero hero={hero} />
             <ProjectDetails
               tools={tools}
               features={features}

@@ -1,15 +1,19 @@
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { ReactNode } from "react";
 
-export const NoiseText = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+
+export const NoiseText = ({ children }: Props) => {
   // Define the animation variants
-  const variants = {
-    initial: { "--lines": "0.0001px" },
-    animate: {
-      "--lines": "0.00012px",
-      transition: { duration: 2 },
-    }, // Simulate the animation effect
-  };
+  // const variants = {
+  //   initial: { "--lines": "0.0001px" },
+  //   animate: {
+  //     "--lines": "0.00012px",
+  //     transition: { duration: 2 },
+  //   }, // Simulate the animation effect
+  // };
 
   return (
     <AnimatePresence>
@@ -17,7 +21,7 @@ export const NoiseText = ({ children }) => {
       <motion.h1
         initial="initial"
         animate="animate"
-        variants={variants}
+        // variants={variants}
         style={{
           display: "inline-block",
           WebkitMaskImage:
@@ -28,10 +32,10 @@ export const NoiseText = ({ children }) => {
           WebkitTextFillColor: "transparent",
           backgroundImage:
             "linear-gradient(to right, oklch(82% 0.25 158), oklch(95% 0.15 100))",
-          "@media (prefersColorScheme: light)": {
-            backgroundImage:
-              "linear-gradient(to right var(--space), black, gray)",
-          },
+          // "@media (prefersColorScheme: light)": {
+          //   backgroundImage:
+          //     "linear-gradient(to right var(--space), black, gray)",
+          // },
         }}
       >
         {children}

@@ -1,16 +1,15 @@
 ---
 import HeroImage from "../_assets/design-system-showcase.mp4";
-
 import { Section } from "@/components/ui/section";
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import HeroOverlay from "../_assets/bhf-hero-original.webp";
 import { Image } from "astro:assets";
 import { Roles } from "@/config/validations/project-schema";
-import type { Role, ToolKey, Tool } from "@/types";
+import type { Role } from "@/types";
 
 import ProjectTools from "@/pages/_components/project/project-tools.astro";
 
-const projectRoles: Role = [
+const projectRoles = [
   "chief-architect",
   "fullstack",
   "database-admin",
@@ -21,7 +20,7 @@ const projectRoles: Role = [
   "prototyper",
 ];
 
-const projectTools: ToolKey[] = [
+const projectTools = [
   "react",
   "tailwind",
   "typescript",
@@ -33,9 +32,9 @@ const projectTools: ToolKey[] = [
   "filemaker",
 ];
 
-const roles: Role = projectRoles.map((roleKey) => {
+const roles = projectRoles.map((roleKey) => {
+  // @ts-expect-error
   return Roles.get(roleKey);
-  // return Roles.find((role) => role.key === roleKey);
 });
 ---
 
@@ -96,9 +95,9 @@ const roles: Role = projectRoles.map((roleKey) => {
   </div>
 
   <video
-    src={HeroImage}
     autoplay
     class="w-full h-full object-cover rounded-xl"
   >
+    <source src={HeroImage} type="video/mp4" />
   </video>
 </Section>

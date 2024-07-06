@@ -1,11 +1,8 @@
 ---
 import { Highlight } from "@/components/ui/highlight";
-// import profile from "../_assets/at-profile.png";
-import profile from "../_assets/at-kauai.JPG";
-import signature from "../_assets/at-signature.mp4";
+// import Profile from "../_assets/about-at-kauai.JPG";
+import Profile from "../_assets/about-at-kauai.webp";
 import { Image } from "astro:assets";
-import SectionTitle from "@/components/ui/zzzzsection-title.astro";
-import { NoiseText } from "./noise";
 import { Section } from "@/components/ui/section";
 import { Stat } from "@/components/ui/stat";
 ---
@@ -17,14 +14,6 @@ import { Stat } from "@/components/ui/stat";
   backgroundColor="bgColorHero"
   className="flex flex-col justify-center items-center    "
 >
-  <!-- <div
-    class="absolute rounded-t-[8rem] -top-6xl inset-0 border-t-4 border-accent bg-bgColorHero"
-  >
-  </div> -->
-
-  <!-- <SectionTitle backgroundType="" class=""
-    >ABOUT</SectionTitle
-  > -->
   <div class="grid grid-cols-12 gap-xs container mx-auto">
     <div class="col-span-6 flex flex-col gap-xl h-full">
       <!-- <NoiseText client:load>hola</NoiseText> -->
@@ -106,10 +95,9 @@ import { Stat } from "@/components/ui/stat";
           // filter: "grayscale(0.25)",
           objectPosition: "bottom left ",
         }}
-        src={profile}
+        src={Profile}
         alt="At profile picture"
-        format="webp"
-        loading="eager"
+        loading="lazy"
         quality="high"
         onload="this.style.opacity = 1; this.style.transform = 'scale(1)'"
       />

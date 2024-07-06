@@ -1,12 +1,7 @@
 ---
 import { SphereCanvas } from "./hero/canvas/sphere";
-import { Swapper } from "./hero/swapper";
-// import Background from "@/components/ui/section-background.astro";
-// import { HeroParallax } from "./hero-parallax";
+import { Swapper } from "@/components/ui/swapper";
 import { Section } from "@/components/ui/section";
-// import { Image } from "astro:assets";
-// import imageSprBackgroundVolcanismLarge from "../_assets/spr-background-volcanism-large.jpg";
-// import imageSprBackgroundVolcanism from "../_assets/spr-background-volcanism.jpg";
 ---
 
 <Section
@@ -64,7 +59,9 @@ import { Section } from "@/components/ui/section";
     // "AI Engineer",
   ];
   let count = 0;
-  const SWAPPER = document.querySelector("#swapper");
+  const SWAPPER = document.querySelector(
+    "#swapper"
+  ) as HTMLElement;
 
   const SWAP = () => {
     if (count < 10) {

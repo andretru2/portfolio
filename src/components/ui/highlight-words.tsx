@@ -1,26 +1,30 @@
 export const HighlightWords: React.FC<{
   text: string;
-  highlightWords: string[];
+  highlightWords?: string[];
   highlightClass?: string;
 }> = ({
   text,
-  highlightWords,
-  // highlightClass = " bg-accent/10 text-accent/80 font-medium  rounded-md",
-  // highlightClass = " font-semibold",
-  highlightClass = "  font-semibold underline underline-offset-2 decoration-accent truncate   text-textColor   px-1 py-0.5",
+  highlightWords = [],
+  highlightClass = "font-semibold underline underline-offset-2 decoration-accent truncate text-textColor px-1 py-0.5",
 }) => {
-  const highlightWordsRegex = new RegExp(
-    `\\b(${highlightWords
-      .map((word) => escapeRegExp(word))
-      .join("|")})\\b`,
-    "gi"
-  );
+  const highlightWordsRegex =
+    highlightWords.length > 0
+      ? new RegExp(
+          `\\b(${highlightWords
+            .map((word) => escapeRegExp(word))
+            .join("|")})\\b`,
+          "gi"
+        )
+      : null;
 
-  const parts = text.split(highlightWordsRegex);
+  const parts = highlightWordsRegex
+    ? text.split(highlightWordsRegex)
+    : [text];
 
   return (
     <p className="overflow-hidden sm:truncate md:whitespace-normal">
       {parts.map((part, index) =>
+        highlightWordsRegex &&
         highlightWordsRegex.test(part) ? (
           <span key={index} className={highlightClass}>
             {part}

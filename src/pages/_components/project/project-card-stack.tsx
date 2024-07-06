@@ -8,8 +8,6 @@ import { HighlightWords } from "@/components/ui/highlight-words";
 
 import { type ProjectFeature } from "@/types";
 
-let interval: any;
-
 interface Props {
   features: ProjectFeature[];
 }
@@ -68,7 +66,6 @@ export function ProjectCardStack({ features }: Props) {
 function Card({
   title,
   description,
-  content,
   wordsToHighlight,
 }: ProjectFeature) {
   return (

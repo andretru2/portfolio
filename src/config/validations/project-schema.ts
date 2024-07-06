@@ -1,23 +1,7 @@
 import { z } from "zod";
 import type { Tool } from "@/types";
-import astro from "@/icons/astro.svg";
-import figma from "@/icons/figma.svg";
-import c from "@/icons/c.svg";
-import github from "@/icons/github.svg";
-import linkedin from "@/icons/linkedin.svg";
-import nextjs from "@/icons/nextjs.svg";
-import react from "@/icons/react.svg";
-import sqlserver from "@/icons/sqlserver.svg";
-import tailwind from "@/icons/tailwind.svg";
-import typescript from "@/icons/typescript.svg";
-import js from "@/icons/js.svg";
-import prisma from "@/icons/prisma.svg";
-import drizzle from "@/icons/drizzle.svg";
-import postgresql from "@/icons/postgresql.svg";
-import filemaker from "@/icons/filemaker.svg";
-import threejs from "@/icons/threejs.svg";
 
-// export const Tools = new Map([
+// export const ToolsMap = new Map([
 //   ["astro", "Astro"],
 //   ["figma", "Figma"],
 //   ["mdx", "MDX"],
@@ -172,7 +156,7 @@ export const projectSchema = z.object({
   client: z.string().min(1),
   description: z.any().optional(),
   wordsToHighlight: z.array(z.string()).optional(),
-  image: z.object({ src: z.string(), alt: z.string() }),
+  hero: z.object({ src: z.string(), alt: z.string() }),
   // images: z.array(z.string()).default([]).optional(),
   homepageUrl: z.string().url().optional(),
   repoUrl: z.string().url().optional(),

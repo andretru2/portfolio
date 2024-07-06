@@ -42,7 +42,7 @@ export function Section({
   margin = "both",
   skipRoundCorners = false,
 }: Props) {
-  const container = useRef();
+  const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],

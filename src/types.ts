@@ -2,9 +2,9 @@ import { z } from "zod";
 import {
   projectFeatureSchema,
   projectSchema,
+  Roles,
 } from "./config/validations/project-schema";
 import { aboutSchema } from "./config/validations/about-schema";
-import type { ImageMetadata } from "astro";
 
 export type SiteConfig = {
   name: string;
@@ -33,6 +33,7 @@ export type RequireSome<T, P extends keyof T> = Omit<T, P> &
 export type Project = z.infer<typeof projectSchema>;
 
 export type Role = z.infer<typeof projectSchema>["roles"];
+// export type Role = keyof typeof Roles;
 export type ProjectFeature = z.infer<
   typeof projectFeatureSchema
 >;
@@ -43,7 +44,7 @@ export type Tool = {
   key: string;
   name: string;
   color: string;
-  icon: ImageMetadata;
+  icon: string;
 };
 
 export type ToolKey = Pick<Tool, "key">;

@@ -105,7 +105,6 @@ export function Tabs({
 function FadeInDiv({
   className,
   tabs,
-  hovering,
 }: {
   className?: string;
   key?: string;
@@ -137,7 +136,7 @@ function FadeInDiv({
           )}
         >
           <TabContent
-            header={tab.content?.header}
+            header={tab.content?.header ?? ""}
             description={tab.content?.description}
             stats={tab.content?.stats}
             image={tab.content?.image}

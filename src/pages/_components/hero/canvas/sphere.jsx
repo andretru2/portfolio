@@ -1,10 +1,5 @@
 import * as THREE from "three";
-import React, {
-  Suspense,
-  useRef,
-  useState,
-  useEffect,
-} from "react";
+import { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   EffectComposer,
