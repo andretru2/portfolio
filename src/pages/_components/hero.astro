@@ -18,7 +18,7 @@ import { Section } from "@/components/ui/section";
   <div class="bg-hero absolute"></div>
   <div class="absolute inset-0 h-full w-full -z-10">
     <!-- <Scene client:load /> -->
-    <SphereCanvas client:load />
+    <SphereCanvas client:visible />
   </div>
 
   <h6
@@ -31,7 +31,7 @@ import { Section } from "@/components/ui/section";
   >
     <span transition:name="swapper-first">Creative </span>
     <!-- <Swapper> -->
-    <Swapper client:load>
+    <Swapper client:visible>
       <span transition:name="swapper" id="swapper" class=""
         >Frontend Dev</span
       >
