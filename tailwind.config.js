@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -117,6 +118,16 @@ module.exports = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        fadeInUp: {
+          "0%": {
+            opacity: 0,
+            transform: "translate3d(0, 100%, 0)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
       },
       animation: {
         glow: "glow 2s linear infinite",
@@ -124,7 +135,7 @@ module.exports = {
         "meteor-effect": "meteor 5s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-        // spin2: "spin2 0.5s linear "
+        fadeInUp: "fadeInUp 1s ease-in-out 0.25s 1",
       },
     },
   },
@@ -132,6 +143,20 @@ module.exports = {
     require("@martijn.cuppens/tailwindcss-fluid"),
     require("@tailwindcss/typography"),
     addVariablesForColors,
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
   ],
 };
 
