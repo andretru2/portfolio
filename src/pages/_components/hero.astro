@@ -63,23 +63,61 @@ import { Section } from "@/components/ui/section";
     "#swapper"
   ) as HTMLElement;
 
+  let interval: NodeJS.Timeout;
+
   const SWAP = () => {
-    if (count < 10) {
-      if (!document.startViewTransition) {
+    if (!document.startViewTransition) {
+      SWAPPER.innerText =
+        WORDS[(count += 1) % WORDS.length];
+    } else {
+      document.startViewTransition(() => {
         SWAPPER.innerText =
           WORDS[(count += 1) % WORDS.length];
-      } else {
-        document.startViewTransition(() => {
-          SWAPPER.innerText =
-            WORDS[(count += 1) % WORDS.length];
-        });
-      }
-    } else {
-      clearInterval(interval);
+      });
     }
   };
 
-  const interval = setInterval(SWAP, 2000);
+  const startSwapper = () => {
+    interval = setInterval(SWAP, 2000);
+  };
+
+  const stopSwapper = () => {
+    clearInterval(interval);
+  };
+
+  const observeSwapper = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startSwapper();
+        } else {
+          stopSwapper();
+        }
+      });
+    });
+
+    observer.observe(SWAPPER);
+  };
+
+  observeSwapper();
+
+  // const SWAP = () => {
+  //   if (count < 10) {
+  //     if (!document.startViewTransition) {
+  //       SWAPPER.innerText =
+  //         WORDS[(count += 1) % WORDS.length];
+  //     } else {
+  //       document.startViewTransition(() => {
+  //         SWAPPER.innerText =
+  //           WORDS[(count += 1) % WORDS.length];
+  //       });
+  //     }
+  //   } else {
+  //     clearInterval(interval);
+  //   }
+  // };
+
+  // const interval = setInterval(SWAP, 2000);
 </script>
 
 <style>
