@@ -23,7 +23,12 @@ const { className, inverse = false } = Astro.props as Props;
     <div class="loader__fin"></div>
   </div>
 
-  <span class="font-bold text-bgColor">Let's Chat!</span>
+  <span
+    class:list={[
+      "font-bold ",
+      inverse ? "text-white" : "text-bgColor",
+    ]}>Let's Chat!</span
+  >
 </a>
 
 <style>

@@ -11,6 +11,7 @@ const { hero } = Astro.props as Pick<Project, "hero">;
   <video
     autoplay
     loop
+    muted
     class="h-full w-full object-cover aspect-video rounded-xl"
   >
     <source src={hero.src} type="video/mp4" />
