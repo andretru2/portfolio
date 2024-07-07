@@ -173,6 +173,7 @@ export const projectSchema = z.object({
 
   featured: z.number().optional(),
   impact: z.array(z.string()).optional(),
+  visible: z.boolean().optional(),
   // coverGradientFrom: z
   //   .string()
   //   .optional()

@@ -9,7 +9,7 @@ interface Props {
 
 export function ProjectFeatures({ features }: Props) {
   const sections = ["About", "Features", "More"];
-  const duration = 10;
+  const duration = 8;
 
   const [sectionIndex, setSectionIndex] = useState(0);
 

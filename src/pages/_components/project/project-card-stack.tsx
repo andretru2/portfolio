@@ -15,7 +15,7 @@ interface Props {
 export function ProjectCardStack({ features }: Props) {
   const CARD_OFFSET = 10;
   const SCALE_FACTOR = 0.06;
-  const DURATION = 10 / features.length;
+  const DURATION = 8 / features.length;
   const [cards, setCards] =
     useState<ProjectFeature[]>(features);
 

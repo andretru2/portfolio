@@ -88,11 +88,9 @@ import { Section } from "@/components/ui/section";
   const observeSwapper = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startSwapper();
-        } else {
-          stopSwapper();
-        }
+        entry.isIntersecting
+          ? startSwapper()
+          : stopSwapper();
       });
     });
 

@@ -60,7 +60,7 @@ export function FadeUpStagger({
     <motion.article
       initial="hidden"
       className="flex flex-col gap-xl container mx-auto relative"
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       whileInView="show"
       variants={staggerContainer(stagger, delay)}
     >
