@@ -19,9 +19,7 @@ import ContactMe from "./contact-me.astro";
     {
       navLinks.map((link) => (
         <li class=" ">
-          <NavLink class="" href={link.href}>
-            {link.title}
-          </NavLink>
+          <NavLink href={link.href}>{link.title}</NavLink>
         </li>
       ))
     }

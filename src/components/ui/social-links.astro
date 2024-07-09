@@ -22,7 +22,7 @@ const { links, class: className } = Astro.props;
   {
     links.map((link) => (
       <a
-        class=" hover:glow   "
+        class=" transition-all hover:opacity-70  duration-200 ease-in   "
         target="_blank"
         rel="noopener noreferer"
         href={link.href}
