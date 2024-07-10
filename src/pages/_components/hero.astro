@@ -2,6 +2,7 @@
 import { SphereCanvas } from "./hero/canvas/sphere";
 import { Swapper } from "@/components/ui/swapper";
 import { Section } from "@/components/ui/section";
+import { Meteors } from "@/components/ui/meteors";
 ---
 
 <Section
@@ -20,7 +21,7 @@ import { Section } from "@/components/ui/section";
     <!-- <Scene client:load /> -->
     <SphereCanvas client:visible />
   </div>
-
+  <Meteors number={20} client:visible />
   <h6
     class="font-light opacity-90 tracking-widest text-center animate-fade animation-delay-200 animate-fadeInUp"
   >

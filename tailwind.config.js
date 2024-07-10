@@ -102,7 +102,7 @@ module.exports = {
           },
         },
 
-        meteor: {
+        meteorEffect: {
           "0%": {
             transform: "rotate(215deg) translateX(0)",
             opacity: "1",
@@ -132,7 +132,7 @@ module.exports = {
       animation: {
         glow: "glow 2s linear infinite",
         aurora: "aurora 60s linear infinite",
-        "meteor-effect": "meteor 5s linear infinite",
+        meteorEffect: "meteorEffect 5s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         fadeInUp: "fadeInUp 1s ease-in-out 0.25s 1",

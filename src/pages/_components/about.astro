@@ -5,6 +5,7 @@ import Profile from "../_assets/about-at-kauai.webp";
 import { Image } from "astro:assets";
 import { Section } from "@/components/ui/section";
 import { Stat } from "@/components/ui/stat";
+import { Meteors } from "@/components/ui/meteors";
 ---
 
 <Section
@@ -12,9 +13,10 @@ import { Stat } from "@/components/ui/stat";
   idName="about"
   title="About"
   backgroundColor="bgColorHero"
-  minHeight="120svh"
-  className="flex flex-col  items-center    "
+  minHeight="110svh"
+  className="flex flex-col  items-center  relative  "
 >
+  <Meteors number={40} client:visible />
   <div
     class="grid grid-cols-12 gap-xs container mx-auto mt-2xl"
   >
