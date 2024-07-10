@@ -106,18 +106,9 @@ dependencies:
     version: 3.23.8
 
 devDependencies:
-  '@iconify-json/flowbite':
-    specifier: ^1.1.5
-    version: 1.1.5
   '@iconify-json/simple-icons':
     specifier: ^1.1.107
     version: 1.1.107
-  '@iconify-json/skill-icons':
-    specifier: ^1.1.8
-    version: 1.1.8
-  '@iconify-json/vscode-icons':
-    specifier: ^1.1.35
-    version: 1.1.35
   '@react-three/fiber':
     specifier: ^8.16.2
     version: 8.16.8(react-dom@18.3.1)(react@18.3.1)(three@0.163.0)
@@ -1331,26 +1322,8 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     dev: false
 
-  /@iconify-json/flowbite@1.1.5:
-    resolution: {integrity: sha512-XFiuWm/Mk2tKhmMjNsTC6a5Er+SkSjiCvqejN309s2nyF3yoXVBPGN/sN6SEFLfK8jJ3W8CtaKF+EdRBornddg==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
   /@iconify-json/simple-icons@1.1.107:
     resolution: {integrity: sha512-IEIekNX+KsA/xOjTCxgdSDe6OJ1rOpio5CJ8GgCiyFZYSkPG1FPTFJIYGT95qh+HvnLAHqtKqZT53vDfyNl8fQ==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
-  /@iconify-json/skill-icons@1.1.8:
-    resolution: {integrity: sha512-pzgiS7bVDyyff9HNXQkkwZSaSc36TVQYhXMr6tBu/XmAreXdj4xdkTRpPcnwtHlhHwsI4NDCe/l3QiWavqsbkw==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
-  /@iconify-json/vscode-icons@1.1.35:
-    resolution: {integrity: sha512-mUootLfDN4M9u5CL+gjJIGoVo/IaTGRo3WnysNTqTf9T5vkoe+EscJkx9aLbLs6gjSPQ+449SyuyTbBaF+nXww==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

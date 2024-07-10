@@ -28,7 +28,7 @@ export const HighlightWords: React.FC<{
     : [text.trim()]; // Ensure the original text is also trimmed
 
   return (
-    <p className="overflow-hidden leading-tight text-s *:text-clip mt-s">
+    <p className="overflow-hidden leading-tight text-s *:text-clip mt-s ">
       {parts.map((part, index) =>
         highlightWordsRegex &&
         trimmedHighlightWords.includes(part) ? (
