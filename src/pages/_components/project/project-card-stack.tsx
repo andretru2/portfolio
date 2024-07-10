@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { Separator } from "@/components/ui/separator";
 import { HighlightWords } from "@/components/ui/highlight-words";
+import { durationProjectReel } from "@/config/site";
 
 import { type ProjectFeature } from "@/types";
 
@@ -15,7 +16,7 @@ interface Props {
 export function ProjectCardStack({ features }: Props) {
   const CARD_OFFSET = 10;
   const SCALE_FACTOR = 0.06;
-  const DURATION = 8 / features.length;
+  const DURATION = durationProjectReel / features.length;
   const [cards, setCards] =
     useState<ProjectFeature[]>(features);
 
@@ -42,7 +43,7 @@ export function ProjectCardStack({ features }: Props) {
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  dark:shadow-white/[0.05] flex flex-col"
+          className="absolute p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  shadow-white/[0.05] flex flex-col"
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,

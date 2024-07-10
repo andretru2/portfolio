@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { durationProjectReel } from "@/config/site";
 
 interface Props {
   duration?: number;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export function ProgressBar({
-  duration = 10,
+  duration = durationProjectReel,
   delay,
   header = "About",
 }: Props) {

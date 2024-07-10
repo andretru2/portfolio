@@ -2,6 +2,7 @@ import { type ProjectFeature } from "@/types";
 import { useEffect, useState } from "react";
 import { ProjectCardStack } from "./project-card-stack";
 import { motion } from "framer-motion";
+import { durationProjectReel } from "@/config/site";
 
 interface Props {
   features: ProjectFeature[];
@@ -9,7 +10,7 @@ interface Props {
 
 export function ProjectFeatures({ features }: Props) {
   const sections = ["About", "Features", "More"];
-  const duration = 8;
+  const duration = durationProjectReel;
 
   const [sectionIndex, setSectionIndex] = useState(0);
 

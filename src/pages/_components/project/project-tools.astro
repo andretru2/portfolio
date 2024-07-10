@@ -1,9 +1,9 @@
 ---
-import type { Tool } from "@/types";
+// import type { Tool } from "@/types";
 import { Tools } from "@/config/validations/project-schema";
 import InfiniteLoopSlider from "@/components/ui/Infinite-loop-slider.astro";
 import { Icon } from "astro-icon/components";
-import { random } from "@/utils";
+import { random, shuffle } from "@/utils";
 
 interface Props {
   toolKeys: string[];
@@ -19,9 +19,11 @@ const {
   perRow = 20,
 } = Astro.props as Props;
 
-const tools = toolKeys.map((toolKey) => {
-  return Tools.find((tool) => tool.key === toolKey);
-});
+const tools = shuffle(
+  toolKeys.map((toolKey) => {
+    return Tools.find((tool) => tool.key === toolKey);
+  })
+);
 ---
 
 <div
@@ -39,7 +41,7 @@ const tools = toolKeys.map((toolKey) => {
               aria-label={tool?.name}
               title={tool?.name}
               class:list={[
-                "p-s rounded-xl ml-xs z-10 shadow-2xl ",
+                "p-s rounded-xl ml-xs z-10  shadow-sm border border-white/30  shadow-white/[0.05]",
                 transparent
                   ? "bg-transparet"
                   : "bg-bgColor",
@@ -47,7 +49,7 @@ const tools = toolKeys.map((toolKey) => {
             >
               <Icon
                 name={tool?.icon}
-                class="size-8 fill-bgColor/20   "
+                class="size-8 text-textColor   "
               />
             </div>
           ))}

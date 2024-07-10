@@ -11,6 +11,8 @@ export const siteConfig: SiteConfig = {
   },
 };
 
+export const durationProjectReel = 10;
+
 export const socialLinks: SocialLink[] = [
   {
     platform: "github",
