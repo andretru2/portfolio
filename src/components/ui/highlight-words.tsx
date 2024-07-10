@@ -5,27 +5,33 @@ export const HighlightWords: React.FC<{
 }> = ({
   text,
   highlightWords = [],
-  highlightClass = "font-semibold underline underline-offset-2 decoration-accent truncate text-textColor px-1 py-0.5",
+  highlightClass = "font-semibold underline underline-offset-2 decoration-accent  text-textColor px-1 py-0.5",
 }) => {
+  const trimmedHighlightWords = highlightWords.map((word) =>
+    word.trim()
+  );
   const highlightWordsRegex =
-    highlightWords.length > 0
+    trimmedHighlightWords.length > 0
       ? new RegExp(
-          `\\b(${highlightWords
+          `\\b(${trimmedHighlightWords
             .map((word) => escapeRegExp(word))
             .join("|")})\\b`,
           "gi"
         )
       : null;
 
+  // Adjusted to trim each part individually to remove any potential leading/trailing whitespace
   const parts = highlightWordsRegex
-    ? text.split(highlightWordsRegex)
-    : [text];
+    ? text
+        .split(highlightWordsRegex)
+        .map((part) => part.trim())
+    : [text.trim()]; // Ensure the original text is also trimmed
 
   return (
-    <p className="overflow-hidden sm:truncate md:whitespace-normal">
+    <p className="overflow-hidden leading-tight text-s *:text-clip mt-s">
       {parts.map((part, index) =>
         highlightWordsRegex &&
-        highlightWordsRegex.test(part) ? (
+        trimmedHighlightWords.includes(part) ? (
           <span key={index} className={highlightClass}>
             {part}
           </span>

@@ -69,17 +69,18 @@ function Card({
   wordsToHighlight,
 }: ProjectFeature) {
   return (
-    <motion.div className="flex flex-col justify-between gap-m h-max p-s overflow-hidden truncate">
+    <motion.div className="flex flex-col justify-between gap-s h-max p-s overflow-hidden  ">
       <div className="flex flex-row justify-between">
         <h6 className="">{title}</h6>
         {/* <svg>{card.svg}</svg> */}
       </div>
       <Separator />
 
-      <HighlightWords
+      <p>{description}</p>
+      {/* <HighlightWords
         text={description}
         highlightWords={wordsToHighlight}
-      />
+      /> */}
     </motion.div>
   );
 }
