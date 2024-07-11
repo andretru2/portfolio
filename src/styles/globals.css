@@ -76,7 +76,7 @@
     --theme-quote: 211 43% 38%;
   }
 
-  @font-face {
+  /* @font-face {
     font-family: Averta;
     src: url("/fonts/averta-regular.woff2") format("woff2");
     font-weight: normal;
@@ -90,7 +90,7 @@
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-  }
+  } */
 
   @font-face {
     font-family: "Atkinson";
@@ -202,7 +202,7 @@
   .bg-hero {
     display: block;
     left: 120% !important;
-    top: 40% !important;
+    top: 50% !important;
     height: 100%;
     width: 1500px;
 
@@ -634,6 +634,28 @@
   @keyframes liner {
     50% {
       --lines: 0.00012px;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100%);
     }
   }
 

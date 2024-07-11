@@ -23,20 +23,21 @@ import { Meteors } from "@/components/ui/meteors";
   </div>
   <!-- <Meteors number={20} client:visible /> -->
   <h6
-    class="font-light opacity-90 tracking-widest text-center animate-fade animation-delay-200 animate-fadeInUp"
+    class="font-light opacity-90 tracking-widest text-center animate-fadeInUp animation-delay-200"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animation-delay-300 animate-fadeInUp"
+    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animate-slideIn"
   >
     <span transition:name="swapper-first">Creative </span>
-    <!-- <Swapper> -->
-    <Swapper client:visible>
-      <span transition:name="swapper" id="swapper" class=""
-        >Frontend Dev</span
-      >
-    </Swapper>
+    <span
+      id="swapper"
+      transition:name="swapper"
+      class="text-accent fluid:text-7xl font-black rounded-md py-0 px-xs
+    mix-blend-lighten"
+      >Frontend Dev</span
+    >
 
     <span transition:name="swapper-last">Empowering</span>
 
@@ -102,20 +103,6 @@ import { Meteors } from "@/components/ui/meteors";
 </script>
 
 <style>
-  @keyframes slide-out {
-    100% {
-      opacity: 0;
-      translate: 0 100%;
-    }
-  }
-
-  @keyframes slide-in {
-    0% {
-      opacity: 0;
-      translate: 0 -100%;
-    }
-  }
-
   ::view-transition-new(swapper),
   ::view-transition-old(swapper) {
     height: 100%;
@@ -133,11 +120,26 @@ import { Meteors } from "@/components/ui/meteors";
     animation-name: slide-in;
     animation-duration: 0.75s;
     animation-timing-function: var(--linearAnimation);
+    /* animation-timing-function: ease-in; */
   }
 
   ::view-transition-group(swapper-last),
   ::view-transition-group(swapper-first) {
     animation-duration: 0.75s;
     animation-timing-function: var(--linearAnimation);
+  }
+
+  @keyframes slide-out {
+    100% {
+      opacity: 0;
+      translate: 0 100%;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      translate: 0 -100%;
+    }
   }
 </style>

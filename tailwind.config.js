@@ -128,6 +128,26 @@ module.exports = {
             transform: "translate3d(0, 0, 0)",
           },
         },
+        slideIn: {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(-100%)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+        },
+        slideOut: {
+          "0%": {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          "100%": {
+            opacity: 0,
+            translate: "translateY(100%)",
+          },
+        },
       },
       animation: {
         glow: "glow 2s linear infinite",
@@ -136,6 +156,8 @@ module.exports = {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         fadeInUp: "fadeInUp 1s ease-in-out 0.25s 1",
+        slideIn: "slideIn 0.75s  var(--linearAnimation)",
+        slideOut: "slideOut 0.75s  var(--linearAnimation)",
       },
     },
   },
