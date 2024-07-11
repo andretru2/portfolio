@@ -2,10 +2,11 @@
 import { SphereCanvas } from "./hero/canvas/sphere";
 import { Swapper } from "@/components/ui/swapper";
 import { Section } from "@/components/ui/section";
+import { Meteors } from "@/components/ui/meteors";
 ---
 
 <Section
-  client:load
+  client:visible
   backgroundColor="hero"
   idName="home"
   padding="none"
@@ -15,23 +16,23 @@ import { Section } from "@/components/ui/section";
   parallax
   className="  relative bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
 >
-  <div class="bg-hero absolute"></div>
+  <div class="bg-hero absolute -z-20"></div>
   <div class="absolute inset-0 h-full w-full -z-10">
     <!-- <Scene client:load /> -->
-    <SphereCanvas client:load />
+    <SphereCanvas client:visible />
   </div>
-
+  <!-- <Meteors number={20} client:visible /> -->
   <h6
-    class="font-light opacity-90 tracking-widest text-center"
+    class="font-light opacity-90 tracking-widest text-center animate-fade animation-delay-200 animate-fadeInUp"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
+    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animation-delay-300 animate-fadeInUp"
   >
     <span transition:name="swapper-first">Creative </span>
     <!-- <Swapper> -->
-    <Swapper client:load>
+    <Swapper client:visible>
       <span transition:name="swapper" id="swapper" class=""
         >Frontend Dev</span
       >
@@ -63,26 +64,58 @@ import { Section } from "@/components/ui/section";
     "#swapper"
   ) as HTMLElement;
 
+  let interval: NodeJS.Timeout;
+
   const SWAP = () => {
-    if (count < 10) {
-      if (!document.startViewTransition) {
+    if (!document.startViewTransition) {
+      SWAPPER.innerText =
+        WORDS[(count += 1) % WORDS.length];
+    } else {
+      document.startViewTransition(() => {
         SWAPPER.innerText =
           WORDS[(count += 1) % WORDS.length];
-      } else {
-        document.startViewTransition(() => {
-          SWAPPER.innerText =
-            WORDS[(count += 1) % WORDS.length];
-        });
-      }
-    } else {
-      clearInterval(interval);
+      });
     }
   };
 
-  const interval = setInterval(SWAP, 2000);
+  const startSwapper = () => {
+    interval = setInterval(SWAP, 2000);
+  };
+
+  const stopSwapper = () => {
+    clearInterval(interval);
+  };
+
+  const observeSwapper = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.isIntersecting
+          ? startSwapper()
+          : stopSwapper();
+      });
+    });
+
+    observer.observe(SWAPPER);
+  };
+
+  observeSwapper();
 </script>
 
 <style>
+  @keyframes slide-out {
+    100% {
+      opacity: 0;
+      translate: 0 100%;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      translate: 0 -100%;
+    }
+  }
+
   ::view-transition-new(swapper),
   ::view-transition-old(swapper) {
     height: 100%;

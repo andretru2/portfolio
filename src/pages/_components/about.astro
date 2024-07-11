@@ -5,6 +5,7 @@ import Profile from "../_assets/about-at-kauai.webp";
 import { Image } from "astro:assets";
 import { Section } from "@/components/ui/section";
 import { Stat } from "@/components/ui/stat";
+import { Meteors } from "@/components/ui/meteors";
 ---
 
 <Section
@@ -12,61 +13,70 @@ import { Stat } from "@/components/ui/stat";
   idName="about"
   title="About"
   backgroundColor="bgColorHero"
-  className="flex flex-col justify-center items-center    "
+  minHeight="110svh"
+  className="flex flex-col  items-center  relative  "
 >
-  <div class="grid grid-cols-12 gap-xs container mx-auto">
+  <Meteors number={40} client:visible />
+  <div
+    class="grid grid-cols-12 gap-xs container mx-auto mt-2xl"
+  >
     <div class="col-span-6 flex flex-col gap-xl h-full">
       <!-- <NoiseText client:load>hola</NoiseText> -->
       <h2 class="noise">Hola!</h2>
       <div
-        class="relative flex flex-col gap-m [&>*]:text-textColor"
+        class="relative flex flex-col gap-m *:text-textColor"
       >
-        <p class="">
-          I am Andrés, a<Highlight
-            >senior fullstack / frontend developer (manager)</Highlight
-          > with over<Highlight
-            >14 years of experience.</Highlight
-          >I am originally from Colombia but now living in<Highlight
-            >NYC</Highlight
-          >and loving it! Throughout these years, I have
-          developed a strong foundation in crafting
-          innovative and efficient technology solutions.
-        </p>
         <p>
-          After a rewarding career in the textile industry,
-          I am<Highlight
-            >embarking on a new journey to specialize in
-            frontend development.</Highlight
-          > My focus is on companies and organizations at the
-          forefront of innovation, making a positive impact in
-          the world — anywhere I can contribute to restoring
-          our planet and creating a more sustainable future.
-        </p>
-        <!-- <p>
-          I am not just seeking a job —<Highlight
-            >I am seeking a chance to be part of something
-            special, to work with a team that shares my
-            vision for a better world</Highlight
-          >. Whether it's creating beautiful apps or
-          crafting engaging and inspiring websites, I thrive
-          on the opportunity to make a difference while
-          doing what I love.
-        </p> -->
-        <p>
-          When I'm not coding, I enjoy exploring my creative
-          side through art, music, and nature. I love to
-          learn!
+          I'm Andrés, a <Highlight
+            >Senior Front End Developer</Highlight
+          > with a <Highlight
+            >robust 14-year career.</Highlight
+          > I'm originally from Colombia but now call NYC home.
         </p>
 
         <p>
-          I know <Highlight
-            >I have the potential to inspire and change
-            lives</Highlight
-          >and I am deeply inspired by the transformative
-          possibilities that lie ahead.<Highlight
-            >If my goals align with your mission, I welcome
-            the opportunity to connect!</Highlight
-          >
+          Throughout my career, I've specialized in crafting <Highlight
+            >innovative</Highlight
+          > and <Highlight>efficient</Highlight> tech solutions.
+          Within two years at Britannica Home Fashions, I was
+          promoted to lead a small team of developers, implementing
+          processes that significantly enhanced company-wide
+          <Highlight>efficiency</Highlight> and <Highlight
+            >productivity</Highlight
+          >. I bring a strong ability to understand and
+          translate business needs into practical software
+          solutions, driving <Highlight
+            >strategic improvements</Highlight
+          > beyond programming. With over <Highlight
+            >30 projects</Highlight
+          > completed, I've gained extensive experience in <Highlight
+            >Full Stack Development</Highlight
+          > across the textile and tech industries.
+        </p>
+
+        <p>
+          Outside of coding, I explore my creativity through
+          art, music, and nature. I love deep thinking,
+          playing tennis, and chess, attending concerts, and
+          I'm always up for a hike!
+        </p>
+        <p>
+          My goal is to join a <Highlight
+            >mission-driven
+          </Highlight>company, ideally in the <Highlight
+            >sustainability,</Highlight
+          ><Highlight> renewable energy,</Highlight> or <Highlight
+            >biotech</Highlight
+          > sector, but I am open to any<Highlight
+            >innovative</Highlight
+          > and<Highlight> impactful </Highlight>industry. I
+          am eager to apply my <Highlight
+            >expertise</Highlight
+          > to <Highlight>meaningful projects</Highlight> that
+          make a difference. Let's connect if our <Highlight
+            >visions align</Highlight
+          > and you're looking for someone passionate about driving
+          <Highlight>positive change!</Highlight>
         </p>
       </div>
       <div

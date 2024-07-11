@@ -2,7 +2,6 @@ import { z } from "zod";
 import {
   projectFeatureSchema,
   projectSchema,
-  Roles,
 } from "./config/validations/project-schema";
 import { aboutSchema } from "./config/validations/about-schema";
 

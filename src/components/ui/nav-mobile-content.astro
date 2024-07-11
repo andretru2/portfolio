@@ -3,6 +3,7 @@ import { navLinks, socialLinks } from "@/config/site";
 import SocialLinks from "./social-links.astro";
 import NavLink from "./nav-link.astro";
 import ThemeToggle from "./theme-toggle.astro";
+import ContactMe from "@/components/ui/contact-me.astro";
 ---
 
 <nav
@@ -22,6 +23,5 @@ import ThemeToggle from "./theme-toggle.astro";
   </ul>
 
   <SocialLinks links={socialLinks} class="gap-xl" />
-
-  <ThemeToggle />
+  <ContactMe />
 </nav>

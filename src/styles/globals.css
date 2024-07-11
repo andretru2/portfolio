@@ -631,20 +631,6 @@
     );
   }
 
-  @keyframes slide-out {
-    100% {
-      opacity: 0;
-      translate: 0 100%;
-    }
-  }
-
-  @keyframes slide-in {
-    0% {
-      opacity: 0;
-      translate: 0 -100%;
-    }
-  }
-
   @keyframes liner {
     50% {
       --lines: 0.00012px;

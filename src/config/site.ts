@@ -11,6 +11,8 @@ export const siteConfig: SiteConfig = {
   },
 };
 
+export const durationProjectReel = 10;
+
 export const socialLinks: SocialLink[] = [
   {
     platform: "github",
@@ -46,11 +48,11 @@ export const navLinks: Array<{
 }> = [
   {
     title: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     title: "About",
-    href: "#about",
+    href: "/#about",
   },
   // {
   //   title: "Impact",

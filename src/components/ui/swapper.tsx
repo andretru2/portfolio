@@ -17,8 +17,8 @@ export function Swapper({ children }: Props) {
       scale: 1,
       color: "oklch(80% 0.2 160",
       transition: {
-        delay: 3.2,
-        duration: 0.5,
+        delay: 1,
+        duration: 0.3,
         ease: "easeIn",
       },
     },

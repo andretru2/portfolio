@@ -1,10 +1,11 @@
-"use client";
+// "use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { Separator } from "@/components/ui/separator";
 import { HighlightWords } from "@/components/ui/highlight-words";
+import { durationProjectReel } from "@/config/site";
 
 import { type ProjectFeature } from "@/types";
 
@@ -15,7 +16,7 @@ interface Props {
 export function ProjectCardStack({ features }: Props) {
   const CARD_OFFSET = 10;
   const SCALE_FACTOR = 0.06;
-  const DURATION = 10 / features.length;
+  const DURATION = durationProjectReel / features.length;
   const [cards, setCards] =
     useState<ProjectFeature[]>(features);
 
@@ -42,7 +43,7 @@ export function ProjectCardStack({ features }: Props) {
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  dark:shadow-white/[0.05] flex flex-col"
+          className="absolute p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  shadow-white/[0.05] flex flex-col"
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,
@@ -69,17 +70,18 @@ function Card({
   wordsToHighlight,
 }: ProjectFeature) {
   return (
-    <motion.div className="flex flex-col justify-between gap-m h-max p-s overflow-hidden truncate">
+    <motion.div className="flex flex-col justify-between gap-s h-max p-s overflow-hidden  ">
       <div className="flex flex-row justify-between">
         <h6 className="">{title}</h6>
         {/* <svg>{card.svg}</svg> */}
       </div>
       <Separator />
 
-      <HighlightWords
+      <p>{description}</p>
+      {/* <HighlightWords
         text={description}
         highlightWords={wordsToHighlight}
-      />
+      /> */}
     </motion.div>
   );
 }

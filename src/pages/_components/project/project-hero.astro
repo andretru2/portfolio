@@ -11,9 +11,10 @@ const { hero } = Astro.props as Pick<Project, "hero">;
   <video
     autoplay
     loop
+    muted
     class="h-full w-full object-cover aspect-video rounded-xl"
   >
     <source src={hero.src} type="video/mp4" />
-    <p>{hero.alt}</p>
+    <!-- <p>{hero.alt}</p> -->
   </video>
 </Card>

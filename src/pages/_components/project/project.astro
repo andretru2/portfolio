@@ -14,12 +14,13 @@ const {
   features,
   tools,
   featured,
+  visible,
 } = Astro.props as Project;
 
 const reversed = featured ? featured % 2 === 0 : false;
 ---
 
-<FadeUpStagger client:idle stagger={0.5} delay={0.4}>
+<FadeUpStagger client:visible stagger={0.5} delay={0.4}>
   <article
     class="flex flex-col gap-xl container mx-auto relative"
   >
@@ -29,7 +30,7 @@ const reversed = featured ? featured % 2 === 0 : false;
         reversed ? "items-end" : "items-start",
       ]}
     >
-      <MovingBorderWrapper client:load>
+      <MovingBorderWrapper client:visible>
         {client}
       </MovingBorderWrapper>
       <h3>
@@ -57,6 +58,7 @@ const reversed = featured ? featured % 2 === 0 : false;
               features={features}
               caseStudyUrl={caseStudyUrl}
               reversed={reversed}
+              visible={visible}
             />
             <ProjectHero hero={hero} />
           </Fragment>
@@ -68,6 +70,7 @@ const reversed = featured ? featured % 2 === 0 : false;
               features={features}
               caseStudyUrl={caseStudyUrl}
               reversed={reversed}
+              visible={visible}
             />
           </Fragment>
         )

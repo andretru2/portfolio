@@ -13,7 +13,7 @@ const { className, inverse = false } = Astro.props as Props;
   href=`mailto:${siteConfig.email}?Subject=Let%27s talk about it`
   class:list={[
     "relative max-w-[12rem] rounded-xl w-full flex flex-row items-center justify-center gap-s   p-s ",
-    inverse ? "bg-bgColor/80" : "bg-accent/80",
+    inverse ? "bg-bgColor/80" : "bg-accent",
     className,
   ]}
 >
@@ -23,7 +23,12 @@ const { className, inverse = false } = Astro.props as Props;
     <div class="loader__fin"></div>
   </div>
 
-  <span class="font-bold">Let's Chat!</span>
+  <span
+    class:list={[
+      "font-bold ",
+      inverse ? "text-white" : "text-bgColor",
+    ]}>Let's Chat!</span
+  >
 </a>
 
 <style>

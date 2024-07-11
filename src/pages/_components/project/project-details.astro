@@ -3,19 +3,37 @@ import Card from "@/components/ui/card.astro";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { ProjectFeatures } from "./project-features";
 import ProjectTools from "./project-tools.astro";
-const { features, caseStudyUrl, reversed, tools } =
-  Astro.props;
+import type { Project } from "@/types";
+
+interface Props
+  extends Pick<
+    Project,
+    "features" | "caseStudyUrl" | "tools" | "visible"
+  > {
+  reversed?: boolean;
+}
+
+const { features, caseStudyUrl, reversed, tools, visible } =
+  Astro.props as Props;
 ---
 
 <Card
   class="relative col-span-4 row-span-5 p-l flex flex-col gap-2xl"
 >
   <div class="flex flex-row gap-m">
-    <ProgressBar header="About" client:idle />
-    <ProgressBar header="Features" delay={10} client:idle />
-    <ProgressBar header="+More!" delay={20} client:idle />
+    <ProgressBar header="About" client:visible />
+    <ProgressBar
+      header="Features"
+      delay={10}
+      client:visible
+    />
+    <ProgressBar
+      header="+More!"
+      delay={20}
+      client:visible
+    />
   </div>
-  <ProjectFeatures features={features} client:idle />
+  <ProjectFeatures features={features} client:visible />
 </Card>
 
 <Card
@@ -37,7 +55,10 @@ const { features, caseStudyUrl, reversed, tools } =
   <a
     href={caseStudyUrl}
     transition:animate="slide"
-    class="text-bgColor col-span-1 row-span-6 cursor-pointer h-full w-full flex flex-col justify-center gap-s items-center"
+    class:list={[
+      "text-bgColor col-span-1 row-span-6  h-full w-full flex flex-col justify-center gap-s items-center",
+      !visible && "cursor-not-allowed ",
+    ]}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +76,7 @@ const { features, caseStudyUrl, reversed, tools } =
     <h6
       class="flex text-center justify-center items-center font-medium"
     >
-      View Project
+      {visible ? "View Case Study" : "Under Development"}
     </h6>
   </a>
 </Card>

@@ -21,13 +21,13 @@ export const Tools: Tool[] = [
     name: "Astro",
     color: "--color-sky",
     // icon: astro,
-    icon: "vscode-icons:file-type-astro",
+    icon: "simple-icons:astro",
   },
   {
     key: "threejs",
     name: "Three JS",
     color: "--color-sky",
-    icon: "skill-icons:threejs-dark",
+    icon: "simple-icons:threedotjs",
   },
   {
     key: "figma",
@@ -38,39 +38,38 @@ export const Tools: Tool[] = [
   {
     key: "mdx",
     name: "MDX",
-
     color: "--color-blue",
-    icon: "vscode-icons:file-type-mdx",
+    icon: "simple-icons:mdx",
   },
   {
     key: "nextjs",
     name: "NEXT.js",
     color: "--color-dusk",
-    icon: "vscode-icons:file-type-next",
+    icon: "simple-icons:nextdotjs",
   },
   {
     key: "react",
     name: "React",
     color: "--color-purple",
-    icon: "flowbite:react-solid",
+    icon: "simple-icons:react",
   },
   {
     key: "tailwind",
     name: "Tailwind",
     color: "--color-pink",
-    icon: "flowbite:tailwind-solid",
+    icon: "simple-icons:tailwindcss",
   },
   {
     key: "typescript",
     name: "TypeScript",
     color: "--color-red",
-    icon: "vscode-icons:file-type-typescript-official",
+    icon: "simple-icons:typescript",
   },
   {
     key: "prisma",
     name: "Prisma ORM",
     color: "--color-orange",
-    icon: "vscode-icons:file-type-prisma",
+    icon: "simple-icons:prisma",
   },
   {
     key: "drizzle",
@@ -82,39 +81,45 @@ export const Tools: Tool[] = [
     key: "postgresql",
     name: "PostgreSQL",
     color: "--color-green",
-    icon: "vscode-icons:file-type-pgsql",
+    icon: "simple-icons:postgresql",
   },
   {
     key: "sqlserver",
     name: "SQL Server",
     color: "--color-blue",
-    icon: "vscode-icons:file-type-sql",
+    icon: "simple-icons:mysql",
   },
 
   {
     key: "c",
     name: "C#",
     color: "--color-blue",
-    icon: "vscode-icons:file-type-c",
+    icon: "simple-icons:c",
   },
   {
     key: "js",
     name: "Javascript",
     color: "--color-blue",
-    icon: "vscode-icons:file-type-js-official",
+    icon: "simple-icons:javascript",
   },
   {
     key: "filemaker",
     name: "FileMaker",
     color: "--color-blue",
-    icon: "vscode-icons:file-type-templ",
+    icon: "simple-icons:files",
   },
 
   {
     key: "docker",
     name: "Docker",
     color: "--color-blue",
-    icon: "vscode-icons:file-type-docker",
+    icon: "simple-icons:docker",
+  },
+  {
+    key: "swagger",
+    name: "Swagger",
+    color: "--color-blue",
+    icon: "simple-icons:swagger",
   },
 ] as const;
 
@@ -173,6 +178,7 @@ export const projectSchema = z.object({
 
   featured: z.number().optional(),
   impact: z.array(z.string()).optional(),
+  visible: z.boolean().optional(),
   // coverGradientFrom: z
   //   .string()
   //   .optional()
