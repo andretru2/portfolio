@@ -6,7 +6,7 @@ import { Meteors } from "@/components/ui/meteors";
 ---
 
 <Section
-  client:load
+  client:visible
   backgroundColor="hero"
   idName="home"
   padding="none"
@@ -21,7 +21,7 @@ import { Meteors } from "@/components/ui/meteors";
     <!-- <Scene client:load /> -->
     <SphereCanvas client:visible />
   </div>
-  <Meteors number={20} client:visible />
+  <!-- <Meteors number={20} client:visible /> -->
   <h6
     class="font-light opacity-90 tracking-widest text-center animate-fade animation-delay-200 animate-fadeInUp"
   >
@@ -99,27 +99,23 @@ import { Meteors } from "@/components/ui/meteors";
   };
 
   observeSwapper();
-
-  // const SWAP = () => {
-  //   if (count < 10) {
-  //     if (!document.startViewTransition) {
-  //       SWAPPER.innerText =
-  //         WORDS[(count += 1) % WORDS.length];
-  //     } else {
-  //       document.startViewTransition(() => {
-  //         SWAPPER.innerText =
-  //           WORDS[(count += 1) % WORDS.length];
-  //       });
-  //     }
-  //   } else {
-  //     clearInterval(interval);
-  //   }
-  // };
-
-  // const interval = setInterval(SWAP, 2000);
 </script>
 
 <style>
+  @keyframes slide-out {
+    100% {
+      opacity: 0;
+      translate: 0 100%;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      translate: 0 -100%;
+    }
+  }
+
   ::view-transition-new(swapper),
   ::view-transition-old(swapper) {
     height: 100%;

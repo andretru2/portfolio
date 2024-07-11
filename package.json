@@ -25,7 +25,7 @@
     "@types/react-dom": "^18.2.19",
     "astro": "^4.9.2",
     "astro-icon": "^1.1.0",
-    "astro-lenis": "^2.5.0",
+    "astro-lenis": "^1.0.0",
     "astro-seo": "^0.8.0",
     "clsx": "^2.1.0",
     "eslint": "^8.56.0",

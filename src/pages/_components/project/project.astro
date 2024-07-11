@@ -30,7 +30,7 @@ const reversed = featured ? featured % 2 === 0 : false;
         reversed ? "items-end" : "items-start",
       ]}
     >
-      <MovingBorderWrapper client:load>
+      <MovingBorderWrapper client:visible>
         {client}
       </MovingBorderWrapper>
       <h3>
@@ -60,11 +60,11 @@ const reversed = featured ? featured % 2 === 0 : false;
               reversed={reversed}
               visible={visible}
             />
-            <ProjectHero hero={hero} client:visible />
+            <ProjectHero hero={hero} />
           </Fragment>
         ) : (
           <Fragment>
-            <ProjectHero hero={hero} client:visible />
+            <ProjectHero hero={hero} />
             <ProjectDetails
               tools={tools}
               features={features}

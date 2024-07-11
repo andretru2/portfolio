@@ -1,4 +1,4 @@
-import { a3 as AstroUserError } from './chunks/astro_BqRHk3mo.mjs';
+import { z as AstroUserError } from './chunks/astro/assets-service_BAQtqXdI.mjs';
 import React__default, { createElement } from 'react';
 import ReactDOM from 'react-dom/server';
 
@@ -278,6 +278,7 @@ function isFormRequest(contentType) {
 }
 
 const _renderer0 = {
+	name: '@astrojs/react',
 	check,
 	renderToStaticMarkup,
 	supportsAstroStaticSlot: true,
