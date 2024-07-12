@@ -1,8 +1,9 @@
 ---
 import { SphereCanvas } from "./hero/canvas/sphere";
-import { Swapper } from "@/components/ui/swapper";
+// import { Swapper } from "@/components/ui/zzzzswapper";
 import { Section } from "@/components/ui/section";
 import { Meteors } from "@/components/ui/meteors";
+// import { fade, slide } from "astro:transitions";
 ---
 
 <Section
@@ -21,14 +22,14 @@ import { Meteors } from "@/components/ui/meteors";
     <!-- <Scene client:load /> -->
     <SphereCanvas client:visible />
   </div>
-  <!-- <Meteors number={20} client:visible /> -->
+  <Meteors number={20} client:visible />
   <h6
-    class="font-light opacity-90 tracking-widest text-center animate-fadeInUp animation-delay-200"
+    class="font-light opacity-90 tracking-widest text-center"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animate-slideIn"
+    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
   >
     <span transition:name="swapper-first">Creative </span>
     <span
@@ -50,11 +51,11 @@ import { Meteors } from "@/components/ui/meteors";
 
 <script>
   const WORDS = [
-    "Frontend Dev",
+    "Front End Dev",
     "Architect",
     "Prototyper",
     "Animator",
-    "Fullstack Dev",
+    "Full Stack Dev",
     "Visual Designer",
     "Web Engineer",
     "Illustrator",
@@ -120,7 +121,6 @@ import { Meteors } from "@/components/ui/meteors";
     animation-name: slide-in;
     animation-duration: 0.75s;
     animation-timing-function: var(--linearAnimation);
-    /* animation-timing-function: ease-in; */
   }
 
   ::view-transition-group(swapper-last),
