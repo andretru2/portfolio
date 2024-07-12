@@ -10,11 +10,11 @@ import ContactMe from "./contact-me.astro";
   aria-label="Primary"
   class="grid grid-cols-12 gap-m w-full *:items-center *:justify-center"
 >
-  <Logo class="col-span-1 md:flex justify-self-start" />
+  <Logo class="col-span-1 lg:flex justify-self-start" />
 
   <ul
     id="menu-items"
-    class="col-span-6 flex-row gap-4xl hidden md:flex"
+    class="col-span-7 flex-row gap-xl xl:gap-4xl hidden lg:flex"
   >
     {
       navLinks.map((link) => (
@@ -26,12 +26,12 @@ import ContactMe from "./contact-me.astro";
   </ul>
 
   <SocialLinks
-    class="col-span-3 gap-xl hidden md:flex"
+    class="col-span-2 gap-xl hidden lg:flex"
     links={socialLinks}
   />
 
   <ContactMe
-    className="col-span-2 hidden md:flex justify-self-end"
+    className="col-span-2 hidden lg:flex justify-self-end"
   />
 
   <!-- <ThemeToggle

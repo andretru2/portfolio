@@ -156,7 +156,7 @@ module.exports = {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         fadeInUp: "fadeInUp 1s ease-in-out 0.25s 1",
-        slideIn: "slideIn 0.75s  var(--linearAnimation)",
+        slideIn: "slideIn 0.75s  var(--linearAnimation) ",
         slideOut: "slideOut 0.75s  var(--linearAnimation)",
       },
     },

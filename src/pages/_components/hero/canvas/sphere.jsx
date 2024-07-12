@@ -228,7 +228,7 @@ export function SphereCanvas() {
         args={[`hsl(var(--theme-link))`]}
       /> */}
       <fog color="#00e094" attach="fog" near={8} far={30} />
-      <Suspense fallback={<Html center>Loading.</Html>}>
+      <Suspense fallback={<Html center>...</Html>}>
         <Scene />
       </Suspense>
       <EffectComposer

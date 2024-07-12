@@ -18,31 +18,36 @@ import { Meteors } from "@/components/ui/meteors";
   className="  relative bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
 >
   <div class="bg-hero absolute -z-20"></div>
-  <div class="absolute inset-0 h-full w-full -z-10">
+  <div
+    class="absolute inset-0 h-full w-full -z-10 hidden sm:flex"
+  >
     <!-- <Scene client:load /> -->
     <SphereCanvas client:visible />
   </div>
-  <Meteors number={20} client:visible />
+  <!-- <Meteors number={20} client:visible /> -->
   <h6
-    class="font-light opacity-90 tracking-widest text-center"
+    class="font-light opacity-90 tracking-widest text-center fluid:text-sm md:fluid:text-xl"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
+    class="w-full mx-auto flex font-semibold fluid:text-6xl md:fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 max-w-[80%] md:max-w-max"
   >
     <span transition:name="swapper-first">Creative </span>
     <span
       id="swapper"
       transition:name="swapper"
-      class="text-accent fluid:text-7xl font-black rounded-md py-0 px-xs
-    mix-blend-lighten"
+      class="text-accent fluid:text-6xl block md:inline md:fluid:text-7xl font-black rounded-md py-0 px-xs
+    mix-blend-lighten animate-slideIn"
       >Frontend Dev</span
     >
 
-    <span transition:name="swapper-last">Empowering</span>
+    <span
+      transition:name="swapper-last"
+      class="block md:inline">Empowering</span
+    >
 
-    <span class="block w-full font-white">
+    <span class="w-full font-white block md:inline">
       Change Through Design</span
     >
     <span class="block w-full"> and Engineering</span>

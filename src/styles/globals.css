@@ -204,9 +204,9 @@
     left: 120% !important;
     top: 50% !important;
     height: 100%;
-    width: 1500px;
+    width: 70svw;
 
-    min-height: 150svh;
+    min-height: 120svh;
     transform: translateX(-50%) translateY(-50%) !important;
     background-image: radial-gradient(
       at 50% 50% in oklch,

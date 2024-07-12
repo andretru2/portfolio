@@ -8,12 +8,12 @@ import ContactMe from "@/components/ui/contact-me.astro";
 
 <nav
   aria-label="Primary"
-  class="flex items-end w-full h-full flex-col text-right [&>*]:p-l"
+  class="flex items-end w-full h-svh flex-col gap-xs text-right [&>*]:p-l z-[10000]"
 >
   <ul id="menu-items" class="flex flex-col gap-l">
     {
       navLinks.map((link) => (
-        <li class="py-1">
+        <li class="">
           <NavLink class="" href={link.href}>
             {link.title}
           </NavLink>
