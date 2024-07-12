@@ -104,13 +104,14 @@ module.exports = {
 
         meteorEffect: {
           "0%": {
-            transform: "rotate(215deg) translateX(0)",
-            opacity: "1",
-          },
-          "70%": { opacity: "1" },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
+            transform: "translateZ(2000px)",
+            // transform: "rotate(215deg) translateX(0)",
             opacity: "0",
+          },
+          "100%": {
+            transform: "translateZ(0)",
+            // transform: "rotate(215deg) translateX(0)",
+            opacity: "1",
           },
         },
         scroll: {
