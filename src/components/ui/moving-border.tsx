@@ -32,7 +32,7 @@ export function MovingBorderWrapper({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl  h-12 w-max p-[1px] overflow-hidden cursor-default",
+        "bg-transparent relative text-base md:text-l  h-10 w-max p-[1px] overflow-hidden cursor-default",
         containerClassName
       )}
       style={{
@@ -58,7 +58,7 @@ export function MovingBorderWrapper({
 
       <div
         className={cn(
-          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-md antialiased px-s",
+          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full  antialiased px-s py-xs",
           // "relative bg-teal-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
           className
         )}
