@@ -126,7 +126,9 @@ const tabs: Tab[] = [
   minHeight="160svh"
   className="flex flex-col items-center min-h-max "
 >
-  <div class="container mx-auto h-svh">
+  <div
+    class="h-svh items-center max-w-sm sm:container sm:mx-auto px-l sm:px-0 w-full"
+  >
     <Tabs tabs={tabs} client:visible />
   </div>
 </Section>

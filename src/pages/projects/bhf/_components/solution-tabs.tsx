@@ -50,7 +50,7 @@ export function Tabs({
     <div className="">
       <div
         className={cn(
-          "flex flex-row   items-center justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row gap-s     sm:items-center sm:justify-center [perspective:1000px] relative overflow-x-auto text-nowrap sm:overflow-visible no-visible-scrollbar  w-full sm:w-auto",
           containerClassName
         )}
       >
@@ -63,7 +63,7 @@ export function Tabs({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative px-4 py-2 rounded-full",
+              "relative  w-full px-m py-s rounded-xl   ",
               tabClassName
             )}
             style={{
@@ -79,7 +79,7 @@ export function Tabs({
                   duration: 0.6,
                 }}
                 className={cn(
-                  "absolute inset-0 bg-[#9DF2D5] rounded-xl ",
+                  "absolute inset-0 bg-[#9DF2D5] rounded-xl text-sm sm:text-base ",
                   activeTabClassName
                 )}
               />

@@ -78,7 +78,7 @@ export function Section({
           margin === "bottom" && "mb-xl",
           margin === "none" && "my-0",
           !skipRoundCorners &&
-            "rounded-t-[6rem] rounded-b-[6rem] border-y-1 border-t border-accent/30 stroke-[0.1] hover:stroke-[0.15]",
+            "rounded-t-[4rem] sm:rounded-t-[6rem] rouned-b-[4rem] sm:rounded-b-[6rem] border-y-1 border-t border-accent/30 stroke-[0.1] hover:stroke-[0.15]",
           backgroundColor === "bgColor" && "bg-bgColor",
           backgroundColor === "bgColorHero" &&
             "bg-bgColorHero",

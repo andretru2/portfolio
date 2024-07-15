@@ -171,12 +171,18 @@ function Scene() {
   const bumpMap = useTexture("/bump.jpg");
   const envMap = useCubeTexture(
     [
-      "px.png",
-      "nx.png",
-      "py.png",
-      "ny.png",
-      "pz.png",
-      "nz.png",
+      //   "px.png",
+      //   "nx.png",
+      //   "py.png",
+      //   "ny.png",
+      //   "pz.png",
+      //   "nz.png",
+      "volkihar-cube-px.jpg",
+      "volkihar-cube-nx.jpg",
+      "volkihar-cube-py.jpg",
+      "volkihar-cube-ny.jpg",
+      "volkihar-cube-pz.jpg",
+      "volkihar-cube-nz.jpg",
     ],
     { path: "/cube/" }
   );
