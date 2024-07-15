@@ -18,7 +18,7 @@ const { features, caseStudyUrl, reversed, tools, visible } =
 ---
 
 <Card
-  class="relative col-span-4 row-span-5 p-l flex flex-col gap-2xl"
+  class="relative row-span-4 sm:row-span-5 col-span-12 sm:col-span-4 p-l flex flex-col gap-xl sm:gap-2xl"
 >
   <div class="flex flex-row gap-m">
     <ProgressBar header="About" client:visible />
@@ -38,16 +38,16 @@ const { features, caseStudyUrl, reversed, tools, visible } =
 
 <Card
   class:list={[
-    reversed && "row-start-6 col-start-3",
-    "relative col-span-2 row-span-3  max-h-max h-full overflow-hidden",
+    reversed && "sm:row-start-6 sm:col-start-3",
+    "relative row-span-2 sm:row-span-3 col-span-6  sm:col-span-2   max-h-max h-full overflow-hidden",
   ]}
 >
   <ProjectTools toolKeys={tools} />
 </Card>
 <Card
   class:list={[
-    reversed && "row-start-6  ",
-    "relative  col-span-2 row-span-3 p-l bg-accent hover:bg-accent/80 ",
+    reversed && "sm:row-start-6  ",
+    "relative  row-span-2 sm:row-span-3 col-span-6  sm:col-span-2 p-l bg-accent hover:bg-accent/80 ",
   ]}
 >
   <!-- <Background backgroundType="aurora" /> -->
@@ -56,7 +56,7 @@ const { features, caseStudyUrl, reversed, tools, visible } =
     href={caseStudyUrl}
     transition:animate="slide"
     class:list={[
-      "text-bgColor col-span-1 row-span-6  h-full w-full flex flex-col justify-center gap-s items-center",
+      "text-bgColor  h-full w-full flex flex-col justify-center gap-s items-center",
       !visible && "cursor-not-allowed ",
     ]}
   >
