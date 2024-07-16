@@ -5,7 +5,6 @@ import pos from "../_assets/bhf-feature-pos.webp";
 import matching from "../_assets/bhf-feature-matching.webp";
 import designsystem from "../_assets/bhf-feature-design-system.webp";
 import { Tabs, type Tab } from "./solution-tabs";
-// import TabContent from "./tab-content.astro";
 
 const tabs: Tab[] = [
   {
@@ -145,6 +144,6 @@ const tabs: Tab[] = [
   <div
     class="h-svh items-center max-w-sm sm:container sm:mx-auto px-l sm:px-0 w-full"
   >
-    <!-- <Tabs tabs={tabs} client:visible /> -->
+    <Tabs tabs={tabs} client:visible />
   </div>
 </Section>
