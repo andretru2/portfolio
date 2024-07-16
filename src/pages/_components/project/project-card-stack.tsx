@@ -43,7 +43,7 @@ export function ProjectCardStack({ features }: Props) {
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  shadow-white/[0.05] flex flex-col"
+          className="absolute  p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  shadow-white/[0.05] flex flex-col  sm:translate-y-0 "
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,
@@ -70,14 +70,18 @@ function Card({
   wordsToHighlight,
 }: ProjectFeature) {
   return (
-    <motion.div className="flex flex-col justify-between gap-s h-max p-s overflow-hidden  ">
+    <motion.div className="flex flex-col justify-between gap-s h-max p-xs sm:p-s overflow-hidden  ">
       <div className="flex flex-row justify-between">
-        <h6 className="">{title}</h6>
+        <h6 className="text-base sm:fluid:text-xl">
+          {title}
+        </h6>
         {/* <svg>{card.svg}</svg> */}
       </div>
       <Separator />
 
-      <p>{description}</p>
+      <p className="fluid:text-base sm:fluid:text-lg ">
+        {description}
+      </p>
       {/* <HighlightWords
         text={description}
         highlightWords={wordsToHighlight}

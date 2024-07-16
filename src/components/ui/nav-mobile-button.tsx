@@ -21,7 +21,7 @@ export function NavMobileButton({ children }: Props) {
     >
       <DrawerTrigger
         asChild
-        className="md:hidden md:invisible mr-4 "
+        className="lg:hidden lg:invisible ml-auto mr-4"
       >
         <button
           className="group relative ms-4 h-7 w-7 text-current"

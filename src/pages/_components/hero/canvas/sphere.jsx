@@ -171,12 +171,18 @@ function Scene() {
   const bumpMap = useTexture("/bump.jpg");
   const envMap = useCubeTexture(
     [
-      "px.png",
-      "nx.png",
-      "py.png",
-      "ny.png",
-      "pz.png",
-      "nz.png",
+      //   "px.png",
+      //   "nx.png",
+      //   "py.png",
+      //   "ny.png",
+      //   "pz.png",
+      //   "nz.png",
+      "volkihar-cube-px.jpg",
+      "volkihar-cube-nx.jpg",
+      "volkihar-cube-py.jpg",
+      "volkihar-cube-ny.jpg",
+      "volkihar-cube-pz.jpg",
+      "volkihar-cube-nz.jpg",
     ],
     { path: "/cube/" }
   );
@@ -228,7 +234,7 @@ export function SphereCanvas() {
         args={[`hsl(var(--theme-link))`]}
       /> */}
       <fog color="#00e094" attach="fog" near={8} far={30} />
-      <Suspense fallback={<Html center>Loading.</Html>}>
+      <Suspense fallback={<Html center>...</Html>}>
         <Scene />
       </Suspense>
       <EffectComposer

@@ -62,7 +62,7 @@ export function BhfBrandLogos({
         data-id={num}
         // viewport={}
         className={cn(
-          "grid grid-flow-col  place-content-center  items-start ",
+          "grid grid-flow-col  place-content-center  items-start grid-cols-2 sm:grid-cols-3 gap-3xl sm:gap-3xl ",
 
           className
         )}
@@ -70,6 +70,9 @@ export function BhfBrandLogos({
         {logos.slice(start, end).map((logo, i) => (
           <Logo logo={logo} key={i} />
         ))}
+        {/* {logos.map((logo, i) => (
+          <Logo logo={logo} key={i} />
+        ))} */}
       </motion.div>
     );
   });
@@ -80,7 +83,7 @@ function Logo({ logo }: { logo: string }) {
     <motion.svg
       variants={item}
       dangerouslySetInnerHTML={{ __html: logo }}
-      className="max-w-44 max-h-8 fill-white  "
+      className=" size-16 sm:size-full sm:max-w-44 sm:max-h-8 fill-white  "
     />
   );
 }

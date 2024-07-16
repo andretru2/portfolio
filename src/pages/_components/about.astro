@@ -14,13 +14,15 @@ import { Meteors } from "@/components/ui/meteors";
   title="About"
   backgroundColor="bgColorHero"
   minHeight="110svh"
-  className="flex flex-col  items-center  relative  "
+  className="flex flex-col  items-center  relative   "
 >
-  <Meteors number={40} client:visible />
+  <Meteors number={15} client:visible />
   <div
-    class="grid grid-cols-12 gap-xs container mx-auto mt-2xl"
+    class="grid grid-cols-12 grid-flow-row gap-l sm:gap-xs max-w-sm sm:container mx-auto mt-2xl px-l sm:px-0"
   >
-    <div class="col-span-6 flex flex-col gap-xl h-full">
+    <div
+      class="col-span-12 sm:col-span-6 flex flex-col gap-xl h-full"
+    >
       <!-- <NoiseText client:load>hola</NoiseText> -->
       <h2 class="noise">Hola!</h2>
       <div
@@ -42,12 +44,11 @@ import { Meteors } from "@/components/ui/meteors";
           promoted to lead a small team of developers, implementing
           processes that significantly enhanced company-wide
           <Highlight>efficiency</Highlight> and <Highlight
-            >productivity</Highlight
-          >. I bring a strong ability to understand and
-          translate business needs into practical software
-          solutions, driving <Highlight
-            >strategic improvements</Highlight
-          > beyond programming. With over <Highlight
+            >productivity.</Highlight
+          > I bring a strong ability to understand and translate
+          business needs into practical software solutions, driving
+          <Highlight>strategic improvements</Highlight> beyond
+          programming. With over <Highlight
             >30 projects</Highlight
           > completed, I've gained extensive experience in <Highlight
             >Full Stack Development</Highlight
@@ -80,7 +81,7 @@ import { Meteors } from "@/components/ui/meteors";
         </p>
       </div>
       <div
-        class="flex flex-row gap-2xl items-center align-middle w-full h-full z-10"
+        class="flex flex-row gap-m sm:gap-2xl items-center align-middle w-full h-full z-10"
       >
         <Stat value="NYC" label="Location" />
         <Stat value="14+" label="Years of Exp" />
@@ -93,13 +94,13 @@ import { Meteors } from "@/components/ui/meteors";
     </div>
 
     <div
-      class="relative p-m col-span-6 flex flex-col items-start gap-xl"
+      class="relative sm:p-m col-span-12 sm:col-span-6 flex flex-col items-start gap-xl"
     >
       <!-- <CardGlow /> -->
       <Image
         slot="image"
         class:list={[
-          "mt-3xl      shadow-3xl [perspective:1000px]   transition-all duration-500 transform   rounded-xl object-cover h-full w-full max-h-[65dvh] max-w-[40dvw] ",
+          "sm:mt-3xl      shadow-3xl [perspective:1000px]   transition-all duration-500 transform   rounded-xl object-cover h-full w-full sm:max-h-[65dvh] sm:max-w-[40dvw] ",
         ]}
         style={{
           // filter: "grayscale(0.25)",

@@ -1,8 +1,9 @@
 ---
 import { SphereCanvas } from "./hero/canvas/sphere";
-import { Swapper } from "@/components/ui/swapper";
+// import { Swapper } from "@/components/ui/zzzzswapper";
 import { Section } from "@/components/ui/section";
 import { Meteors } from "@/components/ui/meteors";
+// import { fade, slide } from "astro:transitions";
 ---
 
 <Section
@@ -17,30 +18,36 @@ import { Meteors } from "@/components/ui/meteors";
   className="  relative bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
 >
   <div class="bg-hero absolute -z-20"></div>
-  <div class="absolute inset-0 h-full w-full -z-10">
+  <div
+    class="absolute inset-0 h-full w-full -z-10 hidden sm:flex"
+  >
     <!-- <Scene client:load /> -->
     <SphereCanvas client:visible />
   </div>
-  <!-- <Meteors number={20} client:visible /> -->
+  <Meteors number={20} client:visible />
   <h6
-    class="font-light opacity-90 tracking-widest text-center animate-fade animation-delay-200 animate-fadeInUp"
+    class="font-light opacity-90 tracking-widest text-center fluid:text-sm md:fluid:text-xl"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="flex font-semibold fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animation-delay-300 animate-fadeInUp"
+    class="w-full max-w-sm sm:container sm:mx-auto flex font-semibold fluid:text-5xl md:fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0"
   >
     <span transition:name="swapper-first">Creative </span>
-    <!-- <Swapper> -->
-    <Swapper client:visible>
-      <span transition:name="swapper" id="swapper" class=""
-        >Frontend Dev</span
-      >
-    </Swapper>
+    <span
+      id="swapper"
+      transition:name="swapper"
+      class="text-accent fluid:text-5xl block sm:inline sm:fluid:text-7xl font-black rounded-md py-0 px-xs
+    mix-blend-lighten animate-slideIn"
+      >Frontend Dev</span
+    >
 
-    <span transition:name="swapper-last">Empowering</span>
+    <span
+      transition:name="swapper-last"
+      class="block md:inline">Empowering</span
+    >
 
-    <span class="block w-full font-white">
+    <span class="w-full font-white block md:inline">
       Change Through Design</span
     >
     <span class="block w-full"> and Engineering</span>
@@ -49,12 +56,12 @@ import { Meteors } from "@/components/ui/meteors";
 
 <script>
   const WORDS = [
-    "Frontend Dev",
+    "Front End Dev",
     "Architect",
     "Prototyper",
     "Animator",
-    "Fullstack Dev",
-    "Visual Designer",
+    "Full Stack Dev",
+    "UI Designer",
     "Web Engineer",
     "Illustrator",
     // "AI Engineer",
@@ -102,20 +109,6 @@ import { Meteors } from "@/components/ui/meteors";
 </script>
 
 <style>
-  @keyframes slide-out {
-    100% {
-      opacity: 0;
-      translate: 0 100%;
-    }
-  }
-
-  @keyframes slide-in {
-    0% {
-      opacity: 0;
-      translate: 0 -100%;
-    }
-  }
-
   ::view-transition-new(swapper),
   ::view-transition-old(swapper) {
     height: 100%;
@@ -139,5 +132,19 @@ import { Meteors } from "@/components/ui/meteors";
   ::view-transition-group(swapper-first) {
     animation-duration: 0.75s;
     animation-timing-function: var(--linearAnimation);
+  }
+
+  @keyframes slide-out {
+    100% {
+      opacity: 0;
+      translate: 0 100%;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      translate: 0 -100%;
+    }
   }
 </style>

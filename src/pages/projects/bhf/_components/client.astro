@@ -14,26 +14,26 @@ import { Highlight } from "@/components/ui/highlight";
   className="relative flex flex-col  items-center   "
 >
   <div
-    class="flex flex-col gap-l items-center max-w-5xl mt-2xl"
+    class="flex flex-col gap-l items-center max-w-sm sm:max-w-5xl mx-auto sm:mt-2xl px-l sm:px-0"
   >
     <Image
       src={BHFLogo}
       format="webp"
       loading="eager"
       quality="high"
-      class="text-left justify-self-start"
-      alt="Brtiannica's home fashions hero"
+      class="justify-self-start"
+      alt="Brtiannica's home fashions logo"
       class=""
     />
 
     <p class="mt-xl">
-      Britannica Home Fashions (BHF) is a <Highlight
+      Britannica Home Fashions (BHF) is a<Highlight
         >worldwide frontrunner in home goods,</Highlight
       > renowned for its diverse product lines, grappled with
       the intricacies of supply chain and order management data.
     </p>
     <p class="">
-      The company’s<Highlight>global position</Highlight> is
+      The company’s<Highlight>global position</Highlight>is
       reinforced by their<Highlight
         >longstanding reputation and robust collaborations
         with leading brands such as UGG, Pendleton, and
@@ -46,7 +46,7 @@ import { Highlight } from "@/components/ui/highlight";
 
     <div class="mt-2xl">
       <ProjectHeroBhfLogos
-        className=" gap-4xl p-m"
+        className=" gap-m sm:gap-4xl p-m"
         rows={4}
         pageSize={3}
       />

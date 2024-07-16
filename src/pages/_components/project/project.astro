@@ -22,7 +22,7 @@ const reversed = featured ? featured % 2 === 0 : false;
 
 <FadeUpStagger client:visible stagger={0.5} delay={0.4}>
   <article
-    class="flex flex-col gap-xl container mx-auto relative"
+    class="flex flex-col gap-xl max-w-[100svw] md:container mx-auto relative px-l sm:px-0"
   >
     <div
       class:list={[
@@ -33,7 +33,7 @@ const reversed = featured ? featured % 2 === 0 : false;
       <MovingBorderWrapper client:visible>
         {client}
       </MovingBorderWrapper>
-      <h3>
+      <h3 class="text-3xl md:fluid:text-5xl">
         {title}
       </h3>
       <p
@@ -47,7 +47,7 @@ const reversed = featured ? featured % 2 === 0 : false;
     </div>
     <div
       class:list={[
-        "grid grid-cols-8 md:grid-cols-12 md:grid-rows-8 gap-m",
+        "grid grid-cols-12  grid-rows-10 sm:grid-rows-8 gap-m",
       ]}
     >
       {

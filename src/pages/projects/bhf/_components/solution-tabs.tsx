@@ -26,6 +26,19 @@ interface Props {
   contentClassName?: string;
 }
 
+function isFirefox() {
+  return (
+    typeof navigator !== "undefined" &&
+    navigator.userAgent.toLowerCase().indexOf("firefox") >
+      -1
+  );
+}
+
+const getTopOffset = (idx: number) => {
+  const baseOffset = isFirefox() ? -10 : -70;
+  return `${idx * baseOffset}px`;
+};
+
 export function Tabs({
   tabs: propTabs,
   containerClassName,
@@ -50,7 +63,7 @@ export function Tabs({
     <div className="">
       <div
         className={cn(
-          "flex flex-row   items-center justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row gap-s  snap-center   sm:items-center sm:justify-center [perspective:1000px] relative overflow-x-auto text-nowrap sm:overflow-visible no-visible-scrollbar  w-full sm:w-auto",
           containerClassName
         )}
       >
@@ -63,7 +76,7 @@ export function Tabs({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative px-4 py-2 rounded-full",
+              "relative  w-full px-m py-s rounded-xl   ",
               tabClassName
             )}
             style={{
@@ -79,7 +92,7 @@ export function Tabs({
                   duration: 0.6,
                 }}
                 className={cn(
-                  "absolute inset-0 bg-[#9DF2D5] rounded-xl ",
+                  "absolute inset-0 bg-[#9DF2D5] rounded-xl text-sm sm:text-base ",
                   activeTabClassName
                 )}
               />
@@ -115,23 +128,32 @@ function FadeInDiv({
   const isActive = (tab: Tab) => {
     return tab.value === tabs[0].value;
   };
+
   return (
-    <div className="relative w-full    ">
+    <div className="relative w-full">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
           layoutId={tab.value}
-          style={{
+          initial={{
             scale: 1 - idx * 0.1,
-            top: idx * -70,
+            top: getTopOffset(idx),
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.3 : 0,
           }}
           animate={{
+            scale: 1 - idx * 0.1,
+            top: getTopOffset(idx),
+            zIndex: -idx,
+            opacity: idx < 3 ? 1 - idx * 0.3 : 0,
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
           className={cn(
-            "min-h-max min-w-[50svw] absolute inset-0 bg-bgColor   rounded-[3rem]  ",
+            "min-h-max min-w-[50svw] absolute inset-0 bg-bgColor rounded-[3rem]",
             className
           )}
         >
@@ -154,12 +176,10 @@ function TabContent({
   image,
 }: TabContent) {
   return (
-    <div className=" p-2xl flex gap-l flex-col items-center    min-w-0 h-full rounded-xl ">
+    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center bg-bgColor    min-w-0 min-h-svh rounded-xl ">
       <h5>{header}</h5>
-      <p className="prose-p w-screen h-max ">
-        {description}
-      </p>
-      <div className="flex flex-row gap-2xl items-center align-middle justify-start w-full  z-10 max-w-2xl mt-xl">
+      <p className="prose-p  ">{description}</p>
+      <div className="flex flex-row gap-m sm:gap-2xl items-center align-middle justify-start w-full  z-10 flex-wrap sm:max-w-2xl mt-xl">
         {stats &&
           stats.map((statItem, index) => (
             <Stat
