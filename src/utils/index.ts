@@ -9,3 +9,30 @@ export function shuffle(array: any[]) {
   }
   return shuffled;
 }
+
+export function isFirefox() {
+  return (
+    typeof navigator !== "undefined" &&
+    navigator.userAgent.toLowerCase().indexOf("firefox") >
+      -1
+  );
+}
+
+export function isSafari() {
+  if (
+    typeof window === "undefined" ||
+    typeof navigator === "undefined"
+  ) {
+    return false; // We're not in a browser environment
+  }
+
+  const ua = navigator.userAgent.toLowerCase();
+  // console.log("ua", ua, navigator);
+  const isSafari =
+    ua.indexOf("safari") > -1 &&
+    ua.indexOf("chrome") === -1;
+  const isSafariIOS =
+    /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i.test(ua);
+
+  return isSafari || isSafariIOS;
+}
