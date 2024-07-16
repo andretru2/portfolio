@@ -1,6 +1,6 @@
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
-import { useRef, useEffect } from 'react';
-import { useScroll, useTransform, AnimatePresence, motion, useMotionValue, useAnimationFrame, useMotionTemplate, useSpring, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { useScroll, useTransform, AnimatePresence, motion, useMotionValue, useAnimationFrame, useMotionTemplate } from 'framer-motion';
 import { c as cn, T as Tools, a as $$Icon, b as $$ContactMe } from './layout_B0xaM10r.mjs';
 import { p as createComponent, q as renderTemplate, t as maybeRenderHead, u as addAttribute, x as renderSlot, v as createAstro, s as renderComponent } from './astro/server_BE4fpZxS.mjs';
 import 'clsx';
@@ -279,65 +279,6 @@ const Highlight = ({
   );
 };
 
-function Counter({
-  value,
-  direction = "up",
-  as = "span",
-  className,
-  includePercentageSymbol = false
-}) {
-  const ref = useRef(null);
-  const motionValue = useMotionValue(
-    direction === "down" ? value : 0
-  );
-  const springValue = useSpring(motionValue, {
-    damping: 50,
-    stiffness: 100
-  });
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-100px"
-  });
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(direction === "down" ? 0 : value);
-    }
-  }, [motionValue, isInView]);
-  useEffect(
-    () => springValue.on("change", (latest) => {
-      if (ref.current) {
-        let formattedText = Intl.NumberFormat(
-          "en-US"
-        ).format(latest.toFixed(0));
-        if (includePercentageSymbol) {
-          formattedText += "%";
-        }
-        ref.current.textContent = formattedText;
-      }
-    }),
-    [springValue]
-  );
-  return /* @__PURE__ */ jsx("span", { className, ref });
-}
-
-function Stat({
-  label,
-  value,
-  includePercentageSymbol
-}) {
-  return /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-xs items-center *:text-center", children: [
-    typeof value === "number" ? /* @__PURE__ */ jsx(
-      Counter,
-      {
-        value,
-        className: "text-lg sm:text-4xl font-bold text-accent",
-        includePercentageSymbol
-      }
-    ) : /* @__PURE__ */ jsx("h5", { className: "text-lg sm:text-4xl text-accent", children: value }),
-    /* @__PURE__ */ jsx("span", { className: "text-sm sm:text-base font-light opacity-80 ", children: label })
-  ] });
-}
-
 const $$Contact = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Section", Section, { "client:visible": true, "idName": "contact", "title": "Contact", "backgroundColor": "accent", "minHeight": "50svh", "className": "flex flex-col  items-center  h-full  ", "client:component-hydration": "visible", "client:component-path": "@/components/ui/section", "client:component-export": "Section" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="flex flex-col items-center *:text-left gap-xl *:text-bgColor max-w-sm mx-auto sm:max-w-2xl px-l sm:px-0"> <!-- <StaggeredText
       words="Interested in Working Together?"
@@ -351,4 +292,4 @@ If you're looking for a dedicated and skilled
 </p> </div> ${renderComponent($$result2, "ContactMe", $$ContactMe, { "className": "mt-2xl", "inverse": true })}  ` })}`;
 }, "/Users/atrujillo/at/src/pages/_components/contact.astro", void 0);
 
-export { $$ProjectTools as $, Highlight as H, MovingBorderWrapper as M, Section as S, Stat as a, $$Contact as b, staggerContainer as s };
+export { $$ProjectTools as $, Highlight as H, MovingBorderWrapper as M, Section as S, $$Contact as a, staggerContainer as s };
