@@ -16,11 +16,13 @@ export function Stat({
       {typeof value === "number" ? (
         <Counter
           value={value}
-          className="fluid:text-sm sm:fluid:text-4xl font-bold text-accent"
+          className="text-lg sm:text-4xl font-bold text-accent"
           includePercentageSymbol={includePercentageSymbol}
         />
       ) : (
-        <h5 className="text-accent">{value}</h5>
+        <h5 className="text-lg sm:text-4xl text-accent">
+          {value}
+        </h5>
       )}
 
       <span className="text-sm sm:text-base font-light opacity-80 ">
