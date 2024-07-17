@@ -1,6 +1,11 @@
 ---
 import { Section } from "@/components/ui/section";
 import { Highlight } from "@/components/ui/highlight";
+import Scalability from "../_assets/bhf-challenge-scalability.png";
+import Communication from "../_assets/bhf-challenge-communication.png";
+import Manual from "../_assets/bhf-challenge-manual.png";
+import Data from "../_assets/bhf-challenge-data.png";
+import { Image } from "astro:assets";
 ---
 
 <Section
@@ -11,52 +16,119 @@ import { Highlight } from "@/components/ui/highlight";
   className="flex flex-col   items-center "
 >
   <div
-    class="flex flex-col gap-l items-center max-w-sm sm:container sm:mx-auto px-l sm:px-0 w-full"
+    class="flex flex-col gap-2xl items-center max-w-sm sm:max-w-5xl mx-auto px-l sm:px-0 w-full"
   >
-    <p>
-      <Highlight
-        >Despite its global success, BHF acknowledged the
-        need to optimize operations and enhance efficiency.</Highlight
-      > Occasional communication gaps between departments hindered
-      access to crucial information, potentially impacting production
-      schedules, revenue, and reputation. The existing manual
-      processes, although functional, presented opportunities
-      for improvement to minimize errors and boost productivity.
-    </p>
-    <p>
-      Leadership recognized that a more integrated internal
-      system would bridge communication gaps, streamline
-      inventory management, and simplify financial
-      reporting. The current system required upgrades to
-      enhance performance and user experience. <Highlight
-        >Investing in a robust, unified system would
-        position BHF for continued growth and success.</Highlight
-      >
-    </p>
-    <p>
-      To tackle this challenge, BHF hired me to develop a
-      comprehensive ERP system from the ground up. The
-      objective was to create a seamless platform that would
-      improve processes, increase data accuracy, and deliver
-      real-time insights. <Highlight
-        >I constructed the system module by module,
-        encompassing item creation, purchase orders,
-        invoicing, vendor portal, DocuSign integration, API
-        connections, and more.</Highlight
-      > By unifying these components, BHF would operate more
-      efficiently, reduce errors, and make informed, data-driven
-      decisions.
-    </p>
-    <p>
-      As the system grew in complexity and scope, it became
-      necessary to expand the development team to ensure
-      effective maintenance and continuous improvement. <Highlight
-        >I took on the role of a manager and mentor, guiding
-        junior and intermediate developers as they joined
-        the team.</Highlight
-      > This transition allowed me to oversee the system's growth,
-      delegate tasks, and provide guidance to the growing development
-      team.
-    </p>
+    <div class="grid grid-flow-col w-full *:p-xl">
+      <p class="">
+        Despite its global success, <Highlight
+          >BHF acknowledged the need to optimize operations
+          and enhance efficiency.</Highlight
+        > Occasional communication gaps between departments hindered
+        access to crucial information, potentially impacting
+        production schedules, revenue, and reputation. The existing
+        manual processes, although functional, presented opportunities
+        for improvement to minimize errors and boost productivity.
+      </p>
+      <p class="">
+        Leadership recognized that a more integrated
+        internal system would bridge communication gaps,
+        streamline inventory management, and simplify
+        financial reporting. The current system required
+        upgrades to enhance performance and user experience. <Highlight
+          >Investing in a robust, unified system would
+          position BHF for continued growth and success.</Highlight
+        >
+      </p>
+    </div>
+
+    <div
+      class="*:rounded-[var(--r)] *:w-[300px] h-[70svh] grid grid-cols-2 gap-xl place-content-center w-[80svw] rounded-xl bg-[oklch(22.29%_0_0)] shadow-xl [perspective:1000px]"
+    >
+      <div class="relative bottom-right justify-self-end">
+        <Image
+          src={Scalability}
+          format="webp"
+          alt="scalability"
+          class="bottom-right"
+          quality="high"
+        />
+        <h6
+          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50"
+        >
+          Scalability Issues
+        </h6>
+      </div>
+      <div class="relative bottom-left">
+        <Image
+          src={Communication}
+          format="webp"
+          alt="communication"
+          class="bottom-left"
+          quality="high"
+        />
+        <h6
+          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50"
+        >
+          Communication Gaps
+        </h6>
+      </div>
+      <div class="relative top-right justify-self-end">
+        <Image
+          src={Manual}
+          format="webp"
+          alt="manual process"
+          class="top-right"
+          quality="high"
+        />
+        <h6
+          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50"
+        >
+          Manual Processes
+        </h6>
+      </div>
+      <div class="relative top-left">
+        <Image
+          src={Data}
+          format="webp"
+          alt="data innacuracy"
+          class="top-left"
+          quality="high"
+        />
+        <h6
+          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50"
+        >
+          Data Inaccuracy
+        </h6>
+      </div>
+    </div>
+    <div class="grid grid-flow-col w-full *:p-xl">
+      <p>
+        To tackle this challenge, BHF hired me to develop a
+        comprehensive ERP system from the ground up. The
+        objective was to create a seamless platform that
+        would improve processes, increase data accuracy, and
+        deliver real-time insights. <Highlight
+          >I constructed the system module by module,
+          encompassing item creation, purchase orders,
+          invoicing, vendor portal, DocuSign integration,
+          API connections, and more.</Highlight
+        > By unifying these components, BHF would operate more
+        efficiently, reduce errors, and make informed, data-driven
+        decisions.
+      </p>
+
+      <p>
+        As the system grew in complexity and scope, it
+        became necessary to expand the development team to
+        ensure effective maintenance and continuous
+        improvement. <Highlight
+          >I took on the role of a manager and mentor,
+          guiding junior and intermediate developers as they
+          joined the team.</Highlight
+        > This transition allowed me to oversee the system's
+        growth, delegate tasks, and provide guidance to the growing
+        development team.
+      </p>
+    </div>
   </div>
 </Section>
