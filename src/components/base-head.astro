@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 import { siteConfig } from "@/config/site";
 import "@/styles/globals.css";
@@ -7,7 +8,7 @@ import "@/styles/globals.css";
 
 import { SEO } from "astro-seo";
 import { getImage } from "astro:assets";
-// import { Icon } from "astro-icon/components";
+import { Icon } from "astro-icon/components";
 
 export type Props = {
   title?: string;
@@ -134,12 +135,13 @@ const resolvedImageWithDomain = new URL(
 />
 
 <ViewTransitions />
+<SpeedInsights />
 
-<!-- <Icon name="simple-icons:github" class="opacity-0 size-0" />
+<Icon name="simple-icons:github" class="opacity-0 size-0" />
 <Icon
   name="simple-icons:linkedin"
   class="opacity-0 size-0"
-/> -->
+/>
 
 <!-- <script>
   import Lenis from "lenis";
