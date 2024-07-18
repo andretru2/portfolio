@@ -1,9 +1,37 @@
 ---
 import { Section } from "@/components/ui/section";
 import BHFLogo from "../_assets/client-bhf-logo.png";
-import ProjectHeroBhfLogos from "@/pages/projects/bhf/_components/client-brand-bhf-logos-wrapper.astro";
 import { Image } from "astro:assets";
 import { Highlight } from "@/components/ui/highlight";
+
+import { BhfBrandLogos } from "./client-logos";
+
+export interface BrandLogoProps {
+  className?: string;
+  rows?: number;
+  pageSize?: number;
+}
+
+const { className, rows, pageSize } =
+  Astro.props as BrandLogoProps;
+
+const logoPaths = import.meta.glob(
+  "/src/pages/projects/bhf/_assets/logos/*.{png,jpg,jpeg,webp,svg}",
+  {
+    as: "raw",
+  }
+);
+
+// Use Promise.all to wait for all imports to complete
+const logos = await Promise.all(
+  Object.values(logoPaths).map(async (logoPath) => {
+    return logoPath().then((rawContent) => ({
+      rawContent,
+    }));
+  })
+).then((logoObjects) =>
+  logoObjects.map(({ rawContent }) => rawContent)
+);
 ---
 
 <Section
@@ -16,39 +44,47 @@ import { Highlight } from "@/components/ui/highlight";
   <div
     class="flex flex-col gap-l items-center max-w-sm sm:max-w-5xl mx-auto sm:mt-2xl px-l sm:px-0"
   >
-    <Image
-      src={BHFLogo}
-      format="webp"
-      loading="eager"
-      quality="high"
-      class="justify-self-start"
-      alt="Brtiannica's home fashions logo"
-      class=""
-    />
+    <div
+      class="grid grid-cols-2 place-content-center gap-m *:p-xl items-center justify-items-center"
+    >
+      <Image
+        src={BHFLogo}
+        format="webp"
+        quality="high"
+        height={420}
+        class="align-middle"
+        alt="Brtiannica's home fashions logo"
+      />
 
-    <p class="mt-xl">
-      Britannica Home Fashions (BHF) is a<Highlight
-        >worldwide frontrunner in home goods,</Highlight
-      > renowned for its diverse product lines, grappled with
-      the intricacies of supply chain and order management data.
-    </p>
-    <p class="">
-      The company’s<Highlight>global position</Highlight>is
-      reinforced by their<Highlight
-        >longstanding reputation and robust collaborations
-        with leading brands such as UGG, Pendleton, and
-        Walmart;</Highlight
-      > and is supported by a <Highlight
-        >network of international offices and a
-        comprehensive omnichannel distribution system.
-      </Highlight>
-    </p>
+      <div class="flex flex-col gap-m">
+        <p class="">
+          Britannica Home Fashions (BHF) is a<Highlight
+            >worldwide frontrunner in home goods,</Highlight
+          > renowned for its diverse product lines, grappled
+          with the intricacies of supply chain and order management
+          data.
+        </p>
+        <p class="">
+          The company’s<Highlight>global position</Highlight
+          >is reinforced by their<Highlight
+            >longstanding reputation and robust
+            collaborations with leading brands such as UGG,
+            Pendleton, and Walmart;</Highlight
+          > and is supported by a <Highlight
+            >network of international offices and a
+            comprehensive omnichannel distribution system.
+          </Highlight>
+        </p>
+      </div>
+    </div>
 
-    <div class="mt-2xl">
-      <ProjectHeroBhfLogos
-        className=" gap-m sm:gap-4xl p-m"
+    <div class="w-full self-center p-xl">
+      <BhfBrandLogos
+        logos={logos}
+        client:visible
+        className="gap-m sm:gap-2xl p-m"
         rows={4}
-        pageSize={3}
+        pageSize={4}
       />
     </div>
   </div>

@@ -43,7 +43,7 @@ const roles = projectRoles.map((roleKey) => {
 <Section
   client:visible
   idName="hero"
-  minHeight={isSafari() ? "120svg" : "220svh"}
+  minHeight="180svh"
   parallax
   skipRoundCorners
   margin="none"
@@ -102,7 +102,7 @@ const roles = projectRoles.map((roleKey) => {
     autoplay
     playsinline
     muted
-    class="w-full h-full object-cover rounded-xl"
+    class="w-full h-full max-w-7xl aspect-video object-cover rounded-xl"
   >
     <source src={HeroImage} type="video/mp4" />
   </video>
