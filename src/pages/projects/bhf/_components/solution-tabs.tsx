@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { Stat, type StatProps } from "@/components/ui/stat";
+import { isFirefox } from "@/utils";
 
 export interface Tab {
   title: string;
@@ -24,14 +25,6 @@ interface Props {
   activeTabClassName?: string;
   tabClassName?: string;
   contentClassName?: string;
-}
-
-function isFirefox() {
-  return (
-    typeof navigator !== "undefined" &&
-    navigator.userAgent.toLowerCase().indexOf("firefox") >
-      -1
-  );
 }
 
 const getTopOffset = (idx: number) => {
@@ -63,7 +56,7 @@ export function Tabs({
     <div className="">
       <div
         className={cn(
-          "flex flex-row gap-s  snap-center   sm:items-center sm:justify-center [perspective:1000px] relative overflow-x-auto text-nowrap sm:overflow-visible no-visible-scrollbar  w-full sm:w-auto",
+          "flex flex-row gap-s  snap-center   sm:items-center sm:justify-center [perspective:1000px] relative overflow-x-auto text-nowrap sm:overflow-visible  no-scrollbar  w-full sm:w-auto",
           containerClassName
         )}
       >

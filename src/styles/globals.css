@@ -22,6 +22,17 @@
     --durationL: "600ms";
     --durationXL: "800ms";
 
+    --r: 25px; /* the radius */
+    --s: 40px; /* the size of the corner*/
+
+    width: 200px;
+    border-radius: var(--r);
+
+    --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(
+        #000 70%,
+        #0000 72%
+      ) no-repeat;
+
     --linearAnimation: linear(
       0,
       0.6832 7.89%,
@@ -135,11 +146,11 @@
   }
 
   h6 {
-    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-xl;
+    @apply scroll-m-20 font-semibold tracking-tight font-heading fluid:text-xl sm:fluid:text-2xl;
   }
 
   p {
-    @apply prose prose-lg font-light text-textColor tracking-wide max-w-2xl;
+    @apply prose prose-lg sm:prose-xl font-light text-textColor tracking-wide max-w-2xl;
   }
 
   blockquote {
@@ -629,6 +640,67 @@
         55%,
       transparent 70%
     );
+  }
+
+  .top-right {
+    mask: right calc(var(--s) + var(--r)) top 0 var(--_m),
+      right calc(var(--s) + var(--r)) var(--_m),
+      radial-gradient(
+          var(--s) at 100% 0,
+          #0000 99%,
+          #000 101%
+        )
+        calc(-1 * var(--r)) var(--r) no-repeat,
+      conic-gradient(
+        at calc(100% - var(--s) - 2 * var(--r))
+          calc(var(--s) + 2 * var(--r)),
+        #0000 25%,
+        #000 0
+      );
+  }
+  .top-left {
+    mask: calc(var(--s) + var(--r)) 0 var(--_m),
+      0 calc(var(--s) + var(--r)) var(--_m),
+      radial-gradient(var(--s) at 0 0, #0000 99%, #000 101%)
+        var(--r) var(--r) no-repeat,
+      conic-gradient(
+        at calc(var(--s) + 2 * var(--r))
+          calc(var(--s) + 2 * var(--r)),
+        #000 75%,
+        #0000 0
+      );
+  }
+  .bottom-left {
+    mask: calc(var(--s) + var(--r)) bottom var(--_m),
+      bottom calc(var(--s) + var(--r)) left 0 var(--_m),
+      radial-gradient(
+          var(--s) at 0 100%,
+          #0000 99%,
+          #000 101%
+        )
+        var(--r) calc(-1 * var(--r)) no-repeat,
+      conic-gradient(
+        from 180deg at calc(var(--s) + 2 * var(--r))
+          calc(100% - var(--s) - 2 * var(--r)),
+        #0000 25%,
+        #000 0
+      );
+  }
+  .bottom-right {
+    mask: right 0 bottom calc(var(--s) + var(--r)) var(--_m),
+      right calc(var(--s) + var(--r)) bottom 0 var(--_m),
+      radial-gradient(
+          var(--s) at 100% 100%,
+          #0000 99%,
+          #000 101%
+        )
+        calc(-1 * var(--r)) calc(-1 * var(--r)) no-repeat,
+      conic-gradient(
+        from 90deg at calc(100% - var(--s) - 2 * var(--r))
+          calc(100% - var(--s) - 2 * var(--r)),
+        #0000 25%,
+        #000 0
+      );
   }
 
   @keyframes liner {
