@@ -73,21 +73,21 @@ import { Meteors } from "@/components/ui/meteors";
 
   let interval: NodeJS.Timeout;
 
-  // const SWAP = () => {
-  //   if (!document.startViewTransition) {
-  //     SWAPPER.innerText =
-  //       WORDS[(count += 1) % WORDS.length];
-  //   } else {
-  //     document.startViewTransition(() => {
-  //       SWAPPER.innerText =
-  //         WORDS[(count += 1) % WORDS.length];
-  //     });
-  //   }
-  // };
-
   const SWAP = () => {
-    SWAPPER.innerText = WORDS[(count += 1) % WORDS.length];
+    if (!document.startViewTransition) {
+      SWAPPER.innerText =
+        WORDS[(count += 1) % WORDS.length];
+    } else {
+      document.startViewTransition(() => {
+        SWAPPER.innerText =
+          WORDS[(count += 1) % WORDS.length];
+      });
+    }
   };
+
+  // const SWAP = () => {
+  //   SWAPPER.innerText = WORDS[(count += 1) % WORDS.length];
+  // };
 
   const startSwapper = () => {
     interval = setInterval(SWAP, 2000);
