@@ -8,14 +8,14 @@ import { Meteors } from "@/components/ui/meteors";
 
 <Section
   client:visible
-  backgroundColor="hero"
   idName="home"
   padding="none"
+  backgroundColor="hero"
   margin="none"
   minHeight="100svh"
   skipRoundCorners
   parallax
-  className="  relative bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
+  className="  relative corners  after:bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
 >
   <div class="bg-hero absolute -z-20"></div>
   <div
@@ -26,19 +26,19 @@ import { Meteors } from "@/components/ui/meteors";
   </div>
   <Meteors number={20} client:visible />
   <h6
-    class="font-light opacity-90 tracking-widest text-center fluid:text-sm md:fluid:text-xl animate-fadeInUp"
+    class="font-light opacity-90 tracking-widest text-center fluid:text-sm md:fluid:text-xl animate-slideIn"
   >
     ANDRES TRUJILLO
   </h6>
   <p
-    class="w-full max-w-sm sm:container sm:mx-auto flex font-semibold fluid:text-5xl md:fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animate-slideIn animation-delay-300"
+    class="w-full max-w-sm sm:container sm:mx-auto flex font-semibold fluid:text-5xl md:fluid:text-7xl font-heading tracking-tighter flex-wrap gap-[0.3ch] xs:max-w-[20ch] md:min-w-[40ch] m-0 text-center resize overflow-hidden items-center justify-center py-4 px-0 animate-slideIn"
   >
     <span transition:name="swapper-first">Creative </span>
     <span
       id="swapper"
       transition:name="swapper"
       class="text-accent fluid:text-5xl block sm:inline sm:fluid:text-7xl font-black rounded-md py-0 px-xs
-    mix-blend-lighten animate-slideIn"
+    mix-blend-lighten"
       >Frontend Dev</span
     >
 

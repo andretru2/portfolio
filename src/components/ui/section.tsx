@@ -78,12 +78,13 @@ export function Section({
           margin === "bottom" && "mb-xl",
           margin === "none" && "my-0",
           !skipRoundCorners &&
-            "rounded-t-[4rem] sm:rounded-t-[6rem] rouned-b-[4rem] sm:rounded-b-[6rem] border-y-1 border-t border-accent/30 stroke-[0.1] hover:stroke-[0.15]",
-          backgroundColor === "bgColor" && "bg-bgColor",
+            "after:corners-section  hover:stroke-[0.15]",
+          backgroundColor === "bgColor" &&
+            "after:bg-bgColor",
           backgroundColor === "bgColorHero" &&
             "bg-bgColorHero",
           backgroundColor === "hero" && "bg-bgColorHero",
-          backgroundColor === "accent" && "bg-accent",
+          backgroundColor === "accent" && "after:bg-accent",
           // backgroundColor === "accent" &&
           //   "[background-image]:[conic-gradient(from_123deg_at_50%_50%,oklch(20%_0.2_160)_-40%,oklch(20%_0.4_160)_143%)]",
           backgroundColor === "aurora" &&
@@ -97,10 +98,10 @@ export function Section({
         {title && (
           <motion.h6
             className={cn(
-              "p-0 px-s text-sm tracking-wider font-bold w-max rounded-xl mb-3xl",
+              "py-xs px-m text-sm tracking-wider font-bold w-max after:corners relative mb-3xl",
               backgroundColor === "accent"
-                ? "text-white bg-bgColor"
-                : "text-black bg-accent"
+                ? "text-white after:bg-bgColor"
+                : "text-black after:bg-accent"
             )}
           >
             {title}

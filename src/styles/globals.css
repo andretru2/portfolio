@@ -150,7 +150,7 @@
   }
 
   p {
-    @apply prose prose-lg sm:prose-xl font-light text-textColor tracking-wide max-w-2xl;
+    @apply prose prose-lg font-light text-textColor tracking-wide max-w-2xl;
   }
 
   blockquote {
@@ -182,7 +182,7 @@
 
 @layer components {
   button {
-    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none transition no-underline rounded-xl;
+    @apply flex flex-row text-black items-center justify-center px-l py-m font-medium leading-none transition no-underline;
   }
 
   .button-primary {
@@ -701,6 +701,46 @@
         #0000 25%,
         #000 0
       );
+  }
+
+  .corners {
+    content: "";
+    transition-property: opacity, color, background;
+    transition-duration: var(--durationM);
+    transition-timing-function: var(--bezierFastoutSlowin);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    clip-path: polygon(
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 calc(100% - 8px),
+      0 8px
+    );
+  }
+
+  .corners-section {
+    content: "";
+    transition-property: opacity, color, background;
+    transition-duration: var(--durationM);
+    transition-timing-function: var(--bezierFastoutSlowin);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    clip-path: polygon(
+      36px 0,
+      calc(100% - 36px) 0,
+      100% 36px,
+      100% calc(100% - 36px),
+      calc(100% - 36px) 100%,
+      36px 100%,
+      0 calc(100% - 36px),
+      0 36px
+    );
   }
 
   @keyframes liner {

@@ -28,9 +28,18 @@ module.exports = {
       },
       colors: {
         // bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
-        bgColor: "oklch(14.48% 0 0 / <alpha-value>)",
-        bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
-        bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
+        // bgColor: "oklch(14.48% 0 0 / <alpha-value>)",
+        // bgColor: "oklch(22.22% 0 0 / <alpha-value>)",
+        bgColor:
+          "oklch(20.8% 0.011 301.53 / <alpha-value>)",
+        // bgColor: "oklch(20.32% 0.1 250 / <alpha-value>)",
+        // bgColorCard: "oklch(47.29% 0 0 / <alpha-value>)",
+        bgColorCard:
+          "oklch(37.8% 0.011 301.53 / <alpha-value>)",
+        // bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
+        // bgColorHero: "oklch(14.48% 0 0 / <alpha-value>)",
+        bgColorHero:
+          "oklch(18% 0.011 293.31 / <alpha-value>)",
         // textColor: "hsl(var(--theme-text) / <alpha-value>)",
         textColor: "oklch(100% 0 0 / <alpha-value>)",
         link: "hsl(var(--theme-link) / <alpha-value>)",

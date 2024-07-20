@@ -15,7 +15,7 @@ export function ProgressBar({
 }: Props) {
   const ref = useRef(null);
   return (
-    <div className="w-full h-[0.4rem] rounded-xl overflow-hidden bg-white my-2">
+    <div className="w-full h-[0.4rem]  relative  overflow-hidden bg-white my-2 rounded-xl">
       {header && (
         <motion.span
           initial={{
@@ -34,15 +34,15 @@ export function ProgressBar({
       )}
       <motion.div
         ref={ref}
-        className="h-s bg-accent rounded-lg"
+        className="h-s bg-accent  relative"
         style={{ originX: 0 }}
-        initial={{ scaleX: 0 }} // Start scaled down
-        animate={{ scaleX: 1 }} // Scale to full width
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
         transition={{
           duration: duration,
           ease: "linear",
           delay: delay,
-        }} // Transition over 10 seconds
+        }}
       />
     </div>
   );

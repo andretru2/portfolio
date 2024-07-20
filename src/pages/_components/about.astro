@@ -6,17 +6,18 @@ import { Image } from "astro:assets";
 import { Section } from "@/components/ui/section";
 import { Stat } from "@/components/ui/stat";
 import { Meteors } from "@/components/ui/meteors";
+import Card from "@/components/ui/card.astro";
 ---
 
 <Section
   client:visible
   idName="about"
   title="About"
-  backgroundColor="bgColorHero"
   minHeight="110svh"
-  className="flex flex-col  items-center  relative   "
+  backgroundColor="hero"
+  className="flex flex-col  items-center corners-section relative after:bg-bgColorHero "
 >
-  <Meteors number={15} client:visible />
+  <Meteors number={30} client:visible />
   <div
     class="grid grid-cols-12 grid-flow-row gap-l sm:gap-xs max-w-sm sm:container mx-auto mt-2xl px-l sm:px-0"
   >
@@ -70,7 +71,7 @@ import { Meteors } from "@/components/ui/meteors";
             >biotech</Highlight
           > sector, but I am open to any<Highlight
             >innovative</Highlight
-          > and<Highlight> impactful </Highlight>industry. I
+          > and<Highlight>impactful </Highlight>industry. I
           am eager to apply my <Highlight
             >expertise</Highlight
           > to <Highlight>meaningful projects</Highlight> that
@@ -93,14 +94,13 @@ import { Meteors } from "@/components/ui/meteors";
       </div> -->
     </div>
 
-    <div
-      class="relative sm:p-m col-span-12 sm:col-span-6 flex flex-col items-start gap-xl"
+    <!-- <CardGlow /> -->
+    <Card
+      class="p-2 w-full h-full after:corners after:bg-bgColor relative sm:p-m col-span-12 sm:col-span-6 flex flex-col items-start gap-xl shadow-3xl [perspective:1000px] transition-all duration-500 transform"
     >
-      <!-- <CardGlow /> -->
       <Image
-        slot="image"
         class:list={[
-          "sm:mt-3xl      shadow-3xl [perspective:1000px]   transition-all duration-500 transform   rounded-xl object-cover h-full w-full sm:max-h-[65dvh] sm:max-w-[40dvw] ",
+          " object-cover h-full w-full sm:max-h-[75dvh] sm:max-w-[45dvw] ",
         ]}
         style={{
           // filter: "grayscale(0.25)",
@@ -112,7 +112,8 @@ import { Meteors } from "@/components/ui/meteors";
         quality="high"
         onload="this.style.opacity = 1; this.style.transform = 'scale(1)'"
       />
-      <!-- <video
+    </Card>
+    <!-- <video
         autoplay
         slot="signature"
         class="h-16 w-96 object-cover"
@@ -122,7 +123,6 @@ import { Meteors } from "@/components/ui/meteors";
           type="video/mp4"
         />
       </video> -->
-    </div>
   </div>
 
   <style>
