@@ -35,7 +35,7 @@ export function Section({
   parallax,
   children,
   idName,
-  backgroundColor = "bgColor",
+  backgroundColor,
   className,
   minHeight = "100svh",
   padding = "both",
@@ -68,7 +68,7 @@ export function Section({
         viewport={{ once: true }}
         className={cn(
           className,
-          "relative z-20 shadow-3xl shadow-white",
+          "relative z-20 shadow-3xl shadow-white  ",
           padding === "both" && "py-5xl",
           padding === "top" && "pt-5xl",
           padding === "bottom" && "pb-5xl",
@@ -78,13 +78,14 @@ export function Section({
           margin === "bottom" && "mb-xl",
           margin === "none" && "my-0",
           !skipRoundCorners &&
-            "after:corners-section  hover:stroke-[0.15]",
+            "after:corners-section  hover:stroke-[0.15] border-t-[0.2px]  border-accent/30 rounded-t-[8rem]",
           backgroundColor === "bgColor" &&
             "after:bg-bgColor",
           backgroundColor === "bgColorHero" &&
             "bg-bgColorHero",
           backgroundColor === "hero" && "bg-bgColorHero",
-          backgroundColor === "accent" && "after:bg-accent",
+          backgroundColor === "accent" &&
+            "after:bg-primary-gradient",
           // backgroundColor === "accent" &&
           //   "[background-image]:[conic-gradient(from_123deg_at_50%_50%,oklch(20%_0.2_160)_-40%,oklch(20%_0.4_160)_143%)]",
           backgroundColor === "aurora" &&
@@ -98,10 +99,10 @@ export function Section({
         {title && (
           <motion.h6
             className={cn(
-              "py-xs px-m text-sm tracking-wider font-bold w-max after:corners relative mb-3xl",
+              "py-xs px-m text-sm tracking-wider font-bold w-max after:corners relative mb-3xl z-10  ",
               backgroundColor === "accent"
                 ? "text-white after:bg-bgColor"
-                : "text-black after:bg-accent"
+                : "text-black  after:bg-primary-gradient"
             )}
           >
             {title}

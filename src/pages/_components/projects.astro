@@ -484,8 +484,12 @@ const projects: ProjectProps[] = [
   title="Featured Projects"
   backgroundColor="bgColor"
   margin="bottom"
-  className=" flex  flex-col justify-center items-center -translate-y-52 bg-dotted "
+  className=" flex  flex-col justify-center items-center -translate-y-52 bg-dotted relative "
 >
+  <div
+    class="absolute inset-auto top-28 z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-accent/30 opacity-50 blur-3xl"
+  >
+  </div>
   <div class="flex flex-col gap-7xl sm:gap-64">
     {projects.map((project) => <Project {...project} />)}
   </div>

@@ -17,6 +17,10 @@ import Card from "@/components/ui/card.astro";
   backgroundColor="hero"
   className="flex flex-col  items-center corners-section relative after:bg-bgColorHero "
 >
+  <div
+    class="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-cyan-500 opacity-50 blur-3xl"
+  >
+  </div>
   <Meteors number={30} client:visible />
   <div
     class="grid grid-cols-12 grid-flow-row gap-l sm:gap-xs max-w-sm sm:container mx-auto mt-2xl px-l sm:px-0"
@@ -96,12 +100,10 @@ import Card from "@/components/ui/card.astro";
 
     <!-- <CardGlow /> -->
     <Card
-      class="p-2 w-full h-full after:corners after:bg-bgColor relative sm:p-m col-span-12 sm:col-span-6 flex flex-col items-start gap-xl shadow-3xl [perspective:1000px] transition-all duration-500 transform"
+      class="p-2 w-full h-full after:corners after:bg-primary-gradient relative sm:p-xs col-span-12 sm:col-span-6 flex flex-col items-start gap-xl shadow-3xl [perspective:1000px] transition-all duration-500 transform sm:max-h-[75dvh] sm:max-w-[45dvw] self-center"
     >
       <Image
-        class:list={[
-          " object-cover h-full w-full sm:max-h-[75dvh] sm:max-w-[45dvw] ",
-        ]}
+        class:list={[" object-cover h-full w-full  "]}
         style={{
           // filter: "grayscale(0.25)",
           objectPosition: "bottom left ",

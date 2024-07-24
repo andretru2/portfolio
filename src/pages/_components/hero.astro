@@ -15,8 +15,20 @@ import { Meteors } from "@/components/ui/meteors";
   minHeight="100svh"
   skipRoundCorners
   parallax
-  className="  relative corners  after:bg-bgColorHero  h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
+  className="  relative     h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
 >
+  <!-- <div
+    class="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-slate-950 blur-2xl"
+  >
+  </div> -->
+  <!-- <div
+    class="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"
+  >
+  </div> -->
+  <div
+    class="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-cyan-500 opacity-50 blur-3xl"
+  >
+  </div>
   <div class="bg-hero absolute -z-20"></div>
   <div
     class="absolute inset-0 h-full w-full -z-10 hidden sm:flex"

@@ -1,0 +1,25 @@
+---
+import Card from "@/components/ui/card.astro";
+import { Section } from "@/components/ui/section";
+import HeroImage from "../_assets/design-system-showcase.mp4";
+---
+
+<Section
+  client:visible
+  idName="demo"
+  minHeight="65svh"
+  className="flex flex-col   items-center after:bg-primary-gradient relative after:corner-sections [perspective:1000px]"
+>
+  <video
+    autoplay
+    playsinline
+    muted
+    class="w-full h-full max-w-7xl aspect-video object-cover grid place-content-center mx-auto shadow-2xl"
+  >
+    <source src={HeroImage} type="video/mp4" />
+  </video>
+
+  <!-- <Card
+    class="w-full h-full max-w-7xl aspect-video object-cover grid place-content-center mx-auto after:corners after:bg-bgColorCard p-m"
+  /> -->
+</Section>
