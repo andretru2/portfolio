@@ -1,5 +1,4 @@
 ---
-import HeroImage from "../_assets/design-system-showcase.mp4";
 import { Section } from "@/components/ui/section";
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import HeroOverlay from "../_assets/bhf-hero-original.webp";
@@ -43,7 +42,6 @@ const roles = projectRoles.map((roleKey) => {
 <Section
   client:visible
   idName="hero"
-  minHeight="180svh"
   parallax
   skipRoundCorners
   margin="none"
@@ -82,7 +80,7 @@ const roles = projectRoles.map((roleKey) => {
     >
       {
         roles?.map((role) => (
-          <span class="w-max border-2  border-accent/40 py-xs px-s rounded-xl">
+          <span class="w-max border-2  border-accent/40 py-xs px-s after:corners relative after:bg-bgColor">
             {role}
           </span>
         ))
@@ -97,13 +95,4 @@ const roles = projectRoles.map((roleKey) => {
       />
     </div>
   </div>
-
-  <video
-    autoplay
-    playsinline
-    muted
-    class="w-full h-full max-w-7xl aspect-video object-cover rounded-xl"
-  >
-    <source src={HeroImage} type="video/mp4" />
-  </video>
 </Section>

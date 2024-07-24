@@ -83,7 +83,7 @@ function Logo({ logo }: { logo: string }) {
     <motion.svg
       variants={item}
       dangerouslySetInnerHTML={{ __html: logo }}
-      className="  max-w-56 max-h-44   fill-white text-white py-xs px-s  bg-[oklch(29.88%_0.1_250)] rounded-xl "
+      className="  max-w-32 max-h-24   fill-white text-white py-xs px-s relative   "
     />
   );
 }

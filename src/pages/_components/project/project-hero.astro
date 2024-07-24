@@ -6,14 +6,14 @@ const { hero } = Astro.props as Pick<Project, "hero">;
 ---
 
 <Card
-  class="relative row-span-4 sm:row-span-8 col-span-12 sm:col-span-8 flex items-center justify-center"
+  class="relative row-span-4 sm:row-span-8 col-span-12 sm:col-span-8 flex items-center justify-center p-2"
 >
   <video
     autoplay
     loop
     playsinline
     muted
-    class="h-full w-full object-fit sm:object-cover aspect-video rounded-xl"
+    class="h-full w-full object-fit sm:object-cover aspect-video after:corners after:bg-bgColorCard"
   >
     <source src={hero.src} type="video/mp4" />
     <!-- <p>{hero.alt}</p> -->

@@ -12,8 +12,8 @@ const { className, inverse = false } = Astro.props as Props;
 <a
   href=`mailto:${siteConfig.email}?Subject=Let%27s talk about it`
   class:list={[
-    "relative max-w-[12rem] max-h-12  rounded-xl w-full flex flex-row items-center justify-center gap-s   px-m py-s ",
-    inverse ? "bg-bgColor/80" : "bg-accent",
+    "relative max-w-[12rem] max-h-12  isolate z-1 w-full inline-flex flex-row items-center justify-center gap-s   px-m py-s   transition-all duration-[var(--durationM)] after:corners  ",
+    inverse ? "after:bg-bgColor/80" : "after:bg-accent",
     className,
   ]}
 >
@@ -32,23 +32,25 @@ const { className, inverse = false } = Astro.props as Props;
 </a>
 
 <style>
-  a::after {
+  /* a::after {
     content: "";
     transition-property: opacity, color, background;
     transition-duration: var(--durationM);
     transition-timing-function: var(--bezierFastoutSlowin);
-    background: oklch(80% 0.2 160) / 80;
     position: absolute;
     inset: 0;
     z-index: -1;
     clip-path: polygon(
-      0 0,
-      100% 0,
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
       100% calc(100% - 8px),
       calc(100% - 8px) 100%,
-      0 100%
+      8px 100%,
+      0 calc(100% - 8px),
+      0 8px
     );
-  }
+  } */
 
   .loader {
     width: 2vmin;

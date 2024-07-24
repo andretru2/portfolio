@@ -32,24 +32,24 @@ export function MovingBorderWrapper({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-base md:text-l  h-10 w-max p-[1px] overflow-hidden cursor-default",
+        " relative text-base md:text-l after:corners after:bg-bgColorHero   h-10 w-max p-[1px] overflow-hidden cursor-default",
         containerClassName
       )}
-      style={{
-        borderRadius: borderRadius,
-      }}
+      // style={{
+      //   borderRadius: borderRadius,
+      // }}
       {...otherProps}
     >
       <div
-        className="absolute inset-0"
-        style={{
-          borderRadius: `calc(${borderRadius} * 0.96)`,
-        }}
+        className="absolute inset-0 "
+        // style={{
+        //   borderRadius: `calc(${borderRadius} * 0.96)`,
+        // }}
       >
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--green-500)_40%,transparent_60%)]",
+              "h-20 w-20 opacity-[0.8]  bg-[radial-gradient(var(--green-500)_40%,transparent_60%)]",
               borderClassName
             )}
           />
@@ -58,13 +58,13 @@ export function MovingBorderWrapper({
 
       <div
         className={cn(
-          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full  antialiased px-s py-xs",
+          "relative after:corners after:bg-bgColorHero  border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full  antialiased px-s py-xs",
           // "relative bg-teal-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
           className
         )}
-        style={{
-          borderRadius: `calc(${borderRadius} * 0.96)`,
-        }}
+        // style={{
+        //   borderRadius: `calc(${borderRadius} * 0.96)`,
+        // }}
       >
         {children}
       </div>

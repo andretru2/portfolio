@@ -69,7 +69,7 @@ export function Tabs({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative  w-full px-m py-s rounded-xl   ",
+              "relative  w-full px-m py-s after:corners after:bg-bgColor   ",
               tabClassName
             )}
             style={{
@@ -85,7 +85,7 @@ export function Tabs({
                   duration: 0.6,
                 }}
                 className={cn(
-                  "absolute inset-0 bg-[#9DF2D5] rounded-xl text-sm sm:text-base ",
+                  "absolute inset-0 after:bg-[#9DF2D5] after:corners text-sm sm:text-base ",
                   activeTabClassName
                 )}
               />
@@ -169,7 +169,7 @@ function TabContent({
   image,
 }: TabContent) {
   return (
-    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center bg-bgColor    min-w-0 min-h-svh rounded-xl ">
+    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center relative after:corners after:bg-bgColor   min-w-0 min-h-svh  ">
       <h5>{header}</h5>
       <p className="prose-p  ">{description}</p>
       <div className="flex flex-row gap-m sm:gap-2xl items-center align-middle justify-start w-full  z-10 flex-wrap sm:max-w-2xl mt-xl">
@@ -203,7 +203,7 @@ function TabContent({
           }}
           src={image}
           alt={header}
-          className="mt-xl aspect-video   rounded-xl object-cover object-left-top h-[60%]  md:h-[90%]  w-[90%]"
+          className="mt-xl aspect-video   relative after:corners after:bg-bgColor object-cover object-left-top h-[60%]  md:h-[90%]  w-[90%]"
           loading="lazy"
           decoding="async"
           width="1000"

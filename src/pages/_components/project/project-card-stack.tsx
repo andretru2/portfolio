@@ -43,7 +43,7 @@ export function ProjectCardStack({ features }: Props) {
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute  p-m gap-4 bg-black  w-full h-full rounded-xl shadow-sm border border-white/30  shadow-white/[0.05] flex flex-col  sm:translate-y-0 "
+          className="absolute  p-m gap-4 w-full h-full after:corners after:bg-bgColor shadow-sm  border-[0.5px]  border-bgColorCard shadow-white/[0.05] flex flex-col  sm:translate-y-0 "
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,
@@ -72,7 +72,7 @@ function Card({
   return (
     <motion.div className="flex flex-col justify-between gap-s h-max p-xs sm:p-s overflow-hidden  ">
       <div className="flex flex-row justify-between">
-        <h6 className="text-base sm:fluid:text-xl">
+        <h6 className="text-base sm:fluid:text-lg">
           {title}
         </h6>
         {/* <svg>{card.svg}</svg> */}

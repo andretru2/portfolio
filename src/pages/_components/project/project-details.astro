@@ -20,7 +20,7 @@ const { features, caseStudyUrl, reversed, tools, visible } =
 <Card
   class="relative row-span-4 sm:row-span-5 col-span-12 sm:col-span-4 p-l flex flex-col gap-xl sm:gap-2xl"
 >
-  <div class="flex flex-row gap-m">
+  <div class="flex flex-row gap-xs">
     <ProgressBar header="About" client:visible />
     <ProgressBar
       header="Features"
@@ -45,9 +45,10 @@ const { features, caseStudyUrl, reversed, tools, visible } =
   <ProjectTools toolKeys={tools} />
 </Card>
 <Card
+  useAccent
   class:list={[
     reversed && "sm:row-start-6  ",
-    "relative  row-span-2 sm:row-span-3 col-span-6  sm:col-span-2 p-l bg-accent hover:bg-accent/80 ",
+    "relative  row-span-2 sm:row-span-3 col-span-6  sm:col-span-2 p-l  after:hover:bg-accent/80 after:transition-all  ",
   ]}
 >
   <!-- <Background backgroundType="aurora" /> -->
@@ -73,10 +74,10 @@ const { features, caseStudyUrl, reversed, tools, visible } =
         stroke-linejoin="round"
         d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
     </svg>
-    <h6
-      class="flex text-center justify-center items-center font-medium"
+    <span
+      class="flex text-center justify-center items-center font-bold"
     >
       {visible ? "View Case Study" : "Under Development"}
-    </h6>
+    </span>
   </a>
 </Card>

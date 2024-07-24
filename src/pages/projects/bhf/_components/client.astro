@@ -1,7 +1,7 @@
 ---
 import { Section } from "@/components/ui/section";
 import BHFLogo from "../_assets/client-bhf-logo.png";
-import { Image } from "astro:assets";
+import BHFVideo from "../_assets/bhf-client-video.mp4";
 import { Highlight } from "@/components/ui/highlight";
 
 import { BhfBrandLogos } from "./client-logos";
@@ -39,43 +39,39 @@ const logos = await Promise.all(
   idName="client"
   title="Meet the Client"
   backgroundColor="bgColorHero"
-  className="relative flex flex-col  items-center   "
+  className="relative flex flex-col  items-center  corners-section  "
 >
   <div
     class="flex flex-col gap-l items-center max-w-sm sm:max-w-5xl mx-auto sm:mt-2xl px-l sm:px-0"
   >
-    <div
-      class="grid grid-cols-2 place-content-center gap-m *:p-xl items-center justify-items-center"
-    >
-      <Image
+    <div class="grid grid-cols-2 gap-m *:p-xl">
+      <!-- <Image
         src={BHFLogo}
         format="webp"
         quality="high"
         height={420}
         class="align-middle"
         alt="Brtiannica's home fashions logo"
-      />
+      /> -->
 
-      <div class="flex flex-col gap-m">
-        <p class="">
-          Britannica Home Fashions (BHF) is a<Highlight
-            >worldwide frontrunner in home goods,</Highlight
-          > renowned for its diverse product lines, grappled
-          with the intricacies of supply chain and order management
-          data.
-        </p>
-        <p class="">
-          The company’s<Highlight>global position</Highlight
-          >is reinforced by their<Highlight
-            >longstanding reputation and robust
-            collaborations with leading brands such as UGG,
-            Pendleton, and Walmart;</Highlight
-          > and is supported by a <Highlight
-            >network of international offices and a
-            comprehensive omnichannel distribution system.
-          </Highlight>
-        </p>
-      </div>
+      <p class="">
+        Britannica Home Fashions (BHF) is a<Highlight
+          >worldwide frontrunner in home goods,</Highlight
+        > renowned for its diverse product lines, grappled with
+        the intricacies of supply chain and order management
+        data.
+      </p>
+      <p class="">
+        The company’s<Highlight>global position</Highlight
+        >is reinforced by their<Highlight
+          >longstanding reputation and robust collaborations
+          with leading brands such as UGG, Pendleton, and
+          Walmart;</Highlight
+        > and is supported by a <Highlight
+          >network of international offices and a
+          comprehensive omnichannel distribution system.
+        </Highlight>
+      </p>
     </div>
 
     <div class="w-full self-center p-xl">
@@ -88,4 +84,13 @@ const logos = await Promise.all(
       />
     </div>
   </div>
+
+  <video
+    muted
+    autoplay
+    playsinline
+    class="h-full w-full border-4"
+  >
+    <source src={BHFVideo} type="video/mp4" />
+  </video>
 </Section>

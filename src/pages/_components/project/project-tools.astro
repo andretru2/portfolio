@@ -41,15 +41,15 @@ const tools = shuffle(
               aria-label={tool?.name}
               title={tool?.name}
               class:list={[
-                "p-s rounded-xl ml-xs z-10  shadow-sm border   shadow-white/[0.05] border-accent/40",
+                "p-s relative after:corners  ml-xs z-10  shadow-sm    shadow-white/[0.05]  ",
                 transparent
-                  ? "bg-transparet"
-                  : "bg-bgColor",
+                  ? "after:bg-transparent"
+                  : "after:bg-bgColor",
               ]}
             >
               <Icon
                 name={tool?.icon}
-                class="size-8 text-textColor   "
+                class="size-7 text-textColor   "
               />
             </div>
           ))}
