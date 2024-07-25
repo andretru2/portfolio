@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 import { siteConfig } from "@/config/site";
 import "@/styles/globals.css";
@@ -140,6 +141,8 @@ const resolvedImageWithDomain = new URL(
   name="simple-icons:linkedin"
   class="opacity-0 size-0"
 />
+
+<SpeedInsights />
 
 <!-- <script>
   import Lenis from "lenis";
