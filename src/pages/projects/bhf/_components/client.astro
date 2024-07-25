@@ -12,16 +12,13 @@ export interface BrandLogoProps {
   pageSize?: number;
 }
 
-// const { className, rows, pageSize } =
-//   Astro.props as BrandLogoProps;
-
 const logoPaths = import.meta.glob(
   "/src/pages/projects/bhf/_assets/logos/*.{png,jpg,jpeg,webp,svg}",
   {
-    as: "raw",
+    query: "?raw",
+    import: "default",
   }
 );
-
 // Use Promise.all to wait for all imports to complete
 const logos = await Promise.all(
   Object.values(logoPaths).map(async (logoPath) => {
@@ -32,6 +29,8 @@ const logos = await Promise.all(
 ).then((logoObjects) =>
   logoObjects.map(({ rawContent }) => rawContent)
 );
+
+const stringifiedLogos = logos.map((logo) => String(logo));
 ---
 
 <Section
@@ -76,7 +75,7 @@ const logos = await Promise.all(
 
     <div class="w-full self-center p-xl">
       <BhfBrandLogos
-        logos={logos}
+        logos={stringifiedLogos}
         client:visible
         className="gap-m sm:gap-2xl p-m"
         rows={4}

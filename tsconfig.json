@@ -4,8 +4,8 @@
     // "baseUrl": "/Users/atrujillo/at",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-      // "@/*": ["src/*"]
+      // "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
