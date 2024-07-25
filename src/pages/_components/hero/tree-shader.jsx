@@ -1,5 +1,5 @@
 "use client";
-import React, {
+import {
   useRef,
   // useEffect,
   useMemo,
@@ -9,7 +9,7 @@ import {
   // useLoader,
   useFrame,
   Canvas,
-  extend,
+  // extend,
 } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -18,139 +18,139 @@ import { useTexture } from "@react-three/drei";
 // import { ShaderMaterial, Vector3 } from "three";
 // extend({ planeBufferGeometry });
 
-function Model() {
-  const meshRef = useRef();
+// function Model() {
+//   const meshRef = useRef();
 
-  const vertexShader = `
-    uniform float iTime;
-    uniform vec3 iResolution;
-    
-    varying vec2 vUv;
-    
-    void main() {
-      vUv = uv;
-      
-      vec3 pos = position;
-      
-      pos.x += sin(iTime * 0.5) * 0.1;
-      pos.y += cos(iTime * 0.3) * 0.1;
-      pos.z += sin(iTime * 0.2) * 0.1;
-      
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-    }
-  `;
+//   const vertexShader = `
+//     uniform float iTime;
+//     uniform vec3 iResolution;
 
-  const fragmentShader = `
-    uniform vec3 iResolution;
-    uniform float iTime;
-    varying vec2 vUv;
+//     varying vec2 vUv;
 
-    #define R iResolution.xy
-    #define Main void mainImage(out vec4 Q, in vec2 U)
-    #define ei(a) mat2(cos(a),sin(a),-sin(a),cos(a))
+//     void main() {
+//       vUv = uv;
 
-    float segment (vec2 p, vec2 a, vec2 b) {
-      return length(p-a-(b-a)*clamp(dot(p-a,b-a)/dot(b-a,b-a),0.,1.));
-    }
+//       vec3 pos = position;
 
-    vec3 hash (vec2 p) {
-      vec3 p3 = fract(vec3(p.xyx) * vec3(.1031, .1030, .0973));
-      p3 += dot(p3, p3.yxz+33.33);
-      return fract((p3.xxy+p3.yzz)*p3.zyx);
-    }
+//       pos.x += sin(iTime * 0.5) * 0.1;
+//       pos.y += cos(iTime * 0.3) * 0.1;
+//       pos.z += sin(iTime * 0.2) * 0.1;
 
-    vec3 noise(vec2 p) {
-      vec4 w = vec4(
-        floor(p),
-        ceil (p) );
-      vec3
-        _00 = hash(w.xy),
-        _01 = hash(w.xw),
-        _10 = hash(w.zy),
-        _11 = hash(w.zw),
-        _0 = mix(_00,_01,fract(p.y)),
-        _1 = mix(_10,_11,fract(p.y));
-      return mix(_0,_1,fract(p.x));
-    }
+//       gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+//     }
+//   `;
 
-    vec3 fbm (vec2 p) {
-      vec3 w = vec3(0);
-      float N = 5.;
-      for (float i = 1.; i < N; i++) {
-        p *= 1.7*ei(.5);
-        w += noise(p)/N/i;
-      }
-      return w;
-    }
+//   const fragmentShader = `
+//     uniform vec3 iResolution;
+//     uniform float iTime;
+//     varying vec2 vUv;
 
-    Main {
-      vec2 U = 2. * (vUv - 0.5 * R) / R.y;
-      vec4 Q = vec4(0);
-      float d = 1e9;
-      U.y -= -1.;
-      float r = 0.;
-      for (float i = 0.; i < 15.; i++) {
-        float s = segment(U, vec2(0), vec2(0, .6));
-        d = min(d, s);
-        U.y -= .6;
-        float h = -.5 + hash(vec2(i, 1. + iTime)).x;
-        h = sign(h);
-        r += h * exp2(i);
-        vec3 f = hash(vec2(r));
-        U *= 1.1 + .5 * f.y;
-        if (h != 0.)
-          U.x = h * U.x;
-        U.xy *= ei(-1. + .5 * f.x);
-      }
-      vec3 hh = hash(vec2(r));
-      Q = step(d, .05) * .15 * vec4(4, 3, 2, 1);
-      U.y -= -.5;
-      U *= .3;
-      U = vec2(atan(U.y, U.x), length(U));
-      U.x += .1 * fbm(vec2(10. * U.y, round(U.x / 5.))).x;
-      U.y += (.5 + .5 * abs(sin(5. * U.x))) * -sin(U.x);
-      U.y += .5 * fbm(r + 10. * U.xx).x;
-      if (U.y < .5)
-        Q = sin(.5 * (hh.x * 2. - 1.) + .5 + U.y + vec4(1, 2, 3, 4));
-      if (length(Q) == 0.)
-        discard;
-      gl_FragColor = Q;
-    }
-  `;
+//     #define R iResolution.xy
+//     #define Main void mainImage(out vec4 Q, in vec2 U)
+//     #define ei(a) mat2(cos(a),sin(a),-sin(a),cos(a))
 
-  const uniforms = useMemo(
-    () => ({
-      iTime: { value: 0 },
-      iResolution: { value: new THREE.Vector3(1, 1, 1) },
-    }),
-    []
-  );
+//     float segment (vec2 p, vec2 a, vec2 b) {
+//       return length(p-a-(b-a)*clamp(dot(p-a,b-a)/dot(b-a,b-a),0.,1.));
+//     }
 
-  useFrame(({ clock }) => {
-    meshRef.current.material.uniforms.iTime.value =
-      clock.getElapsedTime();
-    meshRef.current.material.uniforms.iResolution.value.set(
-      window.innerWidth,
-      window.innerHeight,
-      1
-    );
-  });
+//     vec3 hash (vec2 p) {
+//       vec3 p3 = fract(vec3(p.xyx) * vec3(.1031, .1030, .0973));
+//       p3 += dot(p3, p3.yxz+33.33);
+//       return fract((p3.xxy+p3.yzz)*p3.zyx);
+//     }
 
-  return (
-    <mesh ref={meshRef}>
-      <planeBufferGeometry
-        attach="geometry"
-        args={[2, 2]}
-      />
-      <shaderMaterial
-        attach="material"
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        uniforms={uniforms}
-      />
-    </mesh>
-  );
-}
+//     vec3 noise(vec2 p) {
+//       vec4 w = vec4(
+//         floor(p),
+//         ceil (p) );
+//       vec3
+//         _00 = hash(w.xy),
+//         _01 = hash(w.xw),
+//         _10 = hash(w.zy),
+//         _11 = hash(w.zw),
+//         _0 = mix(_00,_01,fract(p.y)),
+//         _1 = mix(_10,_11,fract(p.y));
+//       return mix(_0,_1,fract(p.x));
+//     }
+
+//     vec3 fbm (vec2 p) {
+//       vec3 w = vec3(0);
+//       float N = 5.;
+//       for (float i = 1.; i < N; i++) {
+//         p *= 1.7*ei(.5);
+//         w += noise(p)/N/i;
+//       }
+//       return w;
+//     }
+
+//     Main {
+//       vec2 U = 2. * (vUv - 0.5 * R) / R.y;
+//       vec4 Q = vec4(0);
+//       float d = 1e9;
+//       U.y -= -1.;
+//       float r = 0.;
+//       for (float i = 0.; i < 15.; i++) {
+//         float s = segment(U, vec2(0), vec2(0, .6));
+//         d = min(d, s);
+//         U.y -= .6;
+//         float h = -.5 + hash(vec2(i, 1. + iTime)).x;
+//         h = sign(h);
+//         r += h * exp2(i);
+//         vec3 f = hash(vec2(r));
+//         U *= 1.1 + .5 * f.y;
+//         if (h != 0.)
+//           U.x = h * U.x;
+//         U.xy *= ei(-1. + .5 * f.x);
+//       }
+//       vec3 hh = hash(vec2(r));
+//       Q = step(d, .05) * .15 * vec4(4, 3, 2, 1);
+//       U.y -= -.5;
+//       U *= .3;
+//       U = vec2(atan(U.y, U.x), length(U));
+//       U.x += .1 * fbm(vec2(10. * U.y, round(U.x / 5.))).x;
+//       U.y += (.5 + .5 * abs(sin(5. * U.x))) * -sin(U.x);
+//       U.y += .5 * fbm(r + 10. * U.xx).x;
+//       if (U.y < .5)
+//         Q = sin(.5 * (hh.x * 2. - 1.) + .5 + U.y + vec4(1, 2, 3, 4));
+//       if (length(Q) == 0.)
+//         discard;
+//       gl_FragColor = Q;
+//     }
+//   `;
+
+//   const uniforms = useMemo(
+//     () => ({
+//       iTime: { value: 0 },
+//       iResolution: { value: new THREE.Vector3(1, 1, 1) },
+//     }),
+//     []
+//   );
+
+//   useFrame(({ clock }) => {
+//     meshRef.current.material.uniforms.iTime.value =
+//       clock.getElapsedTime();
+//     meshRef.current.material.uniforms.iResolution.value.set(
+//       window.innerWidth,
+//       window.innerHeight,
+//       1
+//     );
+//   });
+
+//   return (
+//     <mesh ref={meshRef}>
+//       <planeBufferGeometry
+//         attach="geometry"
+//         args={[2, 2]}
+//       />
+//       <shaderMaterial
+//         attach="material"
+//         vertexShader={vertexShader}
+//         fragmentShader={fragmentShader}
+//         uniforms={uniforms}
+//       />
+//     </mesh>
+//   );
+// }
 
 function Test() {
   const vertexShader = `

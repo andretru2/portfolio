@@ -1,6 +1,6 @@
 ---
 import { Section } from "@/components/ui/section";
-import BHFLogo from "../_assets/client-bhf-logo.png";
+// import BHFLogo from "../_assets/client-bhf-logo.png";
 import BHFVideo from "../_assets/bhf-client-video.mp4";
 import { Highlight } from "@/components/ui/highlight";
 
@@ -12,8 +12,8 @@ export interface BrandLogoProps {
   pageSize?: number;
 }
 
-const { className, rows, pageSize } =
-  Astro.props as BrandLogoProps;
+// const { className, rows, pageSize } =
+//   Astro.props as BrandLogoProps;
 
 const logoPaths = import.meta.glob(
   "/src/pages/projects/bhf/_assets/logos/*.{png,jpg,jpeg,webp,svg}",

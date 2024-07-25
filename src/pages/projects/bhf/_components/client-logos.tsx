@@ -43,7 +43,7 @@ export function BhfBrandLogos({
   pageSize = 4,
   className,
 }: Props) {
-  return Array.from({ length: rows }).map((row, num) => {
+  return Array.from({ length: rows }).map((_, num) => {
     const pageNum = num + 1;
 
     const start =
