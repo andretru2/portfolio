@@ -4,7 +4,8 @@
   "compilerOptions": {
     "baseUrl": "/Users/atrujillo/at",
     "paths": {
-      "@/*": ["./src/*"]
+      // "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
