@@ -14,7 +14,6 @@ import {
 interface Props {
   value: number;
   direction?: "up" | "down";
-  as?: string;
   className?: string;
   includePercentageSymbol?: boolean;
 }
@@ -22,7 +21,6 @@ interface Props {
 export default function Counter({
   value,
   direction = "up",
-  as = "span",
   className,
   includePercentageSymbol = false,
 }: Props) {
@@ -45,21 +43,24 @@ export default function Counter({
     }
   }, [motionValue, isInView]);
 
-  useEffect(
-    () =>
-      springValue.on("change", (latest) => {
-        if (ref.current) {
-          let formattedText = Intl.NumberFormat(
-            "en-US"
-          ).format(latest.toFixed(0));
-          if (includePercentageSymbol) {
-            formattedText += "%"; // Append percentage symbol if required
-          }
-          ref.current.textContent = formattedText;
+  useEffect(() => {
+    springValue.on("change", (latest) => {
+      if (ref.current) {
+        // Convert latest to a number and round it
+        const roundedValue = Math.round(latest);
+
+        // Format the number
+        let formattedText =
+          Intl.NumberFormat("en-US").format(roundedValue);
+
+        if (includePercentageSymbol) {
+          formattedText += "%"; // Append percentage symbol if required
         }
-      }),
-    [springValue]
-  );
+
+        ref.current.textContent = formattedText;
+      }
+    });
+  }, [springValue, includePercentageSymbol]);
 
   return <span className={className} ref={ref} />;
 }

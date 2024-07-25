@@ -30,7 +30,7 @@ const tools = shuffle(
   class="relative h-full flex shrink-0 flex-col gap-m items-center justify-center overflow-hidden"
 >
   {
-    [...new Array(rows)].map((row, i) => {
+    [...new Array(rows)].map((_, i) => {
       return (
         <InfiniteLoopSlider
           duration={random(43000, 45000)}

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { Separator } from "@/components/ui/separator";
-import { HighlightWords } from "@/components/ui/highlight-words";
+// import { HighlightWords } from "@/components/ui/highlight-words";
 import { durationProjectReel } from "@/config/site";
 
 import { type ProjectFeature } from "@/types";
@@ -67,8 +67,8 @@ export function ProjectCardStack({ features }: Props) {
 function Card({
   title,
   description,
-  wordsToHighlight,
-}: ProjectFeature) {
+}: // wordsToHighlight,
+ProjectFeature) {
   return (
     <motion.div className="flex flex-col justify-between gap-s h-max p-xs sm:p-s overflow-hidden  ">
       <div className="flex flex-row justify-between">
