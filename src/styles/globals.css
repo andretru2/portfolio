@@ -85,6 +85,10 @@
     --theme-accent-2: 240 0% 52%;
     --theme-accent-3: 225 8% 20%;
     --theme-quote: 211 43% 38%;
+
+    --theme-bg-l: 14.48;
+    --theme-bg-c: 0;
+    --theme-bg-h: 0;
   }
 
   /* @font-face {

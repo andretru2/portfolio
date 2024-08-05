@@ -29,6 +29,8 @@ module.exports = {
       colors: {
         // bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
         bgColor: "oklch(14.48% 0 0 / <alpha-value>)",
+        // bgColor: `oklch(var(--theme-bg-l) var(--theme-bg-c) var(--theme-bg-h) / <alpha-value>)`,
+
         // bgColor: "oklch(22.22% 0 0 / <alpha-value>)",
         // bgColor:
         //   "oklch(20.8% 0.011 301.53 / <alpha-value>)",
@@ -59,6 +61,7 @@ module.exports = {
         // accent: "oklch(70% 0.1 150/ <alpha-value>)",
         // accent: "oklch(60% 0.15 140/ <alpha-value>)",
         accent: "oklch(80% 0.2 160/ <alpha-value>)",
+        accentBhf: "oklch(56.52% 0.238 268/ <alpha-value>)",
         // accent: "oklch(65% 0.2 135/ <alpha-value>)",
         // accent: "oklch(75% 0.15 145/ <alpha-value>)",
         // accent: "oklch(60% 0.25 155/ <alpha-value>)",
@@ -179,6 +182,27 @@ module.exports = {
             translate: "translateY(100%)",
           },
         },
+        flyInDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translate3d(0, -1500px, 0)",
+            transitionTimingFunction:
+              "cubic-bezier(0.215, 0.61, 0.355, 1)",
+          },
+          "60%": {
+            opacity: "1",
+            transform: "translate3d(0, 25px, 0)",
+          },
+          "75%": {
+            transform: "translate3d(0, -10px, 0)",
+          },
+          "90%": {
+            transform: "translate3d(0, 5px, 0)",
+          },
+          "100%": {
+            transform: "none",
+          },
+        },
       },
       animation: {
         glow: "glow 2s linear infinite",
@@ -189,6 +213,9 @@ module.exports = {
         fadeInUp: "fadeInUp 1s ease-in-out 0.25s 1",
         slideIn: "slideIn 0.75s  var(--linearAnimation) ",
         slideOut: "slideOut 0.75s  var(--linearAnimation)",
+        flyInDown: "flyInDown 0.6s ease-in-out 0.25s 1",
+        // flyInDown:
+        //   "flyInDown 0.6s ease-in-out infinite ",
       },
     },
   },
