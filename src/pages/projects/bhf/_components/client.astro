@@ -7,6 +7,9 @@ import { Highlight } from "@/components/ui/highlight";
 import { BhfBrandLogos } from "./client-logos";
 import { Separator } from "@/components/ui/separator";
 import Card from "@/components/ui/card.astro";
+import { Image } from "astro:assets";
+import GlobalOutreach from "../_assets/bhf-client-global.webp";
+import Omnichannel from "../_assets/bhf-client-omnichannel.webp";
 
 export interface BrandLogoProps {
   className?: string;
@@ -43,7 +46,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
   className="relative flex flex-col  items-center  corners-section  "
 >
   <div
-    class="w-96 h-[220rem] absolute bg-accent/20 -top-72 -left-72 rotate-[26deg] z-0"
+    class="w-[32rem] h-[220rem] absolute bg-[#143a6a]/30 -top-72 -left-[32rem] rotate-[26deg] z-0"
   >
   </div>
   <div
@@ -68,39 +71,55 @@ const stringifiedLogos = logos.map((logo) => String(logo));
       />
     </div>
 
-    <div class="grid grid-cols-12 col-span-12 gap-m mb-3xl">
+    <div
+      class="grid grid-cols-12 col-span-12 gap-m mb-3xl *:flex *:flex-col *:gap-m *:items-center *:justify-center *:p-xl"
+    >
       <!-- <div
         class="col-span-6 flex flex-col gap-m items-center justify-center p-6xl after:bg-accent shadow-sm shadow-accent relative after:corners"
       > -->
-      <Card
-        class="col-span-6 flex flex-col gap-m items-center justify-center p-6xl bg-accent/20"
-      >
-        <p class="text-center">
+      <Card class="col-span-6">
+        <Image
+          src={GlobalOutreach}
+          format="webp"
+          alt="Global Outreach"
+          height={180}
+          class=""
+          quality="high"
+        />
+        <p class="text-center max-w-80">
           Offices across multiple continents, serving an
           international clientele
         </p>
         <h6>Global Reach</h6>
       </Card>
-      <Card class="col-span-6 p-4xl">
-        <p>
+      <Card class="col-span-6">
+        <Image
+          src={Omnichannel}
+          format="webp"
+          alt="Omnichannel"
+          height={180}
+          class=""
+          quality="high"
+        />
+        <p class="text-center max-w-80">
           A robust distribution system covering retail,
           e-comm, and wholesale
         </p>
         <h6>Omnichannel presence</h6>
       </Card>
-      <Card class="col-span-12 p-4xl">
+      <Card class="col-span-12">
         <BhfBrandLogos
           logos={stringifiedLogos}
           client:visible
           className="gap-m sm:gap-2xl p-m"
-          rows={4}
+          rows={3}
           pageSize={4}
         />
-        <p>
-          Offices across multiple continents, serving an
-          international clientele
+        <p class="text-center max-w-80">
+          Collaborations with industry leaders like UGG,
+          Pendleton, and Walmart
         </p>
-        <h6>Global Reach</h6>
+        <h6>Brand Partnerships</h6>
       </Card>
     </div>
 
@@ -128,12 +147,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
     <div class="w-full self-center p-xl col-span-12"></div>
   </div>
 
-  <video
-    muted
-    autoplay
-    playsinline
-    class="h-full w-full border-4"
-  >
+  <video muted autoplay playsinline class="h-full w-full">
     <source src={BHFVideo} type="video/mp4" />
   </video>
 </Section>
