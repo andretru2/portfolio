@@ -5,6 +5,8 @@ import BHFVideo from "../_assets/bhf-client-video.mp4";
 import { Highlight } from "@/components/ui/highlight";
 
 import { BhfBrandLogos } from "./client-logos";
+import { Separator } from "@/components/ui/separator";
+import Card from "@/components/ui/card.astro";
 
 export interface BrandLogoProps {
   className?: string;
@@ -36,23 +38,73 @@ const stringifiedLogos = logos.map((logo) => String(logo));
 <Section
   client:visible
   idName="client"
-  title="Meet the Client"
-  backgroundColor="bgColorHero"
+  title="The Client"
+  backgroundColor="bgColor"
   className="relative flex flex-col  items-center  corners-section  "
 >
   <div
-    class="flex flex-col gap-l items-center max-w-sm sm:max-w-5xl mx-auto sm:mt-2xl px-l sm:px-0"
+    class="w-96 h-[220rem] absolute bg-accent/20 -top-72 -left-72 rotate-[26deg] z-0"
   >
-    <div class="grid grid-cols-2 gap-m *:p-xl">
-      <!-- <Image
-        src={BHFLogo}
-        format="webp"
-        quality="high"
-        height={420}
-        class="align-middle"
-        alt="Brtiannica's home fashions logo"
-      /> -->
+  </div>
+  <div
+    class="grid grid-cols-12 gap-m max-w-8xl grid-flow-row *:z-10"
+  >
+    <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
+      <h3 class="col-span-4">
+        Britannica Home <span class="text-accent"
+          >Fashions</span
+        >
+      </h3>
+      <p class="col-span-5 row-start-2">
+        Britannica Home Fashions (BHF) stands as a titan in
+        the global home goods industry, renowned for its
+        diverse and innovative product lines. With a legacy
+        spanning decades, BHF has become synonymous with
+        quality and style in home textiles.
+      </p>
 
+      <Separator
+        className="col-span-12 row-start-3 mt-m  h-[1.5px] my-m bg-bgColorCard "
+      />
+    </div>
+
+    <div class="grid grid-cols-12 col-span-12 gap-m mb-3xl">
+      <!-- <div
+        class="col-span-6 flex flex-col gap-m items-center justify-center p-6xl after:bg-accent shadow-sm shadow-accent relative after:corners"
+      > -->
+      <Card
+        class="col-span-6 flex flex-col gap-m items-center justify-center p-6xl bg-accent/20"
+      >
+        <p class="text-center">
+          Offices across multiple continents, serving an
+          international clientele
+        </p>
+        <h6>Global Reach</h6>
+      </Card>
+      <Card class="col-span-6 p-4xl">
+        <p>
+          A robust distribution system covering retail,
+          e-comm, and wholesale
+        </p>
+        <h6>Omnichannel presence</h6>
+      </Card>
+      <Card class="col-span-12 p-4xl">
+        <BhfBrandLogos
+          logos={stringifiedLogos}
+          client:visible
+          className="gap-m sm:gap-2xl p-m"
+          rows={4}
+          pageSize={4}
+        />
+        <p>
+          Offices across multiple continents, serving an
+          international clientele
+        </p>
+        <h6>Global Reach</h6>
+      </Card>
+    </div>
+
+    <!-- <div class="grid grid-cols-2 gap-m *:p-xl">
       <p class="">
         Britannica Home Fashions (BHF) is a<Highlight
           >worldwide frontrunner in home goods,</Highlight
@@ -71,17 +123,9 @@ const stringifiedLogos = logos.map((logo) => String(logo));
           comprehensive omnichannel distribution system.
         </Highlight>
       </p>
-    </div>
+    </div> -->
 
-    <div class="w-full self-center p-xl">
-      <BhfBrandLogos
-        logos={stringifiedLogos}
-        client:visible
-        className="gap-m sm:gap-2xl p-m"
-        rows={4}
-        pageSize={4}
-      />
-    </div>
+    <div class="w-full self-center p-xl col-span-12"></div>
   </div>
 
   <video

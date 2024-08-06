@@ -9,6 +9,7 @@ import {
 import { staggerContainer } from "@/utils/motion";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/utils/cn";
+import { Separator } from "./separator";
 
 type BackgroundColorProps =
   | "hero"
@@ -28,6 +29,7 @@ interface Props {
   minHeight?: string;
   backgroundColor?: BackgroundColorProps;
   skipRoundCorners?: boolean;
+  header?: ReactNode;
 }
 
 export function Section({
@@ -40,6 +42,9 @@ export function Section({
   minHeight = "100svh",
   padding = "both",
   margin = "both",
+  header,
+  // description,
+  // separator,
   skipRoundCorners = false,
 }: Props) {
   const container = useRef(null);
@@ -107,6 +112,17 @@ export function Section({
           >
             {title}
           </motion.h6>
+        )}
+        {/* 
+        {header && (
+          <motion.div className="flex flex-col gap-m max-w-3xl">
+            <motion.h2 className="">{header}</motion.h2>
+            <motion.p className="">{description}</motion.p>
+            {separator && <Separator />}
+          </motion.div>
+        )} */}
+        {header && (
+          <motion.div className="w-full h-full "></motion.div>
         )}
         {children}
       </motion.section>

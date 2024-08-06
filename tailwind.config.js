@@ -38,7 +38,12 @@ module.exports = {
         // bgColorCard: "oklch(47.29% 0 0 / <alpha-value>)",
         bgColorCard:
           "oklch(37.8% 0.011 301.53 / <alpha-value>)",
-        bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
+        // bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
+        bgColorHero:
+          // "oklch(24.06% 0.0481 250 / <alpha-value>)",
+          // "oklch(31.46% 0.0869 256.35 / <alpha-value>)",
+          "oklch(21.48% 0.0947 256.35 / <alpha-value>)",
+        // bgColorHero: "oklch(80% 0.2 160 / 10%)",
         // bgColorHero: "oklch(14.48% 0 0 / <alpha-value>)",
         // bgColorHero:
         //   "oklch(18% 0.011 293.31 / <alpha-value>)",
@@ -89,6 +94,8 @@ module.exports = {
         //   "conic-gradient(from 0deg, hsl(170, 30%, 70%), hsl(170, 30%, 70%))",
         "blue-gradient":
           "conic-gradient(from 230.29deg at 51.63% 52.16%, rgb(36, 0, 255) 0deg, rgb(0, 135, 255) 67.5deg, rgb(108, 39, 157) 198.75deg, rgb(24, 38, 163) 251.25deg, rgb(54, 103, 196) 301.88deg, rgb(105, 30, 255) 360deg)",
+        "dark-blue-gradient":
+          "conic-gradient(from 230.29deg at 51.63% 52.16%, rgb(10, 0, 85) 0deg, rgb(34, 34, 85) 67.5deg, rgb(44, 44, 74) 198.75deg, rgb(20, 20, 74) 251.25deg, rgb(54, 54, 87) 301.88deg, rgb(15, 0, 100) 360deg)",
         // "primary-gradient":
         //   "radial-gradient(circle, oklch(80% 0.2 160), oklch(80% 0.15 140))",
         "primary-gradient":

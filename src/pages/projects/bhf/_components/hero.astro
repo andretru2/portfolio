@@ -47,6 +47,7 @@ const roles = projectRoles.map((roleKey) => {
   margin="none"
   padding="none"
   backgroundColor="bgColor"
+  minHeight="120svh"
   className=" bg-bgColor relative flex flex-col items-center justify-center  gap-5xl sm:p-3xl "
 >
   <Image
@@ -58,13 +59,13 @@ const roles = projectRoles.map((roleKey) => {
     class="absolute inset-0 opacity-40 -z-10 bg-bgColor object-cover grid justify-stretch items-stretch transition-opacity duration-200 [transform:translateZ(0)] w-full h-full sm:w-fit sm:h-fit"
   />
   <div
-    class="flex flex-col gap-m sm:justify-center items-center max-w-sm sm:max-w-2xl sm:mx-auto px-l sm:px-0"
+    class="flex flex-col gap-m sm:justify-center items-center max-w-sm sm:max-w-3xl sm:mx-auto px-l sm:px-0"
   >
     <MovingBorderWrapper client:visible>
       ERP System
     </MovingBorderWrapper>
     <h3 class="text-center">
-      Revolutionizing <span class="text-accent"
+      Revolutionizing <span class=""
         >Britannica Home Fashions</span
       >: A custom ERP Journey
     </h3>
@@ -81,7 +82,7 @@ const roles = projectRoles.map((roleKey) => {
     >
       {
         roles?.map((role) => (
-          <span class="w-max border-2  border-accent/40 py-xs px-s after:corners relative after:bg-bgColor">
+          <span class="w-max  py-xs px-s after:corners relative after:bg-bgColor">
             {role}
           </span>
         ))
