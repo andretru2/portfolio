@@ -55,6 +55,7 @@ const { features, caseStudyUrl, reversed, tools, visible } =
 
   <a
     href={caseStudyUrl}
+    target={visible === "Repo" ? "_blank" : ""}
     transition:animate="slide"
     class:list={[
       "text-bgColor  h-full w-full flex flex-col justify-center gap-s items-center",
@@ -77,7 +78,13 @@ const { features, caseStudyUrl, reversed, tools, visible } =
     <span
       class="flex text-center justify-center items-center font-bold"
     >
-      {visible ? "View Case Study" : "Under Development"}
+      {
+        visible === "Repo"
+          ? "View Repo"
+          : visible === "Case Study"
+            ? "View Case Study"
+            : "Under Development"
+      }
     </span>
   </a>
 </Card>

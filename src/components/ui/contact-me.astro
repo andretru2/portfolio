@@ -11,8 +11,9 @@ const { className, inverse = false } = Astro.props as Props;
 
 <a
   href=`mailto:${siteConfig.email}?Subject=Let%27s talk about it`
+  target="_blank"
   class:list={[
-    "relative max-w-[12rem] max-h-12  isolate z-1 w-full inline-flex flex-row items-center justify-center gap-s   px-m py-s   transition-all duration-[var(--durationM)] after:corners  ",
+    "relative max-w-[10rem] max-h-9  isolate z-1 w-full inline-flex flex-row items-center justify-center gap-s   px-m py-s   transition-all duration-[var(--durationM)] after:corners  ",
     inverse ? "after:bg-bgColor/80" : "after:bg-accent",
     className,
   ]}

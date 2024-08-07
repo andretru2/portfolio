@@ -90,7 +90,8 @@ export function Section({
             "bg-bgColorHero",
           backgroundColor === "hero" && "bg-bgColorHero",
           backgroundColor === "accent" &&
-            "after:bg-primary-gradient",
+            // "after:bg-primary-gradient",
+            "after:bg-accent",
           // backgroundColor === "accent" &&
           //   "[background-image]:[conic-gradient(from_123deg_at_50%_50%,oklch(20%_0.2_160)_-40%,oklch(20%_0.4_160)_143%)]",
           backgroundColor === "aurora" &&
@@ -107,7 +108,7 @@ export function Section({
               "py-xs px-m text-sm tracking-wider font-bold w-max after:corners relative mb-3xl z-10  ",
               backgroundColor === "accent"
                 ? "text-white after:bg-bgColor"
-                : "text-black  after:bg-primary-gradient"
+                : "text-black  after:bg-accent/90"
             )}
           >
             {title}
