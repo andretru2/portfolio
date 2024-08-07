@@ -4,55 +4,57 @@ import Scalability from "../_assets/bhf-challenge-scalability.webp";
 import Communication from "../_assets/bhf-challenge-communication.webp";
 import Manual from "../_assets/bhf-challenge-manual.webp";
 import Data from "../_assets/bhf-challenge-data.webp";
+import Diagram from "../_assets/bhf-challenge-diagram.webp";
+
 import { Image } from "astro:assets";
 import { Separator } from "@/components/ui/separator";
 import Card from "@/components/ui/card.astro";
 import { cn } from "@/utils/cn";
 
-const items = [
-  {
-    title: "Collaboration Gaps",
-    descritpion:
-      "Departments struggled to share crucial information, leading to delays and risking disruptions in production schedules, impacting revenue and customer satisfaction.",
-    content: Communication,
-  },
-  {
-    title: "Scalability Issues",
-    descritpion:
-      "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
-    content: Scalability,
-  },
-  {
-    title: "Scalability Issues",
-    descritpion:
-      "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
-    content: Scalability,
-  },
-  {
-    title: "Scalability Issues",
-    descritpion:
-      "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
-    content: Scalability,
-  },
-  {
-    title: "Scalability Issues",
-    descritpion:
-      "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
-    content: Scalability,
-  },
-  {
-    title: "Scalability Issues",
-    descritpion:
-      "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
-    content: Scalability,
-  },
-  {
-    title: "Scalability Issues",
-    descritpion:
-      "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
-    content: Scalability,
-  },
-];
+// const items = [
+//   {
+//     title: "Collaboration Gaps",
+//     descritpion:
+//       "Departments struggled to share crucial information, leading to delays and risking disruptions in production schedules, impacting revenue and customer satisfaction.",
+//     content: Communication,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+// ];
 ---
 
 <Section
@@ -87,8 +89,10 @@ const items = [
         className="col-span-4 row-start-4 mt-xl h-[1.5px] my-m bg-accent/20"
       />
     </div>
-    <div class="col-span-12 mb-3xl overflow-x-auto">
-      <div class="flex gap-m pb-m min-w-full min-h-[40rem]">
+    <div
+      class="col-span-12 mb-3xl overflow-x-auto scroll-smooth [scrollbar-width:none]"
+    >
+      <div class="flex gap-m min-w-full min-h-[36rem]">
         <div
           class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
@@ -159,8 +163,22 @@ const items = [
             financial reporting.
           </p>
         </div>
-        <!-- Add more items here as needed -->
       </div>
+    </div>
+
+    <p class="col-span-5">
+      Leadership recognized that a unified, robust ERP
+      system was crucial to address these challenges and
+      position BHF for continued growth and success.
+    </p>
+    <div class="col-span-12 mt-xl">
+      <Image
+        src={Diagram}
+        format="webp"
+        alt="Diagram"
+        class="w-full h-full rounded-3xl object-fit"
+        quality="high"
+      />
     </div>
   </div>
 </Section>
