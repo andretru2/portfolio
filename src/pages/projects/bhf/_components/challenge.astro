@@ -1,6 +1,5 @@
 ---
 import Section from "@/components/ui/section.astro";
-import { Highlight } from "@/components/ui/highlight";
 import Scalability from "../_assets/bhf-challenge-scalability.webp";
 import Communication from "../_assets/bhf-challenge-communication.webp";
 import Manual from "../_assets/bhf-challenge-manual.webp";
@@ -60,8 +59,7 @@ const items = [
   idName="problem"
   title="The Challenge"
   backgroundColor="bgColorHero"
-  minHeight="250svh"
-  className="flex flex-col   items-center  relative corners-section after:bg-bgColorHero "
+  className="flex flex-col items-center relative corners-section after:bg-bgColorHero"
 >
   <div
     class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
@@ -85,13 +83,89 @@ const items = [
         board to develop a comprehensive, ground-up ERP
         solution tailored to their unique needs.
       </p>
-
       <Separator
-        className="col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
+        className="col-span-4 row-start-4 mt-xl h-[1.5px] my-m bg-accent/20"
       />
     </div>
+    <div class="col-span-12 mb-3xl overflow-x-auto">
+      <div class="flex gap-m pb-m min-w-full min-h-[40rem]">
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+        >
+          <Image
+            src={Communication}
+            format="webp"
+            alt="Communication gaps"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Collaboration Gaps</h6>
+          <p class="text-left flex-grow">
+            Departments struggled to share crucial
+            information, leading to delays and risking
+            disruptions in production schedules, impacting
+            revenue and customer satisfaction.
+          </p>
+        </div>
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+        >
+          <Image
+            src={Scalability}
+            format="webp"
+            alt="Scalability"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Scalability Issues</h6>
+          <p class="text-left flex-grow">
+            Rapid growth strained existing systems,
+            hindering the company's ability to efficiently
+            manage increased demand and expand operations.
+          </p>
+        </div>
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+        >
+          <Image
+            src={Manual}
+            format="webp"
+            alt="Manual Operations"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Manual Operations</h6>
+          <p class="text-left flex-grow">
+            Many operations were still managed manually,
+            which, while functional, were prone to errors
+            and inefficiencies.
+          </p>
+        </div>
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+        >
+          <Image
+            src={Data}
+            format="webp"
+            alt="Data"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Data Inaccuracy</h6>
+          <p class="text-left flex-grow">
+            Disparate data systems and lack of real-time
+            information led to inconsistencies, affecting
+            decision-making, forecasting accuracy, and
+            financial reporting.
+          </p>
+        </div>
+        <!-- Add more items here as needed -->
+      </div>
+    </div>
   </div>
-  <div class="relative w-full border-4 pl-3xl">
+</Section>
+
+<!-- <div class="relative w-full border-4 col-span-12">
     <div
       class="flex flex-row min-h-[40rem] w-full col-span-12 gap-m mb-3xl overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] [&>div]:flex [&>div]:flex-col [&>div]:gap-m [&>div]:p-xl"
     >
@@ -104,7 +178,6 @@ const items = [
           alt="Communication gaps"
           class="absolute inset-0 -z-10 rounded-3xl object-cover"
           quality="high"
-          width={1000}
         />
         <h6>Collaboration Gaps</h6>
         <p class="text-left max-w-80">
@@ -150,80 +223,25 @@ const items = [
           inefficiencies.
         </p>
       </div>
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Manual}
+          format="webp"
+          alt="Maual Operations"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Manual Operations</h6>
+        <p class="text-left max-w-80">
+          Many operations were still managed manually,
+          which, while functional, were prone to errors and
+          inefficiencies.
+        </p>
+      </div>
 
       <div
-        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
-      >
-        <Image
-          src={Data}
-          format="webp"
-          alt="Data innacuracy"
-          class="absolute inset-0 -z-10 rounded-3xl object-cover"
-          quality="high"
-        />
-        <h6>Data Inaccuracy</h6>
-        <p class="text-left max-w-80">
-          Disparate data systems and lack of real-time
-          information led to inconsistencies, affecting
-          decision-making, forecasting accuracy, and
-          financial reporting.
-        </p>
-      </div>
-      <div
-        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
-      >
-        <Image
-          src={Data}
-          format="webp"
-          alt="Data innacuracy"
-          class="absolute inset-0 -z-10 rounded-3xl object-cover"
-          quality="high"
-        />
-        <h6>Data Inaccuracy</h6>
-        <p class="text-left max-w-80">
-          Disparate data systems and lack of real-time
-          information led to inconsistencies, affecting
-          decision-making, forecasting accuracy, and
-          financial reporting.
-        </p>
-      </div>
-      <div
-        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
-      >
-        <Image
-          src={Data}
-          format="webp"
-          alt="Data innacuracy"
-          class="absolute inset-0 -z-10 rounded-3xl object-cover"
-          quality="high"
-        />
-        <h6>Data Inaccuracy</h6>
-        <p class="text-left max-w-80">
-          Disparate data systems and lack of real-time
-          information led to inconsistencies, affecting
-          decision-making, forecasting accuracy, and
-          financial reporting.
-        </p>
-      </div>
-      <div
-        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
-      >
-        <Image
-          src={Data}
-          format="webp"
-          alt="Data innacuracy"
-          class="absolute inset-0 -z-10 rounded-3xl object-cover"
-          quality="high"
-        />
-        <h6>Data Inaccuracy</h6>
-        <p class="text-left max-w-80">
-          Disparate data systems and lack of real-time
-          information led to inconsistencies, affecting
-          decision-making, forecasting accuracy, and
-          financial reporting.
-        </p>
-      </div>
-      <!-- <div
         class="col-span-4 rounded-3xl bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div
@@ -251,29 +269,27 @@ const items = [
           class="object-cover absolute z-10 inset-0"
         />
       </div> -->
-    </div>
-  </div>
 
-  <div class="relative w-full border-4 col-span-12">
+<!-- <div class="relative w-full border-4 col-span-12">
+  <div
+    class="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+  >
     <div
-      class="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+      class="absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
     >
-      <div
-        class="absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
-      >
-      </div>
+    </div>
 
-      <div
-        class={cn(
-          "flex flex-row justify-start gap-4 pl-4"
-          // "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
-        )}
-      >
-        {
-          items.map((item, index) => (
-            <div class="last:pr-[5%] md:last:pr-[33%]  rounded-3xl border-4">
-              <div class=" w-full p-xl relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full min-w-[24rem]">
-                {/* <Image
+    <div
+      class={cn(
+        "flex flex-row justify-start gap-4 pl-4"
+        // "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+      )}
+    >
+      {
+        items.map((item, index) => (
+          <div class="last:pr-[5%] md:last:pr-[33%]  rounded-3xl border-4">
+            <div class=" w-full p-xl relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full min-w-[24rem]">
+              {/* <Image
                   src={item.content}
                   format="webp"
                   alt={item.title}
@@ -284,26 +300,24 @@ const items = [
                 <p class="text-left max-w-80">
                   {item.descritpion}
                 </p> */}
-                <Image
-                  src={Data}
-                  format="webp"
-                  alt="Data innacuracy"
-                  class="absolute inset-0 -z-10 rounded-3xl object-cover"
-                  quality="high"
-                />
-                <h6>Data Inaccuracy</h6>
-                <p class="text-left max-w-80">
-                  Disparate data systems and lack of
-                  real-time information led to
-                  inconsistencies, affecting
-                  decision-making, forecasting accuracy, and
-                  financial reporting.
-                </p>
-              </div>
+              <Image
+                src={Data}
+                format="webp"
+                alt="Data innacuracy"
+                class="absolute inset-0 -z-10 rounded-3xl object-cover"
+                quality="high"
+              />
+              <h6>Data Inaccuracy</h6>
+              <p class="text-left max-w-80">
+                Disparate data systems and lack of real-time
+                information led to inconsistencies,
+                affecting decision-making, forecasting
+                accuracy, and financial reporting.
+              </p>
             </div>
-          ))
-        }
-      </div>
+          </div>
+        ))
+      }
     </div>
   </div>
-</Section>
+</div> -->
