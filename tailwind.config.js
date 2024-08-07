@@ -70,7 +70,7 @@ module.exports = {
         // accent: "oklch(70% 0.1 150/ <alpha-value>)",
         // accent: "oklch(60% 0.15 140/ <alpha-value>)",
         accent: "oklch(80% 0.2 160/ <alpha-value>)",
-        accentBhf: "oklch(56.52% 0.238 268/ <alpha-value>)",
+
         // accent: "oklch(65% 0.2 135/ <alpha-value>)",
         // accent: "oklch(75% 0.15 145/ <alpha-value>)",
         // accent: "oklch(60% 0.25 155/ <alpha-value>)",

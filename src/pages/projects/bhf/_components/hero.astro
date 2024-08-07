@@ -1,5 +1,5 @@
 ---
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 import { MovingBorderWrapper } from "@/components/ui/moving-border";
 import HeroOverlay from "../_assets/bhf-hero-original.webp";
 import { Image } from "astro:assets";
@@ -40,14 +40,12 @@ const roles = projectRoles.map((roleKey) => {
 ---
 
 <Section
-  client:visible
   idName="hero"
   parallax
   skipRoundCorners
   margin="none"
   padding="none"
   backgroundColor="bgColor"
-  minHeight="120svh"
   className=" bg-bgColor relative flex flex-col items-center justify-center  gap-5xl sm:p-3xl "
 >
   <Image

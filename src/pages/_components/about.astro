@@ -3,14 +3,13 @@ import { Highlight } from "@/components/ui/highlight";
 // import Profile from "../_assets/about-at-kauai.JPG";
 import Profile from "../_assets/about-at-kauai.webp";
 import { Image } from "astro:assets";
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 import { Stat } from "@/components/ui/stat";
 import { Meteors } from "@/components/ui/meteors";
 import Card from "@/components/ui/card.astro";
 ---
 
 <Section
-  client:visible
   idName="about"
   title="About"
   minHeight="110svh"

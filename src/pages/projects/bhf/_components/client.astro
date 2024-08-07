@@ -1,5 +1,5 @@
 ---
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 // import BHFLogo from "../_assets/client-bhf-logo.png";
 import BHFVideo from "../_assets/bhf-client-video.mp4";
 import { Highlight } from "@/components/ui/highlight";
@@ -39,7 +39,6 @@ const stringifiedLogos = logos.map((logo) => String(logo));
 ---
 
 <Section
-  client:visible
   idName="client"
   title="The Client"
   backgroundColor="bgColor"

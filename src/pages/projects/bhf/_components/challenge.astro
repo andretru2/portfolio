@@ -1,5 +1,5 @@
 ---
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 import { Highlight } from "@/components/ui/highlight";
 import Scalability from "../_assets/bhf-challenge-scalability.webp";
 import Communication from "../_assets/bhf-challenge-communication.webp";
@@ -57,11 +57,10 @@ const items = [
 ---
 
 <Section
-  client:visible
   idName="problem"
   title="The Challenge"
   backgroundColor="bgColorHero"
-  minHeight="200svh"
+  minHeight="250svh"
   className="flex flex-col   items-center  relative corners-section after:bg-bgColorHero "
 >
   <div
@@ -91,9 +90,10 @@ const items = [
         className="col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
       />
     </div>
-
+  </div>
+  <div class="relative w-full border-4 pl-3xl">
     <div
-      class="flex flex-row *:min-h-[50rem] col-span-12 gap-m mb-3xl *:flex *:flex-col *:gap-m *:p-xl overflow-x-scroll"
+      class="flex flex-row min-h-[40rem] w-full col-span-12 gap-m mb-3xl overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] [&>div]:flex [&>div]:flex-col [&>div]:gap-m [&>div]:p-xl"
     >
       <div
         class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
@@ -102,10 +102,9 @@ const items = [
           src={Communication}
           format="webp"
           alt="Communication gaps"
-          height={800}
-          width={400}
           class="absolute inset-0 -z-10 rounded-3xl object-cover"
           quality="high"
+          width={1000}
         />
         <h6>Collaboration Gaps</h6>
         <p class="text-left max-w-80">
@@ -151,7 +150,8 @@ const items = [
           inefficiencies.
         </p>
       </div>
-      <!-- <div
+
+      <div
         class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
       >
         <Image
@@ -168,7 +168,61 @@ const items = [
           decision-making, forecasting accuracy, and
           financial reporting.
         </p>
-      </div> -->
+      </div>
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Data}
+          format="webp"
+          alt="Data innacuracy"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Data Inaccuracy</h6>
+        <p class="text-left max-w-80">
+          Disparate data systems and lack of real-time
+          information led to inconsistencies, affecting
+          decision-making, forecasting accuracy, and
+          financial reporting.
+        </p>
+      </div>
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Data}
+          format="webp"
+          alt="Data innacuracy"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Data Inaccuracy</h6>
+        <p class="text-left max-w-80">
+          Disparate data systems and lack of real-time
+          information led to inconsistencies, affecting
+          decision-making, forecasting accuracy, and
+          financial reporting.
+        </p>
+      </div>
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Data}
+          format="webp"
+          alt="Data innacuracy"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Data Inaccuracy</h6>
+        <p class="text-left max-w-80">
+          Disparate data systems and lack of real-time
+          information led to inconsistencies, affecting
+          decision-making, forecasting accuracy, and
+          financial reporting.
+        </p>
+      </div>
       <!-- <div
         class="col-span-4 rounded-3xl bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
@@ -199,7 +253,8 @@ const items = [
       </div> -->
     </div>
   </div>
-  <div class="relative w-full border-4">
+
+  <div class="relative w-full border-4 col-span-12">
     <div
       class="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
     >

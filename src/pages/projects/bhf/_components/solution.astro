@@ -1,5 +1,5 @@
 ---
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 import hero from "../_assets/spr-storyboarder-dark.png";
 import pos from "../_assets/bhf-feature-pos.webp";
 import matching from "../_assets/bhf-feature-matching.webp";
@@ -134,7 +134,6 @@ const tabs: Tab[] = [
 ---
 
 <Section
-  client:visible
   idName="solution"
   title="The Solution"
   backgroundColor="accent"
