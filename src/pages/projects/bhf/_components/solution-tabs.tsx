@@ -174,7 +174,7 @@ function TabContent({
   image,
 }: TabContent) {
   return (
-    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center relative after:corners after:bg-bgColor   w-full min-w-0     glow  ">
+    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center relative corners bg-bgColor border border-accent rounded-xl   w-full min-w-0  min-h-[120svh]   glow  ">
       <h5>{header}</h5>
       <p className="prose-p  ">{description}</p>
       <div className="flex flex-row gap-m sm:gap-2xl items-center align-middle justify-center w-full  z-10 sm:max-w-3xl mt-xl   *:flex-grow  ">
