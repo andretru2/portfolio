@@ -82,12 +82,14 @@ const {
       function updateParallax() {
         const scrollPosition = window.scrollY;
         const parallaxEffect = (scrollPosition - startPosition) * 0.5;
-        section.style.transform = `translateY(${parallaxEffect}px)`;
+        if (section) {
+          section.style.transform = `translateY(${parallaxEffect}px)`;
+        }
         requestAnimationFrame(updateParallax);
       }
 
       function setStartPosition() {
-        startPosition = section?.offsetTop;
+        startPosition = section?.offsetTop ?? 0;
       }
 
       setStartPosition();
