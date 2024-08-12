@@ -1,5 +1,5 @@
 ---
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 // import { Icon } from "astro-icon/components";
 import ContactMe from "@/components/ui/contact-me.astro";
 // import { StaggeredText } from "@/components/ui/staggered-text";
@@ -7,14 +7,14 @@ import ContactMe from "@/components/ui/contact-me.astro";
 ---
 
 <Section
-  client:visible
   idName="contact"
   backgroundColor="accent"
-  minHeight="50svh"
-  className="flex flex-col  items-center  h-full  "
+  minHeight="30svh"
+  parallax
+  className="flex flex-col  items-center  h-full   "
 >
   <div
-    class="flex flex-col items-center *:text-center gap-xl *:text-bgColor max-w-screen-sm mx-auto sm:max-w-3xl px-m sm:px-0"
+    class="flex flex-col items-center justify-center *:text-center gap-xl *:text-bgColor max-w-screen-sm mx-auto sm:max-w-3xl px-m sm:px-0"
   >
     <!-- <StaggeredText
       words="Interested in Working Together?"

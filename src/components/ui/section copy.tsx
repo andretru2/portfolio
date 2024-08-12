@@ -9,6 +9,7 @@ import {
 import { staggerContainer } from "@/utils/motion";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/utils/cn";
+import { Separator } from "./separator";
 
 type BackgroundColorProps =
   | "hero"
@@ -28,6 +29,7 @@ interface Props {
   minHeight?: string;
   backgroundColor?: BackgroundColorProps;
   skipRoundCorners?: boolean;
+  header?: ReactNode;
 }
 
 export function Section({
@@ -40,6 +42,9 @@ export function Section({
   minHeight = "100svh",
   padding = "both",
   margin = "both",
+  header,
+  // description,
+  // separator,
   skipRoundCorners = false,
 }: Props) {
   const container = useRef(null);
@@ -85,7 +90,8 @@ export function Section({
             "bg-bgColorHero",
           backgroundColor === "hero" && "bg-bgColorHero",
           backgroundColor === "accent" &&
-            "after:bg-primary-gradient",
+            // "after:bg-primary-gradient",
+            "after:bg-accent",
           // backgroundColor === "accent" &&
           //   "[background-image]:[conic-gradient(from_123deg_at_50%_50%,oklch(20%_0.2_160)_-40%,oklch(20%_0.4_160)_143%)]",
           backgroundColor === "aurora" &&
@@ -102,11 +108,22 @@ export function Section({
               "py-xs px-m text-sm tracking-wider font-bold w-max after:corners relative mb-3xl z-10  ",
               backgroundColor === "accent"
                 ? "text-white after:bg-bgColor"
-                : "text-black  after:bg-primary-gradient"
+                : "text-black  after:bg-accent/90"
             )}
           >
             {title}
           </motion.h6>
+        )}
+        {/* 
+        {header && (
+          <motion.div className="flex flex-col gap-m max-w-3xl">
+            <motion.h2 className="">{header}</motion.h2>
+            <motion.p className="">{description}</motion.p>
+            {separator && <Separator />}
+          </motion.div>
+        )} */}
+        {header && (
+          <motion.div className="w-full h-full "></motion.div>
         )}
         {children}
       </motion.section>

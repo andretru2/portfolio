@@ -1,21 +1,19 @@
 ---
 import { SphereCanvas } from "./hero/canvas/sphere";
 // import { Swapper } from "@/components/ui/zzzzswapper";
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 import { Meteors } from "@/components/ui/meteors";
 // import { fade, slide } from "astro:transitions";
 ---
 
 <Section
-  client:visible
   idName="home"
   padding="none"
   backgroundColor="hero"
   margin="none"
-  minHeight="100svh"
   skipRoundCorners
   parallax
-  className="  relative     h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden "
+  className="  relative     h-full grid place-content-center gap-xl justify-center w-full min-w-7xl [perspective:1000px] overflow-hidden  "
 >
   <!-- <div
     class="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-slate-950 blur-2xl"

@@ -1,20 +1,22 @@
 ---
-import { Section } from "@/components/ui/section";
-import hero from "../_assets/spr-storyboarder-dark.png";
-import pos from "../_assets/bhf-feature-pos.webp";
-import matching from "../_assets/bhf-feature-matching.webp";
-import designsystem from "../_assets/bhf-feature-design-system.webp";
+import Section from "@/components/ui/section.astro";
+import dashboard from "../_assets/bhf-feature-dashboard.webp";
+import Pos from "../_assets/bhf-feature-pos-v4.webp";
+import PoMatching from "../_assets/bhf-feature-matching.webp";
+import DesignSystem from "../_assets/bhf-feature-design-system-v3.webp";
+import Linesheets from "../_assets/bhf-feature-linesheets-v2.webp";
 import { Tabs, type Tab } from "./solution-tabs";
+import { Separator } from "@/components/ui/separator";
 
 const tabs: Tab[] = [
   {
-    title: "Overview",
-    value: "overview",
+    title: "Purchase Orders",
+    value: "po_module",
 
     content: {
-      header: "Overview",
+      header: "Purchase Orders",
       description:
-        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management, addressing previous challenges of manual processes and lack of visibility.",
 
       stats: [
         {
@@ -24,87 +26,152 @@ const tabs: Tab[] = [
         },
         { label: "Time Saved", value: "5h/week" },
         {
-          label: "User Satisfaction",
-          value: 9.8,
+          label: "Error Reduction",
+          value: 85,
           includePercentageSymbol: true,
         },
+        {
+          label: "Revenue Impact",
+          value: "Millions/month",
+        },
       ],
-      image: hero.src,
+      image: Pos.src,
     },
   },
   {
-    title: "Purchase Orders",
-    value: "pos",
+    title: "Line Sheets Development",
+    value: "line_sheets",
 
     content: {
-      header: "Purchase Orders",
+      header: "Line Sheets Development",
       description:
-        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+        "This module simplifies the creation and distribution of product line sheets, integrating real-time data from the product database. It offers customizable templates and easy sharing options, solving the previous time-consuming manual creation process and issues with outdated information.",
 
       stats: [
         {
-          label: "Efficiency Increase",
-          value: "200",
+          label: "Time Saved",
+          value: 75,
           includePercentageSymbol: true,
         },
-        { label: "Time Saved", value: "5 hours/week" },
         {
-          label: "User Satisfaction",
-          value: 9.8,
+          label: "Sales Team Productivity",
+          value: 30,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Brand Consistency",
+          value: 100,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Client Interactions",
+          value: 40,
           includePercentageSymbol: true,
         },
       ],
-      image: pos.src,
+      image: Linesheets.src,
     },
   },
   {
     title: "Design System",
-    value: "designsystem",
+    value: "design_system",
 
     content: {
       header: "Design System",
       description:
-        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+        "Our comprehensive design system ensures consistency across all ERP modules, improving user experience and development efficiency. It includes a standardized component library, accessibility compliance, and responsive design, addressing previous inconsistencies in user interfaces.",
 
       stats: [
         {
-          label: "Efficiency Increase",
-          value: "200",
+          label: "Development Speed",
+          value: 40,
           includePercentageSymbol: true,
         },
-        { label: "Time Saved", value: "5 hours/week" },
         {
-          label: "User Satisfaction",
-          value: 9.8,
+          label: "User Errors",
+          value: -30,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Training Costs",
+          value: -50,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "User Adoption",
+          value: 45,
           includePercentageSymbol: true,
         },
       ],
-      image: designsystem.src,
+      image: DesignSystem.src,
     },
   },
   {
-    title: "Matching",
-    value: "matching",
+    title: "PO Matching",
+    value: "po_matching",
 
     content: {
       header: "PO Matching",
       description:
-        "The purchase order module automates time-consuming tasks, improving efficiency in procurement. It eliminates errors, reduces paperwork, and accelerates the purchasing cycle. The module enables faster order processing and better inventory management. These improvements contribute to generating millions in monthly revenue.",
+        "This module automates the matching of purchase orders, invoices, and receipts, integrating seamlessly with accounting systems. It features intelligent document recognition and custom exception handling, solving previous issues of time-consuming manual matching and payment errors.",
 
       stats: [
         {
-          label: "Efficiency Increase",
-          value: "200",
+          label: "Processing Time",
+          value: -70,
           includePercentageSymbol: true,
         },
-        { label: "Time Saved", value: "5 hours/week" },
         {
-          label: "User Satisfaction",
-          value: 9.8,
+          label: "Payment Accuracy",
+          value: 99.9,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Cash Flow Forecasting",
+          value: 60,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Supplier Satisfaction",
+          value: 40,
           includePercentageSymbol: true,
         },
       ],
-      image: matching.src,
+      image: PoMatching.src,
+    },
+  },
+  {
+    title: "Personalized Dashboards",
+    value: "dashboards",
+
+    content: {
+      header: "Personalized Dashboards",
+      description:
+        "Tailored dashboards provide role-specific views of critical data, enabling quick access to insights and real-time updates. With customizable widgets and mobile responsiveness, it addresses the previous challenge of delayed decision-making due to information access issues.",
+
+      stats: [
+        {
+          label: "Decision Speed",
+          value: 50,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "User Engagement",
+          value: 50,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Report Generation Time",
+          value: -60,
+          includePercentageSymbol: true,
+        },
+        {
+          label: "Cross-dept Collaboration",
+          value: 35,
+          includePercentageSymbol: true,
+        },
+      ],
+      image: dashboard.src,
     },
   },
 ];
@@ -134,16 +201,35 @@ const tabs: Tab[] = [
 ---
 
 <Section
-  client:visible
   idName="solution"
   title="The Solution"
-  backgroundColor="accent"
-  minHeight="160svh"
-  className="flex flex-col items-center min-h-max "
+  backgroundColor="hero"
+  minHeight="180svh"
+  className="flex flex-col items-center  py-3xl "
 >
   <div
-    class="h-svh items-center max-w-sm sm:container sm:mx-auto px-l sm:px-0 w-full"
+    class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
   >
-    <Tabs tabs={tabs} client:visible />
+    <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
+      <h3 class="col-span-4">
+        A Modular <span class="text-accent">Approach</span>
+      </h3>
+      <p class="col-span-5 row-start-2">
+        Our custom ERP solution comprises several
+        interconnected modules, each addressing specific
+        business needs. This modular approach allows for
+        flexibility, scalability, and targeted improvements.
+      </p>
+
+      <Separator
+        className="col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
+      />
+    </div>
+
+    <div
+      class="col-span-12 h-svh items-center max-w-sm sm:container sm:mx-auto px-l sm:px-0 w-full"
+    >
+      <Tabs tabs={tabs} client:visible />
+    </div>
   </div>
 </Section>

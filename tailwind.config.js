@@ -12,6 +12,10 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        16: "repeat(16, minmax(0, 1fr))",
+      },
       fontFamily: {
         sans: [
           "var(--font-sans)",
@@ -29,6 +33,8 @@ module.exports = {
       colors: {
         // bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
         bgColor: "oklch(14.48% 0 0 / <alpha-value>)",
+        // bgColor: `oklch(var(--theme-bg-l) var(--theme-bg-c) var(--theme-bg-h) / <alpha-value>)`,
+
         // bgColor: "oklch(22.22% 0 0 / <alpha-value>)",
         // bgColor:
         //   "oklch(20.8% 0.011 301.53 / <alpha-value>)",
@@ -36,7 +42,12 @@ module.exports = {
         // bgColorCard: "oklch(47.29% 0 0 / <alpha-value>)",
         bgColorCard:
           "oklch(37.8% 0.011 301.53 / <alpha-value>)",
-        bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
+        // bgColorHero: "oklch(10% 0.1 250 / <alpha-value>)",
+        bgColorHero:
+          // "oklch(24.06% 0.0481 250 / <alpha-value>)",
+          // "oklch(31.46% 0.0869 256.35 / <alpha-value>)",
+          "oklch(21.48% 0.0947 256.35 / <alpha-value>)",
+        // bgColorHero: "oklch(80% 0.2 160 / 10%)",
         // bgColorHero: "oklch(14.48% 0 0 / <alpha-value>)",
         // bgColorHero:
         //   "oklch(18% 0.011 293.31 / <alpha-value>)",
@@ -59,6 +70,7 @@ module.exports = {
         // accent: "oklch(70% 0.1 150/ <alpha-value>)",
         // accent: "oklch(60% 0.15 140/ <alpha-value>)",
         accent: "oklch(80% 0.2 160/ <alpha-value>)",
+
         // accent: "oklch(65% 0.2 135/ <alpha-value>)",
         // accent: "oklch(75% 0.15 145/ <alpha-value>)",
         // accent: "oklch(60% 0.25 155/ <alpha-value>)",
@@ -86,6 +98,8 @@ module.exports = {
         //   "conic-gradient(from 0deg, hsl(170, 30%, 70%), hsl(170, 30%, 70%))",
         "blue-gradient":
           "conic-gradient(from 230.29deg at 51.63% 52.16%, rgb(36, 0, 255) 0deg, rgb(0, 135, 255) 67.5deg, rgb(108, 39, 157) 198.75deg, rgb(24, 38, 163) 251.25deg, rgb(54, 103, 196) 301.88deg, rgb(105, 30, 255) 360deg)",
+        "dark-blue-gradient":
+          "conic-gradient(from 230.29deg at 51.63% 52.16%, rgb(10, 0, 85) 0deg, rgb(34, 34, 85) 67.5deg, rgb(44, 44, 74) 198.75deg, rgb(20, 20, 74) 251.25deg, rgb(54, 54, 87) 301.88deg, rgb(15, 0, 100) 360deg)",
         // "primary-gradient":
         //   "radial-gradient(circle, oklch(80% 0.2 160), oklch(80% 0.15 140))",
         "primary-gradient":
@@ -179,6 +193,27 @@ module.exports = {
             translate: "translateY(100%)",
           },
         },
+        flyInDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translate3d(0, -1500px, 0)",
+            transitionTimingFunction:
+              "cubic-bezier(0.215, 0.61, 0.355, 1)",
+          },
+          "60%": {
+            opacity: "1",
+            transform: "translate3d(0, 25px, 0)",
+          },
+          "75%": {
+            transform: "translate3d(0, -10px, 0)",
+          },
+          "90%": {
+            transform: "translate3d(0, 5px, 0)",
+          },
+          "100%": {
+            transform: "none",
+          },
+        },
       },
       animation: {
         glow: "glow 2s linear infinite",
@@ -189,6 +224,9 @@ module.exports = {
         fadeInUp: "fadeInUp 1s ease-in-out 0.25s 1",
         slideIn: "slideIn 0.75s  var(--linearAnimation) ",
         slideOut: "slideOut 0.75s  var(--linearAnimation)",
+        flyInDown: "flyInDown 0.6s ease-in-out 0.25s 1",
+        // flyInDown:
+        //   "flyInDown 0.6s ease-in-out infinite ",
       },
     },
   },

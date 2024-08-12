@@ -1,134 +1,339 @@
 ---
-import { Section } from "@/components/ui/section";
-import { Highlight } from "@/components/ui/highlight";
-import Scalability from "../_assets/bhf-challenge-scalability.png";
-import Communication from "../_assets/bhf-challenge-communication.png";
-import Manual from "../_assets/bhf-challenge-manual.png";
-import Data from "../_assets/bhf-challenge-data.png";
+import Section from "@/components/ui/section.astro";
+import Scalability from "../_assets/bhf-challenge-scalability.webp";
+import Communication from "../_assets/bhf-challenge-communication.webp";
+import Manual from "../_assets/bhf-challenge-manual.webp";
+import Data from "../_assets/bhf-challenge-data.webp";
+import Diagram from "../_assets/bhf-challenge-diagram.webp";
+
 import { Image } from "astro:assets";
+import { Separator } from "@/components/ui/separator";
+
+// const items = [
+//   {
+//     title: "Collaboration Gaps",
+//     descritpion:
+//       "Departments struggled to share crucial information, leading to delays and risking disruptions in production schedules, impacting revenue and customer satisfaction.",
+//     content: Communication,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+//   {
+//     title: "Scalability Issues",
+//     descritpion:
+//       "As BHF continued to grow and expand its product lines, the current system couldn't keep pace, creating bottlenecks and slowing down operations.",
+//     content: Scalability,
+//   },
+// ];
 ---
 
 <Section
-  client:visible
   idName="problem"
   title="The Challenge"
-  backgroundColor="bgColor"
-  className="flex flex-col   items-center "
+  backgroundColor="bgColorHero"
+  className="flex flex-col items-center relative corners-section after:bg-bgColorHero mb-3xl"
 >
   <div
-    class="flex flex-col gap-2xl items-center max-w-sm sm:max-w-5xl mx-auto px-l sm:px-0 w-full"
+    class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
   >
-    <div class="grid grid-flow-col w-full *:p-xl">
-      <p class="">
-        Despite its global success, <Highlight
-          >BHF acknowledged the need to optimize operations
-          and enhance efficiency.</Highlight
-        > Occasional communication gaps between departments hindered
-        access to crucial information, potentially impacting
-        production schedules, revenue, and reputation. The existing
-        manual processes, although functional, presented opportunities
-        for improvement to minimize errors and boost productivity.
-      </p>
-      <p class="">
-        Leadership recognized that a more integrated
-        internal system would bridge communication gaps,
-        streamline inventory management, and simplify
-        financial reporting. The current system required
-        upgrades to enhance performance and user experience. <Highlight
-          >Investing in a robust, unified system would
-          position BHF for continued growth and success.</Highlight
+    <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
+      <h3 class="col-span-4">
+        Everyone Faces <span class="text-accent"
+          >Challenges</span
         >
+      </h3>
+      <p class="col-span-5 row-start-2">
+        Despite its global success, BHF recognized that
+        their existing systems were holding them back from
+        optimizing operations and enhancing overall
+        efficiency. The company faced several key
+        challenges: Scalability Issues, Manual Processes,
+        Communication Issues, and more.
       </p>
+      <p class="col-span-5 row-start-3">
+        To tackle this complex challenge, BHF brought me on
+        board to develop a comprehensive, ground-up ERP
+        solution tailored to their unique needs.
+      </p>
+      <Separator
+        className="col-span-4 row-start-4 mt-xl h-[1.5px] my-m bg-accent/20"
+      />
     </div>
-
     <div
-      class="*:rounded-[var(--r)] *:w-[300px] h-[70svh] grid grid-cols-2 gap-xl place-content-center w-[60svw] after:corners relative after:bg-[oklch(22.29%_0_0)] bg-dotted shadow-xl [perspective:1000px]"
+      class="col-span-12 mb-3xl overflow-x-auto scroll-smooth [scrollbar-width:none]"
     >
-      <div class="relative bottom-right justify-self-end">
-        <Image
-          src={Scalability}
-          format="webp"
-          alt="scalability"
-          class="bottom-right blur-[1px]"
-          quality="high"
-        />
-        <h6
-          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-60"
+      <div class="flex gap-m min-w-full min-h-[36rem]">
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
-          Scalability Issues
-        </h6>
-      </div>
-      <div class="relative bottom-left">
-        <Image
-          src={Communication}
-          format="webp"
-          alt="communication"
-          class="bottom-left blur-[1px]"
-          quality="high"
-        />
-        <h6
-          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-60"
+          <Image
+            src={Communication}
+            format="webp"
+            alt="Communication gaps"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Collaboration Gaps</h6>
+          <p class="text-left flex-grow">
+            Departments struggled to share crucial
+            information, leading to delays and risking
+            disruptions in production schedules, impacting
+            revenue and customer satisfaction.
+          </p>
+        </div>
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
-          Communication Gaps
-        </h6>
-      </div>
-      <div class="relative top-right justify-self-end">
-        <Image
-          src={Manual}
-          format="webp"
-          alt="manual process"
-          class="top-right blur-[1px]"
-          quality="high"
-        />
-        <h6
-          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-60"
+          <Image
+            src={Scalability}
+            format="webp"
+            alt="Scalability"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Scalability Issues</h6>
+          <p class="text-left flex-grow">
+            Rapid growth strained existing systems,
+            hindering the company's ability to efficiently
+            manage increased demand and expand operations.
+          </p>
+        </div>
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
-          Manual Processes
-        </h6>
-      </div>
-      <div class="relative top-left">
-        <Image
-          src={Data}
-          format="webp"
-          alt="data innacuracy"
-          class="top-left blur-[1px]"
-          quality="high"
-        />
-        <h6
-          class="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-60"
+          <Image
+            src={Manual}
+            format="webp"
+            alt="Manual Operations"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Manual Operations</h6>
+          <p class="text-left flex-grow">
+            Many operations were still managed manually,
+            which, while functional, were prone to errors
+            and inefficiencies.
+          </p>
+        </div>
+        <div
+          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
-          Data Inaccuracy
-        </h6>
+          <Image
+            src={Data}
+            format="webp"
+            alt="Data"
+            class="absolute inset-0 -z-10 rounded-3xl object-cover"
+            quality="high"
+          />
+          <h6 class="mb-4">Data Inaccuracy</h6>
+          <p class="text-left flex-grow">
+            Disparate data systems and lack of real-time
+            information led to inconsistencies, affecting
+            decision-making, forecasting accuracy, and
+            financial reporting.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="grid grid-flow-col w-full *:p-xl">
-      <p>
-        To tackle this challenge, BHF hired me to develop a
-        comprehensive ERP system from the ground up. The
-        objective was to create a seamless platform that
-        would improve processes, increase data accuracy, and
-        deliver real-time insights. <Highlight
-          >I constructed the system module by module,
-          encompassing item creation, purchase orders,
-          invoicing, vendor portal, DocuSign integration,
-          API connections, and more.</Highlight
-        > By unifying these components, BHF would operate more
-        efficiently, reduce errors, and make informed, data-driven
-        decisions.
-      </p>
 
-      <p>
-        As the system grew in complexity and scope, it
-        became necessary to expand the development team to
-        ensure effective maintenance and continuous
-        improvement. <Highlight
-          >I took on the role of a manager and mentor,
-          guiding junior and intermediate developers as they
-          joined the team.</Highlight
-        > This transition allowed me to oversee the system's
-        growth, delegate tasks, and provide guidance to the growing
-        development team.
-      </p>
+    <p class="col-span-5">
+      Leadership recognized that a unified, robust ERP
+      system was crucial to address these challenges and
+      position BHF for continued growth and success.
+    </p>
+    <div class="col-span-9 mt-xl">
+      <Image
+        src={Diagram}
+        format="webp"
+        alt="Diagram"
+        class="w-full h-full rounded-3xl object-fit"
+        quality="high"
+      />
     </div>
   </div>
 </Section>
+
+<!-- <div class="relative w-full border-4 col-span-12">
+    <div
+      class="flex flex-row min-h-[40rem] w-full col-span-12 gap-m mb-3xl overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] [&>div]:flex [&>div]:flex-col [&>div]:gap-m [&>div]:p-xl"
+    >
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Communication}
+          format="webp"
+          alt="Communication gaps"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Collaboration Gaps</h6>
+        <p class="text-left max-w-80">
+          Departments struggled to share crucial
+          information, leading to delays and risking
+          disruptions in production schedules, impacting
+          revenue and customer satisfaction.
+        </p>
+      </div>
+
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Scalability}
+          format="webp"
+          alt="Scalability"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Scalability Issues</h6>
+        <p class="text-left max-w-80">
+          Departments struggled to share crucial
+          information, leading to delays and risking
+          disruptions in production schedules, impacting
+          revenue and customer satisfaction.
+        </p>
+      </div>
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Manual}
+          format="webp"
+          alt="Maual Operations"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Manual Operations</h6>
+        <p class="text-left max-w-80">
+          Many operations were still managed manually,
+          which, while functional, were prone to errors and
+          inefficiencies.
+        </p>
+      </div>
+      <div
+        class="col-span-4 relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full"
+      >
+        <Image
+          src={Manual}
+          format="webp"
+          alt="Maual Operations"
+          class="absolute inset-0 -z-10 rounded-3xl object-cover"
+          quality="high"
+        />
+        <h6>Manual Operations</h6>
+        <p class="text-left max-w-80">
+          Many operations were still managed manually,
+          which, while functional, were prone to errors and
+          inefficiencies.
+        </p>
+      </div>
+
+      <div
+        class="col-span-4 rounded-3xl bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
+      >
+        <div
+          class="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none"
+        >
+        </div>
+        <div class="relative z-40 p-8">
+          <p
+            class="text-white text-sm md:text-base font-medium font-sans text-left"
+          >
+            Communication Issues
+          </p>
+          <p
+            class="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+          >
+            Departments struggled to share crucial
+            information, leading to delays and risking
+            disruptions in production schedules, impacting
+            revenue and customer satisfaction.
+          </p>
+        </div>
+        <Image
+          src={Communication}
+          alt="Communication Issues"
+          class="object-cover absolute z-10 inset-0"
+        />
+      </div> -->
+
+<!-- <div class="relative w-full border-4 col-span-12">
+  <div
+    class="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+  >
+    <div
+      class="absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
+    >
+    </div>
+
+    <div
+      class={cn(
+        "flex flex-row justify-start gap-4 pl-4"
+        // "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+      )}
+    >
+      {
+        items.map((item, index) => (
+          <div class="last:pr-[5%] md:last:pr-[33%]  rounded-3xl border-4">
+            <div class=" w-full p-xl relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl h-full min-w-[24rem]">
+              {/* <Image
+                  src={item.content}
+                  format="webp"
+                  alt={item.title}
+                  class="absolute inset-0 -z-10 rounded-3xl object-cover"
+                  quality="high"
+                />
+                <h6>{item.title}</h6>
+                <p class="text-left max-w-80">
+                  {item.descritpion}
+                </p> */}
+              <Image
+                src={Data}
+                format="webp"
+                alt="Data innacuracy"
+                class="absolute inset-0 -z-10 rounded-3xl object-cover"
+                quality="high"
+              />
+              <h6>Data Inaccuracy</h6>
+              <p class="text-left max-w-80">
+                Disparate data systems and lack of real-time
+                information led to inconsistencies,
+                affecting decision-making, forecasting
+                accuracy, and financial reporting.
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div> -->

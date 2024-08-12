@@ -1,0 +1,140 @@
+---
+import Section from "@/components/ui/section.astro";
+import { Separator } from "@/components/ui/separator";
+
+import { Meteors } from "@/components/ui/meteors";
+---
+
+<Section
+  idName="background"
+  title="The Background"
+  backgroundColor="bgColor"
+  className="flex flex-col   items-center relative corners-section corners-section after:bg-bgColor  "
+>
+  <div
+    class="grid grid-cols-12 container mx-auto grid-flow-row *:z-10 bg-dotted"
+  >
+    <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
+      <h3 class="col-span-4">
+        A Short <span class="text-accent">Story</span>
+      </h3>
+      <p class="col-span-5 row-start-2">
+        Throughout this journey, I've led the technical
+        direction, mentored new team members, and worked
+        closely with stakeholders to ensure the system meets
+        and exceeds BHF's evolving needs. The trust placed
+        in me by the company owner allowed us to make
+        strategic decisions that have had a profound impact
+        on BHF's global operations.
+      </p>
+      <p class="col-span-5 row-start-3">
+        This evolution transformed BHF's operational
+        landscape, positioning the company at the forefront
+        of technological innovation in the home textile
+        industry
+      </p>
+
+      <Separator
+        className="col-span-4 row-start-4 mt-xl h-[1.5px] my-m bg-accent/20"
+      />
+    </div>
+    <div
+      class="col-span-12 grid grid-cols-12 gap-2xl py-4xl"
+    >
+      <div
+        class="col-start-2 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
+      >
+        <Meteors number={15} client:visible />
+        <h4 class="text-accent">2019</h4>
+        <h6 class="mb-3">Laying the Foundation</h6>
+        <ul class="max-w-[36rem] space-y-m *:pl-m">
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Hired to
+            build an ERP system from scratch
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Worked closely
+            with the owner and cross-functional teams to understand
+            business needs
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Developed
+            core modules: UPC and Purchase Order systems
+          </li>
+        </ul>
+      </div>
+      <div
+        class="row-start-2 col-start-7 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
+      >
+        <Meteors number={15} client:visible />
+        <h4 class="text-accent">2020</h4>
+        <h6 class="mb-3">Expanding Capabilities</h6>
+        <ul class="max-w-[36rem] space-y-m *:pl-m">
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Launched the critical
+            PO module
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Led training sessions
+            for sales managers in NY, CEO, and overseas offices
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> System adoption
+            began across global offices, validating our approach
+          </li>
+        </ul>
+      </div>
+      <div
+        class="row-start-3 col-start-2 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
+      >
+        <Meteors number={15} client:visible />
+        <h4 class="text-accent">2021</h4>
+        <h6 class="mb-3">Scaling Up</h6>
+        <ul class="max-w-[36rem] space-y-m *:pl-m">
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Transitioned
+            to React for improved performance and
+            scalability
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Built a custom
+            design system from scratch to ensure consistency
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Expanded the
+            development team, taking on the role of lead
+            developer and mentor
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Implemented
+            key features like DocuSign integration and
+            invoice management
+          </li>
+        </ul>
+      </div>
+      <div
+        class="row-start-4 col-start-7 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
+      >
+        <Meteors number={15} client:visible />
+        <h4 class="text-accent">2022+</h4>
+        <h6 class="mb-3">Rapid Growth and Innovation</h6>
+        <ul class="max-w-[36rem] space-y-m *:pl-m">
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Shipped over 17
+            new modules, including Sales Dashboard, Vendor Management,
+            Check-In/Out Mobile App
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Implemented API
+            endpoints for seamless external system integration
+          </li>
+          <li class="prose-lg">
+            <span class="text-accent">•</span> Continuous improvement
+            and feature additions based on user feedback and
+            evolving business needs
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Section>

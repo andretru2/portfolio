@@ -4,11 +4,11 @@ import type { Project as ProjectProps } from "@/types";
 import BHFHero from "@/pages/_assets/project-bhf-hero.mp4";
 import GigsTraxHero from "@/pages/_assets/project-gigstrax-hero.mp4";
 import OtherProjects from "@/pages/_assets/project-other-projects.mp4";
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 
 const projects: ProjectProps[] = [
   {
-    visible: true,
+    visible: "Case Study",
     title: "ERP System",
     client: "Britannica Home Fashions",
     description:
@@ -28,6 +28,7 @@ const projects: ProjectProps[] = [
       src: BHFHero,
       alt: "",
     },
+
     features: [
       {
         section: "About",
@@ -174,7 +175,7 @@ const projects: ProjectProps[] = [
     featured: 1,
   },
   {
-    visible: false,
+    visible: "Repo",
     title: "GigsTrax SaaS",
     client: "Real Beard Santas",
     description:
@@ -186,8 +187,8 @@ const projects: ProjectProps[] = [
     ],
 
     homepageUrl: "https://andretru2.github.io/",
-    repoUrl: "",
-    caseStudyUrl: "",
+    repoUrl: "https://github.com/andretru2/gigstrax",
+    caseStudyUrl: "https://github.com/andretru2/gigstrax",
     hero: {
       src: GigsTraxHero,
       alt: "",
@@ -328,7 +329,7 @@ const projects: ProjectProps[] = [
     featured: 2,
   },
   {
-    visible: false,
+    visible: "",
     title: "Diverse Innovations",
     client: "Andres Trujillo",
     description:
@@ -479,15 +480,18 @@ const projects: ProjectProps[] = [
 ---
 
 <Section
-  client:visible
   idName="projects"
   title="Featured Projects"
   backgroundColor="bgColor"
   margin="bottom"
-  className=" flex  flex-col justify-center items-center -translate-y-52 bg-dotted relative "
+  className=" flex  flex-col justify-center items-center  relative "
 >
   <div
     class="absolute inset-auto top-28 z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-accent/30 opacity-50 blur-3xl"
+  >
+  </div>
+  <div
+    class="w-2/4 h-2/4 absolute bg-bgColor/30 top-36 left-12 z-0 bg-dotted"
   >
   </div>
   <div class="flex flex-col gap-7xl sm:gap-64">

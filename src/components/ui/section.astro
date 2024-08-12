@@ -1,0 +1,100 @@
+---
+import { cn } from "@/utils/cn";
+
+
+type BackgroundColorProps = "hero" | "accent" | "bgColor" | "bgColorHero" | "aurora";
+
+interface Props {
+  title?: string;
+  parallax?: boolean;
+  className?: string;
+  idName?: string;
+  padding?: "both" | "top" | "bottom" | "none";
+  margin?: "both" | "top" | "bottom" | "none";
+  minHeight?: string;
+  backgroundColor?: BackgroundColorProps;
+  skipRoundCorners?: boolean;
+ 
+}
+
+const {
+  title,
+  parallax,
+  idName,
+  backgroundColor,
+  className,
+  minHeight = "100svh",
+  padding = "both",
+  margin = "both",
+  skipRoundCorners = false,
+} = Astro.props;
+---
+
+<section
+  id={idName}
+  class:list={[
+    className,
+    "relative z-20 shadow-3xl shadow-white",
+    padding === "both" && "py-5xl",
+    padding === "top" && "pt-5xl",
+    padding === "bottom" && "pb-5xl",
+    padding === "none" && "py-0",
+    margin === "both" && "my-0",
+    margin === "top" && "mt-xl",
+    margin === "bottom" && "mb-xl",
+    margin === "none" && "my-0",
+    !skipRoundCorners &&
+      "after:corners-section hover:stroke-[0.15] border-t-[0.2px] border-accent/30 rounded-t-[8rem]",
+    backgroundColor === "bgColor" && "after:bg-bgColor",
+    backgroundColor === "bgColorHero" && "bg-bgColorHero",
+    backgroundColor === "hero" && "bg-bgColorHero",
+    backgroundColor === "accent" && "after:bg-accent",
+    backgroundColor === "aurora" &&
+      "[--white-gradient:repeating-linear-gradient(100deg,oklch(95%_0.05_0)_0%,oklch(95%_0.05_0)_7%,var(--transparent)_10%,var(--transparent)_12%,oklch(95%_0.05_0)_16%)] [--dark-gradient:repeating-linear-gradient(100deg,oklch(5%_0.05_0)_0%,oklch(5%_0.05_0)_7%,var(--transparent)_10%,var(--transparent)_12%,oklch(5%_0.05_0)_16%)] [--aurora:repeating-linear-gradient(100deg,oklch(60%_0.25_210)_10%,oklch(70%_0.2_230)_15%,oklch(60%_0.3_240)_20%,oklch(80%_0.1_270)_25%,oklch(50%_0.2_250)_30%)] [background-image:var(--white-gradient),var(--aurora)] dark:[background-image:var(--dark-gradient),var(--aurora)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%] filter blur-[10px] invert dark:invert-0 after:content-[''] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:dark:[background-image:var(--dark-gradient),var(--aurora)] after:[background-size:200%,_100%] after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference pointer-events-none absolute -inset-[10px] opacity-20"
+  ]}
+  style={`min-height: ${minHeight};`}
+>
+  {title && (
+    <h6
+      class={cn(
+        "py-xs px-m text-sm tracking-wider font-bold w-max after:corners relative mb-3xl z-10",
+        backgroundColor === "accent"
+          ? "text-white after:bg-bgColor"
+          : "text-black after:bg-accent/90"
+      )}
+    >
+      {title}
+    </h6>
+  )}
+
+  
+  <slot />
+</section>
+
+{parallax && (
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const section = document.querySelector('section');
+      if (!section) return;
+
+      let startPosition = 0;
+
+      function updateParallax() {
+        const scrollPosition = window.scrollY;
+        const parallaxEffect = (scrollPosition - startPosition) * 0.5;
+        if (section) {
+          section.style.transform = `translateY(${parallaxEffect}px)`;
+        }
+        requestAnimationFrame(updateParallax);
+      }
+
+      function setStartPosition() {
+        startPosition = section?.offsetTop ?? 0;
+      }
+
+      setStartPosition();
+      window.addEventListener('resize', setStartPosition);
+      updateParallax();
+    });
+  </script>
+)}

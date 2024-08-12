@@ -12,7 +12,7 @@ export function Stat({
   includePercentageSymbol,
 }: StatProps) {
   return (
-    <div className="flex flex-col gap-xs items-center *:text-center">
+    <div className="flex flex-col gap-xs items-center *:text-center ">
       {typeof value === "number" ? (
         <Counter
           value={value}
@@ -20,9 +20,9 @@ export function Stat({
           includePercentageSymbol={includePercentageSymbol}
         />
       ) : (
-        <h5 className="text-lg sm:text-4xl text-accent">
+        <h6 className="text-lg sm:text-3xl text-accent">
           {value}
-        </h5>
+        </h6>
       )}
 
       <span className="text-sm sm:text-base font-light opacity-80 ">

@@ -2,6 +2,7 @@
 interface Props {
   class?: string | string[] | Record<string, boolean>;
   useAccent?: boolean;
+  background?: string;
 }
 
 const { class: className, useAccent = false } =
@@ -10,8 +11,8 @@ const { class: className, useAccent = false } =
 
 <div
   class:list={[
-    "flex flex-col backdrop-blur-md relative   shadow-xl min-w-0 h-full  stroke-[0.1] hover:stroke-[0.15] after:corners ",
-    useAccent ? "after:bg-accent" : "after:bg-bgColorCard",
+    "flex flex-col backdrop-blur-md relative   shadow-xl min-w-0 h-full  stroke-[0.1] hover:stroke-[0.15] after:corners border border-accent/20 rounded-xl ",
+    useAccent ? "after:bg-accent" : "after:bg-bgColorHero",
     className,
   ]}
 >

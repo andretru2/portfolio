@@ -3,19 +3,18 @@ import { Highlight } from "@/components/ui/highlight";
 // import Profile from "../_assets/about-at-kauai.JPG";
 import Profile from "../_assets/about-at-kauai.webp";
 import { Image } from "astro:assets";
-import { Section } from "@/components/ui/section";
+import Section from "@/components/ui/section.astro";
 import { Stat } from "@/components/ui/stat";
 import { Meteors } from "@/components/ui/meteors";
 import Card from "@/components/ui/card.astro";
 ---
 
 <Section
-  client:visible
   idName="about"
   title="About"
   minHeight="110svh"
   backgroundColor="hero"
-  className="flex flex-col  items-center corners-section relative after:bg-bgColorHero "
+  className="flex flex-col  items-center corners-section relative  after:bg-bgColorHero "
 >
   <div
     class="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-cyan-500 opacity-50 blur-3xl"
@@ -33,12 +32,25 @@ import Card from "@/components/ui/card.astro";
       <div
         class="relative flex flex-col gap-m *:text-textColor"
       >
-        <p>
+        <!-- <p>
           I'm Andrés, a <Highlight
             >Senior Front End Developer</Highlight
           > with a <Highlight
             >robust 14-year career.</Highlight
           > I'm originally from Colombia but now call NYC home.
+        </p> -->
+        <p>
+          My name is Andres. I’m a Senior Front End
+          Developer with over 14 years of experience in
+          software development. I’m originally from
+          Colombia, but I’ve been in the U.S. for over 20
+          years. I have a bachelor’s and master’s in
+          Computer Science, which gave me a strong
+          foundation in the field. Right now, I’m a Senior
+          Full Stack Developer at Britannica Home Fashions,
+          where I lead a small team and work with
+          technologies like React, NextJS, TypeScript, and
+          TailwindCSS.
         </p>
 
         <p>
