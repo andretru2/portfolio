@@ -56,7 +56,7 @@ export function Tabs({
     <div className="">
       <div
         className={cn(
-          "flex flex-row gap-s  snap-center   sm:items-center sm:justify-center [perspective:1000px] relative overflow-x-auto text-nowrap sm:overflow-visible  no-scrollbar  w-full sm:w-auto",
+          "flex flex-row gap-s  snap-center ml-m  sm:items-center sm:justify-center [perspective:1000px] relative overflow-x-auto text-nowrap sm:overflow-visible  no-scrollbar  w-full sm:w-auto max-w-4xl",
           containerClassName
         )}
       >
@@ -69,7 +69,7 @@ export function Tabs({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative  w-full px-m py-s after:corners after:bg-bgColor   ",
+              "relative  w-full px-m py-s    ",
               tabClassName
             )}
             style={{
@@ -85,13 +85,18 @@ export function Tabs({
                   duration: 0.6,
                 }}
                 className={cn(
-                  "absolute inset-0 after:bg-[#9DF2D5] after:corners text-sm sm:text-base ",
+                  "absolute inset-0  after:bg-accent/70  after:corners text-sm sm:text-base ",
                   activeTabClassName
+                  // after:bg-[#9DF2D5]
                 )}
               />
             )}
 
-            <span className="relative block text-bgColor ">
+            <span
+              className={cn(
+                "relative block text-textColor "
+              )}
+            >
               {tab.title}
             </span>
           </button>
@@ -169,10 +174,10 @@ function TabContent({
   image,
 }: TabContent) {
   return (
-    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center relative after:corners after:bg-bgColor   min-w-0 min-h-svh  ">
+    <div className=" p-m sm:p-2xl flex gap-l flex-col items-center relative after:corners after:bg-bgColor   w-full min-w-0     glow  ">
       <h5>{header}</h5>
       <p className="prose-p  ">{description}</p>
-      <div className="flex flex-row gap-m sm:gap-2xl items-center align-middle justify-start w-full  z-10 flex-wrap sm:max-w-2xl mt-xl">
+      <div className="flex flex-row gap-m sm:gap-2xl items-center align-middle justify-center w-full  z-10 sm:max-w-3xl mt-xl   *:flex-grow  ">
         {stats &&
           stats.map((statItem, index) => (
             <Stat
@@ -203,11 +208,9 @@ function TabContent({
           }}
           src={image}
           alt={header}
-          className="mt-xl aspect-video   relative after:corners after:bg-bgColor object-cover object-left-top h-[60%]  md:h-[90%]  w-[90%]"
+          className="mt-3xl aspect-video  rounded-xl   relative after:corners after:bg-bgColor object-contain object-center    h-[90%]  w-full"
           loading="lazy"
           decoding="async"
-          width="1000"
-          height="1000"
         />
       )}
     </div>

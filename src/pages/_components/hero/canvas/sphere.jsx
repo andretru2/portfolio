@@ -195,8 +195,9 @@ function Scene() {
         ref={set}
         envMap={envMap}
         bumpMap={bumpMap}
-        // color={"#010101"}
-        color={"#9c9c9c"}
+        color={"#003115"}
+        // color={"#9c9c9c"}
+        // color={"#87c8fda0"}
         // color={"#004072"}
         // color={"#9ab2d3"}
         roughness={0.1}

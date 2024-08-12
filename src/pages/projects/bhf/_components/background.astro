@@ -1,7 +1,7 @@
 ---
 import Section from "@/components/ui/section.astro";
 import { Separator } from "@/components/ui/separator";
-import { Experience } from "./background-timeline";
+
 import { Meteors } from "@/components/ui/meteors";
 ---
 
@@ -12,11 +12,11 @@ import { Meteors } from "@/components/ui/meteors";
   className="flex flex-col   items-center relative corners-section corners-section after:bg-bgColor  "
 >
   <div
-    class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
+    class="grid grid-cols-12 container mx-auto grid-flow-row *:z-10 bg-dotted"
   >
     <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
       <h3 class="col-span-4">
-        A Short <span class="text-accent">Story...</span>
+        A Short <span class="text-accent">Story</span>
       </h3>
       <p class="col-span-5 row-start-2">
         Throughout this journey, I've led the technical
@@ -35,15 +35,16 @@ import { Meteors } from "@/components/ui/meteors";
       </p>
 
       <Separator
-        className="col-span-12 row-start-4 mt-m  h-[1.5px] my-m bg-bgColorCard "
+        className="col-span-4 row-start-4 mt-xl h-[1.5px] my-m bg-accent/20"
       />
     </div>
     <div
-      class="col-span-12 grid grid-cols-12 gap-2xl bg-dotted"
+      class="col-span-12 grid grid-cols-12 gap-2xl py-4xl"
     >
       <div
         class="col-start-2 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
       >
+        <Meteors number={15} client:visible />
         <h4 class="text-accent">2019</h4>
         <h6 class="mb-3">Laying the Foundation</h6>
         <ul class="max-w-[36rem] space-y-m *:pl-m">
@@ -65,6 +66,7 @@ import { Meteors } from "@/components/ui/meteors";
       <div
         class="row-start-2 col-start-7 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
       >
+        <Meteors number={15} client:visible />
         <h4 class="text-accent">2020</h4>
         <h6 class="mb-3">Expanding Capabilities</h6>
         <ul class="max-w-[36rem] space-y-m *:pl-m">
@@ -85,7 +87,7 @@ import { Meteors } from "@/components/ui/meteors";
       <div
         class="row-start-3 col-start-2 col-span-5 relative bg-gradient-to-b after:bg-bgColorHero after:corners p-xl flex flex-col gap-m border border-accent/20 rounded-xl"
       >
-        <Meteors client:visible />
+        <Meteors number={15} client:visible />
         <h4 class="text-accent">2021</h4>
         <h6 class="mb-3">Scaling Up</h6>
         <ul class="max-w-[36rem] space-y-m *:pl-m">
