@@ -15,13 +15,13 @@ import { Rubik } from "@/components/3d/Rubik";
 import { Coins } from "@/components/3d/Coins";
 import CanvasLoader from "@/components/canvas/canvas-loader";
 
-interface Item {
+interface ImpactItem {
   component: FC;
   title: string;
   description: string[];
 }
 
-const items: Item[] = [
+const impactItems: ImpactItem[] = [
   {
     component: Pie,
     title: "Financial Impact",
@@ -77,23 +77,27 @@ const items: Item[] = [
   },
 ];
 
-const Wrapper = ({
-  name,
-  children,
-}: {
-  name: string;
-  children: ReactNode;
-}) => {
+function ImpactCard({ item }: { item: ImpactItem }) {
   return (
-    <div className="relative rounded-md cursor-pointer bg-white/10 card p-[1px]">
-      <View className="flex z-[2] bg-[#171717]  aspect-square  relative rounded-t-md">
-        {children}
-      </View>
+    <div className="grid grid-cols-9 gap-m relative rounded-xl cursor-pointer  card p-xl shadow-sm border border-white/20">
+      <div className="col-span-3 relative z-[2] bg-[#171717] aspect-square rounded-md">
+        <View className="w-full h-full">
+          <item.component />
+        </View>
+      </div>
 
-      <div className="relative z-20 flex items-center mt-[1px] justify-between  w-full px-4 py-2 bg-[#171717] rounded-b-md">
-        <span className="w-1 h-1 rounded-full bg-white/20"></span>
-        <span className="">{name}</span>
-        <span className="w-1 h-1 rounded-full bg-white/20"></span>
+      <div className="col-span-3 flex flex-col justify-center items-center p-m">
+        <h5 className="  ">{item.title}</h5>
+      </div>
+
+      <div className="col-span-3 flex flex-col justify-center items-center p-m">
+        <ul className="space-y-2">
+          {item.description.map((desc, index) => (
+            <li key={index} className="prose-md">
+              <span className="text-accent">•</span> {desc}
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div
@@ -104,68 +108,66 @@ const Wrapper = ({
       ></div>
     </div>
   );
-};
+}
 
-export function ImpactGrid() {
+function handlePointerMove(e: PointerEvent) {
+  const cards =
+    document.querySelectorAll<HTMLDivElement>(".card");
+  cards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  });
+}
+
+function useCardEffect() {
   useEffect(() => {
-    const cards =
-      document.querySelectorAll<HTMLDivElement>(".card");
-
-    const handlePointerMove = (e: PointerEvent) => {
-      cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-      });
-    };
-
-    document
-      .querySelector<HTMLDivElement>("[data-grid]")
-      ?.addEventListener("pointermove", handlePointerMove);
+    const grid =
+      document.querySelector<HTMLDivElement>("[data-grid]");
+    grid?.addEventListener(
+      "pointermove",
+      handlePointerMove
+    );
 
     return () => {
-      document
-        .querySelector<HTMLDivElement>("[data-grid]")
-        ?.removeEventListener(
-          "pointermove",
-          handlePointerMove
-        );
+      grid?.removeEventListener(
+        "pointermove",
+        handlePointerMove
+      );
     };
   }, []);
+}
+
+function Canvas3DOverlay() {
+  return (
+    <div className="fixed top-0 left-0 z-20 w-full h-full pointer-events-none">
+      <Canvas camera={{ zoom: 0.8 }} className="fixed">
+        <Suspense fallback={<CanvasLoader />}>
+          <View.Port />
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+}
+
+export function ImpactGrid() {
+  useCardEffect();
 
   return (
-    <div className="min-h-screen text-white bg-[#0c0c0c] select-none background">
-      <div className="container p-5 pb-20 mx-auto ">
-        <div className="relative mt-5 overflow-hidden">
-          <div
-            className="grid h-full gap-5 overflow-hidden group grid-clos-1 md:grid-cols-2 lg:grid-cols-4 border-4"
-            data-grid
-          >
-            {items.map((item, index) => (
-              <Wrapper key={index} name={item.title}>
-                <item.component />
-              </Wrapper>
-            ))}
-          </div>
-
-          <div className="fixed top-0 left-0 z-20 w-full h-full pointer-events-none ">
-            <Canvas
-              camera={{
-                zoom: 0.8,
-              }}
-              className="fixed"
-              //   eventSource={document.getElementById("root")!}
-            >
-              <Suspense fallback={<CanvasLoader />}>
-                <View.Port />
-              </Suspense>
-            </Canvas>
-          </div>
-        </div>
+    <div className="min-h-screen  bg-bgColor select-none background">
+      <div
+        className="grid gap-5 overflow-hidden group grid-cols-1 md:grid-cols-2 lg:grid-cols-1"
+        data-grid
+      >
+        {impactItems.map((item, index) => (
+          <ImpactCard key={index} item={item} />
+        ))}
       </div>
+
+      <Canvas3DOverlay />
     </div>
   );
 }

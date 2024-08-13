@@ -2,7 +2,7 @@
 import Section from "@/components/ui/section.astro";
 
 import { Separator } from "@/components/ui/separator";
-import { ImpactGrid } from "./impact-grid";
+import { ImpactGrid } from "./impact-grid-v2";
 ---
 
 <Section
@@ -42,14 +42,8 @@ import { ImpactGrid } from "./impact-grid";
         className="col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
       />
     </div>
-
-    <div class="grid grid-cols-12 col-span-12 gap-m">
-      <div
-        class="col-span-9 col-start-4 grid grid-cols-9 h-full w-full"
-      >
-        <ImpactGrid client:visible />
-      </div>
+    <div class="w-full col-span-12">
+      <ImpactGrid client:visible />
     </div>
   </div>
-  <ImpactGrid client:visible />
 </Section>
