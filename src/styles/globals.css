@@ -259,6 +259,29 @@
     );
   }
 
+  /* Glowing Cards by Leon van Zyl (https://codepen.io/leonvanzyl/pen/jOKwmEw?editors=0110) */
+  .card::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 500ms;
+    position: absolute;
+    border-radius: inherit;
+    z-index: 3;
+    top: 0px;
+    left: 0px;
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    );
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
   /* .card { */
   /* @apply flex items-center bg-accent-3 backdrop-blur-sm justify-center h-full rounded-2xl p-m stroke-[0.1] hover:stroke-[0.15]; */
   /* @apply relative shadow-xl p-xs flex min-w-0 flex-col h-full panel rounded-2xl  stroke-[0.1] hover:stroke-[0.15]; */

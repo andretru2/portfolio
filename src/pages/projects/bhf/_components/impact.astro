@@ -1,59 +1,49 @@
 ---
 import Section from "@/components/ui/section.astro";
-import { Highlight } from "@/components/ui/highlight";
+
+import { Separator } from "@/components/ui/separator";
+import { ImpactGrid } from "./impact-grid-v2";
 ---
 
 <Section
   idName="impact"
   title="Impact"
   backgroundColor="bgColor"
-  className="flex flex-col   items-center relative"
+  className="flex flex-col   items-center relative corners-section after:bg-bgColor"
 >
-  <div class="flex flex-col gap-l">
-    <p>
-      <Highlight
-        >Despite its global success, BHF acknowledged the
-        need to optimize operations and enhance efficiency.</Highlight
-      > Occasional communication gaps between departments hindered
-      access to crucial information, potentially impacting production
-      schedules, revenue, and reputation. The existing manual
-      processes, although functional, presented opportunities
-      for improvement to minimize errors and boost productivity.
-    </p>
-    <p>
-      Leadership recognized that a more integrated internal
-      system would bridge communication gaps, streamline
-      inventory management, and simplify financial
-      reporting. The current system required upgrades to
-      enhance performance and user experience. <Highlight
-        >Investing in a robust, unified system would
-        position BHF for continued growth and success.</Highlight
-      >
-    </p>
-    <p>
-      To tackle this challenge, BHF hired me to develop a
-      comprehensive ERP system from the ground up. The
-      objective was to create a seamless platform that would
-      improve processes, increase data accuracy, and deliver
-      real-time insights. <Highlight
-        >I constructed the system module by module,
-        encompassing item creation, purchase orders,
-        invoicing, vendor portal, DocuSign integration, API
-        connections, and more.</Highlight
-      > By unifying these components, BHF would operate more
-      efficiently, reduce errors, and make informed, data-driven
-      decisions.
-    </p>
-    <p>
-      As the system grew in complexity and scope, it became
-      necessary to expand the development team to ensure
-      effective maintenance and continuous improvement. <Highlight
-        >I took on the role of a manager and mentor, guiding
-        junior and intermediate developers as they joined
-        the team.</Highlight
-      > This transition allowed me to oversee the system's growth,
-      delegate tasks, and provide guidance to the growing development
-      team.
-    </p>
+  <div
+    class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
+  >
+    <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
+      <h3 class="col-span-5">
+        Measurable Results and Long-term <span
+          class="text-accent">Benefits</span
+        >
+      </h3>
+      <p class="col-span-5 row-start-2">
+        Our custom ERP solution has had a profound and
+        far-reaching impact on Britannica Home Fashions'
+        operations and bottom line: Financial Impact,
+        Operational Efficiency, Environmental Impact.,
+        Global Collaboration. Scalability and Growth and
+        more.
+      </p>
+      <p class="col-span-5 row-start-3">
+        By creating a tailor-made ERP solution, we've not
+        only addressed BHF's immediate challenges but also
+        positioned the company for sustained growth and
+        innovation in the competitive home textiles market.
+        The system's modular design ensures that it can
+        continue to evolve with BHF's needs, maintaining its
+        competitive edge for years to come.
+      </p>
+
+      <Separator
+        className="col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
+      />
+    </div>
+    <div class="w-full col-span-12">
+      <ImpactGrid client:visible />
+    </div>
   </div>
 </Section>
