@@ -7,7 +7,7 @@ export const Meteors = ({
   number?: number;
   className?: string;
 }) => {
-  // return false;
+  return false;
   const meteors = new Array(number || 20).fill(true);
   return (
     <>
