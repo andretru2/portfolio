@@ -43,7 +43,7 @@ export function ProjectCardStack({ features }: Props) {
       {cards.map((card, index) => (
         <motion.div
           key={card.title}
-          className="absolute  p-m gap-4 w-full h-full after:corners after:bg-bgColor shadow-sm  border-[0.5px]  border-bgColorCard shadow-white/[0.05] flex flex-col  sm:translate-y-0 "
+          className="absolute p-m gap-4 w-full h-full after:corners after:bg-bgColor shadow-sm  border-[0.5px]  border-bgColorCard shadow-white/[0.05] flex flex-col  sm:translate-y-0 "
           style={{ transformOrigin: "top center" }}
           animate={{
             top: index * -CARD_OFFSET,
@@ -79,7 +79,7 @@ ProjectFeature) {
       </div>
       <Separator />
 
-      <p className="fluid:text-base sm:fluid:text-lg ">
+      <p className="fluid:text-base sm:fluid:text-lg  ">
         {description}
       </p>
       {/* <HighlightWords
