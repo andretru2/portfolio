@@ -7,9 +7,11 @@ import { Highlight } from "@/components/ui/highlight";
 import { BhfBrandLogos } from "./client-logos";
 import { Separator } from "@/components/ui/separator";
 import Card from "@/components/ui/card.astro";
-import { Image } from "astro:assets";
-import GlobalOutreach from "../_assets/bhf-client-global.webp";
-import Omnichannel from "../_assets/bhf-client-omnichannel.webp";
+//import { Image } from "astro:assets";
+//import GlobalOutreach from "../_assets/bhf-client-global.webp";
+///import Omnichannel from "../_assets/bhf-client-omnichannel.webp";
+import { TravelCanvas } from "@/components/canvas/travel-canvas";
+import { LoopCanvas } from "@/components/canvas/loop-canvas";
 
 export interface BrandLogoProps {
   className?: string;
@@ -77,14 +79,15 @@ const stringifiedLogos = logos.map((logo) => String(logo));
         class="col-span-6 flex flex-col gap-m items-center justify-center p-6xl after:bg-accent shadow-sm shadow-accent relative after:corners"
       > -->
       <Card class="col-span-6">
-        <Image
+        <TravelCanvas client:visible />
+        <!-- <Image
           src={GlobalOutreach}
           format="webp"
           alt="Global Outreach"
           height={180}
           class=""
           quality="high"
-        />
+        /> -->
         <p class="text-center max-w-80">
           Offices across multiple continents, serving an
           international clientele
@@ -92,14 +95,16 @@ const stringifiedLogos = logos.map((logo) => String(logo));
         <h6>Global Reach</h6>
       </Card>
       <Card class="col-span-6">
-        <Image
+        <LoopCanvas client:visible />
+
+        <!-- <Image
           src={Omnichannel}
           format="webp"
           alt="Omnichannel"
           height={180}
           class=""
           quality="high"
-        />
+        /> -->
         <p class="text-center max-w-80">
           A robust distribution system covering retail,
           e-comm, and wholesale

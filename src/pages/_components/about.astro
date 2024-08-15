@@ -25,10 +25,11 @@ import Card from "@/components/ui/card.astro";
     class="grid grid-cols-12 grid-flow-row gap-l sm:gap-xs max-w-sm sm:container mx-auto mt-2xl px-l sm:px-0"
   >
     <div
-      class="col-span-12 sm:col-span-6 flex flex-col gap-xl h-full"
+      class="col-span-12 sm:col-span-6 flex flex-col gap-xl h-full items-start"
     >
       <!-- <NoiseText client:load>hola</NoiseText> -->
-      <h2 class="noise">Hola!</h2>
+      <h2 class="text-accent">Hola!</h2>
+
       <div
         class="relative flex flex-col gap-m *:text-textColor"
       >
@@ -40,17 +41,11 @@ import Card from "@/components/ui/card.astro";
           > I'm originally from Colombia but now call NYC home.
         </p> -->
         <p>
-          My name is Andres. I’m a Senior Front End
-          Developer with over 14 years of experience in
-          software development. I’m originally from
-          Colombia, but I’ve been in the U.S. for over 20
-          years. I have a bachelor’s and master’s in
-          Computer Science, which gave me a strong
-          foundation in the field. Right now, I’m a Senior
-          Full Stack Developer at Britannica Home Fashions,
-          where I lead a small team and work with
-          technologies like React, NextJS, TypeScript, and
-          TailwindCSS.
+          I'm Andrés, a <Highlight
+            >Senior Front End Developer</Highlight
+          > with a <Highlight
+            >robust 14-year career.</Highlight
+          > I'm originally from Colombia but now call NYC home.
         </p>
 
         <p>
@@ -68,8 +63,8 @@ import Card from "@/components/ui/card.astro";
           programming. With over <Highlight
             >30 projects</Highlight
           > completed, I've gained extensive experience in <Highlight
-            >Full Stack Development</Highlight
-          > across the textile and tech industries.
+            >Full Stack and Front End Development.</Highlight
+          >
         </p>
 
         <p>
@@ -98,7 +93,7 @@ import Card from "@/components/ui/card.astro";
         </p>
       </div>
       <div
-        class="flex flex-row gap-m sm:gap-2xl items-center align-middle w-full h-full z-10"
+        class="flex flex-row gap-m sm:gap-2xl w-full h-full z-10"
       >
         <Stat value="NYC" label="Location" />
         <Stat value="14+" label="Years of Exp" />
@@ -112,7 +107,7 @@ import Card from "@/components/ui/card.astro";
 
     <!-- <CardGlow /> -->
     <Card
-      class="p-2 w-full h-full after:corners after:bg-primary-gradient relative sm:p-s col-span-12 sm:col-span-6 flex flex-col items-start gap-xl shadow-3xl [perspective:1000px] transition-all duration-500 transform sm:max-h-[75dvh] sm:max-w-[45dvw] self-center"
+      class="w-full h-full after:corners after:bg-primary-gradient relative p-2 sm:p-s col-span-12 sm:col-span-6 flex flex-col items-start gap-xl shadow-3xl [perspective:1000px] transition-all duration-500 transform sm:max-h-[75dvh] sm:max-w-[45dvw]"
     >
       <Image
         class:list={[" object-cover h-full w-full  "]}
@@ -121,6 +116,7 @@ import Card from "@/components/ui/card.astro";
           objectPosition: "bottom left ",
         }}
         src={Profile}
+        format="webp"
         alt="At profile picture"
         loading="lazy"
         quality="high"

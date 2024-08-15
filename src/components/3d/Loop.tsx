@@ -1,11 +1,15 @@
 import { useGSAP } from "@gsap/react";
-import { Center, Instance, Instances } from "@react-three/drei";
+import {
+  Center,
+  Instance,
+  Instances,
+} from "@react-three/drei";
 import gsap from "gsap";
 import { useCallback, useRef } from "react";
 import * as THREE from "three";
 import { CustomMaterial } from "./material";
 
-export const Item2 = () => {
+export const Loop = () => {
   const groupRef = useRef<THREE.Group>(null!);
 
   const refList = useRef<THREE.Mesh[]>([]);
@@ -46,7 +50,11 @@ export const Item2 = () => {
   return (
     <Center>
       <group rotation={[0, 0, 0]}>
-        <group rotation={[0, 0, 0]} scale={0.6} ref={groupRef}>
+        <group
+          rotation={[0, 0, 0]}
+          scale={0.6}
+          ref={groupRef}
+        >
           <Instances>
             <boxGeometry args={[1, 0.2, 1]}></boxGeometry>
             <CustomMaterial></CustomMaterial>
@@ -54,10 +62,16 @@ export const Item2 = () => {
               return (
                 <group
                   key={index}
-                  rotation={[0, 0, (index / 20) * 2 * Math.PI]}
+                  rotation={[
+                    0,
+                    0,
+                    (index / 20) * 2 * Math.PI,
+                  ]}
                   position={[
-                    Math.cos((index / 20) * 2 * Math.PI) * radius,
-                    Math.sin((index / 20) * 2 * Math.PI) * radius,
+                    Math.cos((index / 20) * 2 * Math.PI) *
+                      radius,
+                    Math.sin((index / 20) * 2 * Math.PI) *
+                      radius,
                     0,
                   ]}
                 >
