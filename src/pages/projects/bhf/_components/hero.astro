@@ -41,12 +41,11 @@ const roles = projectRoles.map((roleKey) => {
 
 <Section
   idName="hero"
-  parallax
   skipRoundCorners
   margin="none"
   padding="none"
   backgroundColor="bgColor"
-  className=" bg-bgColor relative flex flex-col items-center justify-center  gap-5xl sm:p-3xl "
+  className=" bg-bgColor relative flex flex-col items-center justify-center   w-full h-full pt-3xl sm:pt-0"
 >
   <Image
     src={HeroOverlay}
@@ -57,7 +56,7 @@ const roles = projectRoles.map((roleKey) => {
     class="absolute inset-0 opacity-40 -z-10 bg-bgColor object-cover grid justify-stretch items-stretch transition-opacity duration-200 [transform:translateZ(0)] w-full h-full sm:w-fit sm:h-fit"
   />
   <div
-    class="flex flex-col gap-m sm:justify-center items-center max-w-sm sm:max-w-3xl sm:mx-auto px-l sm:px-0"
+    class="flex flex-col gap-m justify-center items-center p-xl max-w-sm sm:max-w-3xl mx-auto sm:px-0 overflow-x-hidden"
   >
     <MovingBorderWrapper client:visible>
       ERP System
