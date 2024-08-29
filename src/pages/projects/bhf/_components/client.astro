@@ -47,19 +47,19 @@ const stringifiedLogos = logos.map((logo) => String(logo));
   className="relative flex flex-col  items-center  corners-section  "
 >
   <div
-    class="w-[32rem] h-[220rem] absolute bg-[#143a6a]/30 -top-72 -left-[32rem] rotate-[26deg] z-0"
+    class="hidden sm:block sm:w-[32rem] sm:h-[220rem] absolute bg-[#143a6a]/30 -top-72 -left-[32rem] rotate-[26deg] z-0"
   >
   </div>
   <div
-    class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
+    class="grid grid-cols-12 gap-m w-full container px-xl sm:px-0 mx-auto grid-flow-row *:z-10"
   >
     <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
-      <h3 class="col-span-4">
+      <h3 class="col-span-9 sm:col-span-4">
         Britannica Home <span class="text-accent"
           >Fashions</span
         >
       </h3>
-      <p class="col-span-5 row-start-2">
+      <p class="col-span-10 sm:col-span-5 row-start-2">
         Britannica Home Fashions (BHF) stands as a titan in
         the global home goods industry, renowned for its
         diverse and innovative product lines. With a legacy
@@ -68,7 +68,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
       </p>
 
       <Separator
-        className="col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
+        className="col-span-9 sm:col-span-4 row-start-4 mt-xl  h-[1.5px] my-m bg-accent/20"
       />
     </div>
 
@@ -78,7 +78,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
       <!-- <div
         class="col-span-6 flex flex-col gap-m items-center justify-center p-6xl after:bg-accent shadow-sm shadow-accent relative after:corners"
       > -->
-      <Card class="col-span-6">
+      <Card class="col-span-12 sm:col-span-6 text-center">
         <TravelCanvas client:visible />
         <!-- <Image
           src={GlobalOutreach}
@@ -94,7 +94,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
         </p>
         <h6>Global Reach</h6>
       </Card>
-      <Card class="col-span-6">
+      <Card class="col-span-12 sm:col-span-6 text-center">
         <LoopCanvas client:visible />
 
         <!-- <Image
@@ -115,9 +115,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
         <BhfBrandLogos
           logos={stringifiedLogos}
           client:visible
-          className="gap-m sm:gap-2xl p-m"
-          rows={3}
-          pageSize={4}
+          className=" hidden sm:block  gap-m sm:gap-2xl p-m "
         />
         <p class="text-center max-w-80">
           Collaborations with industry leaders like UGG,
@@ -159,3 +157,32 @@ const stringifiedLogos = logos.map((logo) => String(logo));
     </div> -->
   </div>
 </Section>
+
+<script>
+  import { BhfBrandLogos } from "./client-logos";
+
+  function updateBrandLogos() {
+    const brandLogosElement = document.querySelector(
+      ".bhf-brand-logos"
+    );
+    console.log(brandLogosElement);
+    if (brandLogosElement) {
+      const isMobile = window.innerWidth < 640; // Assuming 640px is your mobile breakpoint
+      const rows = isMobile ? 6 : 3;
+      const pageSize = isMobile ? 2 : 4;
+
+      console.log(isMobile, rows);
+
+      // @ts-ignore: Ignoring type check for simplicity
+      brandLogosElement.brandLogosElement.rows = rows;
+      // @ts-ignore: Ignoring type check for simplicity
+      brandLogosElement.pageSize = pageSize;
+    }
+  }
+
+  // Run on initial load
+  updateBrandLogos();
+
+  // Update on window resize
+  window.addEventListener("resize", updateBrandLogos);
+</script>

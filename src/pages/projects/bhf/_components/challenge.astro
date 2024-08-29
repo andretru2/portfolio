@@ -62,15 +62,15 @@ import { Separator } from "@/components/ui/separator";
   className="flex flex-col items-center relative corners-section after:bg-bgColorHero mb-3xl"
 >
   <div
-    class="grid grid-cols-12 gap-m container mx-auto grid-flow-row *:z-10"
+    class="grid grid-cols-12 gap-m w-full container px-xl sm:px-0 mx-auto grid-flow-row *:z-10"
   >
     <div class="my-3xl col-span-12 grid grid-cols-12 gap-m">
-      <h3 class="col-span-4">
+      <h3 class="col-span-9 sm:col-span-4">
         Everyone Faces <span class="text-accent"
           >Challenges</span
         >
       </h3>
-      <p class="col-span-5 row-start-2">
+      <p class="col-span-10 sm:col-span-5 row-start-2">
         Despite its global success, BHF recognized that
         their existing systems were holding them back from
         optimizing operations and enhancing overall
@@ -78,7 +78,7 @@ import { Separator } from "@/components/ui/separator";
         challenges: Scalability Issues, Manual Processes,
         Communication Issues, and more.
       </p>
-      <p class="col-span-5 row-start-3">
+      <p class="col-span-10 sm:col-span-5 row-start-3">
         To tackle this complex challenge, BHF brought me on
         board to develop a comprehensive, ground-up ERP
         solution tailored to their unique needs.
@@ -88,11 +88,13 @@ import { Separator } from "@/components/ui/separator";
       />
     </div>
     <div
-      class="col-span-12 mb-3xl overflow-x-auto scroll-smooth [scrollbar-width:none]"
+      class="col-span-12 mb-xl sm:mb-3xl overflow-x-auto scroll-smooth [scrollbar-width:none]"
     >
-      <div class="flex gap-m min-w-full min-h-[36rem]">
+      <div
+        class="flex gap-m min-w-full min-h-[26rem] sm:min-h-[36rem]"
+      >
         <div
-          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+          class="max-w-[18rem] sm:max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
           <Image
             src={Communication}
@@ -110,7 +112,7 @@ import { Separator } from "@/components/ui/separator";
           </p>
         </div>
         <div
-          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+          class="max-w-[18rem] sm:max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
           <Image
             src={Scalability}
@@ -127,7 +129,7 @@ import { Separator } from "@/components/ui/separator";
           </p>
         </div>
         <div
-          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+          class="max-w-[18rem] sm:max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
           <Image
             src={Manual}
@@ -144,7 +146,7 @@ import { Separator } from "@/components/ui/separator";
           </p>
         </div>
         <div
-          class="max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
+          class="max-w-[18rem] sm:max-w-[28rem] flex-shrink-0 flex flex-col relative bg-gradient-to-b from-bgColor from-20% to-transparent rounded-3xl p-xl"
         >
           <Image
             src={Data}
@@ -164,12 +166,12 @@ import { Separator } from "@/components/ui/separator";
       </div>
     </div>
 
-    <p class="col-span-5">
+    <p class="col-span-9 sm:col-span-5">
       Leadership recognized that a unified, robust ERP
       system was crucial to address these challenges and
       position BHF for continued growth and success.
     </p>
-    <div class="col-span-9 mt-xl">
+    <div class="col-span-12 sm:col-span-9 mt:l sm:mt-xl">
       <Image
         src={Diagram}
         format="webp"
