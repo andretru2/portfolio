@@ -15,7 +15,7 @@ const { hero } = Astro.props as Pick<Project, "hero">;
     muted
     class="h-full w-full object-fit sm:object-cover aspect-video after:corners after:bg-bgColorCard"
   >
-    <source src={hero.src} type="video/mp4" />
+    <source src={hero.src} type="video/webm" />
     <!-- <p>{hero.alt}</p> -->
   </video>
 </Card>
