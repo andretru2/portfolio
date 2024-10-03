@@ -1,7 +1,7 @@
 ---
 import Section from "@/components/ui/section.astro";
 // import BHFLogo from "../_assets/client-bhf-logo.png";
-import BHFVideo from "../_assets/bhf-client-video.mp4";
+import BHFVideo from "../_assets/bhf-client-video.webm";
 import { Highlight } from "@/components/ui/highlight";
 
 import { BhfBrandLogos } from "./client-logos";
@@ -115,7 +115,9 @@ const stringifiedLogos = logos.map((logo) => String(logo));
         <BhfBrandLogos
           logos={stringifiedLogos}
           client:visible
-          className=" hidden sm:block  gap-m sm:gap-2xl p-m "
+          className=" hidden sm:grid  gap-m sm:gap-2xl p-m "
+          rows={2}
+          pageSize={4}
         />
         <p class="text-center max-w-80">
           Collaborations with industry leaders like UGG,
@@ -130,7 +132,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
           playsinline
           class="h-full w-full"
         >
-          <source src={BHFVideo} type="video/mp4" />
+          <source src={BHFVideo} type="video/webm" />
         </video>
       </Card>
     </div>
@@ -158,7 +160,7 @@ const stringifiedLogos = logos.map((logo) => String(logo));
   </div>
 </Section>
 
-<script>
+<!-- <script>
   import { BhfBrandLogos } from "./client-logos";
 
   function updateBrandLogos() {
@@ -185,4 +187,4 @@ const stringifiedLogos = logos.map((logo) => String(logo));
 
   // Update on window resize
   window.addEventListener("resize", updateBrandLogos);
-</script>
+</script> -->
